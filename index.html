@@ -2,20 +2,15 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <!-- سياسة أمان محتوى صارمة (ممتاز) -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://raw.githubusercontent.com; connect-src 'self';">
+    <!-- سياسة أمان محتوى صارمة (ممتاز) مع دعم الصور المحلية والخارجية -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://raw.githubusercontent.com https://github.com https://*.githubusercontent.com https://via.placeholder.com; connect-src 'self';">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="google-site-verification" content="Uqbjr1w7Q831Lo6JPFEe9_lK86Kp55P79Lwfp1j6EX8" />
     <title>محمود عبد الحميد | المحامي بالنقض والدستورية العليا</title>
     
-    <!-- الخطوط وأيقونات Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- ملف الأنماط الخارجي (كل الـ CSS هنا) -->
     <link rel="stylesheet" href="style.css">
-    
-    <!-- تحميل Tailwind عبر CDN (يضيف الأنماط ديناميكياً داخل الصفحة) -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
@@ -147,8 +142,13 @@
                         <span class="text-gold-solid ml-1">◀</span> للاطلاع على رؤيتنا ومنهج عملنا التفصيلي، يُرجى زيارة صفحة عن المؤسسة.
                     </p>
                 </div>
+                <!-- الصورة في نسخة الجوال (تم تعديل المسار إلى me.jpg) -->
                 <div class="block md:hidden text-center pt-8">
-                    <img src="https://raw.githubusercontent.com/malegal/mahmoud-legal/cde493c8595f39ae6a4dd13a8e5ad005b803d7d8/me.jpg" alt="الأستاذ محمود عبد الحميد" class="w-64 h-64 object-cover rounded-2xl mx-auto border-2 border-gold-solid shadow-2xl auto-colorize" loading="lazy">
+                    <img src="me.jpg" 
+                         alt="الأستاذ محمود عبد الحميد" 
+                         class="w-64 h-64 object-cover rounded-2xl mx-auto border-2 border-gold-solid shadow-2xl auto-colorize" 
+                         loading="lazy"
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/400x400/1a1a2e/bf953f?text=%D9%85%D8%AD%D8%A7%D9%85%D9%8A';">
                     <div class="mt-5 space-y-2">
                         <p class="text-gold-solid font-bold text-xl">المؤسس والمحامي الرئيس</p>
                         <p class="text-white text-4xl font-black serif-font gold-text pb-1">محمود عبد الحميد</p>
@@ -161,10 +161,15 @@
                     </a>
                 </div>
             </div>
+            <!-- الصورة في نسخة الكمبيوتر (تم تعديل المسار إلى me.jpg) -->
             <div class="relative reveal-on-scroll hidden md:block" style="transition-delay: 200ms;">
                 <div class="absolute -inset-4 bg-gradient-to-r from-gold-solid to-yellow-600 rounded-2xl opacity-10 blur-xl"></div>
                 <div class="relative bg-black/40 p-6 rounded-2xl border border-white/10">
-                    <img src="https://raw.githubusercontent.com/malegal/mahmoud-legal/cde493c8595f39ae6a4dd13a8e5ad005b803d7d8/me.jpg" alt="الأستاذ محمود عبد الحميد" class="rounded-2xl w-full object-cover h-auto border-2 border-gold-solid shadow-2xl auto-colorize" loading="lazy">
+                    <img src="me.jpg" 
+                         alt="الأستاذ محمود عبد الحميد" 
+                         class="rounded-2xl w-full object-cover h-auto border-2 border-gold-solid shadow-2xl auto-colorize" 
+                         loading="lazy"
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/600x600/1a1a2e/bf953f?text=%D9%85%D8%AD%D8%A7%D9%85%D9%8A';">
                     <div class="mt-6 text-center space-y-2">
                         <p class="text-gold-solid font-bold text-2xl">المؤسس والمحامي الرئيس</p>
                         <p class="text-white text-5xl font-black serif-font gold-text pb-2">محمود عبد الحميد</p>
@@ -191,6 +196,7 @@
             <div class="w-24 h-1 bg-gold-solid mx-auto rounded-full"></div>
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- باقي البطاقات كما هي (لم تتغير) -->
             <div class="black-border-card card-glass p-8 rounded-2xl gold-border group reveal-on-scroll">
                 <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-6 group-hover:bg-gold-solid/20 transition-colors duration-300">
                     <i class="fas fa-chart-line text-3xl gold-text"></i>
@@ -375,8 +381,6 @@
     </div>
 </footer>
 
-<!-- تحميل ملف الجافا سكريبت الخارجي (يتم تشغيله بعد تحميل الصفحة) -->
 <script src="script.js" defer></script>
-
 </body>
 </html>
