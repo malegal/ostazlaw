@@ -2,342 +2,21 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <!-- سياسة أمان محتوى صارمة (ممتاز) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://raw.githubusercontent.com; connect-src 'self';">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="google-site-verification" content="Uqbjr1w7Q831Lo6JPFEe9_lK86Kp55P79Lwfp1j6EX8" />
     <title>محمود عبد الحميد | المحامي بالنقض والدستورية العليا</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- الخطوط وأيقونات Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-dark: #050a1f; /* كحلي غامق عميق وفخم */
-            --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
-            --gold-solid: #bf953f;
-            --gold-glow: rgba(191, 149, 63, 0.4);
-            --header-height: 90px;
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            font-family: 'Tajawal', sans-serif; 
-            background-color: var(--primary-dark); 
-            color: #ffffff;
-            scroll-behavior: smooth; 
-            overflow-x: hidden;
-        }
-        
-        .serif-font { font-family: 'Amiri', serif; }
-        
-        .gold-text { 
-            background: var(--gold-gradient); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-            background-clip: text;
-            text-fill-color: transparent;
-        }
-
-        .nav-link-gold {
-            background: linear-gradient(to bottom, #d4af37, #fcf6ba, #aa771c);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .nav-link-gold:hover {
-            text-shadow: 0 0 15px rgba(191, 149, 63, 0.6);
-            transform: scale(1.05);
-        }
-        
-        .gold-btn { 
-            background: var(--gold-gradient); 
-            color: #000; 
-            font-weight: 800; 
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            box-shadow: 0 0 15px var(--gold-glow);
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .gold-btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
-            transition: 0.5s;
-            z-index: 2;
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { left: -100%; }
-            20% { left: 100%; }
-            100% { left: 100%; }
-        }
-        
-        .gold-btn:hover { 
-            transform: translateY(-3px); 
-            box-shadow: 0 0 30px var(--gold-glow); 
-        }
-
-        .read-more-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 24px;
-            background: transparent;
-            border: 1px solid transparent;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-        }
-
-        .read-more-btn span, .read-more-btn i {
-            background: var(--gold-gradient); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent;
-        }
-
-        .read-more-btn:hover, .read-more-btn:active {
-            border-color: var(--gold-solid);
-            box-shadow: 0 0 20px rgba(191, 149, 63, 0.2);
-            background: rgba(191, 149, 63, 0.05);
-        }
-        
-        .card-glass { 
-            background: rgba(20, 20, 30, 0.6);
-            backdrop-filter: blur(10px); 
-            border: 1px solid rgba(191, 149, 63, 0.2); 
-            border-radius: 1.5rem; 
-            transition: all 0.4s ease; 
-        }
-        
-        .card-glass:hover { 
-            border-color: rgba(191, 149, 63, 0.8); 
-            transform: translateY(-8px); 
-            box-shadow: 0 15px 40px rgba(191, 149, 63, 0.1);
-        }
-        
-        .black-border-card { 
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            background: rgba(5, 10, 31, 0.95); /* كحلي متناسق مع الخلفية */
-        }
-        
-        /* الأيقونات العائمة */
-        .contact-floating {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 1000;
-        }
-        
-        .whatsapp-float, .call-float { 
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
-            text-decoration: none;
-            color: white;
-        }
-        
-        .whatsapp-float {
-            background: #25d366;
-        }
-        
-        .call-float {
-            background: #0077b6;
-        }
-        
-        .whatsapp-float:hover, .call-float:hover { 
-            transform: scale(1.1); 
-        }
-        
-        /* أيقونات الفوتر - تصميم ذهبي */
-        .footer-social-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            border: 1px solid rgba(191, 149, 63, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            background: rgba(0,0,0,0.5);
-            text-decoration: none;
-            color: #bf953f;
-            font-size: 1.3rem;
-        }
-        
-        .footer-social-icon i {
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .footer-social-icon:hover {
-            border-color: var(--gold-solid);
-            box-shadow: 0 0 20px rgba(191, 149, 63, 0.4);
-            transform: translateY(-5px);
-            background: var(--gold-gradient);
-        }
-        
-        .footer-social-icon:hover i {
-            background: none;
-            -webkit-text-fill-color: #000;
-            color: #000;
-        }
-        
-        /* القائمة الجانبية (مطابقة لصفحة تواصل معنا) */
-        #mobile-menu { 
-            position: fixed; 
-            inset: 0; 
-            background: rgba(0, 0, 0, 0.95); 
-            backdrop-filter: blur(15px); 
-            z-index: 200; 
-            transform: translateX(100%); 
-            transition: 0.4s cubic-bezier(0.25, 0.1, 0.25, 1); 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-        }
-        #mobile-menu.active { transform: translateX(0); }
-        
-        section { scroll-margin-top: var(--header-height); position: relative; overflow: hidden; }
-        
-        .header-glass {
-            background: rgba(0, 0, 0, 0.95) !important;
-            backdrop-filter: blur(20px);
-            border-bottom: 2px solid;
-            border-image: var(--gold-gradient) 1;
-            box-shadow: 0 10px 30px rgba(0,0,0, 0.8);
-        }
-        
-        .islamic-pattern-bg {
-            background-color: var(--primary-dark);
-            background-image: 
-                linear-gradient(rgba(5, 10, 31, 0.85), rgba(5, 10, 31, 0.95)),
-                url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23bf953f' fill-opacity='0.1'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            background-attachment: fixed;
-        }
-
-        .gold-border {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .gold-border::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            border: 1px solid transparent;
-            border-radius: 1.5rem;
-            background: linear-gradient(135deg, #bf953f, transparent, #b38728) border-box;
-            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: destination-out;
-            mask-composite: exclude;
-            pointer-events: none;
-        }
-        
-        .section-spacing { padding-top: 6rem; padding-bottom: 6rem; }
-        
-        .track-case-btn { 
-            background: transparent; 
-            border: 1px solid var(--gold-solid); 
-            color: #fff; 
-            font-weight: 600; 
-            transition: all 0.3s ease; 
-        }
-        
-        .track-case-btn:hover { 
-            background: var(--gold-gradient); 
-            color: #000; 
-            border-color: transparent; 
-        }
-        
-        .visit-btn {
-            background: transparent;
-            border: 1px solid #ffffff;
-            color: #fff;
-            transition: all 0.3s ease;
-        }
-        
-        .visit-btn:hover {
-            border-color: var(--gold-solid);
-            background: rgba(191, 149, 63, 0.1);
-            color: var(--gold-solid);
-        }
-        
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        
-        .reveal-on-scroll.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .testimonial-card {
-            position: relative;
-            padding: 2rem;
-            height: 100%;
-        }
-        .quote-icon {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            font-size: 4rem;
-            color: rgba(191, 149, 63, 0.1);
-            font-family: serif;
-            line-height: 1;
-        }
-
-        @media (max-width: 768px) {
-            .header-glass nav { padding: 10px 15px !important; }
-            #hero h1 span { font-size: 3.5rem !important; }
-            .section-spacing { padding-top: 4rem !important; padding-bottom: 4rem !important; }
-            .hero-buttons { flex-direction: column; gap: 15px; }
-            .hero-buttons a { width: 100%; }
-            .contact-floating { right: 15px; bottom: 15px; gap: 10px; }
-            .whatsapp-float, .call-float { width: 50px; height: 50px; font-size: 25px; }
-            .footer-social-icon { width: 40px; height: 40px; font-size: 1.1rem; }
-        }
-        
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--primary-dark); }
-        ::-webkit-scrollbar-thumb { background: #bf953f; border-radius: 4px; }
-
-        /* تأثير تدرج الألوان للصورة الشخصية */
-        .auto-colorize {
-            filter: grayscale(100%);
-            transition: filter 3s ease;
-        }
-        .auto-colorize.colorized, .auto-colorize:hover {
-            filter: grayscale(0%);
-        }
-    </style>
+    
+    <!-- ملف الأنماط الخارجي (كل الـ CSS هنا) -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- تحميل Tailwind عبر CDN (يضيف الأنماط ديناميكياً داخل الصفحة) -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
 
@@ -378,34 +57,33 @@
                 <a href="contact.html?tab=consult" class="gold-btn px-4 py-2 rounded-lg text-xs shadow-lg">طلب استشارة</a>
             </div>
         </div>
-        <button id="menu-toggle" class="xl:hidden text-2xl gold-text">
+        <button id="menu-toggle" class="xl:hidden text-2xl gold-text" aria-label="فتح القائمة">
             <i class="fas fa-bars-staggered"></i>
         </button>
     </nav>
 </header>
 
-<!-- القائمة الجانبية للجوال (مطابقة لصفحة تواصل معنا) -->
+<!-- القائمة الجانبية للجوال -->
 <div id="mobile-menu">
-    <button id="menu-close" class="absolute top-6 left-6 text-3xl gold-text">
+    <button id="menu-close" class="absolute top-6 left-6 text-3xl gold-text" aria-label="إغلاق القائمة">
         <i class="fas fa-times"></i>
     </button>
     <div class="flex flex-col gap-5 text-xl font-bold text-center w-full px-6">
-        <a href="index.html" onclick="closeMenu()" class="nav-link-gold border-b-2 border-gold-solid inline-block mx-auto">الرئيسية</a>
-        <a href="about.html" onclick="closeMenu()" class="nav-link-gold">عن المؤسسة</a>
-        <a href="#why-us" onclick="closeMenu()" class="nav-link-gold">لماذا تختارنا</a>
-        <a href="#testimonials" onclick="closeMenu()" class="nav-link-gold">آراء العملاء</a>
-        <a href="specialties.html" onclick="closeMenu()" class="nav-link-gold">تخصصاتنا</a>
-        <a href="contact.html" onclick="closeMenu()" class="nav-link-gold">تواصل معنا</a>
-        <a href="blog.html" onclick="closeMenu()" class="nav-link-gold">المدونة</a>
+        <a href="index.html" class="nav-link-gold border-b-2 border-gold-solid inline-block mx-auto">الرئيسية</a>
+        <a href="about.html" class="nav-link-gold">عن المؤسسة</a>
+        <a href="#why-us" class="nav-link-gold">لماذا تختارنا</a>
+        <a href="#testimonials" class="nav-link-gold">آراء العملاء</a>
+        <a href="specialties.html" class="nav-link-gold">تخصصاتنا</a>
+        <a href="contact.html" class="nav-link-gold">تواصل معنا</a>
+        <a href="blog.html" class="nav-link-gold">المدونة</a>
         <div class="h-px bg-white/10 w-full my-4"></div>
-        <a href="client-inquiry.html" onclick="closeMenu()" class="track-case-btn py-3 rounded-xl text-lg w-full max-w-[300px] mx-auto">تابع قضيتك</a>
-        <a href="contact.html?tab=visit" onclick="closeMenu()" class="visit-btn py-3 rounded-xl text-lg w-full max-w-[300px] mx-auto">حجز موعد</a>
-        <a href="contact.html?tab=consult" onclick="closeMenu()" class="gold-btn py-3 rounded-xl text-lg w-full max-w-[300px] mx-auto">طلب استشارة</a>
+        <a href="client-inquiry.html" class="track-case-btn py-3 rounded-xl text-lg w-full max-w-[300px] mx-auto">تابع قضيتك</a>
+        <a href="contact.html?tab=visit" class="visit-btn py-3 rounded-xl text-lg w-full max-w-[300px] mx-auto">حجز موعد</a>
+        <a href="contact.html?tab=consult" class="gold-btn py-3 rounded-xl text-lg w-full max-w-[300px] mx-auto">طلب استشارة</a>
     </div>
 </div>
 
 <section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20 relative overflow-hidden islamic-pattern-bg">
-    
     <div class="section-content relative z-10 max-w-5xl mx-auto reveal-on-scroll">
         <div class="inline-block mb-6 relative">
             <span class="block gold-text text-xs sm:text-sm font-black tracking-[0.3em] uppercase relative z-10">
@@ -413,25 +91,21 @@
             </span>
             <div class="h-px w-full bg-gradient-to-r from-transparent via-gold-solid to-transparent absolute bottom-[-10px]"></div>
         </div>
-        
         <h1 class="mb-8 md:mb-10">
             <span class="block text-5xl sm:text-6xl md:text-8xl lg:text-[6.5rem] 
                         font-black serif-font gold-text leading-tight tracking-wide drop-shadow-2xl">
                 محمود عبد الحميد
             </span>
         </h1>
-        
         <p class="text-white tracking-[0.1em] sm:tracking-[0.2em] font-medium text-lg sm:text-xl md:text-2xl mb-8 md:mb-10">
             المحامي بالنقض <span class="mx-2">و</span> الدستورية العليا
         </p>
-        
         <div class="flex flex-col items-center gap-6 mb-10">
             <span class="px-6 py-2 border border-gold-solid/50 rounded-full bg-black/50 backdrop-blur-sm text-white text-sm font-bold flex items-center gap-2">
                 <i class="fas fa-star text-yellow-500"></i>
                 خبرة أكثر من 22 عاماً في المحاماة
             </span>
         </div>
-        
         <div class="flex flex-col sm:flex-row gap-5 justify-center items-center hero-buttons mt-4">
             <a href="contact.html?tab=consult" class="gold-btn px-10 sm:px-12 py-4 rounded-xl text-base sm:text-lg font-black uppercase tracking-widest min-w-[250px]">
                 طلب استشارة
@@ -450,8 +124,6 @@
 <section class="py-20 md:py-24 relative z-10">
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid md:grid-cols-2 gap-16 items-center">
-            
-            <!-- الجانب الأيمن: النصوص -->
             <div class="space-y-6 reveal-on-scroll">
                 <div>
                     <h6 class="text-gold-solid font-bold tracking-wider mb-2 text-lg">من نحن</h6>
@@ -459,7 +131,6 @@
                         عدالة تنصر إنسانًا <br> <span class="gold-text">وعلم يخلد أثرًا</span>
                     </h2>
                 </div>
-                
                 <div class="space-y-4 text-justify">
                     <p class="text-white text-lg leading-loose opacity-95">
                         مؤسسة محمود عبد الحميد للمحاماة، بخبرة قانونية تمتد لأكثر من عشرين عامًا، نجحنا خلالها في التعامل مع أعقد القضايا أمام مختلف درجات التقاضي، وصولًا إلى محكمة النقض والمحكمة الدستورية العليا.
@@ -471,15 +142,11 @@
                         نعتمد منهجًا منضبطًا يقوم على أصول قانونية راسخة، لنقدم دفاعًا متينًا يعكس الثقة والاحترافية التي تميز مؤسستنا.
                     </p>
                 </div>
-
-                <!-- رسالة التوجيه الأنيقة -->
                 <div class="mt-6 border-r-4 border-gold-solid pr-4 py-3 bg-white/5 rounded-l-lg shadow-sm">
                     <p class="text-gray-300 font-medium text-sm md:text-base leading-relaxed">
                         <span class="text-gold-solid ml-1">◀</span> للاطلاع على رؤيتنا ومنهج عملنا التفصيلي، يُرجى زيارة صفحة عن المؤسسة.
                     </p>
                 </div>
-
-                <!-- الصورة الشخصية والنصوص (تظهر فقط في الجوال) -->
                 <div class="block md:hidden text-center pt-8">
                     <img src="https://raw.githubusercontent.com/malegal/mahmoud-legal/cde493c8595f39ae6a4dd13a8e5ad005b803d7d8/me.jpg" alt="الأستاذ محمود عبد الحميد" class="w-64 h-64 object-cover rounded-2xl mx-auto border-2 border-gold-solid shadow-2xl auto-colorize" loading="lazy">
                     <div class="mt-5 space-y-2">
@@ -494,8 +161,6 @@
                     </a>
                 </div>
             </div>
-
-            <!-- الجانب الأيسر: الصورة الشخصية + البيانات + الزر (لأجهزة الكمبيوتر) -->
             <div class="relative reveal-on-scroll hidden md:block" style="transition-delay: 200ms;">
                 <div class="absolute -inset-4 bg-gradient-to-r from-gold-solid to-yellow-600 rounded-2xl opacity-10 blur-xl"></div>
                 <div class="relative bg-black/40 p-6 rounded-2xl border border-white/10">
@@ -514,7 +179,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
@@ -684,7 +348,7 @@
     </div>
 </section>
 
-<!-- الفوتر (مطابق لصفحة تواصل معنا) -->
+<!-- الفوتر -->
 <footer class="pt-16 pb-8 border-t border-gold-solid/30 bg-black/80 backdrop-blur-xl text-center relative mt-12">
     <div class="max-w-7xl mx-auto px-6 relative z-10">
         <div class="mb-8">
@@ -692,7 +356,6 @@
             <h2 class="text-3xl font-black gold-text serif-font mb-2">مؤسسة محمود عبد الحميد المحامي</h2>
             <p class="text-gray-400 font-medium">التميز في المحاماة والاستشارات القانونية</p>
         </div>
-        
         <div class="flex justify-center gap-6 mb-10">
             <a href="https://www.facebook.com/malegal" target="_blank" class="footer-social-icon" title="فيسبوك"><i class="fab fa-facebook-f"></i></a>
             <a href="https://x.com/mahmoud_a_hamyd" target="_blank" class="footer-social-icon" title="تويتر"><i class="fab fa-twitter"></i></a>
@@ -701,7 +364,6 @@
             <a href="mailto:ma.law.firm@outlook.com" class="footer-social-icon" title="البريد الإلكتروني"><i class="fas fa-envelope"></i></a>
             <a href="https://maps.app.goo.gl/inYTfr9Js78JwXqx5" target="_blank" class="footer-social-icon" title="الموقع الجغرافي"><i class="fas fa-map-marker-alt"></i></a>
         </div>
-        
         <div class="flex flex-wrap gap-x-8 gap-y-4 justify-center text-sm text-gray-400 mb-8 font-bold">
             <a href="index.html" class="hover:text-gold-solid transition">الرئيسية</a>
             <a href="about.html" class="hover:text-gold-solid transition">عن المؤسسة</a>
@@ -709,108 +371,12 @@
             <a href="contact.html" class="hover:text-gold-solid transition">اتصل بنا</a>
             <a href="blog.html" class="hover:text-gold-solid transition">المدونة القانونية</a>
         </div>
-        
         <p class="text-gray-600 text-xs uppercase tracking-widest border-t border-gold-solid/20 pt-8">جميع الحقوق محفوظة © ٢٠٢٦</p>
     </div>
 </footer>
 
-<script>
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuToggle = document.getElementById('menu-toggle');
-    const menuClose = document.getElementById('menu-close');
-    
-    function closeMenu() {
-        if(mobileMenu) {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    }
-    
-    if (menuToggle) {
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-    }
-    
-    if (menuClose) {
-        menuClose.addEventListener('click', closeMenu);
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("is-visible");
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-        
-        const elements = document.querySelectorAll('.reveal-on-scroll');
-        elements.forEach(el => observer.observe(el));
-        
-        const expYearsElement = document.getElementById('exp-years-counter');
-        const casesSuccessElement = document.getElementById('cases-success-counter');
-        
-        if (expYearsElement && casesSuccessElement) {
-            const expYearsTarget = 22;
-            const casesSuccessTarget = 1500;
-            let expYearsCounted = false;
-            let casesSuccessCounted = false;
-            
-            const counterObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        if (!expYearsCounted) {
-                            expYearsCounted = true;
-                            let current = 0;
-                            const increment = 1;
-                            const timer = setInterval(() => {
-                                current += increment;
-                                expYearsElement.textContent = current;
-                                if (current >= expYearsTarget) {
-                                    expYearsElement.textContent = expYearsTarget;
-                                    clearInterval(timer);
-                                }
-                            }, 50);
-                        }
-                        
-                        if (!casesSuccessCounted) {
-                            casesSuccessCounted = true;
-                            let current = 0;
-                            const increment = 10;
-                            const timer = setInterval(() => {
-                                current += increment;
-                                casesSuccessElement.textContent = current;
-                                if (current >= casesSuccessTarget) {
-                                    casesSuccessElement.textContent = casesSuccessTarget;
-                                    clearInterval(timer);
-                                }
-                            }, 20);
-                        }
-                        
-                        counterObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.3 });
-            
-            counterObserver.observe(expYearsElement);
-            counterObserver.observe(casesSuccessElement);
-        }
-
-        setTimeout(function() {
-            document.querySelectorAll('.auto-colorize').forEach(img => {
-                img.classList.add('colorized');
-            });
-        }, 3000);
-    });
-</script>
+<!-- تحميل ملف الجافا سكريبت الخارجي (يتم تشغيله بعد تحميل الصفحة) -->
+<script src="script.js" defer></script>
 
 </body>
 </html>
