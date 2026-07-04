@@ -10,7 +10,7 @@
     <meta id="page-description" name="description" content="تحليل قانوني متخصص في مجال القانون المصري." />
     <link rel="canonical" id="canonical-url" href="https://alostazlaw.vercel.app/article.html" />
 
-    <!-- Open Graph – سيتم تحديثها ديناميكياً -->
+    <!-- Open Graph -->
     <meta id="og-title" property="og:title" content="جاري تحميل المقال..." />
     <meta id="og-description" property="og:description" content="تحليل قانوني متخصص في مجال القانون المصري." />
     <meta property="og:type" content="article" />
@@ -106,9 +106,6 @@
             color: var(--matte-gold);
         }
 
-        /* ==========================================================
-               BUTTONS (مطابقة لباقي الصفحات)
-               ========================================================== */
         .btn-gold {
             display: inline-block;
             background: var(--matte-gold);
@@ -151,28 +148,8 @@
             box-shadow: 0 8px 30px rgba(176, 141, 87, 0.15);
         }
 
-        .btn-outline-white {
-            display: inline-block;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #fff;
-            font-weight: 700;
-            padding: 14px 32px;
-            border-radius: 8px;
-            transition: all 0.4s var(--ease-out);
-            text-align: center;
-            font-size: 0.9rem;
-            background: transparent;
-            cursor: pointer;
-        }
-        .btn-outline-white:hover {
-            border-color: var(--matte-gold);
-            color: var(--matte-gold);
-            background: rgba(176, 141, 87, 0.05);
-            transform: translateY(-2px);
-        }
-
         /* ==========================================================
-               HEADER – مطابق لبقية الصفحات
+               HEADER (مطابق لـ blog.html)
                ========================================================== */
         .site-header {
             position: fixed;
@@ -541,20 +518,6 @@
             font-size: 1rem;
             margin-bottom: 1.5rem;
         }
-        .article-cta .btn-gold {
-            background: var(--matte-gold);
-            color: #000;
-            font-weight: 700;
-            padding: 12px 36px;
-            font-size: 0.9rem;
-            border-radius: 8px;
-            transition: all 0.4s var(--ease-out);
-        }
-        .article-cta .btn-gold:hover {
-            background: #c4a06a;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(176, 141, 87, 0.25);
-        }
 
         /* ==========================================================
                FLOATING WHATSAPP
@@ -640,7 +603,7 @@
         }
 
         /* ==========================================================
-               FOOTER – مطابق لبقية الصفحات
+               FOOTER (مطابق لـ blog.html)
                ========================================================== */
         .site-footer {
             background: var(--footer-navy);
@@ -766,11 +729,9 @@
             .site-header.scrolled {
                 height: 60px;
             }
-
             .article-wrapper {
                 padding: 100px 1rem 3rem;
             }
-
             .share-sidebar {
                 top: auto;
                 bottom: 20px;
@@ -814,7 +775,6 @@
                 width: 30px;
                 height: 30px;
             }
-
             .article-wrapper .article-title {
                 font-size: 1.8rem;
             }
@@ -851,7 +811,7 @@
     </div>
 
     <!-- ==========================================================
-    HEADER – مطابق لبقية الصفحات
+    HEADER
     ========================================================== -->
     <header class="site-header" id="siteHeader" role="banner">
         <div class="header-brand">
@@ -912,7 +872,7 @@
             <p class="mt-4 text-charcoal/50">جاري تحميل المقال...</p>
         </div>
 
-        <!-- Article Content (hidden initially) -->
+        <!-- Article Content -->
         <div id="article-container" class="hidden">
             <div class="article-meta">
                 <span><i class="far fa-clock" style="margin-left:4px;"></i> <span id="read-time">0</span> دقائق قراءة</span>
@@ -943,7 +903,7 @@
     </main>
 
     <!-- ==========================================================
-    FOOTER – مطابق لبقية الصفحات
+    FOOTER
     ========================================================== -->
     <footer class="site-footer" role="contentinfo">
         <div class="footer-inner">
@@ -1066,11 +1026,9 @@
                         if (imageMatch) image = imageMatch[1].replace(/['"]/g, '').trim();
                         const descMatch = frontMatter.match(/description:\s*(.*)/i);
                         if (descMatch) description = descMatch[1].replace(/['"]/g, '').trim();
-                        // Remove front matter
                         md = md.replace(/^---\s*[\s\S]*?\s*---/, '');
                     }
 
-                    // Fallbacks
                     if (!title) title = decodeURIComponent(slug.replace(/-/g, ' '));
                     if (!description) description = 'تحليل قانوني متخصص في مجال القانون المصري.';
 
@@ -1092,10 +1050,8 @@
                     // ==========================================================
                     // RENDER ARTICLE
                     // ==========================================================
-                    // Title
                     document.getElementById('article-title').textContent = title;
 
-                    // Image
                     const imageContainer = document.getElementById('article-image');
                     if (image) {
                         imageContainer.innerHTML =
@@ -1104,7 +1060,6 @@
                         imageContainer.style.display = 'none';
                     }
 
-                    // Body (Markdown → HTML → Sanitize)
                     const rawHtml = marked.parse(md);
                     const sanitizedHtml = DOMPurify.sanitize(rawHtml, {
                         ALLOWED_TAGS: [
@@ -1116,7 +1071,6 @@
                     });
                     document.getElementById('article-body').innerHTML = sanitizedHtml;
 
-                    // Read time
                     const words = md.split(/\s+/).length;
                     document.getElementById('read-time').textContent = Math.ceil(words / 200) || 1;
 
