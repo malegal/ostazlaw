@@ -216,7 +216,7 @@
         }
 
         /* ==========================================================
-               HEADER – مطابق لبقية الصفحات
+               HEADER (مطابق لبقية الصفحات)
                ========================================================== */
         .site-header {
             position: fixed;
@@ -625,7 +625,7 @@
         }
 
         /* ==========================================================
-               INDUSTRY CARD
+               INDUSTRY CARD – مع خط ذهبي على hover ونصوص أوضح
                ========================================================== */
         .industry-card {
             background: var(--pure-white);
@@ -637,12 +637,29 @@
             position: relative;
             display: flex;
             flex-direction: column;
+            overflow: hidden;
         }
+        /* الخط الذهبي أسفل البطاقة عند hover */
+        .industry-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 3px;
+            background: var(--matte-gold);
+            transition: width 0.6s var(--ease-out);
+        }
+        .industry-card:hover::after {
+            width: 100%;
+        }
+
         .industry-card:hover {
             border-color: var(--matte-gold);
             transform: translateY(-6px);
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
         }
+
         .industry-card .icon-wrap {
             width: 52px;
             height: 52px;
@@ -673,8 +690,8 @@
         }
         .industry-card .desc {
             font-size: 0.85rem;
-            color: rgba(34, 34, 34, 0.55);
-            font-weight: 300;
+            color: #333; /* أوضح */
+            font-weight: 400; /* زيادة الوزن */
             line-height: 1.7;
             margin-bottom: 0.8rem;
             flex: 1;
@@ -689,8 +706,8 @@
         }
         .industry-card .services-list li {
             font-size: 0.7rem;
-            color: rgba(34, 34, 34, 0.45);
-            font-weight: 300;
+            color: rgba(34, 34, 34, 0.6);
+            font-weight: 400;
             background: var(--light-gray);
             padding: 0.15rem 0.6rem;
             border-radius: 20px;
@@ -733,6 +750,20 @@
             border: 1px solid rgba(0, 0, 0, 0.04);
             transition: all 0.4s var(--ease-out);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            position: relative;
+        }
+        .approach-step::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 3px;
+            background: var(--matte-gold);
+            transition: width 0.6s var(--ease-out);
+        }
+        .approach-step:hover::after {
+            width: 100%;
         }
         .approach-step:hover {
             border-color: var(--matte-gold);
@@ -756,8 +787,8 @@
         }
         .approach-step p {
             font-size: 0.7rem;
-            color: rgba(34, 34, 34, 0.45);
-            font-weight: 300;
+            color: rgba(34, 34, 34, 0.5);
+            font-weight: 400;
             line-height: 1.5;
             margin-top: 0.1rem;
         }
@@ -778,6 +809,20 @@
             transition: all 0.4s var(--ease-out);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
             text-align: center;
+            position: relative;
+        }
+        .why-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 3px;
+            background: var(--matte-gold);
+            transition: width 0.6s var(--ease-out);
+        }
+        .why-card:hover::after {
+            width: 100%;
         }
         .why-card:hover {
             border-color: var(--matte-gold);
@@ -799,9 +844,9 @@
         }
         .why-card p {
             font-size: 0.75rem;
-            color: rgba(34, 34, 34, 0.45);
+            color: #333;
+            font-weight: 400;
             line-height: 1.6;
-            font-weight: 300;
         }
 
         /* ==========================================================
@@ -1136,7 +1181,7 @@
     </a>
 
     <!-- ==========================================================
-    HEADER
+    HEADER – مطابق لباقي الصفحات
     ========================================================== -->
     <header class="site-header" id="siteHeader" role="banner">
         <div class="header-brand">
@@ -1226,7 +1271,7 @@
     </section>
 
     <!-- ==========================================================
-    INDUSTRIES GRID
+    INDUSTRIES GRID – مع خط ذهبي تحت كل بطاقة وزر "اطلب استشارة"
     ========================================================== -->
     <section class="section section-gray" aria-label="القطاعات">
         <div class="section-inner">
@@ -1263,7 +1308,7 @@
                         <li>المنازعات التجارية</li>
                         <li>الاستشارات المستمرة</li>
                     </ul>
-                    <a href="https://alostazlaw.vercel.app/contact.html?tab=consult&sector=الشركات%20التجارية" class="btn-sm">تعرف على خدمات الشركات</a>
+                    <a href="https://alostazlaw.vercel.app/contact.html?tab=consult&sector=الشركات%20التجارية" class="btn-sm">اطلب استشارة</a>
                 </div>
 
                 <!-- 2. الجمعيات والمؤسسات الأهلية -->
@@ -1285,7 +1330,7 @@
                         <li>المنازعات الإدارية</li>
                         <li>إجراءات التصفية</li>
                     </ul>
-                    <a href="https://alostazlaw.vercel.app/contact.html?tab=consult&sector=الجمعيات%20الأهلية" class="btn-sm">تعرف على الخدمات</a>
+                    <a href="https://alostazlaw.vercel.app/contact.html?tab=consult&sector=الجمعيات%20الأهلية" class="btn-sm">اطلب استشارة</a>
                 </div>
 
                 <!-- 3. المستثمرون -->
@@ -1303,7 +1348,7 @@
                         <li>تحليل المخاطر</li>
                         <li>المنازعات الاستثمارية</li>
                     </ul>
-                    <a href="https://alostazlaw.vercel.app/contact.html?tab=consult&sector=المستثمرون" class="btn-sm">تعرف على الخدمات</a>
+                    <a href="https://alostazlaw.vercel.app/contact.html?tab=consult&sector=المستثمرون" class="btn-sm">اطلب استشارة</a>
                 </div>
 
                 <!-- 4. المطورون العقاريون -->
@@ -1321,7 +1366,7 @@
                         <li>منازعات المشاريع</li>
                         <li>إدارة العقود</li>
                     </ul>
-                    <a href="https://alostazlaw.vercel.app/contact.html?tab=consult&sector=المطورون%20العقاريون" class="btn-sm">تعرف على الخدمات</a>
+                    <a href="https://alostazlaw.vercel.app/contact.html?tab=consult&sector=المطورون%20العقاريون" class="btn-sm">اطلب استشارة</a>
                 </div>
 
                 <!-- 5. المقاولون -->
@@ -1339,7 +1384,7 @@
                         <li>تخفيف المخاطر</li>
                         <li>الاستشارات المستمرة</li>
                     </ul>
-                    <a href="https://alostazlaw.vercel.app/contact.html?tab=consult&sector=المقاولون" class="btn-sm">تعرف على الخدمات</a>
+                    <a href="https://alostazlaw.vercel.app/contact.html?tab=consult&sector=المقاولون" class="btn-sm">اطلب استشارة</a>
                 </div>
 
                 <!-- 6. الأفراد -->
@@ -1360,7 +1405,7 @@
                         <li>صياغة العقود</li>
                         <li>تسوية المنازعات</li>
                     </ul>
-                    <a href="https://alostazlaw.vercel.app/contact.html?tab=consult&sector=الأفراد" class="btn-sm">تعرف على الخدمات</a>
+                    <a href="https://alostazlaw.vercel.app/contact.html?tab=consult&sector=الأفراد" class="btn-sm">اطلب استشارة</a>
                 </div>
 
                 <!-- 7. الشركاء -->
@@ -1382,7 +1427,7 @@
                         <li>الوساطة والتسوية</li>
                         <li>المنازعات التجارية</li>
                     </ul>
-                    <a href="https://alostazlaw.vercel.app/contact.html?tab=consult&sector=الشركاء" class="btn-sm">تعرف على الخدمات</a>
+                    <a href="https://alostazlaw.vercel.app/contact.html?tab=consult&sector=الشركاء" class="btn-sm">اطلب استشارة</a>
                 </div>
 
                 <!-- 8. الورثة -->
@@ -1402,7 +1447,7 @@
                         <li>المنازعات المدنية</li>
                         <li>تنفيذ أحكام الميراث</li>
                     </ul>
-                    <a href="https://alostazlaw.vercel.app/contact.html?tab=consult&sector=الورثة" class="btn-sm">تعرف على الخدمات</a>
+                    <a href="https://alostazlaw.vercel.app/contact.html?tab=consult&sector=الورثة" class="btn-sm">اطلب استشارة</a>
                 </div>
 
                 <!-- 9. قضايا التعويضات -->
@@ -1424,7 +1469,7 @@
                         <li>التسوية الودية</li>
                         <li>تنفيذ الأحكام</li>
                     </ul>
-                    <a href="https://alostazlaw.vercel.app/contact.html?tab=consult&sector=قضايا%20التعويضات" class="btn-sm">تعرف على الخدمات</a>
+                    <a href="https://alostazlaw.vercel.app/contact.html?tab=consult&sector=قضايا%20التعويضات" class="btn-sm">اطلب استشارة</a>
                 </div>
 
                 <!-- 10. العمال وأصحاب الأعمال -->
@@ -1446,7 +1491,7 @@
                         <li>الامتثال القانوني</li>
                         <li>الاستشارات العمالية</li>
                     </ul>
-                    <a href="https://alostazlaw.vercel.app/contact.html?tab=consult&sector=العمال%20وأصحاب%20الأعمال" class="btn-sm">تعرف على الخدمات</a>
+                    <a href="https://alostazlaw.vercel.app/contact.html?tab=consult&sector=العمال%20وأصحاب%20الأعمال" class="btn-sm">اطلب استشارة</a>
                 </div>
 
             </div>
