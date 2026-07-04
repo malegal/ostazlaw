@@ -4,6 +4,8 @@
     --gold-solid: #bf953f;
     --gold-glow: rgba(191, 149, 63, 0.4);
     --header-height: 90px;
+    --whatsapp-green: #25D366;
+    --whatsapp-dark: #128C7E;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -149,6 +151,42 @@ body {
 .call-float { background: #0077b6; }
 
 .whatsapp-float:hover, .call-float:hover { transform: scale(1.1); }
+
+/* ===== أنماط زر واتساب الديناميكي الجديد (يُستخدم مع الـ Floating Button) ===== */
+.float-whatsapp {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 500;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(37, 211, 102, 0.85);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    text-decoration: none;
+    color: #fff;
+}
+.float-whatsapp i {
+    font-size: 1.8rem;
+    color: #fff;
+    transition: transform 0.4s ease;
+}
+.float-whatsapp:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
+    background: #25d366;
+    border-color: #25d366;
+}
+.float-whatsapp:hover i {
+    transform: scale(1.05);
+}
 
 .footer-social-icon {
     width: 45px;
@@ -302,6 +340,27 @@ section { scroll-margin-top: var(--header-height); position: relative; overflow:
     filter: grayscale(0%);
 }
 
+/* ===== أنماط زر "حجز موعد" في الهيدر (اختياري) ===== */
+.btn-appointment {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    background: transparent;
+    font-weight: 700;
+    font-size: 0.7rem;
+    transition: all 0.3s ease;
+    font-family: 'Tajawal', sans-serif;
+    cursor: pointer;
+}
+.btn-appointment:hover {
+    border-color: var(--gold-solid);
+    color: var(--gold-solid);
+    background: rgba(191, 149, 63, 0.05);
+    transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
     .header-glass nav { padding: 10px 15px !important; }
     #hero h1 span { font-size: 3.5rem !important; }
@@ -310,7 +369,14 @@ section { scroll-margin-top: var(--header-height); position: relative; overflow:
     .hero-buttons a { width: 100%; }
     .contact-floating { right: 15px; bottom: 15px; gap: 10px; }
     .whatsapp-float, .call-float { width: 50px; height: 50px; font-size: 25px; }
+    .float-whatsapp { width: 48px; height: 48px; bottom: 1.2rem; left: 1.2rem; }
+    .float-whatsapp i { font-size: 1.4rem; }
     .footer-social-icon { width: 40px; height: 40px; font-size: 1.1rem; }
+}
+
+@media (max-width: 480px) {
+    .float-whatsapp { width: 44px; height: 44px; bottom: 1rem; left: 1rem; }
+    .float-whatsapp i { font-size: 1.2rem; }
 }
 
 ::-webkit-scrollbar { width: 8px; }
