@@ -6,7 +6,7 @@
     <meta name="google-site-verification" content="Uqbjr1w7Q831Lo6JPFEe9_lK86Kp55P79Lwfp1j6EX8" />
 
     <title>عن المؤسسة | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا</title>
-    <meta name="description" content="  عن مؤسسة الأستاذ محمود عبد الحميد للمحاماة والاستشارات القانونية – تأسست عام 2005، تقدم خدمات قانونية واستشارات متكاملة للأفراد والشركات بخبرة قضائية ومنهج علمي." />
+    <meta name="description" content="مؤسسة الأستاذ محمود عبد الحميد للمحاماة والاستشارات القانونية – تأسست عام 2005، تقدم خدمات قانونية واستشارات متكاملة للأفراد والشركات بخبرة قضائية ومنهج علمي." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://alostazlaw.vercel.app/about.html" />
 
@@ -165,9 +165,9 @@
             font-size: 0.95rem;
             letter-spacing: 0.02em;
             box-shadow: 0 2px 20px rgba(176, 141, 87, 0.15);
+            cursor: pointer;
             position: relative;
             overflow: hidden;
-            cursor: pointer;
         }
         .btn-gold:hover {
             background: #c4a06a;
@@ -187,7 +187,6 @@
             font-size: 0.85rem;
             background: transparent;
             cursor: pointer;
-            position: relative;
         }
         .btn-outline-gold:hover {
             background: var(--matte-gold);
@@ -237,7 +236,7 @@
         }
 
         /* ==========================================================
-               HEADER (مطابق للصفحة الرئيسية)
+               HEADER
                ========================================================== */
         .site-header {
             position: fixed;
@@ -304,7 +303,6 @@
             transition: color 0.3s ease;
             position: relative;
             padding-bottom: 2px;
-            text-decoration: none;
         }
         .header-nav a::after {
             content: '';
@@ -340,7 +338,6 @@
             transition: all 0.4s var(--ease-out);
             border: none;
             cursor: pointer;
-            position: relative;
         }
         .header-actions .btn-consult:hover {
             background: #c4a06a;
@@ -357,9 +354,7 @@
             color: #fff;
             background: transparent;
             transition: all 0.4s var(--ease-out);
-            font-family: var(--font-ar);
             cursor: pointer;
-            position: relative;
         }
         .header-actions .btn-appointment:hover {
             border-color: var(--matte-gold);
@@ -377,9 +372,7 @@
             color: #fff;
             background: transparent;
             transition: all 0.4s var(--ease-out);
-            font-family: var(--font-ar);
             cursor: pointer;
-            position: relative;
         }
         .header-actions .btn-contact:hover {
             border-color: var(--matte-gold);
@@ -437,7 +430,6 @@
             color: rgba(255, 255, 255, 0.6);
             transition: color 0.3s ease;
             position: relative;
-            text-decoration: none;
         }
         .mobile-menu nav a::after {
             content: '';
@@ -486,7 +478,7 @@
         }
 
         /* ==========================================================
-               HERO – نيڤي عميق مثل الصفحة الرئيسية
+               HERO
                ========================================================== */
         .hero-about {
             padding: 120px 2rem 4rem;
@@ -501,8 +493,7 @@
             position: absolute;
             inset: 0;
             opacity: 0.03;
-            background-image:
-                radial-gradient(circle at 20% 30%, var(--matte-gold) 1px, transparent 1px),
+            background-image: radial-gradient(circle at 20% 30%, var(--matte-gold) 1px, transparent 1px),
                 radial-gradient(circle at 80% 70%, var(--matte-gold) 1px, transparent 1px);
             background-size: 60px 60px;
             pointer-events: none;
@@ -618,7 +609,6 @@
             font-weight: 600;
         }
 
-        /* مربع "ما الذي يميز منهجنا؟" في الهيرو */
         .hero-about .distinctive-box {
             background: rgba(16, 42, 67, 0.6);
             backdrop-filter: blur(8px);
@@ -656,39 +646,7 @@
         }
 
         /* ==========================================================
-               تأثير hover – الخط الذهبي المتحرك تحت العناصر
-               ========================================================== */
-        .gold-underline {
-            position: relative;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .gold-underline::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            right: 0;
-            width: 0;
-            height: 2px;
-            background: var(--matte-gold);
-            transition: width 0.5s var(--ease-out);
-        }
-        .gold-underline:hover::after {
-            width: 100%;
-        }
-
-        /* البطاقات والقابلة للنقر */
-        .hover-lift {
-            transition: all 0.4s var(--ease-out);
-            cursor: pointer;
-        }
-        .hover-lift:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
-        }
-
-        /* ==========================================================
-               SECTIONS – عامة
+               SECTIONS
                ========================================================== */
         .section {
             padding: 5rem 2rem;
@@ -733,12 +691,12 @@
             line-height: 1.15;
         }
         .section-head p {
-            max-width: 640px;
+            max-width: 800px;
             margin: 0.5rem auto 0;
             color: rgba(34, 34, 34, 0.6);
             font-weight: 300;
             font-size: 1rem;
-            line-height: 1.8;
+            line-height: 1.9;
         }
         .section-head.light h2 {
             color: #fff;
@@ -753,7 +711,7 @@
         }
 
         /* ==========================================================
-               PHILOSOPHY – 4 بطاقات
+               PHILOSOPHY
                ========================================================== */
         .philosophy-grid {
             display: grid;
@@ -810,7 +768,7 @@
         }
 
         /* ==========================================================
-               VALUES – 6 بطاقات
+               VALUES
                ========================================================== */
         .values-grid {
             display: grid;
@@ -867,6 +825,127 @@
         }
 
         /* ==========================================================
+               PRACTICE AREAS (مُحدَّث)
+               ========================================================== */
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .practice-card {
+            background: var(--pure-white);
+            padding: 1.8rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.4s var(--ease-out);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            cursor: pointer;
+            position: relative;
+            text-align: right;
+        }
+        .practice-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--matte-gold);
+            transition: width 0.6s var(--ease-out);
+        }
+        .practice-card:hover::after {
+            width: 100%;
+        }
+        .practice-card:hover {
+            border-color: var(--matte-gold);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+        }
+        .practice-card .icon-wrap {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(176, 141, 87, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.8rem;
+        }
+        .practice-card .icon-wrap i {
+            font-size: 1.2rem;
+            color: var(--matte-gold);
+        }
+        .practice-card h4 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--charcoal);
+            margin-bottom: 0.3rem;
+        }
+        .practice-card p {
+            font-size: 0.85rem;
+            color: rgba(34, 34, 34, 0.55);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* ==========================================================
+               SECTORS (القطاعات التي نخدمها – مُحدَّث)
+               ========================================================== */
+        .sectors-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .sector-card {
+            background: var(--pure-white);
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.4s var(--ease-out);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            cursor: pointer;
+            position: relative;
+            text-align: right;
+        }
+        .sector-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--matte-gold);
+            transition: width 0.6s var(--ease-out);
+        }
+        .sector-card:hover::after {
+            width: 100%;
+        }
+        .sector-card:hover {
+            border-color: var(--matte-gold);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+        }
+        .sector-card .icon {
+            font-size: 1.6rem;
+            color: var(--matte-gold);
+            opacity: 0.25;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .sector-card h4 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--charcoal);
+            margin-bottom: 0.3rem;
+        }
+        .sector-card p {
+            font-size: 0.85rem;
+            color: rgba(34, 34, 34, 0.55);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* ==========================================================
                LEADERSHIP
                ========================================================== */
         .leadership-grid {
@@ -888,9 +967,9 @@
             object-fit: cover;
             display: block;
             filter: grayscale(100%);
-            transition: filter 0.8s ease;
+            transition: filter 2s ease;
         }
-        .leadership-image:hover img {
+        .leadership-image.colorized img {
             filter: grayscale(0%);
         }
 
@@ -959,7 +1038,7 @@
         }
 
         /* ==========================================================
-               PROCESS – Timeline
+               PROCESS
                ========================================================== */
         .process-timeline {
             max-width: 800px;
@@ -1037,121 +1116,7 @@
         }
 
         /* ==========================================================
-               PRACTICE AREAS – 6 بطاقات
-               ========================================================== */
-        .practice-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.2rem;
-        }
-        .practice-card {
-            background: var(--pure-white);
-            padding: 1.8rem 1.4rem;
-            border-radius: 10px;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            transition: all 0.4s var(--ease-out);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-            text-align: center;
-            cursor: pointer;
-            position: relative;
-        }
-        .practice-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 0;
-            height: 2px;
-            background: var(--matte-gold);
-            transition: width 0.6s var(--ease-out);
-        }
-        .practice-card:hover::after {
-            width: 100%;
-        }
-        .practice-card:hover {
-            border-color: var(--matte-gold);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
-        }
-        .practice-card .icon-wrap {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: rgba(176, 141, 87, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 0.6rem;
-        }
-        .practice-card .icon-wrap i {
-            font-size: 1.1rem;
-            color: var(--matte-gold);
-        }
-        .practice-card h4 {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--charcoal);
-            margin-bottom: 0.1rem;
-        }
-        .practice-card p {
-            font-size: 0.75rem;
-            color: rgba(34, 34, 34, 0.45);
-            line-height: 1.5;
-            font-weight: 300;
-        }
-
-        /* ==========================================================
-               SECTORS – 6 بطاقات قطاعات
-               ========================================================== */
-        .sectors-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.2rem;
-        }
-        .sector-card {
-            background: var(--pure-white);
-            padding: 1.4rem 1.2rem;
-            border-radius: 10px;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            transition: all 0.4s var(--ease-out);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-            text-align: center;
-            cursor: pointer;
-            position: relative;
-        }
-        .sector-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 0;
-            height: 2px;
-            background: var(--matte-gold);
-            transition: width 0.6s var(--ease-out);
-        }
-        .sector-card:hover::after {
-            width: 100%;
-        }
-        .sector-card:hover {
-            border-color: var(--matte-gold);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
-        }
-        .sector-card .icon {
-            font-size: 1.6rem;
-            color: var(--matte-gold);
-            opacity: 0.2;
-            margin-bottom: 0.3rem;
-            display: block;
-        }
-        .sector-card h4 {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--charcoal);
-        }
-
-        /* ==========================================================
-               GALLERY – معرض الصور
+               GALLERY
                ========================================================== */
         .gallery-grid {
             display: grid;
@@ -1179,101 +1144,7 @@
         }
 
         /* ==========================================================
-               BLOG – 3 مقالات
-               ========================================================== */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-        .blog-card {
-            background: var(--pure-white);
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            transition: all 0.4s var(--ease-out);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-            cursor: pointer;
-            position: relative;
-        }
-        .blog-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 0;
-            height: 2px;
-            background: var(--matte-gold);
-            transition: width 0.6s var(--ease-out);
-        }
-        .blog-card:hover::after {
-            width: 100%;
-        }
-        .blog-card:hover {
-            border-color: var(--matte-gold);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
-        }
-        .blog-card .image {
-            width: 100%;
-            height: 160px;
-            background: var(--light-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(34, 34, 34, 0.15);
-            font-size: 1.5rem;
-        }
-        .blog-card .content {
-            padding: 1.2rem 1.4rem;
-        }
-        .blog-card .content .meta {
-            display: flex;
-            gap: 0.8rem;
-            font-size: 0.6rem;
-            color: rgba(34, 34, 34, 0.35);
-            font-weight: 300;
-            margin-bottom: 0.2rem;
-        }
-        .blog-card .content h4 {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--charcoal);
-            margin-bottom: 0.2rem;
-        }
-        .blog-card .content p {
-            font-size: 0.8rem;
-            color: rgba(34, 34, 34, 0.45);
-            line-height: 1.6;
-            font-weight: 300;
-            margin-bottom: 0.6rem;
-        }
-        .blog-card .content .read-more {
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: var(--matte-gold);
-            transition: color 0.3s ease;
-            position: relative;
-        }
-        .blog-card .content .read-more::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            right: 0;
-            width: 0;
-            height: 1.5px;
-            background: var(--matte-gold);
-            transition: width 0.4s var(--ease-out);
-        }
-        .blog-card .content .read-more:hover::after {
-            width: 100%;
-        }
-        .blog-card .content .read-more:hover {
-            color: #c4a06a;
-        }
-
-        /* ==========================================================
-               FAQ – 5 أسئلة
+               FAQ
                ========================================================== */
         .faq-list {
             max-width: 800px;
@@ -1359,7 +1230,7 @@
         }
 
         /* ==========================================================
-               FINAL CTA – خلفية داكنة
+               FINAL CTA
                ========================================================== */
         .cta-final {
             background: var(--very-dark-navy);
@@ -1428,7 +1299,7 @@
         }
 
         /* ==========================================================
-               FOOTER – 4 أعمدة
+               FOOTER
                ========================================================== */
         .site-footer {
             background: var(--footer-navy);
@@ -1577,9 +1448,6 @@
             .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .blog-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
             .footer-inner {
                 grid-template-columns: 1fr 1fr;
                 gap: 1.8rem;
@@ -1645,9 +1513,6 @@
             .gallery-grid {
                 grid-template-columns: 1fr 1fr;
             }
-            .blog-grid {
-                grid-template-columns: 1fr;
-            }
             .leadership-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -1659,7 +1524,6 @@
                 max-width: 280px;
                 margin: 0 auto;
             }
-
             .hero-about {
                 padding: 100px 1rem 3rem;
                 min-height: auto;
@@ -1678,12 +1542,15 @@
             }
             .practice-grid {
                 grid-template-columns: 1fr;
-                max-width: 320px;
+                max-width: 360px;
                 margin-left: auto;
                 margin-right: auto;
             }
             .sectors-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
+                max-width: 360px;
+                margin-left: auto;
+                margin-right: auto;
             }
             .gallery-grid {
                 grid-template-columns: 1fr;
@@ -1755,11 +1622,9 @@
         }
 
         @media (max-width: 400px) {
-            .sectors-grid {
-                grid-template-columns: 1fr;
-                max-width: 240px;
-                margin-left: auto;
-                margin-right: auto;
+            .practice-card p,
+            .sector-card p {
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -1774,7 +1639,7 @@
     </a>
 
     <!-- ==========================================================
-    HEADER (مطابق للصفحة الرئيسية)
+    HEADER
     ========================================================== -->
     <header class="site-header" id="siteHeader" role="banner">
         <div class="header-brand">
@@ -1822,7 +1687,7 @@
     </div>
 
     <!-- ==========================================================
-    HERO – نيڤي عميق مثل الصفحة الرئيسية
+    HERO
     ========================================================== -->
     <section class="hero-about" aria-label="عن المؤسسة">
         <div class="hero-pattern"></div>
@@ -1830,7 +1695,6 @@
         <div class="hero-glow-2"></div>
 
         <div class="hero-inner">
-            <!-- العنوان -->
             <div class="hero-title-wrap reveal">
                 <span class="en-tag">About Our Firm</span>
                 <h1>مؤسسة الأستاذ<br /><span class="gold-text">محمود عبد الحميد</span></h1>
@@ -1840,7 +1704,6 @@
                 </p>
             </div>
 
-            <!-- الصورة + النص جنباً إلى جنب -->
             <div class="hero-grid">
                 <div class="hero-image reveal">
                     <img src="about.png"
@@ -1863,7 +1726,6 @@
                         نعمل على تقديم حلول قانونية عملية تراعي خصوصية كل قضية، مع الالتزام بالشفافية، والسرية، والدقة، باعتبارها المبادئ التي تقوم عليها علاقتنا مع عملائنا.
                     </p>
 
-                    <!-- مربع ما الذي يميز منهجنا؟ -->
                     <div class="distinctive-box">
                         <h4>✦ ما الذي يميز منهجنا؟</h4>
                         <ul>
@@ -1878,7 +1740,7 @@
     </section>
 
     <!-- ==========================================================
-    3. فلسفتنا (4 بطاقات)
+    فلسفتنا
     ========================================================== -->
     <section class="section section-gray" aria-label="فلسفتنا">
         <div class="section-inner">
@@ -1914,7 +1776,7 @@
     </section>
 
     <!-- ==========================================================
-    4. قيم المؤسسة (خلفية بيضاء)
+    قيم المؤسسة
     ========================================================== -->
     <section class="section section-white" aria-label="قيم المؤسسة">
         <div class="section-inner">
@@ -1960,7 +1822,115 @@
     </section>
 
     <!-- ==========================================================
-    5. قيادة المؤسسة
+    مجالات الممارسة القانونية (جديد)
+    ========================================================== -->
+    <section class="section section-gray" aria-label="مجالات الممارسة القانونية">
+        <div class="section-inner">
+            <div class="section-head reveal">
+                <span class="eyebrow">● الممارسة</span>
+                <h2>مجالات الممارسة القانونية</h2>
+                <p>
+                    تتمثل قوة العمل القانوني في القدرة على الجمع بين الفهم الدقيق للنظام القانوني، والتحليل الموضوعي للوقائع، واختيار المسار القانوني الأنسب لكل حالة. وانطلاقًا من هذا المبدأ، تقدم مؤسسة الأستاذ محمود عبد الحميد للمحاماة والاستشارات القانونية خدماتها عبر مجموعة من مجالات الممارسة التي تغطي احتياجات الأفراد والشركات، مع الالتزام ببناء حلول قانونية مدروسة تتناسب مع طبيعة كل نزاع أو معاملة قانونية.
+                </p>
+            </div>
+
+            <div class="practice-grid">
+                <div class="practice-card reveal reveal-d1">
+                    <div class="icon-wrap"><i class="fas fa-gavel"></i></div>
+                    <h4>القانون المدني</h4>
+                    <p>تشمل خدماتنا تمثيل العملاء في المنازعات المدنية بمختلف أنواعها، وصياغة الدفوع القانونية، ومباشرة إجراءات التقاضي، بما يهدف إلى حماية الحقوق وتحقيق أفضل النتائج الممكنة وفقًا لأحكام القانون.</p>
+                </div>
+                <div class="practice-card reveal reveal-d2">
+                    <div class="icon-wrap"><i class="fas fa-building"></i></div>
+                    <h4>الشركات</h4>
+                    <p>تقديم الاستشارات القانونية للشركات، وصياغة ومراجعة العقود، ودعم القرارات القانونية، وتمثيل الشركات في المنازعات التجارية والمدنية المرتبطة بأعمالها.</p>
+                </div>
+                <div class="practice-card reveal reveal-d3">
+                    <div class="icon-wrap"><i class="fas fa-file-signature"></i></div>
+                    <h4>العقود</h4>
+                    <p>صياغة العقود ومراجعتها وتحليل آثارها القانونية، مع الحرص على حماية مصالح الأطراف وتقليل المخاطر القانونية قبل إبرام الاتفاقات.</p>
+                </div>
+                <div class="practice-card reveal reveal-d1">
+                    <div class="icon-wrap"><i class="fas fa-hand-holding-usd"></i></div>
+                    <h4>التعويضات</h4>
+                    <p>تمثيل العملاء في دعاوى التعويض الناشئة عن المسؤولية العقدية أو التقصيرية، والعمل على تقدير الأضرار والمطالبة بالحقوق وفقًا للقانون.</p>
+                </div>
+                <div class="practice-card reveal reveal-d2">
+                    <div class="icon-wrap"><i class="fas fa-home"></i></div>
+                    <h4>الملكية والعقارات</h4>
+                    <p>تقديم الخدمات القانونية المتعلقة بالملكية، والبيع والشراء، وصحة ونفاذ العقود، ودعاوى الطرد والشفعة وسائر المنازعات العقارية.</p>
+                </div>
+                <div class="practice-card reveal reveal-d3">
+                    <div class="icon-wrap"><i class="fas fa-balance-scale"></i></div>
+                    <h4>الاستشارات القانونية</h4>
+                    <p>تقديم الرأي القانوني المبني على دراسة الوقائع والأنظمة ذات الصلة، بما يساعد العملاء على اتخاذ قرارات قانونية سليمة.</p>
+                </div>
+            </div>
+
+            <div class="section-cta" style="max-width:800px; margin:2rem auto 0; text-align:center;">
+                <p style="color:rgba(34,34,34,0.6); font-weight:300; font-size:0.95rem; line-height:1.8;">
+                    نؤمن بأن كل مجال من مجالات الممارسة يتطلب دراسة مستقلة ومنهجًا قانونيًا يتناسب مع خصوصية كل قضية، لذلك نتعامل مع كل ملف باعتباره حالة قانونية فريدة تستحق التحليل والتخطيط الدقيق.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    القطاعات التي نخدمها (جديد – يحل محل القطاعات القديم)
+    ========================================================== -->
+    <section class="section section-light" aria-label="القطاعات التي نخدمها">
+        <div class="section-inner">
+            <div class="section-head reveal">
+                <span class="eyebrow">● القطاعات</span>
+                <h2>القطاعات التي نخدمها</h2>
+                <p>
+                    لا تختلف القضايا القانونية من حيث النصوص النظامية فحسب، بل تختلف أيضًا باختلاف طبيعة النشاط الذي تنشأ فيه. ولذلك تعتمد المؤسسة على فهم البيئة التشغيلية والاقتصادية لكل قطاع قبل تقديم المشورة القانونية أو بناء استراتيجية التقاضي، بما يضمن حلولًا أكثر واقعية وفاعلية.
+                </p>
+            </div>
+
+            <div class="sectors-grid">
+                <div class="sector-card reveal reveal-d1">
+                    <span class="icon"><i class="fas fa-building"></i></span>
+                    <h4>الشركات التجارية</h4>
+                    <p>نقدم الدعم القانوني للشركات في مختلف مراحل أعمالها، بدءًا من التأسيس، مرورًا بصياغة العقود وإدارة المخاطر القانونية، وصولًا إلى تمثيلها أمام جهات القضاء وتسوية المنازعات.</p>
+                </div>
+                <div class="sector-card reveal reveal-d2">
+                    <span class="icon"><i class="fas fa-chart-line"></i></span>
+                    <h4>المستثمرون</h4>
+                    <p>نوفر للمستثمرين استشارات قانونية تساعدهم على تقييم المخاطر، وحماية استثماراتهم، وإبرام المعاملات وفق أسس قانونية سليمة.</p>
+                </div>
+                <div class="sector-card reveal reveal-d3">
+                    <span class="icon"><i class="fas fa-city"></i></span>
+                    <h4>المطورون العقاريون</h4>
+                    <p>ندعم المشروعات العقارية من خلال مراجعة العقود، وتحليل المراكز القانونية، وتسوية المنازعات المتعلقة بالتطوير والبيع والملكية.</p>
+                </div>
+                <div class="sector-card reveal reveal-d1">
+                    <span class="icon"><i class="fas fa-hard-hat"></i></span>
+                    <h4>المقاولون</h4>
+                    <p>تقديم الدعم القانوني في عقود المقاولات، والمطالبات المالية، ومنازعات التنفيذ، وتسوية الخلافات بين أطراف المشروع.</p>
+                </div>
+                <div class="sector-card reveal reveal-d2">
+                    <span class="icon"><i class="fas fa-university"></i></span>
+                    <h4>المؤسسات</h4>
+                    <p>مساندة المؤسسات في تنظيم أعمالها القانونية، وصياغة اللوائح والعقود، وتمثيلها أمام الجهات القضائية.</p>
+                </div>
+                <div class="sector-card reveal reveal-d3">
+                    <span class="icon"><i class="fas fa-user"></i></span>
+                    <h4>الأفراد</h4>
+                    <p>تقديم خدمات قانونية تراعي خصوصية القضايا الشخصية والمدنية، مع الحرص على بناء علاقة قائمة على الثقة والوضوح والسرية.</p>
+                </div>
+            </div>
+
+            <div class="section-cta" style="max-width:800px; margin:2rem auto 0; text-align:center;">
+                <p style="color:rgba(34,34,34,0.6); font-weight:300; font-size:0.95rem; line-height:1.8;">
+                    نفخر بخدمة عملاء ينتمون إلى قطاعات متنوعة، لأننا نؤمن أن فهم طبيعة النشاط لا يقل أهمية عن فهم النصوص القانونية ذاتها.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    قيادة المؤسسة
     ========================================================== -->
     <section class="section section-gray" aria-label="القيادة">
         <div class="section-inner">
@@ -1971,7 +1941,7 @@
             </div>
 
             <div class="leadership-grid">
-                <div class="leadership-image reveal">
+                <div class="leadership-image reveal" id="leadershipImage">
                     <img src="mahmoud-abdel-hamid-lawyer-portrait.jpg"
                          alt="الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا"
                          loading="lazy"
@@ -2009,7 +1979,7 @@
     </section>
 
     <!-- ==========================================================
-    6. منهج العمل (Timeline)
+    منهج العمل
     ========================================================== -->
     <section class="section section-light" aria-label="منهج العمل">
         <div class="section-inner">
@@ -2064,97 +2034,7 @@
     </section>
 
     <!-- ==========================================================
-    7. مجالات الممارسة القانونية
-    ========================================================== -->
-    <section class="section section-gray" aria-label="مجالات الممارسة">
-        <div class="section-inner">
-            <div class="section-head reveal">
-                <span class="eyebrow">● الممارسة</span>
-                <h2>مجالات الممارسة القانونية</h2>
-                <p>نقدم حلولاً قانونية متكاملة في التخصصات التالية.</p>
-            </div>
-
-            <div class="practice-grid">
-                <div class="practice-card reveal reveal-d1">
-                    <div class="icon-wrap"><i class="fas fa-gavel"></i></div>
-                    <h4>المنازعات المدنية</h4>
-                    <p>قضايا العقود، التعويضات، الملكية والإيجارات.</p>
-                </div>
-                <div class="practice-card reveal reveal-d2">
-                    <div class="icon-wrap"><i class="fas fa-chart-pie"></i></div>
-                    <h4>القانون التجاري</h4>
-                    <p>الشركات، العقود التجارية، والأوراق المالية.</p>
-                </div>
-                <div class="practice-card reveal reveal-d3">
-                    <div class="icon-wrap"><i class="fas fa-building"></i></div>
-                    <h4>الخدمات القانونية للشركات</h4>
-                    <p>هيكلة الشركات، الحوكمة، وصياغة العقود.</p>
-                </div>
-                <div class="practice-card reveal reveal-d1">
-                    <div class="icon-wrap"><i class="fas fa-landmark"></i></div>
-                    <h4>القضاء الإداري</h4>
-                    <p>الطعن في القرارات الإدارية والمنازعات الحكومية.</p>
-                </div>
-                <div class="practice-card reveal reveal-d2">
-                    <div class="icon-wrap"><i class="fas fa-scale-balanced"></i></div>
-                    <h4>الطعن الدستوري</h4>
-                    <p>الدفع بعدم دستورية القوانين أمام المحكمة الدستورية العليا.</p>
-                </div>
-                <div class="practice-card reveal reveal-d3">
-                    <div class="icon-wrap"><i class="fas fa-file-signature"></i></div>
-                    <h4>صياغة العقود</h4>
-                    <p>إعداد ومراجعة العقود التجارية والمدنية.</p>
-                </div>
-            </div>
-
-            <div class="section-cta">
-                <a href="https://alostazlaw.vercel.app/specialties.html" class="btn-outline-gold">عرض جميع المجالات</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==========================================================
-    8. خبراتنا القطاعية
-    ========================================================== -->
-    <section class="section section-light" aria-label="القطاعات التي نخدمها">
-        <div class="section-inner">
-            <div class="section-head reveal">
-                <span class="eyebrow">● القطاعات</span>
-                <h2>خبراتنا القطاعية</h2>
-                <p>نفهم خصوصية كل قطاع، ونقدم حلولًا قانونية تتناسب مع طبيعة نشاطه.</p>
-            </div>
-
-            <div class="sectors-grid">
-                <div class="sector-card reveal reveal-d1">
-                    <span class="icon"><i class="fas fa-building"></i></span>
-                    <h4>الشركات التجارية</h4>
-                </div>
-                <div class="sector-card reveal reveal-d2">
-                    <span class="icon"><i class="fas fa-city"></i></span>
-                    <h4>المطورون العقاريون</h4>
-                </div>
-                <div class="sector-card reveal reveal-d3">
-                    <span class="icon"><i class="fas fa-chart-line"></i></span>
-                    <h4>المستثمرون</h4>
-                </div>
-                <div class="sector-card reveal reveal-d1">
-                    <span class="icon"><i class="fas fa-industry"></i></span>
-                    <h4>القطاع الصناعي</h4>
-                </div>
-                <div class="sector-card reveal reveal-d2">
-                    <span class="icon"><i class="fas fa-university"></i></span>
-                    <h4>المؤسسات</h4>
-                </div>
-                <div class="sector-card reveal reveal-d3">
-                    <span class="icon"><i class="fas fa-user"></i></span>
-                    <h4>الأفراد</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==========================================================
-    9. داخل المؤسسة (معرض صور)
+    داخل المؤسسة (معرض صور)
     ========================================================== -->
     <section class="section section-gray" aria-label="معرض المؤسسة">
         <div class="section-inner">
@@ -2188,58 +2068,9 @@
     </section>
 
     <!-- ==========================================================
-    10. المعرفة القانونية (مدونة – 3 مقالات)
+    الأسئلة الشائعة
     ========================================================== -->
-    <section class="section section-light" aria-label="المعرفة القانونية">
-        <div class="section-inner">
-            <div class="section-head reveal">
-                <span class="eyebrow">● المعرفة القانونية</span>
-                <h2>أحدث المقالات القانونية</h2>
-                <p>اطلع على أحدث ما ننشره في مجال القانون المصري.</p>
-            </div>
-
-            <div class="blog-grid">
-                <article class="blog-card reveal reveal-d1">
-                    <div class="image" style="background: #e8e4dd;">⚖️</div>
-                    <div class="content">
-                        <div class="meta"><span>٥ دقائق</span> <span>●</span> <span>١ يوليو ٢٠٢٦</span></div>
-                        <h4>شروط صحة عقد البيع في القانون المدني المصري</h4>
-                        <p>تحليل تفصيلي لأركان وشروط عقد البيع وفقاً لأحكام القانون المدني.</p>
-                        <a href="#" class="read-more">اقرأ المقال ←</a>
-                    </div>
-                </article>
-
-                <article class="blog-card reveal reveal-d2">
-                    <div class="image" style="background: #ddd8cf;">🏛️</div>
-                    <div class="content">
-                        <div class="meta"><span>٤ دقائق</span> <span>●</span> <span>٢٥ يونيو ٢٠٢٦</span></div>
-                        <h4>الطعن بالنقض في الأحكام الجنائية – دليل إجرائي</h4>
-                        <p>شرح الإجراءات والشروط الواجب توفرها لقبول الطعن بالنقض.</p>
-                        <a href="#" class="read-more">اقرأ المقال ←</a>
-                    </div>
-                </article>
-
-                <article class="blog-card reveal reveal-d3">
-                    <div class="image" style="background: #d5d0c7;">📋</div>
-                    <div class="content">
-                        <div class="meta"><span>٦ دقائق</span> <span>●</span> <span>١٨ يونيو ٢٠٢٦</span></div>
-                        <h4>حقوق المطلقة في القانون المصري – النفقة والحضانة</h4>
-                        <p>استعراض شامل لحقوق المطلقة في القانون المصري.</p>
-                        <a href="#" class="read-more">اقرأ المقال ←</a>
-                    </div>
-                </article>
-            </div>
-
-            <div class="section-cta">
-                <a href="https://alostazlaw.vercel.app/blog.html" class="btn-outline-gold">المزيد من المقالات</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==========================================================
-    11. الأسئلة الشائعة (5 أسئلة)
-    ========================================================== -->
-    <section class="section section-gray" aria-label="الأسئلة الشائعة">
+    <section class="section section-light" aria-label="الأسئلة الشائعة">
         <div class="section-inner">
             <div class="section-head reveal">
                 <span class="eyebrow">● استفسارات</span>
@@ -2298,7 +2129,7 @@
     </section>
 
     <!-- ==========================================================
-    12. الخاتمة – لنبدأ الحديث (خلفية داكنة)
+    الخاتمة – لنبدأ الحديث
     ========================================================== -->
     <section class="cta-final" aria-label="لنبدأ الحديث">
         <div class="section-inner reveal">
@@ -2314,7 +2145,7 @@
     </section>
 
     <!-- ==========================================================
-    FOOTER – 4 أعمدة
+    FOOTER
     ========================================================== -->
     <footer class="site-footer" role="contentinfo">
         <div class="footer-inner">
@@ -2404,6 +2235,26 @@
             document.querySelectorAll('.reveal').forEach(function(el) {
                 revealObserver.observe(el);
             });
+
+            // ==========================================================
+            // Leadership Image Auto-Colorize (تلوين تلقائي للصورة)
+            // ==========================================================
+            const leadershipImage = document.getElementById('leadershipImage');
+            if (leadershipImage) {
+                const imgObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            // إضافة الكلاس بعد 300ms لبدء الانتقال التدريجي
+                            setTimeout(function() {
+                                leadershipImage.classList.add('colorized');
+                            }, 300);
+                            imgObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.3 });
+
+                imgObserver.observe(leadershipImage);
+            }
 
             // FAQ Accordion
             const faqItems = document.querySelectorAll('.faq-item');
