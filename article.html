@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta name="google-site-verification" content="Uqbjr1w7Q831Lo6JPFEe9_lK86Kp55P79Lwfp1j6EX8" />
 
-    <!-- سيتم تعيينها ديناميكياً عبر JavaScript -->
     <title id="page-title">جاري تحميل المقال...</title>
     <meta id="page-description" name="description" content="تحليل قانوني متخصص في مجال القانون المصري." />
     <link rel="canonical" id="canonical-url" href="https://alostazlaw.vercel.app/article.html" />
 
-    <!-- Open Graph -->
     <meta id="og-title" property="og:title" content="جاري تحميل المقال..." />
     <meta id="og-description" property="og:description" content="تحليل قانوني متخصص في مجال القانون المصري." />
     <meta property="og:type" content="article" />
@@ -24,12 +22,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;900&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-    <!-- marked.js لتحويل Markdown إلى HTML -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js">
-    </script>
-    <!-- DOMPurify لتنقية المحتوى ومنع XSS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
 
     <style>
         /* ==========================================================
@@ -149,7 +143,7 @@
         }
 
         /* ==========================================================
-               HEADER (مطابق لـ blog.html)
+               HEADER – داكن دائماً (بدون شفافية)
                ========================================================== */
         .site-header {
             position: fixed;
@@ -162,16 +156,17 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: transparent;
-            transition: all 0.5s var(--ease-out);
-        }
-        .site-header.scrolled {
-            background: rgba(11, 17, 27, 0.94);
+            background: rgba(11, 17, 27, 0.98);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(176, 141, 87, 0.08);
-            height: 64px;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s var(--ease-out);
+        }
+        /* تم إزالة .scrolled – الهيدر يبقى داكناً دائماً */
+        .site-header.scrolled {
+            background: rgba(11, 17, 27, 0.98);
+            height: 64px;
         }
 
         .header-brand {
@@ -520,6 +515,44 @@
         }
 
         /* ==========================================================
+               FLOATING BACK BUTTON – زر العودة إلى المدونة
+               ========================================================== */
+        .float-back {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 500;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+            transition: all 0.5s var(--ease-out);
+            border: 1px solid rgba(176, 141, 87, 0.2);
+            background: var(--deep-navy);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.4rem;
+        }
+        .float-back:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 40px rgba(176, 141, 87, 0.2);
+            border-color: var(--matte-gold);
+            background: var(--matte-gold);
+            color: #000;
+        }
+        .float-back i {
+            transition: transform 0.4s ease;
+        }
+        .float-back:hover i {
+            transform: scale(1.1);
+        }
+
+        /* ==========================================================
                FLOATING WHATSAPP
                ========================================================== */
         .float-whatsapp {
@@ -603,7 +636,7 @@
         }
 
         /* ==========================================================
-               FOOTER (مطابق لـ blog.html)
+               FOOTER
                ========================================================== */
         .site-footer {
             background: var(--footer-navy);
@@ -726,12 +759,11 @@
                 padding: 0 1rem;
                 height: 64px;
             }
-            .site-header.scrolled {
-                height: 60px;
-            }
+
             .article-wrapper {
                 padding: 100px 1rem 3rem;
             }
+
             .share-sidebar {
                 top: auto;
                 bottom: 20px;
@@ -749,6 +781,14 @@
                 width: 40px;
                 transform: translateY(-3px);
             }
+
+            .float-back {
+                width: 48px;
+                height: 48px;
+                bottom: 1.2rem;
+                right: 1.2rem;
+                font-size: 1.2rem;
+            }
         }
 
         @media (max-width: 640px) {
@@ -756,6 +796,7 @@
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
+
             .float-whatsapp {
                 width: 44px;
                 height: 44px;
@@ -765,6 +806,15 @@
             .float-whatsapp i {
                 font-size: 1.2rem;
             }
+
+            .float-back {
+                width: 44px;
+                height: 44px;
+                bottom: 5rem;
+                right: 1rem;
+                font-size: 1rem;
+            }
+
             .header-brand-text .name {
                 font-size: 0.8rem;
             }
@@ -775,6 +825,7 @@
                 width: 30px;
                 height: 30px;
             }
+
             .article-wrapper .article-title {
                 font-size: 1.8rem;
             }
@@ -791,6 +842,13 @@
     </style>
 </head>
 <body>
+
+    <!-- ==========================================================
+    FLOATING BACK BUTTON – العودة إلى المدونة
+    ========================================================== -->
+    <a href="blog.html" class="float-back" aria-label="العودة إلى المدونة" title="العودة إلى المدونة">
+        <i class="fas fa-arrow-right"></i>
+    </a>
 
     <!-- ==========================================================
     FLOATING WHATSAPP
@@ -811,7 +869,7 @@
     </div>
 
     <!-- ==========================================================
-    HEADER
+    HEADER – داكن دائماً
     ========================================================== -->
     <header class="site-header" id="siteHeader" role="banner">
         <div class="header-brand">
@@ -886,7 +944,7 @@
 
             <div id="article-body" class="article-body"></div>
 
-            <!-- Back to Blog -->
+            <!-- Back to Blog (نصي) -->
             <div class="text-center mt-10 pt-6 border-t border-charcoal/5">
                 <a href="blog.html" class="btn-outline-gold" style="padding:10px 28px; font-size:0.85rem;">
                     <i class="fas fa-arrow-right" style="margin-left:6px;"></i> العودة إلى المدونة
@@ -961,11 +1019,16 @@
             'use strict';
 
             // ==========================================================
-            // HEADER SCROLL
+            // HEADER – تم إزالة تأثير scroll لأن الهيدر داكن دائماً
+            // لكن نحتفظ بتغيير الارتفاع عند التمرير
             // ==========================================================
             const header = document.getElementById('siteHeader');
             window.addEventListener('scroll', function() {
-                header.classList.toggle('scrolled', window.scrollY > 50);
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
             }, { passive: true });
 
             // ==========================================================
@@ -1012,7 +1075,7 @@
                     let md = await response.text();
 
                     // ==========================================================
-                    // EXTRACT FRONT MATTER (title, image, description)
+                    // EXTRACT FRONT MATTER
                     // ==========================================================
                     let title = '';
                     let image = '';
