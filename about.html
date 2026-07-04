@@ -213,7 +213,7 @@
         }
 
         /* ==========================================================
-               HEADER
+               HEADER (مُحدَّث مع زر "تابع قضيتك")
                ========================================================== */
         .site-header {
             position: fixed;
@@ -363,6 +363,27 @@
             transform: translateY(-2px);
         }
 
+        /* زر "تابع قضيتك" الجديد */
+        .header-actions .btn-inquiry {
+            padding: 8px 18px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #fff;
+            background: rgba(255, 255, 255, 0.03);
+            transition: all 0.4s var(--ease-out);
+            font-family: var(--font-ar);
+            cursor: pointer;
+            position: relative;
+        }
+        .header-actions .btn-inquiry:hover {
+            border-color: var(--matte-gold);
+            background: rgba(176, 141, 87, 0.06);
+            color: var(--matte-gold);
+            transform: translateY(-2px);
+        }
+
         .menu-toggle {
             display: none;
             font-size: 1.4rem;
@@ -461,7 +482,7 @@
         }
 
         /* ==========================================================
-               HERO
+               باقي الأنماط (مختصرة للحفاظ على المساحة)
                ========================================================== */
         .hero-about {
             padding: 120px 2rem 4rem;
@@ -476,8 +497,7 @@
             position: absolute;
             inset: 0;
             opacity: 0.03;
-            background-image:
-                radial-gradient(circle at 20% 30%, var(--matte-gold) 1px, transparent 1px),
+            background-image: radial-gradient(circle at 20% 30%, var(--matte-gold) 1px, transparent 1px),
                 radial-gradient(circle at 80% 70%, var(--matte-gold) 1px, transparent 1px);
             background-size: 60px 60px;
             pointer-events: none;
@@ -600,9 +620,6 @@
             flex-wrap: wrap;
         }
 
-        /* ==========================================================
-               ABOUT – تعريف المؤسسة
-               ========================================================== */
         .about-definition {
             padding: 5rem 2rem;
             background: var(--warm-off-white);
@@ -707,9 +724,6 @@
             display: block;
         }
 
-        /* ==========================================================
-               SECTIONS
-               ========================================================== */
         .section {
             padding: 5rem 2rem;
         }
@@ -767,9 +781,6 @@
             color: rgba(255, 255, 255, 0.6);
         }
 
-        /* ==========================================================
-               PHILOSOPHY
-               ========================================================== */
         .philosophy-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -824,9 +835,6 @@
             font-weight: 300;
         }
 
-        /* ==========================================================
-               VALUES
-               ========================================================== */
         .values-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -881,9 +889,6 @@
             font-weight: 300;
         }
 
-        /* ==========================================================
-               LEADERSHIP
-               ========================================================== */
         .leadership-grid {
             display: grid;
             grid-template-columns: 1fr 1.2fr 0.8fr;
@@ -988,9 +993,6 @@
             font-style: italic;
         }
 
-        /* ==========================================================
-               PROCESS
-               ========================================================== */
         .process-timeline {
             max-width: 800px;
             margin: 0 auto;
@@ -1066,9 +1068,6 @@
             border-radius: 8px;
         }
 
-        /* ==========================================================
-               WHY TRUST
-               ========================================================== */
         .trust-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -1116,9 +1115,6 @@
             color: var(--charcoal);
         }
 
-        /* ==========================================================
-               GALLERY
-               ========================================================== */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -1143,15 +1139,7 @@
             transform: scale(1.01);
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
         }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
 
-        /* ==========================================================
-               FOUNDER MESSAGE
-               ========================================================== */
         .founder-message {
             padding: 4rem 2rem;
             background: var(--very-dark-navy);
@@ -1192,9 +1180,6 @@
             letter-spacing: 0.06em;
         }
 
-        /* ==========================================================
-               CTA FINAL
-               ========================================================== */
         .cta-final {
             background: var(--very-dark-navy);
             padding: 4.5rem 2rem;
@@ -1224,9 +1209,6 @@
             gap: 1rem;
         }
 
-        /* ==========================================================
-               FLOATING WHATSAPP
-               ========================================================== */
         .float-whatsapp {
             position: fixed;
             bottom: 2rem;
@@ -1262,9 +1244,6 @@
             transform: scale(1.05);
         }
 
-        /* ==========================================================
-               FOOTER
-               ========================================================== */
         .site-footer {
             background: var(--footer-navy);
             padding: 3rem 2rem 1.5rem;
@@ -1368,9 +1347,6 @@
             opacity: 0.3;
         }
 
-        /* ==========================================================
-               REVEAL
-               ========================================================== */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -1450,7 +1426,8 @@
                 display: none;
             }
             .header-actions .btn-appointment,
-            .header-actions .btn-contact {
+            .header-actions .btn-contact,
+            .header-actions .btn-inquiry {
                 display: none;
             }
             .menu-toggle {
@@ -1600,7 +1577,7 @@
     </a>
 
     <!-- ==========================================================
-    HEADER
+    HEADER – مُحدَّث مع "تابع قضيتك"
     ========================================================== -->
     <header class="site-header" id="siteHeader" role="banner">
         <div class="header-brand">
@@ -1616,19 +1593,23 @@
             <a href="https://alostazlaw.vercel.app/about.html" class="active">عن المؤسسة</a>
             <a href="https://alostazlaw.vercel.app/specialties.html">التخصصات</a>
             <a href="https://alostazlaw.vercel.app/blog.html">المدونة</a>
+            <!-- رابط جديد في القائمة -->
+            <a href="https://alostazlaw.vercel.app/client-inquiry.html">تابع قضيتك</a>
             <a href="https://alostazlaw.vercel.app/contact.html">اتصل بنا</a>
         </nav>
 
         <div class="header-actions">
             <a href="https://alostazlaw.vercel.app/contact.html?tab=consult" class="btn-consult">طلب استشارة</a>
             <a href="https://alostazlaw.vercel.app/contact.html?tab=appointment" class="btn-appointment">حجز موعد</a>
+            <!-- زر جديد "تابع قضيتك" -->
+            <a href="https://alostazlaw.vercel.app/client-inquiry.html" class="btn-inquiry">تابع قضيتك</a>
             <a href="https://alostazlaw.vercel.app/contact.html" class="btn-contact">اتصل بنا</a>
             <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة"><i class="fas fa-bars-staggered"></i></button>
         </div>
     </header>
 
     <!-- ==========================================================
-    MOBILE MENU
+    MOBILE MENU – مُحدَّث مع "تابع قضيتك"
     ========================================================== -->
     <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
         <button class="mobile-menu-close" id="menuClose" aria-label="إغلاق القائمة"><i class="fas fa-times"></i></button>
@@ -1637,11 +1618,14 @@
             <a href="https://alostazlaw.vercel.app/about.html" onclick="closeMobileMenu()">عن المؤسسة</a>
             <a href="https://alostazlaw.vercel.app/specialties.html" onclick="closeMobileMenu()">التخصصات</a>
             <a href="https://alostazlaw.vercel.app/blog.html" onclick="closeMobileMenu()">المدونة</a>
+            <!-- رابط جديد في القائمة الجوالة -->
+            <a href="https://alostazlaw.vercel.app/client-inquiry.html" onclick="closeMobileMenu()">تابع قضيتك</a>
             <a href="https://alostazlaw.vercel.app/contact.html" onclick="closeMobileMenu()">اتصل بنا</a>
             <div class="divider"></div>
             <div class="actions">
                 <a href="https://alostazlaw.vercel.app/contact.html?tab=consult" class="btn-gold" onclick="closeMobileMenu()">طلب استشارة</a>
                 <a href="https://alostazlaw.vercel.app/contact.html?tab=appointment" class="btn-outline-white" onclick="closeMobileMenu()">حجز موعد</a>
+                <a href="https://alostazlaw.vercel.app/client-inquiry.html" class="btn-outline-white" onclick="closeMobileMenu()">تابع قضيتك</a>
                 <a href="https://alostazlaw.vercel.app/contact.html" class="btn-outline-white" onclick="closeMobileMenu()">اتصل بنا</a>
             </div>
         </nav>
@@ -1660,20 +1644,12 @@
                 <span class="en-tag">About Our Firm</span>
                 <h1>مؤسسة الأستاذ<br /><span class="gold-text">محمود عبد الحميد</span></h1>
                 <p class="sub">للمحاماة والاستشارات القانونية</p>
-                <p class="sub sub-gold">
-                    نبني الثقة بالخبرة، ونحمي المصالح باستراتيجية قانونية مدروسة.
-                </p>
+                <p class="sub sub-gold">نبني الثقة بالخبرة، ونحمي المصالح باستراتيجية قانونية مدروسة.</p>
             </div>
 
             <div class="hero-grid">
                 <div class="hero-image reveal">
-                    <img src="about.png"
-                         alt="مقر مؤسسة الأستاذ محمود عبد الحميد للمحاماة"
-                         title="مقر المؤسسة"
-                         loading="lazy"
-                         width="800"
-                         height="600"
-                         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22 viewBox=%220 0 800 600%22%3E%3Crect fill=%22%23FAFAF8%22 width=%22800%22 height=%22600%22/%3E%3Ctext x=%22400%22 y=%22300%22 text-anchor=%22middle%22 fill=%22%23B08D57%22 font-size=%2228%22 font-family=%22sans-serif%22%3E%D9%85%D9%82%D8%B1%20%D8%A7%D9%84%D9%85%D8%A4%D8%B3%D8%B3%D8%A9%3C/text%3E%3C/svg%3E';" />
+                    <img src="about.png" alt="مقر مؤسسة الأستاذ محمود عبد الحميد للمحاماة" loading="lazy" width="800" height="600" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22 viewBox=%220 0 800 600%22%3E%3Crect fill=%22%23FAFAF8%22 width=%22800%22 height=%22600%22/%3E%3Ctext x=%22400%22 y=%22300%22 text-anchor=%22middle%22 fill=%22%23B08D57%22 font-size=%2228%22 font-family=%22sans-serif%22%3E%D9%85%D9%82%D8%B1%20%D8%A7%D9%84%D9%85%D8%A4%D8%B3%D8%B3%D8%A9%3C/text%3E%3C/svg%3E';" />
                 </div>
 
                 <div class="hero-text reveal" style="transition-delay:0.15s;">
@@ -1695,7 +1671,7 @@
     </section>
 
     <!-- ==========================================================
-    2. من نحن (تعريف المؤسسة)
+    2. من نحن
     ========================================================== -->
     <section class="about-definition" aria-label="من نحن">
         <div class="inner">
@@ -1714,32 +1690,15 @@
                     </p>
 
                     <div class="def-cards">
-                        <div class="def-card">
-                            <span class="icon"><i class="fas fa-scale-balanced"></i></span>
-                            <h4>مؤسسة قانونية</h4>
-                        </div>
-                        <div class="def-card">
-                            <span class="icon"><i class="fas fa-building"></i></span>
-                            <h4>خدمات للشركات والأفراد</h4>
-                        </div>
-                        <div class="def-card">
-                            <span class="icon"><i class="fas fa-shield-alt"></i></span>
-                            <h4>حلول قانونية متخصصة</h4>
-                        </div>
-                        <div class="def-card">
-                            <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
-                            <h4>جمهورية مصر العربية</h4>
-                        </div>
+                        <div class="def-card"><span class="icon"><i class="fas fa-scale-balanced"></i></span><h4>مؤسسة قانونية</h4></div>
+                        <div class="def-card"><span class="icon"><i class="fas fa-building"></i></span><h4>خدمات للشركات والأفراد</h4></div>
+                        <div class="def-card"><span class="icon"><i class="fas fa-shield-alt"></i></span><h4>حلول قانونية متخصصة</h4></div>
+                        <div class="def-card"><span class="icon"><i class="fas fa-map-marker-alt"></i></span><h4>جمهورية مصر العربية</h4></div>
                     </div>
                 </div>
 
                 <div class="def-image reveal" style="transition-delay:0.15s;">
-                    <img src="about.png"
-                         alt="مقر مؤسسة الأستاذ محمود عبد الحميد للمحاماة"
-                         loading="lazy"
-                         width="800"
-                         height="600"
-                         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22 viewBox=%220 0 800 600%22%3E%3Crect fill=%22%23FAFAF8%22 width=%22800%22 height=%22600%22/%3E%3Ctext x=%22400%22 y=%22300%22 text-anchor=%22middle%22 fill=%22%23B08D57%22 font-size=%2228%22 font-family=%22sans-serif%22%3E%D9%85%D9%82%D8%B1%20%D8%A7%D9%84%D9%85%D8%A4%D8%B3%D8%B3%D8%A9%3C/text%3E%3C/svg%3E';" />
+                    <img src="about.png" alt="مقر المؤسسة" loading="lazy" width="800" height="600" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22 viewBox=%220 0 800 600%22%3E%3Crect fill=%22%23FAFAF8%22 width=%22800%22 height=%22600%22/%3E%3Ctext x=%22400%22 y=%22300%22 text-anchor=%22middle%22 fill=%22%23B08D57%22 font-size=%2228%22 font-family=%22sans-serif%22%3E%D9%85%D9%82%D8%B1%20%D8%A7%D9%84%D9%85%D8%A4%D8%B3%D8%B3%D8%A9%3C/text%3E%3C/svg%3E';" />
                 </div>
             </div>
         </div>
@@ -1757,26 +1716,10 @@
             </div>
 
             <div class="philosophy-grid">
-                <div class="philosophy-card reveal reveal-d1">
-                    <span class="icon"><i class="fas fa-search"></i></span>
-                    <h4>نفهم أولاً</h4>
-                    <p>لا نقدم رأيًا قانونيًا قبل دراسة الوقائع وتحليلها بعمق.</p>
-                </div>
-                <div class="philosophy-card reveal reveal-d2">
-                    <span class="icon"><i class="fas fa-microscope"></i></span>
-                    <h4>نحلل بدقة</h4>
-                    <p>كل ملف قانوني يخضع لتحليل مستقل وشامل.</p>
-                </div>
-                <div class="philosophy-card reveal reveal-d3">
-                    <span class="icon"><i class="fas fa-map"></i></span>
-                    <h4>نخطط باستراتيجية</h4>
-                    <p>لكل قضية مسار قانوني يناسب طبيعتها وأهدافها.</p>
-                </div>
-                <div class="philosophy-card reveal reveal-d4">
-                    <span class="icon"><i class="fas fa-gavel"></i></span>
-                    <h4>ننفذ باحتراف</h4>
-                    <p>نمثل عملاءنا بأعلى درجات الالتزام والمسؤولية.</p>
-                </div>
+                <div class="philosophy-card reveal reveal-d1"><span class="icon"><i class="fas fa-search"></i></span><h4>نفهم أولاً</h4><p>لا نقدم رأيًا قانونيًا قبل دراسة الوقائع وتحليلها بعمق.</p></div>
+                <div class="philosophy-card reveal reveal-d2"><span class="icon"><i class="fas fa-microscope"></i></span><h4>نحلل بدقة</h4><p>كل ملف قانوني يخضع لتحليل مستقل وشامل.</p></div>
+                <div class="philosophy-card reveal reveal-d3"><span class="icon"><i class="fas fa-map"></i></span><h4>نخطط باستراتيجية</h4><p>لكل قضية مسار قانوني يناسب طبيعتها وأهدافها.</p></div>
+                <div class="philosophy-card reveal reveal-d4"><span class="icon"><i class="fas fa-gavel"></i></span><h4>ننفذ باحتراف</h4><p>نمثل عملاءنا بأعلى درجات الالتزام والمسؤولية.</p></div>
             </div>
         </div>
     </section>
@@ -1793,42 +1736,18 @@
             </div>
 
             <div class="values-grid">
-                <div class="value-card reveal reveal-d1">
-                    <span class="icon"><i class="fas fa-scale-balanced"></i></span>
-                    <h4>النزاهة</h4>
-                    <p>الأمانة والوضوح في كل رأي وإجراء.</p>
-                </div>
-                <div class="value-card reveal reveal-d2">
-                    <span class="icon"><i class="fas fa-lock"></i></span>
-                    <h4>السرية</h4>
-                    <p>حماية خصوصية معلومات ووثائق العملاء.</p>
-                </div>
-                <div class="value-card reveal reveal-d3">
-                    <span class="icon"><i class="fas fa-briefcase"></i></span>
-                    <h4>الاحتراف</h4>
-                    <p>أعلى معايير المهنة في كل خدمة نقدمها.</p>
-                </div>
-                <div class="value-card reveal reveal-d1">
-                    <span class="icon"><i class="fas fa-crosshairs"></i></span>
-                    <h4>الدقة</h4>
-                    <p>التحليل والصياغة والمتابعة بدقة متناهية.</p>
-                </div>
-                <div class="value-card reveal reveal-d2">
-                    <span class="icon"><i class="fas fa-handshake"></i></span>
-                    <h4>المسؤولية</h4>
-                    <p>الالتزام تجاه عملائنا وقضاياهم.</p>
-                </div>
-                <div class="value-card reveal reveal-d3">
-                    <span class="icon"><i class="fas fa-book"></i></span>
-                    <h4>التعلم المستمر</h4>
-                    <p>تحديث معرفتنا القانونية باستمرار.</p>
-                </div>
+                <div class="value-card reveal reveal-d1"><span class="icon"><i class="fas fa-scale-balanced"></i></span><h4>النزاهة</h4><p>الأمانة والوضوح في كل رأي وإجراء.</p></div>
+                <div class="value-card reveal reveal-d2"><span class="icon"><i class="fas fa-lock"></i></span><h4>السرية</h4><p>حماية خصوصية معلومات ووثائق العملاء.</p></div>
+                <div class="value-card reveal reveal-d3"><span class="icon"><i class="fas fa-briefcase"></i></span><h4>الاحتراف</h4><p>أعلى معايير المهنة في كل خدمة نقدمها.</p></div>
+                <div class="value-card reveal reveal-d1"><span class="icon"><i class="fas fa-crosshairs"></i></span><h4>الدقة</h4><p>التحليل والصياغة والمتابعة بدقة متناهية.</p></div>
+                <div class="value-card reveal reveal-d2"><span class="icon"><i class="fas fa-handshake"></i></span><h4>المسؤولية</h4><p>الالتزام تجاه عملائنا وقضاياهم.</p></div>
+                <div class="value-card reveal reveal-d3"><span class="icon"><i class="fas fa-book"></i></span><h4>التعلم المستمر</h4><p>تحديث معرفتنا القانونية باستمرار.</p></div>
             </div>
         </div>
     </section>
 
     <!-- ==========================================================
-    5. قيادة المؤسسة (أهم قسم)
+    5. قيادة المؤسسة
     ========================================================== -->
     <section class="section section-gray" aria-label="القيادة">
         <div class="section-inner">
@@ -1840,12 +1759,7 @@
 
             <div class="leadership-grid">
                 <div class="leadership-image reveal" id="leadershipImage">
-                    <img src="mahmoud-abdel-hamid-lawyer-portrait.jpg"
-                         alt="الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا"
-                         loading="lazy"
-                         width="400"
-                         height="533"
-                         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22533%22 viewBox=%220 0 400 533%22%3E%3Crect fill=%22%23FAFAF8%22 width=%22400%22 height=%22533%22/%3E%3Ctext x=%22200%22 y=%22266%22 text-anchor=%22middle%22 fill=%22%23B08D57%22 font-size=%2220%22 font-family=%22sans-serif%22%3E%D8%A7%D9%84%D9%85%D8%A4%D8%B3%D8%B3%3C/text%3E%3C/svg%3E';" />
+                    <img src="mahmoud-abdel-hamid-lawyer-portrait.jpg" alt="الأستاذ محمود عبد الحميد" loading="lazy" width="400" height="533" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22533%22 viewBox=%220 0 400 533%22%3E%3Crect fill=%22%23FAFAF8%22 width=%22400%22 height=%22533%22/%3E%3Ctext x=%22200%22 y=%22266%22 text-anchor=%22middle%22 fill=%22%23B08D57%22 font-size=%2220%22 font-family=%22sans-serif%22%3E%D8%A7%D9%84%D9%85%D8%A4%D8%B3%D8%B3%3C/text%3E%3C/svg%3E';" />
                 </div>
 
                 <div class="leadership-content reveal" style="transition-delay:0.15s;">
@@ -1867,7 +1781,6 @@
                 <div class="leadership-side reveal" style="transition-delay:0.3s;">
                     <div class="side-label">الصفة</div>
                     <div class="side-value">محام بالنقض</div>
-
                     <div class="side-label">مجالات التركيز</div>
                     <div class="side-tags">
                         <span>القانون المدني</span>
@@ -1881,7 +1794,7 @@
     </section>
 
     <!-- ==========================================================
-    6. منهج العمل (Timeline)
+    6. منهج العمل
     ========================================================== -->
     <section class="section section-light" aria-label="منهج العمل">
         <div class="section-inner">
@@ -1892,41 +1805,11 @@
             </div>
 
             <div class="process-timeline">
-                <div class="process-step reveal reveal-d1">
-                    <span class="num">١</span>
-                    <div class="step-content">
-                        <h4>الاستماع</h4>
-                        <p>نستمع إلى عميلنا لفهم الوقائع والأهداف والتحديات.</p>
-                    </div>
-                </div>
-                <div class="process-step reveal reveal-d2">
-                    <span class="num">٢</span>
-                    <div class="step-content">
-                        <h4>التحليل</h4>
-                        <p>ندرس الموقف القانوني بعمق، ونحلل الأدلة والمستندات.</p>
-                    </div>
-                </div>
-                <div class="process-step reveal reveal-d3">
-                    <span class="num">٣</span>
-                    <div class="step-content">
-                        <h4>الاستراتيجية</h4>
-                        <p>نضع خطة قانونية واضحة تتناسب مع طبيعة القضية.</p>
-                    </div>
-                </div>
-                <div class="process-step reveal reveal-d4">
-                    <span class="num">٤</span>
-                    <div class="step-content">
-                        <h4>التمثيل</h4>
-                        <p>نمثل عملاءنا أمام المحاكم باحترافية ومتابعة دقيقة.</p>
-                    </div>
-                </div>
-                <div class="process-step reveal reveal-d1">
-                    <span class="num">٥</span>
-                    <div class="step-content">
-                        <h4>المتابعة</h4>
-                        <p>نواصل متابعة القضية حتى الحكم النهائي، ونقدم الاستشارة اللازمة.</p>
-                    </div>
-                </div>
+                <div class="process-step reveal reveal-d1"><span class="num">١</span><div class="step-content"><h4>الاستماع</h4><p>نستمع إلى عميلنا لفهم الوقائع والأهداف والتحديات.</p></div></div>
+                <div class="process-step reveal reveal-d2"><span class="num">٢</span><div class="step-content"><h4>التحليل</h4><p>ندرس الموقف القانوني بعمق، ونحلل الأدلة والمستندات.</p></div></div>
+                <div class="process-step reveal reveal-d3"><span class="num">٣</span><div class="step-content"><h4>الاستراتيجية</h4><p>نضع خطة قانونية واضحة تتناسب مع طبيعة القضية.</p></div></div>
+                <div class="process-step reveal reveal-d4"><span class="num">٤</span><div class="step-content"><h4>التمثيل</h4><p>نمثل عملاءنا أمام المحاكم باحترافية ومتابعة دقيقة.</p></div></div>
+                <div class="process-step reveal reveal-d1"><span class="num">٥</span><div class="step-content"><h4>المتابعة</h4><p>نواصل متابعة القضية حتى الحكم النهائي، ونقدم الاستشارة اللازمة.</p></div></div>
             </div>
 
             <div class="process-footer">
@@ -1947,36 +1830,18 @@
             </div>
 
             <div class="trust-grid">
-                <div class="trust-card reveal reveal-d1">
-                    <span class="icon"><i class="fas fa-check-circle"></i></span>
-                    <h4>دراسة دقيقة</h4>
-                </div>
-                <div class="trust-card reveal reveal-d2">
-                    <span class="icon"><i class="fas fa-check-circle"></i></span>
-                    <h4>شفافية</h4>
-                </div>
-                <div class="trust-card reveal reveal-d3">
-                    <span class="icon"><i class="fas fa-check-circle"></i></span>
-                    <h4>تواصل مستمر</h4>
-                </div>
-                <div class="trust-card reveal reveal-d1">
-                    <span class="icon"><i class="fas fa-check-circle"></i></span>
-                    <h4>سرية</h4>
-                </div>
-                <div class="trust-card reveal reveal-d2">
-                    <span class="icon"><i class="fas fa-check-circle"></i></span>
-                    <h4>تمثيل احترافي</h4>
-                </div>
-                <div class="trust-card reveal reveal-d3">
-                    <span class="icon"><i class="fas fa-check-circle"></i></span>
-                    <h4>حلول عملية</h4>
-                </div>
+                <div class="trust-card reveal reveal-d1"><span class="icon"><i class="fas fa-check-circle"></i></span><h4>دراسة دقيقة</h4></div>
+                <div class="trust-card reveal reveal-d2"><span class="icon"><i class="fas fa-check-circle"></i></span><h4>شفافية</h4></div>
+                <div class="trust-card reveal reveal-d3"><span class="icon"><i class="fas fa-check-circle"></i></span><h4>تواصل مستمر</h4></div>
+                <div class="trust-card reveal reveal-d1"><span class="icon"><i class="fas fa-check-circle"></i></span><h4>سرية</h4></div>
+                <div class="trust-card reveal reveal-d2"><span class="icon"><i class="fas fa-check-circle"></i></span><h4>تمثيل احترافي</h4></div>
+                <div class="trust-card reveal reveal-d3"><span class="icon"><i class="fas fa-check-circle"></i></span><h4>حلول عملية</h4></div>
             </div>
         </div>
     </section>
 
     <!-- ==========================================================
-    8. داخل المؤسسة (معرض صور)
+    8. داخل المؤسسة
     ========================================================== -->
     <section class="section section-light" aria-label="داخل المؤسسة">
         <div class="section-inner">
@@ -1987,24 +1852,12 @@
             </div>
 
             <div class="gallery-grid">
-                <div class="gallery-item reveal reveal-d1" style="background: #e8e4dd; color:rgba(34,34,34,0.2); font-size:0.8rem;">
-                    <span>المكتب</span>
-                </div>
-                <div class="gallery-item reveal reveal-d2" style="background: #ddd8cf; color:rgba(34,34,34,0.2); font-size:0.8rem;">
-                    <span>غرفة الاجتماعات</span>
-                </div>
-                <div class="gallery-item reveal reveal-d3" style="background: #d5d0c7; color:rgba(34,34,34,0.2); font-size:0.8rem;">
-                    <span>المكتبة القانونية</span>
-                </div>
-                <div class="gallery-item reveal reveal-d1" style="background: #e0dbd2; color:rgba(34,34,34,0.2); font-size:0.8rem;">
-                    <span>استقبال العملاء</span>
-                </div>
-                <div class="gallery-item reveal reveal-d2" style="background: #d8d3ca; color:rgba(34,34,34,0.2); font-size:0.8rem;">
-                    <span>بيئة العمل</span>
-                </div>
-                <div class="gallery-item reveal reveal-d3" style="background: #e5e0d7; color:rgba(34,34,34,0.2); font-size:0.8rem;">
-                    <span>تفاصيل معمارية</span>
-                </div>
+                <div class="gallery-item reveal reveal-d1" style="background: #e8e4dd; color:rgba(34,34,34,0.2); font-size:0.8rem;"><span>المكتب</span></div>
+                <div class="gallery-item reveal reveal-d2" style="background: #ddd8cf; color:rgba(34,34,34,0.2); font-size:0.8rem;"><span>غرفة الاجتماعات</span></div>
+                <div class="gallery-item reveal reveal-d3" style="background: #d5d0c7; color:rgba(34,34,34,0.2); font-size:0.8rem;"><span>المكتبة القانونية</span></div>
+                <div class="gallery-item reveal reveal-d1" style="background: #e0dbd2; color:rgba(34,34,34,0.2); font-size:0.8rem;"><span>استقبال العملاء</span></div>
+                <div class="gallery-item reveal reveal-d2" style="background: #d8d3ca; color:rgba(34,34,34,0.2); font-size:0.8rem;"><span>بيئة العمل</span></div>
+                <div class="gallery-item reveal reveal-d3" style="background: #e5e0d7; color:rgba(34,34,34,0.2); font-size:0.8rem;"><span>تفاصيل معمارية</span></div>
             </div>
         </div>
     </section>
@@ -2061,6 +1914,7 @@
                 <a href="https://alostazlaw.vercel.app/about.html">عن المؤسسة</a>
                 <a href="https://alostazlaw.vercel.app/specialties.html">التخصصات</a>
                 <a href="https://alostazlaw.vercel.app/blog.html">المدونة</a>
+                <a href="https://alostazlaw.vercel.app/client-inquiry.html">تابع قضيتك</a>
                 <a href="https://alostazlaw.vercel.app/contact.html">اتصل بنا</a>
             </div>
 
@@ -2069,6 +1923,7 @@
                 <a href="https://alostazlaw.vercel.app/contact.html?tab=consult">استشارة قانونية</a>
                 <a href="https://alostazlaw.vercel.app/contact.html?tab=appointment">حجز موعد</a>
                 <a href="https://alostazlaw.vercel.app/contact.html?tab=representation">تمثيل قانوني</a>
+                <a href="https://alostazlaw.vercel.app/client-inquiry.html">متابعة قضية</a>
             </div>
 
             <div class="footer-col">
