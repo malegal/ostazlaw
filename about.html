@@ -230,7 +230,7 @@
         }
 
         /* ==========================================================
-               HEADER
+               HEADER (مطابق للصفحة الرئيسية)
                ========================================================== */
         .site-header {
             position: fixed;
@@ -453,24 +453,18 @@
         }
 
         /* ==========================================================
-               HERO – خلفية فاتحة مع صورة المؤسس
+               HERO – الهيرو الجديد (فاتح، مع صورة المكتب والنص)
                ========================================================== */
         .hero-about {
-            position: relative;
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 120px 24px 60px;
-            overflow: hidden;
+            padding: 120px 2rem 4rem;
             background: var(--warm-off-white);
+            position: relative;
+            overflow: hidden;
         }
-
-        .hero-about .hero-bg-pattern {
+        .hero-about .hero-pattern {
             position: absolute;
             inset: 0;
-            z-index: 0;
-            opacity: 0.03;
+            opacity: 0.02;
             background-image:
                 radial-gradient(circle at 20% 30%, var(--matte-gold) 1px, transparent 1px),
                 radial-gradient(circle at 80% 70%, var(--matte-gold) 1px, transparent 1px);
@@ -478,94 +472,78 @@
             pointer-events: none;
         }
 
-        .hero-about .hero-image-wrap {
+        .hero-about .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
             position: relative;
             z-index: 1;
-            flex-shrink: 0;
-            width: 340px;
-            height: 420px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(176, 141, 87, 0.1);
-        }
-        .hero-about .hero-image-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
-        .hero-about .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 560px;
-            padding-right: 3rem;
+        .hero-about .hero-title-wrap {
+            text-align: center;
+            margin-bottom: 3rem;
         }
-
-        .hero-about .hero-content .eyebrow {
+        .hero-about .hero-title-wrap .en-tag {
             font-size: 0.65rem;
             font-weight: 800;
-            letter-spacing: 0.25em;
+            letter-spacing: 0.4em;
             text-transform: uppercase;
             color: var(--matte-gold);
             opacity: 0.5;
             display: block;
             margin-bottom: 0.3rem;
         }
-
-        .hero-about .hero-content h1 {
+        .hero-about .hero-title-wrap h1 {
             font-family: var(--font-serif);
             font-size: clamp(2.4rem, 5vw, 4rem);
             font-weight: 900;
             color: var(--charcoal);
-            line-height: 1.08;
-            margin-bottom: 0.5rem;
+            line-height: 1.1;
+            margin-bottom: 0.2rem;
         }
-        .hero-about .hero-content h1 .gold-text {
+        .hero-about .hero-title-wrap h1 .gold-text {
             color: var(--matte-gold);
         }
-
-        .hero-about .hero-content .subtitle {
+        .hero-about .hero-title-wrap .sub {
             font-size: clamp(1rem, 1.3vw, 1.2rem);
             font-weight: 400;
-            color: rgba(34, 34, 34, 0.6);
-            margin-bottom: 1.8rem;
+            color: rgba(34, 34, 34, 0.55);
+            max-width: 700px;
+            margin: 0.8rem auto 0;
             line-height: 1.7;
         }
 
         .hero-about .hero-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem 2rem;
-            margin-bottom: 1.8rem;
-        }
-        .hero-about .hero-grid .stat-item {
-            display: flex;
-            flex-direction: column;
-        }
-        .hero-about .hero-grid .stat-item .number {
-            font-family: var(--font-serif);
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--charcoal);
-        }
-        .hero-about .hero-grid .stat-item .number .gold-text {
-            color: var(--matte-gold);
-        }
-        .hero-about .hero-grid .stat-item .label {
-            font-size: 0.75rem;
-            color: rgba(34, 34, 34, 0.45);
-            font-weight: 300;
+            gap: 4rem;
+            align-items: center;
         }
 
-        .hero-about .hero-content .btn-wrap {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
+        .hero-about .hero-image {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(176, 141, 87, 0.1);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
+        }
+        .hero-about .hero-image img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-about .hero-text p {
+            color: rgba(34, 34, 34, 0.7);
+            font-weight: 300;
+            font-size: 1rem;
+            line-height: 1.9;
+            margin-bottom: 0.8rem;
         }
 
         /* ==========================================================
-               SECTIONS
+               SECTIONS – عامة
                ========================================================== */
         .section {
             padding: 5rem 2rem;
@@ -630,64 +608,6 @@
         }
 
         /* ==========================================================
-               ABOUT – من نحن (أهم قسم)
-               ========================================================== */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        .about-image {
-            position: relative;
-        }
-        .about-image .frame {
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(176, 141, 87, 0.12);
-            background: var(--pure-white);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
-        }
-        .about-image .frame img {
-            width: 100%;
-            height: auto;
-            aspect-ratio: 4/3;
-            object-fit: cover;
-            display: block;
-        }
-        .about-image .badge {
-            position: absolute;
-            bottom: -0.8rem;
-            right: -0.8rem;
-            background: var(--matte-gold);
-            color: #000;
-            padding: 0.5rem 1.2rem;
-            border-radius: 6px;
-            font-weight: 800;
-            font-size: 0.7rem;
-            box-shadow: 0 4px 20px rgba(176, 141, 87, 0.15);
-        }
-
-        .about-content h2 {
-            font-family: var(--font-serif);
-            font-size: clamp(1.8rem, 3vw, 2.6rem);
-            font-weight: 900;
-            color: var(--charcoal);
-            line-height: 1.15;
-            margin-bottom: 1rem;
-        }
-        .about-content h2 .gold-text {
-            color: var(--matte-gold);
-        }
-        .about-content p {
-            color: rgba(34, 34, 34, 0.7);
-            font-weight: 300;
-            font-size: 1rem;
-            line-height: 1.9;
-            margin-bottom: 0.8rem;
-        }
-
-        /* ==========================================================
                DISTINCTIVE BOX – ما الذي يميز منهجنا؟
                ========================================================== */
         .distinctive-box {
@@ -725,7 +645,7 @@
         }
 
         /* ==========================================================
-               PHILOSOPHY – فلسفتنا (4 بطاقات)
+               PHILOSOPHY – 4 بطاقات
                ========================================================== */
         .philosophy-grid {
             display: grid;
@@ -767,7 +687,7 @@
         }
 
         /* ==========================================================
-               VALUES – قيم المؤسسة (6 بطاقات)
+               VALUES – 6 بطاقات
                ========================================================== */
         .values-grid {
             display: grid;
@@ -809,7 +729,7 @@
         }
 
         /* ==========================================================
-               LEADERSHIP – قيادة المؤسسة
+               LEADERSHIP
                ========================================================== */
         .leadership-grid {
             display: grid;
@@ -901,7 +821,7 @@
         }
 
         /* ==========================================================
-               PROCESS – منهج العمل (Timeline)
+               PROCESS – Timeline
                ========================================================== */
         .process-timeline {
             max-width: 800px;
@@ -964,7 +884,7 @@
         }
 
         /* ==========================================================
-               PRACTICE AREAS – مجالات الممارسة
+               PRACTICE AREAS – 6 بطاقات
                ========================================================== */
         .practice-grid {
             display: grid;
@@ -1013,7 +933,7 @@
         }
 
         /* ==========================================================
-               SECTORS – القطاعات
+               SECTORS – 6 بطاقات قطاعات
                ========================================================== */
         .sectors-grid {
             display: grid;
@@ -1048,7 +968,7 @@
         }
 
         /* ==========================================================
-               GALLERY – داخل المؤسسة
+               GALLERY – معرض الصور
                ========================================================== */
         .gallery-grid {
             display: grid;
@@ -1073,14 +993,9 @@
             transform: scale(1.01);
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
         }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
 
         /* ==========================================================
-               BLOG – المعرفة القانونية (3 مقالات)
+               BLOG – 3 مقالات
                ========================================================== */
         .blog-grid {
             display: grid;
@@ -1109,11 +1024,6 @@
             justify-content: center;
             color: rgba(34, 34, 34, 0.15);
             font-size: 1.5rem;
-        }
-        .blog-card .image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
         .blog-card .content {
             padding: 1.2rem 1.4rem;
@@ -1150,7 +1060,7 @@
         }
 
         /* ==========================================================
-               FAQ
+               FAQ – 5 أسئلة
                ========================================================== */
         .faq-list {
             max-width: 800px;
@@ -1252,7 +1162,45 @@
         }
 
         /* ==========================================================
-               FOOTER
+               FLOATING WHATSAPP
+               ========================================================== */
+        .float-whatsapp {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            z-index: 500;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+            transition: all 0.5s var(--ease-out);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(37, 211, 102, 0.85);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            text-decoration: none;
+            color: #fff;
+        }
+        .float-whatsapp i {
+            font-size: 1.8rem;
+            color: #fff;
+            transition: transform 0.4s ease;
+        }
+        .float-whatsapp:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
+            background: #25d366;
+            border-color: #25d366;
+        }
+        .float-whatsapp:hover i {
+            transform: scale(1.05);
+        }
+
+        /* ==========================================================
+               FOOTER – 4 أعمدة
                ========================================================== */
         .site-footer {
             background: var(--footer-navy);
@@ -1344,44 +1292,6 @@
         }
 
         /* ==========================================================
-               FLOATING WHATSAPP
-               ========================================================== */
-        .float-whatsapp {
-            position: fixed;
-            bottom: 2rem;
-            left: 2rem;
-            z-index: 500;
-            width: 54px;
-            height: 54px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
-            transition: all 0.5s var(--ease-out);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(37, 211, 102, 0.85);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            text-decoration: none;
-            color: #fff;
-        }
-        .float-whatsapp i {
-            font-size: 1.8rem;
-            color: #fff;
-            transition: transform 0.4s ease;
-        }
-        .float-whatsapp:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
-            background: #25d366;
-            border-color: #25d366;
-        }
-        .float-whatsapp:hover i {
-            transform: scale(1.05);
-        }
-
-        /* ==========================================================
                REVEAL
                ========================================================== */
         .reveal {
@@ -1439,42 +1349,22 @@
             .leadership-side {
                 grid-column: span 2;
             }
-            .about-grid {
+            .hero-about .hero-grid {
                 gap: 2rem;
             }
         }
 
         @media (max-width: 820px) {
-            .hero-about {
-                flex-direction: column;
-                text-align: center;
-                padding: 100px 16px 40px;
-                min-height: auto;
-            }
-            .hero-about .hero-content {
-                padding-right: 0;
-                padding-top: 1.5rem;
-            }
-            .hero-about .hero-image-wrap {
-                width: 220px;
-                height: 280px;
-            }
             .hero-about .hero-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 1rem;
-                justify-items: center;
-            }
-            .hero-about .hero-content .btn-wrap {
-                justify-content: center;
-            }
-
-            .about-grid {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
             }
-            .about-image .badge {
-                right: 0;
-                bottom: -0.8rem;
+            .hero-about .hero-title-wrap {
+                text-align: center;
+            }
+            .hero-about .hero-title-wrap .sub {
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .header-nav {
@@ -1527,6 +1417,10 @@
                 max-width: 280px;
                 margin: 0 auto;
             }
+
+            .hero-about {
+                padding: 100px 1rem 3rem;
+            }
         }
 
         @media (max-width: 640px) {
@@ -1558,17 +1452,6 @@
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
-            .hero-about .hero-image-wrap {
-                width: 180px;
-                height: 240px;
-            }
-            .hero-about .hero-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 0.8rem;
-            }
-            .hero-about .hero-grid .stat-item .number {
-                font-size: 1.4rem;
-            }
             .float-whatsapp {
                 width: 44px;
                 height: 44px;
@@ -1588,6 +1471,11 @@
                 width: 30px;
                 height: 30px;
             }
+
+            .hero-about .hero-title-wrap h1 {
+                font-size: clamp(2rem, 8vw, 2.8rem);
+            }
+
             .process-step {
                 padding: 0.8rem 1rem;
                 flex-direction: column;
@@ -1599,6 +1487,7 @@
                 text-align: right;
                 min-width: auto;
             }
+
             .cta-final .cta-actions {
                 flex-direction: column;
                 align-items: center;
@@ -1609,6 +1498,7 @@
                 max-width: 300px;
                 text-align: center;
             }
+
             .faq-question {
                 padding: 0.8rem 1rem;
                 font-size: 0.85rem;
@@ -1619,6 +1509,7 @@
             .faq-item.active .faq-answer {
                 padding: 0 1rem 1rem;
             }
+
             .distinctive-box {
                 padding: 1.2rem 1rem;
             }
@@ -1634,12 +1525,6 @@
                 margin-left: auto;
                 margin-right: auto;
             }
-            .hero-about .hero-grid .stat-item .number {
-                font-size: 1.2rem;
-            }
-            .hero-about .hero-grid .stat-item .label {
-                font-size: 0.6rem;
-            }
         }
     </style>
 </head>
@@ -1653,7 +1538,7 @@
     </a>
 
     <!-- ==========================================================
-    HEADER
+    HEADER (مطابق للصفحة الرئيسية)
     ========================================================== -->
     <header class="site-header" id="siteHeader" role="banner">
         <div class="header-brand">
@@ -1701,74 +1586,35 @@
     </div>
 
     <!-- ==========================================================
-    HERO – خلفية فاتحة مع صورة المؤسس
+    HERO – عن المؤسسة (فاتح، مع صورة المكتب والنص)
     ========================================================== -->
     <section class="hero-about" aria-label="عن المؤسسة">
-        <div class="hero-bg-pattern"></div>
+        <div class="hero-pattern"></div>
 
-        <div class="hero-image-wrap reveal">
-            <img src="mahmoud-abdel-hamid-lawyer-portrait.jpg"
-                 alt="الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا"
-                 title="الأستاذ محمود عبد الحميد"
-                 loading="lazy"
-                 width="400"
-                 height="500"
-                 onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22500%22 viewBox=%220 0 400 500%22%3E%3Crect fill=%22%23FAFAF8%22 width=%22400%22 height=%22500%22/%3E%3Ctext x=%22200%22 y=%22250%22 text-anchor=%22middle%22 fill=%22%23B08D57%22 font-size=%2220%22 font-family=%22sans-serif%22%3E%D8%A7%D9%84%D9%85%D8%A4%D8%B3%D8%B3%3C/text%3E%3C/svg%3E';" />
-        </div>
+        <div class="hero-inner">
+            <!-- العنوان -->
+            <div class="hero-title-wrap reveal">
+                <span class="en-tag">About Our Firm</span>
+                <h1>مؤسسة الأستاذ<br /><span class="gold-text">محمود عبد الحميد</span></h1>
+                <p class="sub">للمحاماة والاستشارات القانونية</p>
+                <p class="sub" style="font-weight:400; color:var(--matte-gold); margin-top:0.3rem;">
+                    نبني الثقة بالخبرة، ونحمي المصالح باستراتيجية قانونية مدروسة.
+                </p>
+            </div>
 
-        <div class="hero-content reveal" style="transition-delay:0.15s;">
-            <span class="eyebrow">● عن المؤسسة</span>
-            <h1>عن مؤسسة الأستاذ<br /><span class="gold-text">محمود عبد الحميد</span></h1>
-            <p class="subtitle">نبني الثقة بالخبرة، ونحمي المصالح باستراتيجية قانونية مدروسة.</p>
-
+            <!-- الصورة + النص جنباً إلى جنب -->
             <div class="hero-grid">
-                <div class="stat-item">
-                    <span class="number">٢٠٠٥</span>
-                    <span class="label">عام التأسيس</span>
-                </div>
-                <div class="stat-item">
-                    <span class="number">+٢٥٠٠</span>
-                    <span class="label">قضية تم تمثيلها</span>
-                </div>
-                <div class="stat-item">
-                    <span class="number">٩ <span class="gold-text">تخصصات</span></span>
-                    <span class="label">مجالات الممارسة</span>
-                </div>
-                <div class="stat-item">
-                    <span class="number"><span class="gold-text">النقض</span> و<span class="gold-text">الدستورية</span></span>
-                    <span class="label">أعلى درجات التقاضي</span>
-                </div>
-            </div>
-
-            <div class="btn-wrap">
-                <a href="https://alostazlaw.vercel.app/specialties.html" class="btn-gold">تعرف على مجالات الممارسة</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==========================================================
-    2. من نحن (أهم قسم)
-    ========================================================== -->
-    <section class="section section-light" aria-label="من نحن">
-        <div class="section-inner">
-            <div class="about-grid">
-                <div class="about-image reveal">
-                    <div class="frame">
-                        <img src="about.png"
-                             alt="مقر مؤسسة الأستاذ محمود عبد الحميد للمحاماة"
-                             title="مقر المؤسسة"
-                             loading="lazy"
-                             width="800"
-                             height="600"
-                             onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22 viewBox=%220 0 800 600%22%3E%3Crect fill=%22%23FAFAF8%22 width=%22800%22 height=%22600%22/%3E%3Ctext x=%22400%22 y=%22300%22 text-anchor=%22middle%22 fill=%22%23B08D57%22 font-size=%2228%22 font-family=%22sans-serif%22%3E%D9%85%D9%82%D8%B1%20%D8%A7%D9%84%D9%85%D8%A4%D8%B3%D8%B3%D8%A9%3C/text%3E%3C/svg%3E';" />
-                    </div>
-                    <div class="badge">خبرة منذ 2005</div>
+                <div class="hero-image reveal">
+                    <img src="about.png"
+                         alt="مقر مؤسسة الأستاذ محمود عبد الحميد للمحاماة"
+                         title="مقر المؤسسة"
+                         loading="lazy"
+                         width="800"
+                         height="600"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22 viewBox=%220 0 800 600%22%3E%3Crect fill=%22%23FAFAF8%22 width=%22800%22 height=%22600%22/%3E%3Ctext x=%22400%22 y=%22300%22 text-anchor=%22middle%22 fill=%22%23B08D57%22 font-size=%2228%22 font-family=%22sans-serif%22%3E%D9%85%D9%82%D8%B1%20%D8%A7%D9%84%D9%85%D8%A4%D8%B3%D8%B3%D8%A9%3C/text%3E%3C/svg%3E';" />
                 </div>
 
-                <div class="about-content reveal" style="transition-delay:0.15s;">
-                    <span class="eyebrow">● من نحن</span>
-                    <h2>خبرة قانونية تُرسخ الثقة،<br /><span class="gold-text">وحلولٌ تحمي المصالح والاستثمارات</span></h2>
-
+                <div class="hero-text reveal" style="transition-delay:0.15s;">
                     <p>
                         تُعد مؤسسة الأستاذ محمود عبد الحميد للمحاماة والاستشارات القانونية <strong>(AL OSTAZ LAW)</strong> مؤسسة قانونية تقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات، مستندة إلى منهج مهني يقوم على التحليل الدقيق، والتخطيط القانوني، والتمثيل الاحترافي أمام جهات القضاء.
                     </p>
@@ -1779,7 +1625,7 @@
                         نعمل على تقديم حلول قانونية عملية تراعي خصوصية كل قضية، مع الالتزام بالشفافية، والسرية، والدقة، باعتبارها المبادئ التي تقوم عليها علاقتنا مع عملائنا.
                     </p>
 
-                    <!-- ما الذي يميز منهجنا؟ -->
+                    <!-- مربع ما الذي يميز منهجنا؟ -->
                     <div class="distinctive-box">
                         <h4>✦ ما الذي يميز منهجنا؟</h4>
                         <ul>
@@ -1794,7 +1640,7 @@
     </section>
 
     <!-- ==========================================================
-    3. فلسفتنا (بدلاً من الرؤية والرسالة)
+    3. فلسفتنا (4 بطاقات)
     ========================================================== -->
     <section class="section section-gray" aria-label="فلسفتنا">
         <div class="section-inner">
@@ -2230,7 +2076,7 @@
     </section>
 
     <!-- ==========================================================
-    FOOTER – احترافي، بسيط، 4 أعمدة
+    FOOTER – 4 أعمدة
     ========================================================== -->
     <footer class="site-footer" role="contentinfo">
         <div class="footer-inner">
