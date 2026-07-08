@@ -6,13 +6,13 @@
     <meta name="google-site-verification" content="Uqbjr1w7Q831Lo6JPFEe9_lK86Kp55P79Lwfp1j6EX8" />
     <title>نتيجة الاستعلام | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا</title>
     <meta name="description" content="نتيجة استعلام قضيتك – مؤسسة الأستاذ محمود عبد الحميد للمحاماة والاستشارات القانونية." />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;900&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <style>
-        /* نفس الأنماط من client-inquiry.html، مع إضافة بعض الأنماط الخاصة بالنتيجة */
+        /* ==========================================================
+           الهوية البصرية – متغيرات موحدة
+           ========================================================== */
         :root {
             --very-dark-navy: #0B111B;
             --deep-navy: #102A43;
@@ -21,25 +21,29 @@
             --light-gray: #F5F5F5;
             --charcoal: #222222;
             --matte-gold: #B08D57;
+            --matte-gold-light: rgba(176, 141, 87, 0.15);
             --footer-navy: #0B1F35;
             --font-ar: 'Tajawal', sans-serif;
             --font-serif: 'Amiri', serif;
             --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
             --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+            --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.02);
+            --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.04);
         }
 
+        /* ==========================================================
+           إعادة تعيين عامة
+           ========================================================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         html {
             scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
         body {
             font-family: var(--font-ar);
             background-color: var(--warm-off-white);
@@ -51,11 +55,6 @@
             flex-direction: column;
             min-height: 100vh;
         }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
         a {
             text-decoration: none;
             color: inherit;
@@ -66,7 +65,10 @@
             background: none;
             font-family: inherit;
         }
-
+        img {
+            max-width: 100%;
+            display: block;
+        }
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -78,17 +80,22 @@
             border-radius: 10px;
         }
 
+        /* ==========================================================
+           أدوات مساعدة
+           ========================================================== */
         .serif {
             font-family: var(--font-serif);
         }
         .gold-text {
             color: var(--matte-gold);
         }
+        .text-center {
+            text-align: center;
+        }
 
-        /* أنماط الأزرار والهيدر والفوتر – نفسها تماماً كما في صفحة الاستعلام */
-        /* أنماط عامة (كرر الأنماط من الصفحة السابقة للهيدر، الفوتر، الأزرار، إلخ) */
-        /* نظراً للطول، سأضع اختصاراً للأنماط الأساسية هنا، ولكن في التطبيق العملي يجب أن تكون كاملة */
-
+        /* ==========================================================
+           أزرار
+           ========================================================== */
         .btn-gold {
             display: inline-block;
             background: var(--matte-gold);
@@ -159,7 +166,18 @@
             box-shadow: 0 8px 30px rgba(176, 141, 87, 0.15);
         }
 
-        /* الهيدر والفوتر – نفس الأنماط (نستخدم نسخة مختصرة هنا للاختصار، لكن في التطبيق الكامل يجب نسخها من الصفحة السابقة) */
+        .btn-danger {
+            background: #dc2626;
+            color: #fff;
+            border: none;
+        }
+        .btn-danger:hover {
+            background: #b91c1c;
+        }
+
+        /* ==========================================================
+           الهيدر (نفس الأنماط السابقة مع تحسينات طفيفة)
+           ========================================================== */
         .site-header {
             position: fixed;
             top: 0;
@@ -360,6 +378,9 @@
             cursor: pointer;
         }
 
+        /* ==========================================================
+           القائمة الجوالة
+           ========================================================== */
         .mobile-menu {
             position: fixed;
             inset: 0;
@@ -443,10 +464,12 @@
             font-size: 0.9rem;
             width: 100%;
             text-align: center;
-            border-color: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             color: #fff;
+            background: transparent;
             cursor: pointer;
             position: relative;
+            border-radius: 8px;
         }
         .mobile-menu .actions .btn-outline-white::after {
             content: '';
@@ -463,7 +486,7 @@
         }
 
         /* ==========================================================
-           MAIN – نتيجة الاستعلام
+           المحتوى الرئيسي – نتيجة الاستعلام
            ========================================================== */
         .result-main {
             flex: 1;
@@ -480,7 +503,7 @@
             border-radius: 16px;
             padding: 2.5rem 2rem;
             border: 1px solid rgba(0, 0, 0, 0.04);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            box-shadow: var(--shadow-card);
             transition: all 0.4s var(--ease-out);
             position: relative;
             overflow: hidden;
@@ -500,7 +523,7 @@
         }
         .result-card:hover {
             border-color: var(--matte-gold);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+            box-shadow: var(--shadow-hover);
         }
 
         .result-header {
@@ -552,6 +575,10 @@
             color: var(--charcoal);
             margin-top: 0.1rem;
             display: block;
+            word-break: break-word;
+        }
+        .info-item .info-value.status {
+            color: var(--matte-gold);
         }
 
         .last-session-box {
@@ -628,7 +655,43 @@
         }
 
         /* ==========================================================
-           FLOATING WHATSAPP
+           حالات التحميل والخطأ
+           ========================================================== */
+        .loading-container,
+        .error-container {
+            padding: 2rem 0;
+            text-align: center;
+        }
+        .spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--matte-gold-light);
+            border-radius: 50%;
+            border-top-color: var(--matte-gold);
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .error-container i {
+            font-size: 3rem;
+            color: #dc2626;
+            margin-bottom: 0.5rem;
+        }
+        .error-container h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+        .error-container p {
+            color: rgba(34, 34, 34, 0.5);
+        }
+
+        /* ==========================================================
+           واتساب عائم
            ========================================================== */
         .float-whatsapp {
             position: fixed;
@@ -681,7 +744,7 @@
         }
 
         /* ==========================================================
-           FOOTER – نفس أنماط الصفحة السابقة
+           التذييل
            ========================================================== */
         .site-footer {
             background: var(--footer-navy);
@@ -788,7 +851,7 @@
         }
 
         /* ==========================================================
-           REVEAL
+           تأثير الظهور
            ========================================================== */
         .reveal {
             opacity: 0;
@@ -801,7 +864,7 @@
         }
 
         /* ==========================================================
-           RESPONSIVE
+           استجابة
            ========================================================== */
         @media (max-width: 1024px) {
             .footer-inner {
@@ -908,20 +971,23 @@
                 box-shadow: none !important;
                 border: none !important;
             }
+            .result-main {
+                padding-top: 2rem;
+            }
         }
     </style>
 </head>
 <body>
 
     <!-- ==========================================================
-    FLOATING WHATSAPP
+    واتساب عائم
     ========================================================== -->
     <a href="https://wa.me/201101076000" target="_blank" rel="noopener" class="float-whatsapp" aria-label="تواصل عبر واتساب">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- ==========================================================
-    HEADER
+    الهيدر
     ========================================================== -->
     <header class="site-header" id="siteHeader" role="banner">
         <div class="header-brand">
@@ -951,7 +1017,7 @@
     </header>
 
     <!-- ==========================================================
-    MOBILE MENU
+    القائمة الجوالة
     ========================================================== -->
     <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
         <button class="mobile-menu-close" id="menuClose" aria-label="إغلاق القائمة"><i class="fas fa-times"></i></button>
@@ -973,77 +1039,84 @@
     </div>
 
     <!-- ==========================================================
-    MAIN – نتيجة الاستعلام
+    المحتوى الرئيسي
     ========================================================== -->
     <main class="result-main" id="mainContent">
         <div class="inner reveal" style="transition-delay:0.1s;">
             <div class="result-card" id="resultContainer">
-                <!-- سيتم تعبئتها عبر JavaScript -->
-                <div id="loadingIndicator" class="text-center py-10">
-                    <div class="spinner-border text-gold" role="status" style="color:var(--matte-gold);">
-                        <span class="visually-hidden">جاري التحميل...</span>
-                    </div>
-                    <p class="mt-3 text-charcoal/50">جاري عرض بيانات القضية...</p>
+
+                <!-- حالة التحميل -->
+                <div id="loadingIndicator" class="loading-container">
+                    <div class="spinner" role="status" aria-label="جاري التحميل"></div>
+                    <p class="mt-3" style="color: rgba(34,34,34,0.5);">جاري عرض بيانات القضية...</p>
                 </div>
 
+                <!-- المحتوى الرئيسي -->
                 <div id="resultContent" style="display:none;">
                     <div class="result-header">
-                        <h2 id="r_clientName">-</h2>
-                        <span class="badge-role" id="r_clientRole">-</span>
+                        <h2 id="r_clientName"></h2>
+                        <span class="badge-role" id="r_clientRole"></span>
                     </div>
 
                     <div class="info-grid">
                         <div class="info-item">
                             <span class="info-label">اسم الخصم</span>
-                            <span class="info-value" id="r_opponent">-</span>
+                            <span class="info-value" id="r_opponent"></span>
                         </div>
                         <div class="info-item">
                             <span class="info-label">المحكمة</span>
-                            <span class="info-value" id="r_court">-</span>
+                            <span class="info-value" id="r_court"></span>
                         </div>
                         <div class="info-item">
                             <span class="info-label">رقم القضية</span>
-                            <span class="info-value" id="r_caseNum">-</span>
+                            <span class="info-value" id="r_caseNum"></span>
                         </div>
                         <div class="info-item">
                             <span class="info-label">الدائرة</span>
-                            <span class="info-value" id="r_circle">-</span>
+                            <span class="info-value" id="r_circle"></span>
                         </div>
                         <div class="info-item">
                             <span class="info-label">موضوع الدعوى</span>
-                            <span class="info-value" id="r_subject">-</span>
+                            <span class="info-value" id="r_subject"></span>
                         </div>
                         <div class="info-item">
                             <span class="info-label">حالة القضية</span>
-                            <span class="info-value" id="r_status" style="color:var(--matte-gold);">-</span>
+                            <span class="info-value status" id="r_status"></span>
                         </div>
                     </div>
 
                     <div class="last-session-box">
                         <h5><i class="fas fa-clock"></i> آخر جلسة مسجلة</h5>
-                        <div class="date" id="r_lastDate">-</div>
-                        <div class="decision" id="r_lastDecision">-</div>
+                        <div class="date" id="r_lastDate"></div>
+                        <div class="decision" id="r_lastDecision"></div>
                     </div>
 
                     <div class="modal-actions">
-                        <button class="btn-action btn-print" onclick="window.print()"><i class="bi bi-printer" style="margin-left:0.4rem;"></i> طباعة</button>
-                        <a href="client-inquiry.html" class="btn-action btn-new"><i class="bi bi-search" style="margin-left:0.4rem;"></i> بحث جديد</a>
-                        <button class="btn-action btn-exit" onclick="exitSystem()"><i class="bi bi-box-arrow-right" style="margin-left:0.4rem;"></i> خروج</button>
+                        <button class="btn-action btn-print" onclick="window.print()"><i class="fas fa-print" style="margin-left:0.4rem;"></i> طباعة</button>
+                        <a href="client-inquiry.html" class="btn-action btn-new"><i class="fas fa-search" style="margin-left:0.4rem;"></i> بحث جديد</a>
+                        <button class="btn-action btn-exit" onclick="exitSystem()"><i class="fas fa-sign-out-alt" style="margin-left:0.4rem;"></i> خروج</button>
                     </div>
                 </div>
 
-                <div id="errorContainer" style="display:none;" class="text-center py-10">
-                    <i class="fas fa-exclamation-triangle text-5xl text-red-400 mb-4"></i>
-                    <h3 class="text-2xl font-bold text-charcoal">عذراً</h3>
-                    <p class="text-charcoal/50">لم نتمكن من عرض بيانات القضية. يرجى المحاولة مرة أخرى.</p>
-                    <a href="client-inquiry.html" class="btn-gold mt-4 inline-block">العودة للاستعلام</a>
+                <!-- حالة الخطأ -->
+                <div id="errorContainer" style="display:none;" class="error-container">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>عذراً</h3>
+                    <p>لم نتمكن من عرض بيانات القضية. قد تكون البيانات قد انتهت صلاحيتها أو حدث خطأ غير متوقع.</p>
+                    <div style="display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap; margin-top:1.5rem;">
+                        <a href="client-inquiry.html" class="btn-gold" style="padding:10px 28px; font-size:0.9rem;">العودة للاستعلام</a>
+                        <button onclick="location.reload()" class="btn-outline-gold" style="padding:10px 28px; font-size:0.9rem;">إعادة المحاولة</button>
+                    </div>
+                    <p style="margin-top:1rem; font-size:0.8rem; color:rgba(34,34,34,0.3);">
+                        للدعم الفني: <a href="tel:+201101076000" style="color:var(--matte-gold);">+20 110 107 6000</a>
+                    </p>
                 </div>
             </div>
         </div>
     </main>
 
     <!-- ==========================================================
-    FOOTER
+    التذييل
     ========================================================== -->
     <footer class="site-footer" role="contentinfo">
         <div class="footer-inner">
@@ -1094,14 +1167,14 @@
     </footer>
 
     <!-- ==========================================================
-    JAVASCRIPT – عرض بيانات القضية من sessionStorage
+    جافاسكريبت – محسن وآمن
     ========================================================== -->
     <script>
         (function() {
             'use strict';
 
             // ==========================================================
-            // HEADER SCROLL
+            // 1. الهيدر والتمرير
             // ==========================================================
             const header = document.getElementById('siteHeader');
             window.addEventListener('scroll', function() {
@@ -1109,7 +1182,7 @@
             }, { passive: true });
 
             // ==========================================================
-            // MOBILE MENU
+            // 2. القائمة الجوالة
             // ==========================================================
             const mobileMenu = document.getElementById('mobileMenu');
             const menuToggle = document.getElementById('menuToggle');
@@ -1132,7 +1205,7 @@
             });
 
             // ==========================================================
-            // REVEAL
+            // 3. تأثير الظهور (reveal)
             // ==========================================================
             const revealObserver = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
@@ -1148,68 +1221,119 @@
             });
 
             // ==========================================================
-            // LOAD RESULT
+            // 4. دالة مساعدة لتنسيق التاريخ
+            // ==========================================================
+            function formatDate(dateString) {
+                if (!dateString) return 'غير محدد';
+                try {
+                    const d = new Date(dateString);
+                    if (isNaN(d.getTime())) return 'تاريخ غير صالح';
+                    return d.toLocaleDateString('ar-EG', {
+                        weekday: 'long',
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+                } catch (_) {
+                    return 'تاريخ غير صالح';
+                }
+            }
+
+            // ==========================================================
+            // 5. عرض النتيجة بأمان
             // ==========================================================
             function loadResult() {
                 const loading = document.getElementById('loadingIndicator');
                 const content = document.getElementById('resultContent');
                 const error = document.getElementById('errorContainer');
 
+                // إخفاء الكل مبدئياً
+                loading.style.display = 'none';
+                content.style.display = 'none';
+                error.style.display = 'none';
+
                 try {
+                    // 5.1 استرجاع البيانات
                     const stored = sessionStorage.getItem('caseData');
                     if (!stored) {
-                        throw new Error('لا توجد بيانات');
+                        throw new Error('لا توجد بيانات في الجلسة');
                     }
 
-                    const data = JSON.parse(stored);
-                    if (!data.case) {
-                        throw new Error('بيانات غير مكتملة');
+                    // 5.2 التحقق من صلاحية البيانات (نفترض أننا نخزن وقت الإنشاء)
+                    let data;
+                    try {
+                        data = JSON.parse(stored);
+                    } catch (_) {
+                        throw new Error('بيانات غير صالحة');
                     }
 
+                    // التحقق من وجود حقل _timestamp (إذا لم يكن موجوداً، نعتبر صلاحية 5 دقائق من الآن)
+                    const now = Date.now();
+                    const maxAge = 5 * 60 * 1000; // 5 دقائق
+                    const timestamp = data._timestamp || (now - maxAge - 1); // منتهية الصلاحية افتراضياً
+                    if (now - timestamp > maxAge) {
+                        throw new Error('انتهت صلاحية البيانات');
+                    }
+
+                    // 5.3 التحقق من وجود بيانات القضية
                     const c = data.case;
-                    const sessions = data.sessions || [];
+                    if (!c || typeof c !== 'object') {
+                        throw new Error('بيانات القضية غير مكتملة');
+                    }
+
+                    // 5.4 استخراج الجلسات
+                    const sessions = Array.isArray(data.sessions) ? data.sessions : [];
                     const lastSession = sessions.length > 0 ? sessions[0] : null;
 
-                    // تعبئة البيانات
-                    document.getElementById('r_clientName').innerText = c.client_name || '-';
-                    document.getElementById('r_clientRole').innerText = c.client_role || '-';
-                    document.getElementById('r_opponent').innerText = c.opponent_name || '-';
-                    document.getElementById('r_court').innerText = c.court_name || '-';
-                    document.getElementById('r_caseNum').innerText = (c.case_number || '') + ' / ' + (c.case_year || '');
-                    document.getElementById('r_circle').innerText = c.circuit || '-';
-                    document.getElementById('r_subject').innerText = c.case_subject || 'غير محدد';
+                    // 5.5 تعيين النصوص بأمان (استخدام textContent لمنع XSS)
+                    const setText = (id, value) => {
+                        const el = document.getElementById(id);
+                        if (el) el.textContent = value || '-';
+                    };
+
+                    setText('r_clientName', c.client_name || 'غير معروف');
+                    setText('r_clientRole', c.client_role || 'عميل');
+                    setText('r_opponent', c.opponent_name || 'غير محدد');
+                    setText('r_court', c.court_name || 'غير محدد');
+                    const caseNumber = (c.case_number || '') + (c.case_year ? ' / ' + c.case_year : '');
+                    setText('r_caseNum', caseNumber || 'غير محدد');
+                    setText('r_circle', c.circuit || 'غير محدد');
+                    setText('r_subject', c.case_subject || 'غير محدد');
 
                     if (lastSession) {
-                        document.getElementById('r_status').innerText = lastSession.case_status || 'جديدة';
-                        const d = new Date(lastSession.session_date);
-                        document.getElementById('r_lastDate').innerText = d.toLocaleDateString('ar-EG', {
-                            weekday: 'long',
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric'
-                        });
-                        document.getElementById('r_lastDecision').innerText = lastSession.decision || 'لم يسجل قرار';
+                        setText('r_status', lastSession.case_status || 'جديدة');
+                        setText('r_lastDate', formatDate(lastSession.session_date));
+                        setText('r_lastDecision', lastSession.decision || 'لم يسجل قرار');
                     } else {
-                        document.getElementById('r_status').innerText = 'جديدة';
-                        document.getElementById('r_lastDate').innerText = 'لا توجد جلسات مسجلة';
-                        document.getElementById('r_lastDecision').innerText = '';
+                        setText('r_status', 'جديدة');
+                        setText('r_lastDate', 'لا توجد جلسات مسجلة');
+                        setText('r_lastDecision', '');
                     }
 
-                    // عرض المحتوى وإخفاء التحميل
-                    loading.style.display = 'none';
+                    // 5.6 عرض المحتوى
                     content.style.display = 'block';
-                    error.style.display = 'none';
+
+                    // 5.7 (اختياري) مسح البيانات من sessionStorage بعد الاستخدام لمنع إعادة الاستخدام
+                    // ولكن قد نرغب في الاحتفاظ بها للطباعة أو التحديث، لذا نتركها.
 
                 } catch (err) {
-                    console.error(err);
-                    loading.style.display = 'none';
-                    content.style.display = 'none';
+                    console.warn('فشل تحميل النتيجة:', err.message);
+                    // عرض صفحة الخطأ
                     error.style.display = 'block';
+                    // إضافة رسالة خطأ أكثر تفصيلاً
+                    const errorMsg = error.querySelector('p');
+                    if (errorMsg) {
+                        if (err.message === 'انتهت صلاحية البيانات') {
+                            errorMsg.textContent = 'انتهت صلاحية بيانات الاستعلام. يرجى إعادة البحث للحصول على أحدث البيانات.';
+                        } else {
+                            errorMsg.textContent = 'حدث خطأ أثناء عرض البيانات. يرجى المحاولة مرة أخرى أو الاتصال بالدعم الفني.';
+                        }
+                    }
                 }
             }
 
             // ==========================================================
-            // EXIT SYSTEM
+            // 6. زر الخروج
             // ==========================================================
             window.exitSystem = function() {
                 Swal.fire({
@@ -1222,12 +1346,20 @@
                     confirmButtonText: 'إغلاق',
                     timer: 3000
                 }).then(function() {
-                    window.location.href = "https://ostazlaw.vercel.app/";
+                    // مسح البيانات من sessionStorage
+                    sessionStorage.removeItem('caseData');
+                    window.location.href = 'https://ostazlaw.vercel.app/';
                 });
             };
 
-            // تشغيل التحميل عند تحميل الصفحة
+            // ==========================================================
+            // 7. تشغيل التحميل عند تحميل الصفحة
+            // ==========================================================
             document.addEventListener('DOMContentLoaded', loadResult);
+
+            // ==========================================================
+            // 8. دعم إعادة المحاولة (زر إعادة المحاولة يعيد تحميل الصفحة)
+            // ==========================================================
 
         })();
     </script>
