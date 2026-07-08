@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="google-site-verification" content="Uqbjr1w7Q831Lo6JPFEe9_lK86Kp55P79Lwfp1j6EX8" />
-    <title>نتيجة الاستعلام | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا</title>
-    <meta name="description" content="نتيجة استعلام قضيتك – عرض تفاصيل القضية والجلسات أمام مؤسسة الأستاذ محمود عبد الحميد للمحاماة." />
+    <title>استعلام القضايا | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا</title>
+    <meta name="description" content="نظام استعلام القضايا الإلكتروني – متابعة مستجدات قضيتك لدى مؤسسة الأستاذ محمود عبد الحميد للمحاماة." />
+    
+    <!-- سياسة أمان المحتوى (CSP) لمنع XSS -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://iyhfafodhptcdwrjywek.supabase.co; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://raw.githubusercontent.com; connect-src 'self' https://iyhfafodhptcdwrjywek.supabase.co; frame-src 'self' https://www.google.com;">
 
-    <!-- المكتبات الخارجية -->
+    <!-- Tailwind & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;900&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- Supabase SDK -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;900&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap للمودالات -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Supabase و SweetAlert -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
         /* ==========================================================
@@ -31,9 +40,6 @@
             --font-serif: 'Amiri', serif;
             --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
             --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-            --success-green: #22c55e;
-            --warning-amber: #f59e0b;
-            --danger-red: #ef4444;
         }
 
         * {
@@ -55,9 +61,9 @@
             overflow-x: hidden;
             line-height: 1.7;
             direction: rtl;
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
+            min-height: 100vh;
         }
 
         img {
@@ -472,91 +478,125 @@
         }
 
         /* ==========================================================
-           MAIN CONTENT
+           HERO – خلفية نيڤي عميقة
            ========================================================== */
-        .main-result {
+        .hero-inquiry {
+            padding: 120px 2rem 3rem;
+            background: var(--very-dark-navy);
+            position: relative;
+            overflow: hidden;
+            min-height: 35vh;
+            display: flex;
+            align-items: center;
+        }
+        .hero-inquiry .hero-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.03;
+            background-image:
+                radial-gradient(circle at 20% 30%, var(--matte-gold) 1px, transparent 1px),
+                radial-gradient(circle at 80% 70%, var(--matte-gold) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+        .hero-inquiry .hero-glow {
+            position: absolute;
+            width: 60vw;
+            height: 60vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(176, 141, 87, 0.04) 0%, transparent 70%);
+            top: -20%;
+            right: -20%;
+            pointer-events: none;
+            animation: orbFloat 20s ease-in-out infinite alternate;
+        }
+        .hero-inquiry .hero-glow-2 {
+            position: absolute;
+            width: 40vw;
+            height: 40vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(176, 141, 87, 0.02) 0%, transparent 70%);
+            bottom: -20%;
+            left: -10%;
+            pointer-events: none;
+            animation: orbFloat 25s ease-in-out infinite alternate-reverse;
+        }
+        @keyframes orbFloat {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                transform: translate(40px, -30px) scale(1.05);
+            }
+        }
+
+        .hero-inquiry .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .hero-inquiry .hero-title-wrap {
+            text-align: center;
+        }
+        .hero-inquiry .hero-title-wrap .en-tag {
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--matte-gold);
+            opacity: 0.5;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .hero-inquiry .hero-title-wrap h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.1;
+        }
+        .hero-inquiry .hero-title-wrap h1 .gold-text {
+            color: var(--matte-gold);
+        }
+        .hero-inquiry .hero-title-wrap .sub {
+            font-size: clamp(1rem, 1.3vw, 1.2rem);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.55);
+            max-width: 700px;
+            margin: 0.8rem auto 0;
+            line-height: 1.7;
+        }
+
+        /* ==========================================================
+           MAIN CONTENT – خلفية فاتحة
+           ========================================================== */
+        .main-inquiry {
             flex: 1;
-            padding: 100px 2rem 4rem;
+            padding: 3rem 2rem 5rem;
             background: var(--warm-off-white);
         }
-        .main-result .inner {
-            max-width: 1100px;
+        .main-inquiry .inner {
+            max-width: 600px;
             margin: 0 auto;
         }
 
         /* ==========================================================
-           CASE HEADER
+           SEARCH CARD – بطاقة بيضاء بأناقة
            ========================================================== */
-        .case-header {
+        .search-card {
             background: var(--pure-white);
             border-radius: 16px;
-            padding: 2rem 2rem;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-            text-align: center;
-            margin-bottom: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-        .case-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 0;
-            height: 3px;
-            background: var(--matte-gold);
-            transition: width 0.6s var(--ease-out);
-        }
-        .case-header:hover::after {
-            width: 100%;
-        }
-
-        .case-code {
-            display: inline-block;
-            font-family: monospace;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--matte-gold);
-            background: rgba(176, 141, 87, 0.04);
-            padding: 0.2rem 1.2rem;
-            border-radius: 50px;
-            margin-bottom: 0.5rem;
-            border: 1px solid rgba(176, 141, 87, 0.08);
-        }
-        .case-title {
-            font-family: var(--font-serif);
-            font-size: clamp(1.6rem, 3vw, 2.4rem);
-            font-weight: 900;
-            color: var(--charcoal);
-            margin-bottom: 0.2rem;
-        }
-        .case-subtitle {
-            color: rgba(34, 34, 34, 0.5);
-            font-weight: 300;
-            font-size: 0.95rem;
-        }
-
-        /* ==========================================================
-           INFO GRID
-           ========================================================== */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.2rem;
-            margin-bottom: 2rem;
-        }
-        .info-card {
-            background: var(--pure-white);
-            border-radius: 12px;
-            padding: 1.2rem 1.2rem;
+            padding: 2.5rem 2rem;
             border: 1px solid rgba(0, 0, 0, 0.04);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
             transition: all 0.4s var(--ease-out);
             position: relative;
             overflow: hidden;
         }
-        .info-card::after {
+        .search-card::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -566,238 +606,90 @@
             background: var(--matte-gold);
             transition: width 0.6s var(--ease-out);
         }
-        .info-card:hover::after {
+        .search-card:hover::after {
             width: 100%;
         }
-        .info-card:hover {
+        .search-card:hover {
             border-color: var(--matte-gold);
-            transform: translateY(-3px);
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
         }
-        .info-card .info-label {
-            display: block;
-            font-size: 0.6rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: rgba(34, 34, 34, 0.3);
-            margin-bottom: 0.1rem;
-        }
-        .info-card .info-value {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--charcoal);
-            line-height: 1.4;
-        }
-        .info-card .info-value.status-active {
-            color: var(--success-green);
-        }
-        .info-card .info-value.status-pending {
-            color: var(--warning-amber);
-        }
-        .info-card .info-value.status-closed {
-            color: var(--danger-red);
-        }
-
-        /* ==========================================================
-           SESSIONS
-           ========================================================== */
-        .sessions-section {
-            margin-bottom: 2rem;
-        }
-        .section-title {
-            font-family: var(--font-serif);
-            font-size: 1.4rem;
-            font-weight: 900;
-            color: var(--charcoal);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .section-title i {
-            color: var(--matte-gold);
-            opacity: 0.6;
-        }
-
-        .session-card {
-            background: var(--pure-white);
-            border-radius: 12px;
-            padding: 1.2rem 1.4rem;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-            margin-bottom: 0.8rem;
-            transition: all 0.4s var(--ease-out);
-            position: relative;
-            overflow: hidden;
-        }
-        .session-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 0;
-            height: 3px;
-            background: var(--matte-gold);
-            transition: width 0.6s var(--ease-out);
-        }
-        .session-card:hover::after {
-            width: 100%;
-        }
-        .session-card:hover {
-            border-color: var(--matte-gold);
-            transform: translateX(-4px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
-        }
-        .session-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.5rem 1rem;
-            margin-bottom: 0.3rem;
-        }
-        .session-date {
-            font-weight: 700;
-            font-size: 0.95rem;
-            color: var(--charcoal);
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-        .session-date i {
-            color: var(--matte-gold);
-            opacity: 0.4;
-            font-size: 0.8rem;
-        }
-        .session-status-badge {
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 0.15rem 0.8rem;
-            border-radius: 50px;
-            background: rgba(176, 141, 87, 0.04);
-            border: 1px solid rgba(176, 141, 87, 0.08);
-            color: var(--matte-gold);
-        }
-        .session-status-badge.active {
-            color: var(--success-green);
-            border-color: rgba(34, 197, 94, 0.2);
-            background: rgba(34, 197, 94, 0.04);
-        }
-        .session-status-badge.pending {
-            color: var(--warning-amber);
-            border-color: rgba(245, 158, 11, 0.2);
-            background: rgba(245, 158, 11, 0.04);
-        }
-        .session-status-badge.closed {
-            color: var(--danger-red);
-            border-color: rgba(239, 68, 68, 0.2);
-            background: rgba(239, 68, 68, 0.04);
-        }
-        .session-decision {
-            color: rgba(34, 34, 34, 0.6);
-            font-weight: 300;
-            font-size: 0.9rem;
-            line-height: 1.7;
-            padding-right: 1.2rem;
-            border-right: 2px solid rgba(176, 141, 87, 0.15);
-        }
-
-        .no-sessions {
-            text-align: center;
-            padding: 2rem;
-            color: rgba(34, 34, 34, 0.3);
-            font-weight: 300;
-            background: var(--pure-white);
-            border-radius: 12px;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-        }
-        .no-sessions i {
-            font-size: 2rem;
-            display: block;
-            margin-bottom: 0.5rem;
-            opacity: 0.3;
-        }
-
-        /* ==========================================================
-           ACTION BUTTONS
-           ========================================================== */
-        .action-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
-        }
-        .action-buttons .btn-gold {
-            padding: 12px 28px;
-            font-size: 0.85rem;
-        }
-        .action-buttons .btn-outline-gold {
-            padding: 12px 28px;
-            font-size: 0.85rem;
-        }
-
-        /* ==========================================================
-           LOADING
-           ========================================================== */
-        .loading-container {
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(176, 141, 87, 0.08);
-            border-top: 3px solid var(--matte-gold);
+        .search-card .icon-header {
+            width: 64px;
+            height: 64px;
             border-radius: 50%;
-            animation: spin 0.8s linear infinite;
+            background: rgba(176, 141, 87, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin: 0 auto 1rem;
         }
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
+        .search-card .icon-header i {
+            font-size: 1.8rem;
+            color: var(--matte-gold);
         }
-        .loading-container p {
-            color: rgba(34, 34, 34, 0.4);
-            font-weight: 300;
-        }
-
-        /* ==========================================================
-           ERROR
-           ========================================================== */
-        .error-container {
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-        .error-container .error-icon {
-            font-size: 3.5rem;
-            color: var(--danger-red);
-            opacity: 0.2;
-            margin-bottom: 1rem;
-            display: block;
-        }
-        .error-container h2 {
+        .search-card h2 {
             font-family: var(--font-serif);
             font-size: 1.8rem;
             font-weight: 900;
             color: var(--charcoal);
+            text-align: center;
             margin-bottom: 0.3rem;
         }
-        .error-container p {
+        .search-card .sub {
+            text-align: center;
             color: rgba(34, 34, 34, 0.5);
             font-weight: 300;
-            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            margin-bottom: 1.8rem;
         }
 
-        /* ==========================================================
-           HIDDEN UTILITY
-           ========================================================== */
-        .hidden {
-            display: none !important;
+        .input-group-custom {
+            display: flex;
+            align-items: center;
+            background: var(--light-gray);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .input-group-custom:focus-within {
+            border-color: var(--matte-gold);
+            box-shadow: 0 0 0 3px rgba(176, 141, 87, 0.05);
+        }
+        .input-group-custom .fixed-prefix {
+            background: rgba(0, 0, 0, 0.02);
+            color: rgba(34, 34, 34, 0.3);
+            padding: 0.6rem 0.8rem;
+            font-weight: 700;
+            font-size: 0.85rem;
+            border-left: 1px solid rgba(0, 0, 0, 0.04);
+            font-family: monospace;
+            flex-shrink: 0;
+        }
+        .input-group-custom .form-control-custom {
+            background: transparent;
+            border: none;
+            color: var(--charcoal);
+            padding: 0.6rem 0.8rem;
+            width: 100%;
+            font-size: 1rem;
+            outline: none;
+            text-align: right;
+            font-family: var(--font-ar);
+        }
+        .input-group-custom .form-control-custom::placeholder {
+            color: rgba(34, 34, 34, 0.3);
+            font-weight: 300;
+        }
+
+        .btn-search {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
         }
 
         /* ==========================================================
@@ -961,6 +853,202 @@
         }
 
         /* ==========================================================
+           MODALS – أنيقة مع خلفية فاتحة وحدود ذهبية
+           ========================================================== */
+        .modal.fade .modal-dialog {
+            transition: transform 0.4s ease-out;
+            transform: translateY(-100px);
+        }
+        .modal.show .modal-dialog {
+            transform: translateY(0);
+        }
+
+        .modal-content.glass-theme {
+            background: var(--pure-white);
+            border: 2px solid var(--matte-gold);
+            border-radius: 16px;
+            box-shadow: 0 10px 60px rgba(0, 0, 0, 0.15);
+            color: var(--charcoal);
+        }
+        .modal-content.glass-theme .modal-body {
+            padding: 2rem;
+        }
+
+        /* Warning Modal */
+        .warning-content {
+            text-align: center;
+        }
+        .warning-content .icon-large {
+            font-size: 3.5rem;
+            color: var(--matte-gold);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .warning-content h3 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--charcoal);
+            margin-bottom: 0.3rem;
+        }
+        .warning-content .sub-text {
+            color: rgba(34, 34, 34, 0.5);
+            font-weight: 300;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+        .legal-box {
+            background: var(--light-gray);
+            border: 1px solid rgba(176, 141, 87, 0.1);
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            text-align: right;
+            margin-bottom: 1.5rem;
+        }
+        .legal-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .legal-box ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 0.9rem;
+            color: rgba(34, 34, 34, 0.6);
+            padding: 0.2rem 0;
+            font-weight: 300;
+        }
+        .legal-box ul li i {
+            color: var(--matte-gold);
+            font-size: 0.8rem;
+            margin-top: 0.2rem;
+        }
+
+        /* Result Modal */
+        .result-header {
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            padding-bottom: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
+        .result-header h2 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--matte-gold);
+            margin-bottom: 0.1rem;
+        }
+        .result-header .badge-role {
+            background: var(--light-gray);
+            color: rgba(34, 34, 34, 0.5);
+            padding: 0.2rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin-bottom: 1.2rem;
+        }
+        .info-item {
+            background: var(--light-gray);
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.02);
+        }
+        .info-item .info-label {
+            display: block;
+            font-size: 0.65rem;
+            color: rgba(34, 34, 34, 0.3);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .info-item .info-value {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-top: 0.1rem;
+            display: block;
+        }
+
+        .last-session-box {
+            background: rgba(176, 141, 87, 0.03);
+            border-right: 3px solid var(--matte-gold);
+            padding: 1rem 1.2rem;
+            border-radius: 10px;
+            margin-bottom: 1.2rem;
+        }
+        .last-session-box h5 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 0.3rem;
+        }
+        .last-session-box h5 i {
+            color: var(--matte-gold);
+            margin-left: 0.4rem;
+        }
+        .last-session-box .date {
+            color: var(--matte-gold);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+        .last-session-box .decision {
+            color: rgba(34, 34, 34, 0.5);
+            font-weight: 300;
+            font-size: 0.85rem;
+            margin-top: 0.2rem;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
+            padding-top: 1.2rem;
+        }
+        .modal-actions .btn-action {
+            flex: 1;
+            padding: 0.6rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transition: all 0.4s var(--ease-out);
+            border: 1px solid transparent;
+            cursor: pointer;
+            text-align: center;
+        }
+        .btn-print {
+            border-color: var(--matte-gold);
+            color: var(--matte-gold);
+            background: transparent;
+        }
+        .btn-print:hover {
+            background: var(--matte-gold);
+            color: #000;
+        }
+        .btn-new {
+            background: var(--charcoal);
+            color: #fff;
+        }
+        .btn-new:hover {
+            background: #333;
+        }
+        .btn-exit {
+            background: #dc2626;
+            color: #fff;
+        }
+        .btn-exit:hover {
+            background: #b91c1c;
+        }
+
+        /* ==========================================================
            REVEAL
            ========================================================== */
         .reveal {
@@ -974,39 +1062,9 @@
         }
 
         /* ==========================================================
-           PRINT
-           ========================================================== */
-        @media print {
-            .site-header,
-            .site-footer,
-            .float-whatsapp,
-            .action-buttons {
-                display: none !important;
-            }
-            .main-result {
-                padding: 2rem 1rem !important;
-                background: #fff !important;
-            }
-            .case-header,
-            .info-card,
-            .session-card {
-                box-shadow: none !important;
-                border: 1px solid #ddd !important;
-            }
-            .case-header::after,
-            .info-card::after,
-            .session-card::after {
-                display: none !important;
-            }
-        }
-
-        /* ==========================================================
            RESPONSIVE
            ========================================================== */
         @media (max-width: 1024px) {
-            .info-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
             .footer-inner {
                 grid-template-columns: 1fr 1fr;
                 gap: 1.8rem;
@@ -1029,12 +1087,20 @@
                 height: 64px;
             }
 
-            .main-result {
-                padding: 90px 1rem 2rem;
+            .hero-inquiry {
+                padding: 100px 1rem 2rem;
+                min-height: auto;
             }
 
+            .main-inquiry {
+                padding: 2rem 1rem 3rem;
+            }
+
+            .search-card {
+                padding: 1.8rem 1.2rem;
+            }
             .info-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
             }
             .footer-inner {
                 grid-template-columns: 1fr;
@@ -1060,24 +1126,18 @@
                 width: 30px;
                 height: 30px;
             }
-            .case-title {
-                font-size: 1.6rem;
+            .hero-inquiry .hero-title-wrap h1 {
+                font-size: clamp(2rem, 8vw, 2.8rem);
             }
-            .action-buttons {
+            .modal-actions {
                 flex-direction: column;
             }
-            .action-buttons .btn-gold,
-            .action-buttons .btn-outline-gold {
+            .modal-actions .btn-action {
                 width: 100%;
-                text-align: center;
-                justify-content: center;
             }
         }
 
         @media (max-width: 640px) {
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
             .footer-inner {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -1101,47 +1161,71 @@
                 width: 30px;
                 height: 30px;
             }
-            .case-header {
+            .search-card h2 {
+                font-size: 1.4rem;
+            }
+            .input-group-custom .form-control-custom {
+                font-size: 0.9rem;
+                padding: 0.5rem 0.6rem;
+            }
+            .input-group-custom .fixed-prefix {
+                padding: 0.5rem 0.6rem;
+                font-size: 0.75rem;
+            }
+            .modal-content.glass-theme .modal-body {
                 padding: 1.2rem;
             }
-            .case-code {
-                font-size: 0.9rem;
-                padding: 0.15rem 0.8rem;
+            .result-header h2 {
+                font-size: 1.5rem;
             }
-            .case-title {
-                font-size: 1.3rem;
-            }
-            .session-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .session-date {
+            .info-item .info-value {
                 font-size: 0.85rem;
             }
-            .session-decision {
-                font-size: 0.8rem;
-                padding-right: 0.8rem;
-            }
-            .section-title {
-                font-size: 1.2rem;
-            }
-            .error-container h2 {
+            .warning-content h3 {
                 font-size: 1.4rem;
+            }
+            .legal-box ul li {
+                font-size: 0.8rem;
             }
         }
 
         @media (max-width: 400px) {
-            .main-result {
-                padding: 80px 0.5rem 1.5rem;
+            .search-card {
+                padding: 1.2rem 0.8rem;
             }
-            .case-header {
-                padding: 1rem;
+            .info-grid {
+                gap: 0.5rem;
             }
-            .info-card {
-                padding: 0.8rem;
+            .info-item {
+                padding: 0.5rem 0.6rem;
             }
-            .session-card {
-                padding: 0.8rem 1rem;
+        }
+
+        /* Print styles */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #resultModal,
+            #resultModal * {
+                visibility: visible;
+            }
+            .modal-content {
+                border: none !important;
+                box-shadow: none !important;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+            .modal-actions,
+            .btn-close {
+                display: none !important;
+            }
+            .site-header,
+            .site-footer,
+            .float-whatsapp {
+                display: none !important;
             }
         }
     </style>
@@ -1168,18 +1252,18 @@
         </div>
 
         <nav class="header-nav" role="navigation" aria-label="القائمة الرئيسية">
-            <a href="https://alostazlaw.vercel.app/">الرئيسية</a>
-            <a href="https://alostazlaw.vercel.app/about.html">عن المؤسسة</a>
-            <a href="https://alostazlaw.vercel.app/specialties.html">التخصصات</a>
-            <a href="https://alostazlaw.vercel.app/sectors.html">قطاعات نخدمها</a>
-            <a href="https://alostazlaw.vercel.app/blog.html">المدونة</a>
-            <a href="https://alostazlaw.vercel.app/client-inquiry.html" class="active">تابع قضيتك</a>
-            <a href="https://alostazlaw.vercel.app/contact.html">اتصل بنا</a>
+            <a href="https://ostazlaw.vercel.app/">الرئيسية</a>
+            <a href="https://ostazlaw.vercel.app/about.html">عن المؤسسة</a>
+            <a href="https://ostazlaw.vercel.app/specialties.html">التخصصات</a>
+            <a href="https://ostazlaw.vercel.app/sectors.html">قطاعات نخدمها</a>
+            <a href="https://ostazlaw.vercel.app/blog.html">المدونة</a>
+            <a href="https://ostazlaw.vercel.app/client-inquiry.html" class="active">تابع قضيتك</a>
+            <a href="https://ostazlaw.vercel.app/contact.html">اتصل بنا</a>
         </nav>
 
         <div class="header-actions">
-            <a href="https://alostazlaw.vercel.app/contact.html?tab=consult" class="btn-consult">طلب استشارة</a>
-            <a href="https://alostazlaw.vercel.app/contact.html?tab=appointment" class="btn-appointment">حجز موعد</a>
+            <a href="https://ostazlaw.vercel.app/contact.html?tab=consult" class="btn-consult">طلب استشارة</a>
+            <a href="https://ostazlaw.vercel.app/contact.html?tab=appointment" class="btn-appointment">حجز موعد</a>
             <a href="tel:+201101076000" class="btn-phone"><i class="fas fa-phone-alt"></i> اتصل بنا</a>
             <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة"><i class="fas fa-bars-staggered"></i></button>
         </div>
@@ -1191,84 +1275,65 @@
     <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
         <button class="mobile-menu-close" id="menuClose" aria-label="إغلاق القائمة"><i class="fas fa-times"></i></button>
         <nav>
-            <a href="https://alostazlaw.vercel.app/" onclick="closeMobileMenu()">الرئيسية</a>
-            <a href="https://alostazlaw.vercel.app/about.html" onclick="closeMobileMenu()">عن المؤسسة</a>
-            <a href="https://alostazlaw.vercel.app/specialties.html" onclick="closeMobileMenu()">التخصصات</a>
-            <a href="https://alostazlaw.vercel.app/sectors.html" onclick="closeMobileMenu()">قطاعات نخدمها</a>
-            <a href="https://alostazlaw.vercel.app/blog.html" onclick="closeMobileMenu()">المدونة</a>
-            <a href="https://alostazlaw.vercel.app/client-inquiry.html" onclick="closeMobileMenu()">تابع قضيتك</a>
-            <a href="https://alostazlaw.vercel.app/contact.html" onclick="closeMobileMenu()">اتصل بنا</a>
+            <a href="https://ostazlaw.vercel.app/" onclick="closeMobileMenu()">الرئيسية</a>
+            <a href="https://ostazlaw.vercel.app/about.html" onclick="closeMobileMenu()">عن المؤسسة</a>
+            <a href="https://ostazlaw.vercel.app/specialties.html" onclick="closeMobileMenu()">التخصصات</a>
+            <a href="https://ostazlaw.vercel.app/sectors.html" onclick="closeMobileMenu()">قطاعات نخدمها</a>
+            <a href="https://ostazlaw.vercel.app/blog.html" onclick="closeMobileMenu()">المدونة</a>
+            <a href="https://ostazlaw.vercel.app/client-inquiry.html" onclick="closeMobileMenu()">تابع قضيتك</a>
+            <a href="https://ostazlaw.vercel.app/contact.html" onclick="closeMobileMenu()">اتصل بنا</a>
             <div class="divider"></div>
             <div class="actions">
-                <a href="https://alostazlaw.vercel.app/contact.html?tab=consult" class="btn-gold" onclick="closeMobileMenu()">طلب استشارة</a>
-                <a href="https://alostazlaw.vercel.app/contact.html?tab=appointment" class="btn-outline-white" onclick="closeMobileMenu()">حجز موعد</a>
+                <a href="https://ostazlaw.vercel.app/contact.html?tab=consult" class="btn-gold" onclick="closeMobileMenu()">طلب استشارة</a>
+                <a href="https://ostazlaw.vercel.app/contact.html?tab=appointment" class="btn-outline-white" onclick="closeMobileMenu()">حجز موعد</a>
                 <a href="tel:+201101076000" class="btn-outline-white" onclick="closeMobileMenu()"><i class="fas fa-phone-alt" style="margin-left:6px;"></i> اتصل بنا</a>
             </div>
         </nav>
     </div>
 
     <!-- ==========================================================
-    MAIN CONTENT
+    HERO
     ========================================================== -->
-    <main class="main-result" id="mainContent">
-        <div class="inner">
+    <section class="hero-inquiry" aria-label="استعلام القضايا">
+        <div class="hero-pattern"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-glow-2"></div>
 
-            <!-- Loading -->
-            <div id="loadingState" class="loading-container">
-                <div class="spinner"></div>
-                <p>جاري تحميل بيانات القضية...</p>
+        <div class="hero-inner">
+            <div class="hero-title-wrap reveal">
+                <span class="en-tag">Case Inquiry</span>
+                <h1>استعلام <span class="gold-text">القضايا</span></h1>
+                <p class="sub">أدخل بيانات القضية للاطلاع على آخر المستجدات.</p>
             </div>
+        </div>
+    </section>
 
-            <!-- Error -->
-            <div id="errorState" class="error-container hidden">
-                <span class="error-icon"><i class="fas fa-exclamation-triangle"></i></span>
-                <h2>حدث خطأ</h2>
-                <p id="errorMessage">فشل في تحميل بيانات القضية. يرجى التحقق من الرابط والمحاولة مرة أخرى.</p>
-                <a href="client-inquiry.html" class="btn-gold" style="display:inline-block;">
-                    <i class="fas fa-search" style="margin-left:0.5rem;"></i> العودة إلى الاستعلام
-                </a>
-            </div>
-
-            <!-- Case Content -->
-            <div id="caseContent" class="hidden">
-
-                <!-- Case Header -->
-                <div class="case-header reveal">
-                    <div class="case-code" id="caseCodeDisplay">MA-2024-001</div>
-                    <h1 class="case-title" id="caseTitle">قضية تعويض مدني</h1>
-                    <p class="case-subtitle" id="caseSubtitle">العميل: أحمد محمد علي</p>
+    <!-- ==========================================================
+    MAIN CONTENT – خلفية فاتحة
+    ========================================================== -->
+    <main class="main-inquiry" id="mainContent">
+        <div class="inner reveal" style="transition-delay:0.1s;">
+            <div class="search-card">
+                <div class="icon-header">
+                    <i class="fas fa-search"></i>
                 </div>
+                <h2>استعلام القضايا</h2>
+                <p class="sub">أدخل بيانات القضية للاطلاع على آخر المستجدات</p>
 
-                <!-- Info Grid -->
-                <div class="info-grid" id="caseInfoGrid">
-                    <!-- سيتم تعبئتها بواسطة JavaScript -->
-                </div>
-
-                <!-- Sessions -->
-                <div class="sessions-section reveal" style="transition-delay:0.1s;">
-                    <h2 class="section-title">
-                        <i class="fas fa-calendar-alt"></i> سجل الجلسات
-                    </h2>
-                    <div id="sessionsList">
-                        <!-- سيتم تعبئتها بواسطة JavaScript -->
+                <form id="searchForm" onsubmit="handleSearch(event)">
+                    <div class="input-group-custom">
+                        <input type="tel" id="phoneInput" class="form-control-custom" placeholder="رقم الهاتف" required>
+                        <span class="fixed-prefix">20</span>
                     </div>
-                </div>
-
-                <!-- Action Buttons -->
-                <div class="action-buttons reveal" style="transition-delay:0.2s;">
-                    <button class="btn-gold" id="printBtn">
-                        <i class="fas fa-print" style="margin-left:0.5rem;"></i> طباعة النتيجة
+                    <div class="input-group-custom">
+                        <input type="text" id="codeInput" class="form-control-custom" placeholder="كود القضية" required style="text-transform: uppercase;">
+                        <span class="fixed-prefix">MA-</span>
+                    </div>
+                    <button type="submit" class="btn-gold btn-search" id="searchBtn">
+                        <i class="bi bi-search" style="margin-left:0.5rem;"></i> الاطلاع
                     </button>
-                    <a href="client-inquiry.html" class="btn-outline-gold">
-                        <i class="fas fa-search" style="margin-left:0.5rem;"></i> استعلام جديد
-                    </a>
-                    <a href="https://alostazlaw.vercel.app/contact.html?tab=consult" class="btn-outline-gold">
-                        <i class="fas fa-comment-dots" style="margin-left:0.5rem;"></i> طلب استشارة
-                    </a>
-                </div>
-
+                </form>
             </div>
-
         </div>
     </main>
 
@@ -1292,21 +1357,21 @@
 
             <div class="footer-col">
                 <h4>روابط</h4>
-                <a href="https://alostazlaw.vercel.app/">الرئيسية</a>
-                <a href="https://alostazlaw.vercel.app/about.html">عن المؤسسة</a>
-                <a href="https://alostazlaw.vercel.app/specialties.html">التخصصات</a>
-                <a href="https://alostazlaw.vercel.app/sectors.html">قطاعات نخدمها</a>
-                <a href="https://alostazlaw.vercel.app/blog.html">المدونة</a>
-                <a href="https://alostazlaw.vercel.app/client-inquiry.html">تابع قضيتك</a>
-                <a href="https://alostazlaw.vercel.app/contact.html">اتصل بنا</a>
+                <a href="https://ostazlaw.vercel.app/">الرئيسية</a>
+                <a href="https://ostazlaw.vercel.app/about.html">عن المؤسسة</a>
+                <a href="https://ostazlaw.vercel.app/specialties.html">التخصصات</a>
+                <a href="https://ostazlaw.vercel.app/sectors.html">قطاعات نخدمها</a>
+                <a href="https://ostazlaw.vercel.app/blog.html">المدونة</a>
+                <a href="https://ostazlaw.vercel.app/client-inquiry.html">تابع قضيتك</a>
+                <a href="https://ostazlaw.vercel.app/contact.html">اتصل بنا</a>
             </div>
 
             <div class="footer-col">
                 <h4>خدمات</h4>
-                <a href="https://alostazlaw.vercel.app/contact.html?tab=consult">استشارة قانونية</a>
-                <a href="https://alostazlaw.vercel.app/contact.html?tab=appointment">حجز موعد</a>
-                <a href="https://alostazlaw.vercel.app/contact.html?tab=representation">تمثيل قانوني</a>
-                <a href="https://alostazlaw.vercel.app/client-inquiry.html">متابعة قضية</a>
+                <a href="https://ostazlaw.vercel.app/contact.html?tab=consult">استشارة قانونية</a>
+                <a href="https://ostazlaw.vercel.app/contact.html?tab=appointment">حجز موعد</a>
+                <a href="https://ostazlaw.vercel.app/contact.html?tab=representation">تمثيل قانوني</a>
+                <a href="https://ostazlaw.vercel.app/client-inquiry.html">متابعة قضية</a>
             </div>
 
             <div class="footer-col">
@@ -1319,12 +1384,95 @@
 
         <div class="footer-bottom">
             <p>جميع الحقوق محفوظة © ٢٠٢٦ – مؤسسة الأستاذ محمود عبد الحميد للمحاماة والاستشارات القانونية</p>
-            <p>AL OSTAZ LAW – هوية مؤسسية فاخرة</p>
+            <p>OSTAZ LAW – هوية مؤسسية فاخرة</p>
         </div>
     </footer>
 
     <!-- ==========================================================
-    JAVASCRIPT
+    MODAL – التحذير
+    ========================================================== -->
+    <div class="modal fade" id="warningModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content glass-theme">
+                <div class="modal-body">
+                    <div class="warning-content">
+                        <span class="icon-large"><i class="bi bi-shield-lock-fill"></i></span>
+                        <h3>تحذير قانوني</h3>
+                        <p class="sub-text">هذا النظام مخصص لعملاء المكتب المصرح لهم فقط.</p>
+                        <div class="legal-box">
+                            <ul>
+                                <li><i class="fas fa-circle"></i> هذا النظام مخصص فقط لعملاء المكتب المصرح لهم.</li>
+                                <li><i class="fas fa-circle"></i> بيانات القضايا المعروضة سرية ومحمية قانونياً.</li>
+                                <li><i class="fas fa-circle"></i> يتم تسجيل بيانات الدخول (IP) لأغراض الحماية.</li>
+                                <li><i class="fas fa-circle"></i> الدخول غير المصرح به يعرضك للمساءلة القانونية.</li>
+                            </ul>
+                        </div>
+                        <button class="btn-gold" onclick="acceptWarning()" style="width:100%;">
+                            <i class="bi bi-check-circle-fill" style="margin-left:0.5rem;"></i> أوافق وأتابع
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+    MODAL – نتيجة الاستعلام
+    ========================================================== -->
+    <div class="modal fade" id="resultModal" data-bs-backdrop="static" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content glass-theme">
+                <div class="modal-body">
+                    <div class="result-header">
+                        <h2 id="r_clientName">-</h2>
+                        <span class="badge-role" id="r_clientRole">-</span>
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label">اسم الخصم</span>
+                            <span class="info-value" id="r_opponent">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">المحكمة</span>
+                            <span class="info-value" id="r_court">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">رقم القضية</span>
+                            <span class="info-value" id="r_caseNum">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">الدائرة</span>
+                            <span class="info-value" id="r_circle">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">موضوع الدعوى</span>
+                            <span class="info-value" id="r_subject">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">حالة القضية</span>
+                            <span class="info-value" id="r_status" style="color:var(--matte-gold);">-</span>
+                        </div>
+                    </div>
+
+                    <div class="last-session-box">
+                        <h5><i class="fas fa-clock"></i> آخر جلسة مسجلة</h5>
+                        <div class="date" id="r_lastDate">-</div>
+                        <div class="decision" id="r_lastDecision">-</div>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button class="btn-action btn-print" onclick="window.print()"><i class="bi bi-printer" style="margin-left:0.4rem;"></i> طباعة</button>
+                        <button class="btn-action btn-new" onclick="newSearch()"><i class="bi bi-search" style="margin-left:0.4rem;"></i> بحث جديد</button>
+                        <button class="btn-action btn-exit" onclick="exitSystem()"><i class="bi bi-box-arrow-right" style="margin-left:0.4rem;"></i> خروج</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+    JAVASCRIPT – المُحسَّن للأمان
     ========================================================== -->
     <script>
         (function() {
@@ -1378,7 +1526,7 @@
             });
 
             // ==========================================================
-            // SUPA BASE SETUP
+            // SUPA BASE SETUP – (مفتاح anon، مع تأكيد RLS)
             // ==========================================================
             const SB_URL = "https://iyhfafodhptcdwrjywek.supabase.co";
             const SB_KEY =
@@ -1386,201 +1534,259 @@
             const db = supabase.createClient(SB_URL, SB_KEY);
 
             // ==========================================================
-            // DOM REFS
+            // DOM REFERENCES
             // ==========================================================
-            const loadingState = document.getElementById('loadingState');
-            const errorState = document.getElementById('errorState');
-            const errorMessage = document.getElementById('errorMessage');
-            const caseContent = document.getElementById('caseContent');
-
-            const caseCodeDisplay = document.getElementById('caseCodeDisplay');
-            const caseTitle = document.getElementById('caseTitle');
-            const caseSubtitle = document.getElementById('caseSubtitle');
-            const caseInfoGrid = document.getElementById('caseInfoGrid');
-            const sessionsList = document.getElementById('sessionsList');
+            const mainContent = document.getElementById('mainContent');
+            const phoneInput = document.getElementById('phoneInput');
+            const codeInput = document.getElementById('codeInput');
+            const searchBtn = document.getElementById('searchBtn');
 
             // ==========================================================
-            // FETCH CASE DATA
+            // UTILITY – Sanitize inputs (إزالة الأحرف غير المسموحة)
             // ==========================================================
-            async function fetchCaseData() {
-                const urlParams = new URLSearchParams(window.location.search);
-                const code = urlParams.get('code');
-                const phone = urlParams.get('phone');
-
-                if (!code || !phone) {
-                    showError('بيانات الدخول غير مكتملة. يرجى العودة إلى صفحة الاستعلام.');
-                    return;
-                }
-
-                try {
-                    // Validate input format (basic security)
-                    const cleanCode = code.trim().toUpperCase();
-                    const cleanPhone = phone.trim();
-
-                    if (cleanCode.length < 5 || cleanPhone.length < 8) {
-                        showError('بيانات الدخول غير صحيحة. يرجى التحقق من الكود ورقم الهاتف.');
-                        return;
-                    }
-
-                    // Fetch case
-                    const { data: cases, error: caseError } = await db
-                        .from('cases')
-                        .select('*')
-                        .eq('case_code', cleanCode)
-                        .limit(1);
-
-                    if (caseError) throw caseError;
-
-                    if (!cases || cases.length === 0) {
-                        showError('لم يتم العثور على قضية بهذا الكود.');
-                        return;
-                    }
-
-                    const targetCase = cases[0];
-
-                    // Verify phone number (basic check – we should match the last 4 digits or partial)
-                    const phoneMatch = targetCase.client_phone && targetCase.client_phone.includes(cleanPhone.slice(-6));
-                    if (!phoneMatch) {
-                        showError('رقم الهاتف غير مطابق لهذه القضية. يرجى التأكد من البيانات.');
-                        return;
-                    }
-
-                    // Fetch sessions
-                    const { data: sessions, error: sessionError } = await db
-                        .from('sessions')
-                        .select('*')
-                        .eq('case_id', targetCase.id)
-                        .order('session_date', { ascending: false });
-
-                    if (sessionError) throw sessionError;
-
-                    // Render
-                    renderCase(targetCase, sessions || []);
-
-                } catch (err) {
-                    console.error('Error fetching case data:', err);
-                    showError('حدث خطأ أثناء تحميل البيانات. يرجى المحاولة مرة أخرى.');
-                }
+            function sanitizeInput(value) {
+                // إزالة أي أحرف غير رقمية أو حروف أو شرطات
+                return value.replace(/[^a-zA-Z0-9\-]/g, '').trim();
             }
 
             // ==========================================================
-            // RENDER CASE
+            // REMOVE PREFIX
             // ==========================================================
-            function renderCase(caseData, sessions) {
-                // Header
-                caseCodeDisplay.textContent = caseData.case_code || 'غير محدد';
-                caseTitle.textContent = caseData.case_subject || 'قضية قانونية';
-                caseSubtitle.textContent = 'العميل: ' + (caseData.client_name || 'غير محدد');
+            function removePrefix(input, prefix) {
+                let value = input.value.trim();
+                if (value.startsWith(prefix)) {
+                    input.value = value.substring(prefix.length).trim();
+                }
+            }
 
-                // Info Grid
-                const fields = [
-                    { label: 'اسم الخصم', value: caseData.opponent_name || '-' },
-                    { label: 'المحكمة', value: caseData.court_name || '-' },
-                    { label: 'رقم القضية', value: (caseData.case_number || '') + ' / ' + (caseData.case_year || '') },
-                    { label: 'الدائرة', value: caseData.circle || '-' },
-                    { label: 'موضوع الدعوى', value: caseData.case_subject || '-' },
-                    { label: 'حالة القضية', value: getStatusText(caseData.case_status), className: getStatusClass(caseData
-                            .case_status) }
-                ];
+            phoneInput.addEventListener('input', function() {
+                removePrefix(this, '20');
+            });
+            phoneInput.addEventListener('paste', function() {
+                setTimeout(() => removePrefix(this, '20'), 10);
+            });
 
-                caseInfoGrid.innerHTML = fields.map(f =>
-                    `<div class="info-card">
-                        <span class="info-label">${f.label}</span>
-                        <span class="info-value ${f.className || ''}">${f.value}</span>
-                    </div>`
-                ).join('');
-
-                // Sessions
-                if (sessions.length === 0) {
-                    sessionsList.innerHTML = `
-                        <div class="no-sessions">
-                            <i class="fas fa-calendar-times"></i>
-                            لا توجد جلسات مسجلة لهذه القضية.
-                        </div>
-                    `;
+            codeInput.addEventListener('input', function() {
+                let val = this.value.trim().toUpperCase();
+                if (val.startsWith('MA-')) {
+                    this.value = val.substring(3).trim();
                 } else {
-                    sessionsList.innerHTML = sessions.map(session => {
-                        const date = new Date(session.session_date);
-                        const formattedDate = date.toLocaleDateString('ar-EG', {
-                            weekday: 'long',
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric'
-                        });
-                        const statusClass = getStatusClass(session.case_status);
-                        const statusText = getStatusText(session.case_status);
-                        return `
-                            <div class="session-card">
-                                <div class="session-header">
-                                    <span class="session-date"><i class="fas fa-calendar-day"></i> ${formattedDate}</span>
-                                    <span class="session-status-badge ${statusClass}">${statusText}</span>
-                                </div>
-                                <div class="session-decision">${session.decision || 'لم يسجل قرار'}</div>
-                            </div>
-                        `;
-                    }).join('');
+                    this.value = val;
                 }
-
-                // Show content
-                loadingState.classList.add('hidden');
-                caseContent.classList.remove('hidden');
-                errorState.classList.add('hidden');
-
-                // Re-trigger reveal after render
-                setTimeout(function() {
-                    document.querySelectorAll('.reveal').forEach(function(el) {
-                        if (el.getBoundingClientRect().top < window.innerHeight) {
-                            el.classList.add('visible');
-                        }
-                    });
-                }, 100);
-            }
-
-            // ==========================================================
-            // HELPERS
-            // ==========================================================
-            function getStatusText(status) {
-                const map = {
-                    'جديدة': 'جديدة',
-                    'قيد النظر': 'قيد النظر',
-                    'محجوزة': 'محجوزة',
-                    'منتهية': 'منتهية',
-                    'مؤجلة': 'مؤجلة'
-                };
-                return map[status] || status || 'جديدة';
-            }
-
-            function getStatusClass(status) {
-                const map = {
-                    'جديدة': 'pending',
-                    'قيد النظر': 'active',
-                    'محجوزة': 'pending',
-                    'منتهية': 'closed',
-                    'مؤجلة': 'pending'
-                };
-                return map[status] || 'pending';
-            }
-
-            function showError(message) {
-                loadingState.classList.add('hidden');
-                errorState.classList.remove('hidden');
-                errorMessage.textContent = message;
-                caseContent.classList.add('hidden');
-            }
-
-            // ==========================================================
-            // PRINT
-            // ==========================================================
-            document.getElementById('printBtn').addEventListener('click', function() {
-                window.print();
+            });
+            codeInput.addEventListener('paste', function() {
+                setTimeout(() => {
+                    let val = this.value.trim().toUpperCase();
+                    if (val.startsWith('MA-')) {
+                        this.value = val.substring(3).trim();
+                    } else {
+                        this.value = val;
+                    }
+                }, 10);
             });
 
             // ==========================================================
-            // START
+            // MODALS
             // ==========================================================
-            fetchCaseData();
+            let warningModal, resultModal;
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const warningEl = document.getElementById('warningModal');
+                warningModal = new bootstrap.Modal(warningEl);
+
+                const resultEl = document.getElementById('resultModal');
+                resultModal = new bootstrap.Modal(resultEl);
+
+                warningModal.show();
+            });
+
+            // ==========================================================
+            // ACCEPT WARNING
+            // ==========================================================
+            window.acceptWarning = function() {
+                warningModal.hide();
+                mainContent.classList.remove('hidden');
+            };
+
+            // ==========================================================
+            // SEARCH HANDLER – مع تحسينات الأمان
+            // ==========================================================
+            window.handleSearch = async function(e) {
+                e.preventDefault();
+
+                // 1. تنظيف المدخلات
+                let phoneVal = sanitizeInput(phoneInput.value);
+                let codeVal = sanitizeInput(codeInput.value.toUpperCase());
+
+                if (phoneVal.startsWith('20')) phoneVal = phoneVal.substring(2).trim();
+                if (codeVal.startsWith('MA-')) codeVal = codeVal.substring(3).trim();
+
+                if (!phoneVal || !codeVal) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'تنبيه',
+                        text: 'يرجى إدخال البيانات المطلوبة.',
+                        confirmButtonColor: '#B08D57',
+                        background: '#FAFAF8',
+                        color: '#222222'
+                    });
+                    return;
+                }
+
+                const fullPhone = "20" + phoneVal;
+                const fullCode = "MA-" + codeVal;
+
+                // 2. إظهار مؤشر التحميل
+                const originalText = searchBtn.innerHTML;
+                searchBtn.innerHTML =
+                    '<span class="spinner-border spinner-border-sm" style="margin-left:0.5rem;"></span> جاري التحقق...';
+                searchBtn.disabled = true;
+
+                try {
+                    // 3. استعلام آمن باستخدام .eq() بدلاً من .includes()
+                    const { data: cases, error } = await db
+                        .from('cases')
+                        .select('*')
+                        .eq('case_code', fullCode)
+                        .eq('client_phone', fullPhone)  // تحقق دقيق
+                        .limit(1);
+
+                    if (error) throw error;
+
+                    const targetCase = cases && cases.length > 0 ? cases[0] : null;
+
+                    if (!targetCase) {
+                        throw new Error("NOT_FOUND");
+                    }
+
+                    // 4. جلب الجلسات
+                    const { data: sessions } = await db
+                        .from('sessions')
+                        .select('*')
+                        .eq('case_id', targetCase.id)
+                        .order('session_date', { ascending: false })
+                        .limit(1);
+
+                    const lastSession = sessions && sessions.length > 0 ? sessions[0] : null;
+
+                    // 5. عرض النتيجة
+                    showResult(targetCase, lastSession);
+
+                } catch (err) {
+                    console.error(err);
+                    // رسالة عامة لا تكشف تفاصيل النظام
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'عذراً',
+                        text: 'بيانات الدخول غير صحيحة. يرجى التأكد من الكود ورقم الهاتف.',
+                        confirmButtonColor: '#B08D57',
+                        background: '#FAFAF8',
+                        color: '#222222',
+                        confirmButtonText: 'حسناً'
+                    });
+                } finally {
+                    searchBtn.innerHTML = originalText;
+                    searchBtn.disabled = false;
+                }
+            };
+
+            // ==========================================================
+            // SHOW RESULT
+            // ==========================================================
+            function showResult(c, s) {
+                document.getElementById('r_clientName').innerText = c.client_name || '-';
+                document.getElementById('r_clientRole').innerText = c.client_role || '-';
+                document.getElementById('r_opponent').innerText = c.opponent_name || '-';
+                document.getElementById('r_court').innerText = c.court_name || '-';
+                document.getElementById('r_caseNum').innerText = (c.case_number || '') + ' / ' + (c.case_year || '');
+                document.getElementById('r_circle').innerText = c.circle || '-';
+                document.getElementById('r_subject').innerText = c.case_subject || 'غير محدد';
+
+                if (s) {
+                    document.getElementById('r_status').innerText = s.case_status || 'جديدة';
+                    const d = new Date(s.session_date);
+                    document.getElementById('r_lastDate').innerText = d.toLocaleDateString('ar-EG', {
+                        weekday: 'long',
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+                    document.getElementById('r_lastDecision').innerText = s.decision || 'لم يسجل قرار';
+                } else {
+                    document.getElementById('r_status').innerText = 'جديدة';
+                    document.getElementById('r_lastDate').innerText = 'لا توجد جلسات مسجلة';
+                    document.getElementById('r_lastDecision').innerText = '';
+                }
+
+                resultModal.show();
+            }
+
+            // ==========================================================
+            // NEW SEARCH
+            // ==========================================================
+            window.newSearch = function() {
+                resultModal.hide();
+                document.getElementById('searchForm').reset();
+                phoneInput.value = '';
+                codeInput.value = '';
+            };
+
+            // ==========================================================
+            // EXIT SYSTEM
+            // ==========================================================
+            window.exitSystem = function() {
+                resultModal.hide();
+                Swal.fire({
+                    icon: 'success',
+                    title: 'شكراً لك',
+                    text: 'شكراً لاستخدامكم نظام الاستعلام الإلكتروني لمؤسسة الأستاذ محمود عبد الحميد.',
+                    background: '#FAFAF8',
+                    color: '#222222',
+                    confirmButtonColor: '#B08D57',
+                    confirmButtonText: 'إغلاق',
+                    timer: 3000
+                }).then(function() {
+                    window.location.href = "https://ostazlaw.vercel.app/";
+                });
+            };
+
+            // ==========================================================
+            // KEYBOARD – Enter to submit
+            // ==========================================================
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && !e.target.closest('form')) {
+                    const form = document.getElementById('searchForm');
+                    if (form) form.dispatchEvent(new Event('submit'));
+                }
+            });
+
+            // ==========================================================
+            // RATE LIMITING – منع الإرسال المتكرر (عميل)
+            // ==========================================================
+            let lastSubmitTime = 0;
+            const originalSubmit = window.handleSearch;
+            window.handleSearch = function(e) {
+                const now = Date.now();
+                if (now - lastSubmitTime < 3000) { // 3 ثواني بين المحاولات
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'مهلاً',
+                        text: 'يرجى الانتظار قبل محاولة استعلام آخر.',
+                        confirmButtonColor: '#B08D57',
+                        background: '#FAFAF8',
+                        color: '#222222',
+                        timer: 2000
+                    });
+                    return;
+                }
+                lastSubmitTime = now;
+                originalSubmit(e);
+            };
 
         })();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
     </script>
 
 </body>
