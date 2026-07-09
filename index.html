@@ -29,9 +29,7 @@
     <meta name="twitter:image" content="https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.jpg" />
     <meta name="twitter:image:alt" content="الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا" />
 
-    <!-- ==========================================================
-    سياسة أمان المحتوى (CSP) – طبقة دفاع إضافية
-    ========================================================== -->
+    <!-- ===== تحسينات الأمان: سياسة أمان المحتوى ===== -->
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
         script-src 'self' https://cdnjs.cloudflare.com https://api.github.com;
@@ -43,11 +41,12 @@
         base-uri 'self';
     ">
 
+    <!-- ===== تحميل الخطوط ===== -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;900&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
 
-    <!-- Font Awesome مع خاصية integrity لضمان سلامة الملف -->
+    <!-- ===== Font Awesome مع خاصية integrity للتحقق من سلامة الملف ===== -->
     <link rel="stylesheet" 
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
           integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
@@ -220,19 +219,23 @@
             border-radius: 2px;
         }
 
+        /* Hover للكمبيوتر */
         .gold-underline:hover::after,
         .gold-underline:focus::after {
             width: 100%;
         }
 
+        /* Active للموبايل (عند اللمس) */
         .gold-underline:active::after {
             width: 100%;
         }
 
+        /* تأثير التمرير – يضاف عبر JavaScript */
         .gold-underline.scroll-visible::after {
             width: 100%;
         }
 
+        /* للأزرار والبطاقات التي تحتوي على عناصر داخلية */
         .gold-underline-card {
             position: relative;
             cursor: pointer;
@@ -1943,6 +1946,9 @@
                 خبرة قضائية راسخة في النقض والدستورية العليا، نضعها بين يديك لحماية أعمالك، واستثماراتك، ومستقبلك القانوني.
             </p>
 
+            <!-- ==========================================================
+            HERO ACTIONS – أيقونات بدلاً من الكروت
+            ========================================================== -->
             <div class="hero-actions">
                 <a href="https://ostazlaw.vercel.app/contact.html?tab=consult" class="hero-action-item gold-underline">
                     <span class="icon-wrap"><i class="fas fa-file-signature"></i></span>
@@ -2257,7 +2263,7 @@
     </footer>
 
     <!-- ==========================================================
-    JAVASCRIPT – نسخة آمنة باستخدام DOM APIs
+    JAVASCRIPT – نسخة آمنة باستخدام DOM APIs بدلاً من innerHTML
     ========================================================== -->
     <script>
         (function() {
@@ -2319,6 +2325,7 @@
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('scroll-visible');
+                        // إزالة الفئة بعد فترة قصيرة لإعادة التشغيل عند التمرير مرة أخرى
                         setTimeout(function() {
                             entry.target.classList.remove('scroll-visible');
                         }, 1500);
@@ -2331,7 +2338,7 @@
             });
 
             // ==========================================================
-            // LOAD BLOG POSTS – نسخة آمنة باستخدام DOM APIs بدلاً من innerHTML
+            // LOAD BLOG POSTS (أحدث 3 مقالات) – نسخة آمنة تماماً
             // ==========================================================
             const CONFIG = {
                 owner: 'malegal',
