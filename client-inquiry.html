@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta name="google-site-verification" content="Uqbjr1w7Q831Lo6JPFEe9_lK86Kp55P79Lwfp1j6EX8" />
 
     <title>استعلام القضايا | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا</title>
@@ -16,7 +16,6 @@
     <link rel="sitemap" type="application/xml" title="Sitemap" href="https://ostazlaw.vercel.app/sitemap.xml" />
     <link rel="robots" type="text/plain" href="https://ostazlaw.vercel.app/robots.txt" />
 
-    <!-- ===== Open Graph / Twitter Cards ===== -->
     <meta property="og:title" content="استعلام القضايا | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا" />
     <meta property="og:description" content="نظام استعلام القضايا الإلكتروني – متابعة مستجدات قضيتك لدى مؤسسة الأستاذ محمود عبد الحميد للمحاماة." />
     <meta property="og:type" content="website" />
@@ -30,10 +29,21 @@
     <meta name="twitter:image" content="https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.jpg" />
     <meta name="twitter:image:alt" content="الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا" />
 
-    <!-- ===== سياسة أمان المحتوى (CSP) ===== -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://mgvyieyismzzvdejsvcv.supabase.co; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self' https://mgvyieyismzzvdejsvcv.supabase.co;">
+    <!-- ===== تحميل الخطوط ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;900&family=Tajawal:wght@300;400;500;700;800;900&family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
 
-    <!-- ===== JSON-LD للذكاء الاصطناعي ومحركات البحث ===== -->
+    <!-- ===== Font Awesome ===== -->
+    <link rel="stylesheet" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+          crossorigin="anonymous" 
+          referrerpolicy="no-referrer" />
+
+    <!-- ===== SweetAlert2 ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -78,25 +88,10 @@
         }
     </script>
 
-    <!-- ===== تحميل الخطوط ===== -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" "https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;900&family=Tajawal:wght@300;400;500;700;800;900&family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
-
-    <!-- ===== Font Awesome مع integrity ===== -->
-    <link rel="stylesheet" 
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
-          crossorigin="anonymous" 
-          referrerpolicy="no-referrer" />
-
-    <!-- ===== SweetAlert2 ===== -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <style>
         /* ==========================================================
-           الهوية البصرية – متطابقة مع بقية الموقع
-           ========================================================== */
+               ROOT – الهوية المؤسسية (مطابقة للـ template.html)
+               ========================================================== */
         :root {
             --very-dark-navy: #0B111B;
             --deep-navy: #102A43;
@@ -105,29 +100,28 @@
             --light-gray: #F5F5F5;
             --charcoal: #222222;
             --matte-gold: #B08D57;
-            --matte-gold-light: rgba(176, 141, 87, 0.15);
             --footer-navy: #0B1F35;
+            --whatsapp-green: #25D366;
             --font-ar: 'Tajawal', sans-serif;
             --font-serif: 'Amiri', serif;
             --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
             --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-            --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.02);
-            --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.04);
         }
 
-        /* ==========================================================
-           إعادة تعيين عامة
-           ========================================================== */
-        * {
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         html {
             scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
+
         body {
             font-family: var(--font-ar);
             background-color: var(--warm-off-white);
@@ -135,9 +129,11 @@
             overflow-x: hidden;
             line-height: 1.7;
             direction: rtl;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
         }
         a {
             text-decoration: none;
@@ -149,10 +145,7 @@
             background: none;
             font-family: inherit;
         }
-        img {
-            max-width: 100%;
-            display: block;
-        }
+
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -164,28 +157,23 @@
             border-radius: 10px;
         }
 
-        /* ==========================================================
-           أدوات مساعدة
-           ========================================================== */
         .serif {
             font-family: var(--font-serif);
         }
         .gold-text {
             color: var(--matte-gold);
         }
-        .text-center {
-            text-align: center;
-        }
 
         /* ==========================================================
-           GOLD UNDERLINE – تأثير الخط الذهبي
-           ========================================================== */
+               GOLD UNDERLINE – تأثير الخط الذهبي
+               ========================================================== */
         .gold-underline {
             position: relative;
             display: inline-block;
             cursor: pointer;
             transition: color 0.3s ease;
         }
+
         .gold-underline::after {
             content: '';
             position: absolute;
@@ -197,20 +185,23 @@
             transition: width 0.5s var(--ease-out);
             border-radius: 2px;
         }
+
         .gold-underline:hover::after,
         .gold-underline:focus::after {
             width: 100%;
         }
+
         .gold-underline:active::after {
             width: 100%;
         }
+
         .gold-underline.scroll-visible::after {
             width: 100%;
         }
 
         /* ==========================================================
-           أزرار (متطابقة مع بقية الموقع)
-           ========================================================== */
+               BUTTONS (مطابقة للـ template.html)
+               ========================================================== */
         .btn-gold {
             display: inline-block;
             background: var(--matte-gold);
@@ -238,7 +229,9 @@
             background: var(--matte-gold);
             transition: width 0.6s var(--ease-out);
         }
-        .btn-gold:hover::after {
+        .btn-gold:hover::after,
+        .btn-gold:focus::after,
+        .btn-gold:active::after {
             width: 100%;
         }
         .btn-gold:hover {
@@ -271,7 +264,9 @@
             background: var(--matte-gold);
             transition: width 0.6s var(--ease-out);
         }
-        .btn-outline-gold:hover::after {
+        .btn-outline-gold:hover::after,
+        .btn-outline-gold:focus::after,
+        .btn-outline-gold:active::after {
             width: 100%;
         }
         .btn-outline-gold:hover {
@@ -305,7 +300,9 @@
             background: var(--matte-gold);
             transition: width 0.6s var(--ease-out);
         }
-        .btn-outline-white:hover::after {
+        .btn-outline-white:hover::after,
+        .btn-outline-white:focus::after,
+        .btn-outline-white:active::after {
             width: 100%;
         }
         .btn-outline-white:hover {
@@ -316,8 +313,8 @@
         }
 
         /* ==========================================================
-           الهيدر – متطابق مع بقية الموقع
-           ========================================================== */
+               HEADER – مطابق للـ template.html
+               ========================================================== */
         .site-header {
             position: fixed;
             top: 0;
@@ -348,7 +345,7 @@
             gap: 0.8rem;
         }
 
-        /* ===== شعار Wordmark النصي ===== */
+        /* شعار Wordmark النصي */
         .brand-wordmark {
             display: flex;
             flex-direction: column;
@@ -455,7 +452,8 @@
             background: var(--matte-gold);
             transition: width 0.6s var(--ease-out);
         }
-        .header-actions .btn-consult:hover::after {
+        .header-actions .btn-consult:hover::after,
+        .header-actions .btn-consult:focus::after {
             width: 100%;
         }
         .header-actions .btn-consult:hover {
@@ -487,7 +485,8 @@
             background: var(--matte-gold);
             transition: width 0.6s var(--ease-out);
         }
-        .header-actions .btn-appointment:hover::after {
+        .header-actions .btn-appointment:hover::after,
+        .header-actions .btn-appointment:focus::after {
             width: 100%;
         }
         .header-actions .btn-appointment:hover {
@@ -523,7 +522,8 @@
             background: var(--matte-gold);
             transition: width 0.6s var(--ease-out);
         }
-        .header-actions .btn-phone:hover::after {
+        .header-actions .btn-phone:hover::after,
+        .header-actions .btn-phone:focus::after {
             width: 100%;
         }
         .header-actions .btn-phone:hover {
@@ -543,9 +543,6 @@
             cursor: pointer;
         }
 
-        /* ==========================================================
-           القائمة الجوالة
-           ========================================================== */
         .mobile-menu {
             position: fixed;
             inset: 0;
@@ -649,8 +646,8 @@
         }
 
         /* ==========================================================
-           HERO – استعلام القضايا
-           ========================================================== */
+               HERO – استعلام القضايا
+               ========================================================== */
         .hero-inquiry {
             padding: 120px 2rem 3rem;
             background: var(--very-dark-navy);
@@ -708,7 +705,6 @@
             z-index: 1;
             width: 100%;
         }
-
         .hero-inquiry .hero-title-wrap {
             text-align: center;
         }
@@ -742,8 +738,8 @@
         }
 
         /* ==========================================================
-           MAIN CONTENT
-           ========================================================== */
+               MAIN CONTENT – استعلام
+               ========================================================== */
         .main-inquiry {
             flex: 1;
             padding: 3rem 2rem 5rem;
@@ -754,13 +750,12 @@
             margin: 0 auto;
         }
 
-        /* SEARCH CARD */
         .search-card {
             background: var(--pure-white);
             border-radius: 16px;
             padding: 2.5rem 2rem;
             border: 1px solid rgba(0, 0, 0, 0.04);
-            box-shadow: var(--shadow-card);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
             transition: all 0.4s var(--ease-out);
             position: relative;
             overflow: hidden;
@@ -780,7 +775,7 @@
         }
         .search-card:hover {
             border-color: var(--matte-gold);
-            box-shadow: var(--shadow-hover);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
         }
 
         .search-card .icon-header {
@@ -863,8 +858,8 @@
         }
 
         /* ==========================================================
-           واتساب عائم
-           ========================================================== */
+               FLOATING WHATSAPP
+               ========================================================== */
         .float-whatsapp {
             position: fixed;
             bottom: 2rem;
@@ -898,7 +893,7 @@
             right: 0;
             width: 0;
             height: 3px;
-            background: #25d366;
+            background: var(--whatsapp-green);
             transition: width 0.6s var(--ease-out);
             border-radius: 0 0 50% 50%;
         }
@@ -908,21 +903,20 @@
         .float-whatsapp:hover {
             transform: translateY(-4px) scale(1.05);
             box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
-            background: #25d366;
-            border-color: #25d366;
+            background: var(--whatsapp-green);
+            border-color: var(--whatsapp-green);
         }
         .float-whatsapp:hover i {
             transform: scale(1.05);
         }
 
         /* ==========================================================
-           التذييل
-           ========================================================== */
+               FOOTER – مطابق للـ template.html
+               ========================================================== */
         .site-footer {
             background: var(--footer-navy);
             padding: 3rem 2rem 1.5rem;
             color: rgba(255, 255, 255, 0.6);
-            margin-top: auto;
         }
         .footer-inner {
             max-width: 1200px;
@@ -1023,8 +1017,8 @@
         }
 
         /* ==========================================================
-           REVEAL
-           ========================================================== */
+               REVEAL
+               ========================================================== */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -1036,8 +1030,8 @@
         }
 
         /* ==========================================================
-           RESPONSIVE
-           ========================================================== */
+               RESPONSIVE – مطابق للـ template.html
+               ========================================================== */
         @media (max-width: 1024px) {
             .footer-inner {
                 grid-template-columns: 1fr 1fr;
@@ -1139,23 +1133,21 @@
 <body>
 
     <!-- ==========================================================
-    واتساب عائم (مع noopener noreferrer)
+    FLOATING WHATSAPP (مع noopener noreferrer)
     ========================================================== -->
     <a href="https://wa.me/201101076000" target="_blank" rel="noopener noreferrer" class="float-whatsapp" aria-label="تواصل عبر واتساب">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- ==========================================================
-    الهيدر – مع شعار Wordmark النصي
+    HEADER – مع شعار Wordmark النصي
     ========================================================== -->
     <header class="site-header" id="siteHeader" role="banner">
         <div class="header-brand">
-            <!-- شعار Wordmark النصي -->
             <div class="brand-wordmark">
                 <span class="brand-main">OSTAZ</span>
                 <span class="brand-sub">LAW FIRM</span>
             </div>
-
             <div class="header-brand-text">
                 <span class="name">محمود عبد الحميد</span>
                 <span class="sub">المحامي بالنقض والدستورية العليا</span>
@@ -1181,7 +1173,7 @@
     </header>
 
     <!-- ==========================================================
-    القائمة الجوالة
+    MOBILE MENU
     ========================================================== -->
     <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
         <button class="mobile-menu-close" id="menuClose" aria-label="إغلاق القائمة"><i class="fas fa-times"></i></button>
@@ -1203,13 +1195,12 @@
     </div>
 
     <!-- ==========================================================
-    HERO
+    HERO – استعلام القضايا
     ========================================================== -->
     <section class="hero-inquiry" aria-label="استعلام القضايا">
         <div class="hero-pattern"></div>
         <div class="hero-glow"></div>
         <div class="hero-glow-2"></div>
-
         <div class="hero-inner">
             <div class="hero-title-wrap reveal">
                 <span class="en-tag">Case Inquiry</span>
@@ -1220,7 +1211,7 @@
     </section>
 
     <!-- ==========================================================
-    MAIN CONTENT
+    MAIN CONTENT – استعلام
     ========================================================== -->
     <main class="main-inquiry" id="mainContent">
         <div class="inner reveal" style="transition-delay:0.1s;">
@@ -1249,7 +1240,7 @@
     </main>
 
     <!-- ==========================================================
-    التذييل – متطابق مع بقية الموقع
+    FOOTER – مطابق للـ template.html
     ========================================================== -->
     <footer class="site-footer" role="contentinfo">
         <div class="footer-inner">
@@ -1300,33 +1291,21 @@
     </footer>
 
     <!-- ==========================================================
-    جافاسكريبت – مع دعم الملف المركزي supabase-config.js
+    JAVASCRIPT – نفس الوظائف السابقة مع تحسينات
     ========================================================== -->
     <script type="module">
-        // ==========================================================
-        // استيراد إعدادات Supabase من الملف المركزي
-        // ==========================================================
         import { supabase, getCaseData } from './supabase-config.js';
         window.__supabase = supabase;
         window.__getCaseData = getCaseData;
 
-        // ==========================================================
-        // العناصر
-        // ==========================================================
         const phoneInput = document.getElementById('phoneInput');
         const codeInput = document.getElementById('codeInput');
         const searchBtn = document.getElementById('searchBtn');
 
-        // ==========================================================
-        // UTILITY – Sanitize inputs
-        // ==========================================================
         function sanitizeInput(value) {
             return value.replace(/[^a-zA-Z0-9\-]/g, '').trim();
         }
 
-        // ==========================================================
-        // REMOVE PREFIX
-        // ==========================================================
         function removePrefix(input, prefix) {
             let value = input.value.trim();
             if (value.startsWith(prefix)) {
@@ -1334,12 +1313,8 @@
             }
         }
 
-        phoneInput.addEventListener('input', function() {
-            removePrefix(this, '20');
-        });
-        phoneInput.addEventListener('paste', function() {
-            setTimeout(() => removePrefix(this, '20'), 10);
-        });
+        phoneInput.addEventListener('input', function() { removePrefix(this, '20'); });
+        phoneInput.addEventListener('paste', function() { setTimeout(() => removePrefix(this, '20'), 10); });
 
         codeInput.addEventListener('input', function() {
             let val = this.value.trim().toUpperCase();
@@ -1360,9 +1335,6 @@
             }, 10);
         });
 
-        // ==========================================================
-        // SEARCH HANDLER
-        // ==========================================================
         window.handleSearch = async function(e) {
             e.preventDefault();
 
@@ -1388,22 +1360,16 @@
             const fullCode = "MA-" + codeVal;
 
             const originalText = searchBtn.innerHTML;
-            searchBtn.innerHTML =
-                '<span class="spinner-border spinner-border-sm" style="margin-left:0.5rem;"></span> جاري التحقق...';
+            searchBtn.innerHTML = '<span class="spinner-border spinner-border-sm" style="margin-left:0.5rem;"></span> جاري التحقق...';
             searchBtn.disabled = true;
 
             try {
                 const { data, error } = await getCaseData(fullPhone, fullCode);
-
                 if (error) throw error;
-
-                if (!data || !data.case) {
-                    throw new Error("NOT_FOUND");
-                }
+                if (!data || !data.case) throw new Error("NOT_FOUND");
 
                 sessionStorage.setItem('caseData', JSON.stringify(data));
                 window.location.href = 'client-inquiry-result.html';
-
             } catch (err) {
                 console.error(err);
                 Swal.fire({
@@ -1421,17 +1387,13 @@
             }
         };
 
-        // ==========================================================
-        // HEADER SCROLL
-        // ==========================================================
+        // Header Scroll
         const header = document.getElementById('siteHeader');
         window.addEventListener('scroll', function() {
             header.classList.toggle('scrolled', window.scrollY > 50);
         }, { passive: true });
 
-        // ==========================================================
-        // MOBILE MENU
-        // ==========================================================
+        // Mobile Menu
         const mobileMenu = document.getElementById('mobileMenu');
         const menuToggle = document.getElementById('menuToggle');
         const menuClose = document.getElementById('menuClose');
@@ -1440,21 +1402,17 @@
             mobileMenu.classList.add('open');
             document.body.style.overflow = 'hidden';
         }
-
         window.closeMobileMenu = function() {
             mobileMenu.classList.remove('open');
             document.body.style.overflow = '';
         };
-
         if (menuToggle) menuToggle.addEventListener('click', openMobileMenu);
         if (menuClose) menuClose.addEventListener('click', closeMobileMenu);
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobileMenu();
         });
 
-        // ==========================================================
-        // REVEAL
-        // ==========================================================
+        // Reveal
         const revealObserver = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
@@ -1463,14 +1421,11 @@
                 }
             });
         }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
-
         document.querySelectorAll('.reveal').forEach(function(el) {
             revealObserver.observe(el);
         });
 
-        // ==========================================================
-        // RATE LIMITING (client-side)
-        // ==========================================================
+        // Rate limiting (client-side)
         let lastSubmitTime = 0;
         const originalSubmit = window.handleSearch;
         window.handleSearch = function(e) {
@@ -1490,17 +1445,6 @@
             lastSubmitTime = now;
             originalSubmit(e);
         };
-
-        // ==========================================================
-        // KEYBOARD – Enter to submit
-        // ==========================================================
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' && !e.target.closest('form')) {
-                const form = document.getElementById('searchForm');
-                if (form) form.dispatchEvent(new Event('submit'));
-            }
-        });
-
     </script>
 
 </body>
