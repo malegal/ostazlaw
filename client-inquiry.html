@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta name="google-site-verification" content="Uqbjr1w7Q831Lo6JPFEe9_lK86Kp55P79Lwfp1j6EX8" />
 
-    <!-- ==========================================================
-    سياسة أمان المحتوى (CSP) – تحديث للسماح بالمصادر المطلوبة
-    ========================================================== -->
+    <!-- ===== سياسة أمان المحتوى (CSP) ===== -->
     <meta http-equiv="Content-Security-Policy" 
           content="default-src 'self'; 
                    script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://mgvyieyismzzvdejsvcv.supabase.co; 
@@ -103,8 +101,8 @@
 
     <style>
         /* ==========================================================
-               ROOT – الهوية المؤسسية (مطابقة للـ template.html)
-               ========================================================== */
+           ROOT – الهوية المؤسسية (مطابقة للـ template.html)
+           ========================================================== */
         :root {
             --very-dark-navy: #0B111B;
             --deep-navy: #102A43;
@@ -113,12 +111,16 @@
             --light-gray: #F5F5F5;
             --charcoal: #222222;
             --matte-gold: #B08D57;
+            --matte-gold-light: rgba(176, 141, 87, 0.12);
             --footer-navy: #0B1F35;
             --whatsapp-green: #25D366;
             --font-ar: 'Tajawal', sans-serif;
             --font-serif: 'Amiri', serif;
             --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
             --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 12px 48px rgba(0, 0, 0, 0.08);
+            --gold-glow: 0 0 30px rgba(176, 141, 87, 0.1);
         }
 
         *,
@@ -142,6 +144,9 @@
             overflow-x: hidden;
             line-height: 1.7;
             direction: rtl;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         img {
@@ -178,8 +183,8 @@
         }
 
         /* ==========================================================
-               GOLD UNDERLINE – تأثير الخط الذهبي
-               ========================================================== */
+           GOLD UNDERLINE – تأثير الخط الذهبي
+           ========================================================== */
         .gold-underline {
             position: relative;
             display: inline-block;
@@ -213,8 +218,8 @@
         }
 
         /* ==========================================================
-               BUTTONS (مطابقة للـ template.html)
-               ========================================================== */
+           BUTTONS (مطابقة للـ template.html)
+           ========================================================== */
         .btn-gold {
             display: inline-block;
             background: var(--matte-gold);
@@ -326,8 +331,8 @@
         }
 
         /* ==========================================================
-               HEADER – مطابق للـ template.html
-               ========================================================== */
+           HEADER – مطابق للـ template.html
+           ========================================================== */
         .site-header {
             position: fixed;
             top: 0;
@@ -358,7 +363,7 @@
             gap: 0.8rem;
         }
 
-        /* شعار Wordmark النصي */
+        /* ===== شعار Wordmark النصي ===== */
         .brand-wordmark {
             display: flex;
             flex-direction: column;
@@ -659,8 +664,8 @@
         }
 
         /* ==========================================================
-               HERO – استعلام القضايا
-               ========================================================== */
+           HERO – استعلام القضايا (مطابق للـ template.html)
+           ========================================================== */
         .hero-inquiry {
             padding: 120px 2rem 3rem;
             background: var(--very-dark-navy);
@@ -751,8 +756,8 @@
         }
 
         /* ==========================================================
-               MAIN CONTENT – استعلام
-               ========================================================== */
+           MAIN CONTENT – استعلام (مطابق للـ template.html)
+           ========================================================== */
         .main-inquiry {
             flex: 1;
             padding: 3rem 2rem 5rem;
@@ -768,10 +773,20 @@
             border-radius: 16px;
             padding: 2.5rem 2rem;
             border: 1px solid rgba(0, 0, 0, 0.04);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-            transition: all 0.4s var(--ease-out);
+            box-shadow: var(--shadow-card), var(--gold-glow);
+            transition: all 0.5s var(--ease-out);
             position: relative;
             overflow: hidden;
+        }
+        .search-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #D4AF37, #B08D57, #8A703E);
+            opacity: 0.6;
         }
         .search-card::after {
             content: '';
@@ -780,15 +795,16 @@
             right: 0;
             width: 0;
             height: 3px;
-            background: var(--matte-gold);
-            transition: width 0.6s var(--ease-out);
+            background: linear-gradient(90deg, #D4AF37, #B08D57, #8A703E);
+            transition: width 0.8s var(--ease-out);
         }
         .search-card:hover::after {
             width: 100%;
         }
         .search-card:hover {
             border-color: var(--matte-gold);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+            box-shadow: var(--shadow-hover), var(--gold-glow);
+            transform: translateY(-2px);
         }
 
         .search-card .icon-header {
@@ -821,12 +837,10 @@
             margin-bottom: 1.8rem;
         }
 
-        /* ==========================================================
-               LEGAL DISCLAIMER – التحذير القانوني فوق الحقول
-               ========================================================== */
+        /* ===== Legal Disclaimer ===== */
         .legal-disclaimer {
             background: rgba(176, 141, 87, 0.03);
-            border-right: 3px solid var(--matte-gold);
+            border-right: 4px solid var(--matte-gold);
             padding: 1rem 1.2rem;
             border-radius: 10px;
             margin-bottom: 1.5rem;
@@ -854,9 +868,7 @@
             font-weight: 600;
         }
 
-        /* ==========================================================
-               CHECKBOX – خانة الموافقة
-               ========================================================== */
+        /* ===== Consent Checkbox ===== */
         .consent-wrapper {
             display: flex;
             align-items: flex-start;
@@ -891,6 +903,7 @@
             font-weight: 600;
         }
 
+        /* ===== Input Groups ===== */
         .input-group-custom {
             display: flex;
             align-items: center;
@@ -947,8 +960,8 @@
         }
 
         /* ==========================================================
-               FLOATING WHATSAPP
-               ========================================================== */
+           FLOATING WHATSAPP
+           ========================================================== */
         .float-whatsapp {
             position: fixed;
             bottom: 2rem;
@@ -1000,12 +1013,13 @@
         }
 
         /* ==========================================================
-               FOOTER – مطابق للـ template.html
-               ========================================================== */
+           FOOTER – مطابق للـ template.html
+           ========================================================== */
         .site-footer {
             background: var(--footer-navy);
             padding: 3rem 2rem 1.5rem;
             color: rgba(255, 255, 255, 0.6);
+            margin-top: auto;
         }
         .footer-inner {
             max-width: 1200px;
@@ -1106,21 +1120,21 @@
         }
 
         /* ==========================================================
-               REVEAL
-               ========================================================== */
+           REVEAL – تأثير الظهور الأنيق
+           ========================================================== */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(40px) scale(0.98);
             transition: all 0.8s var(--ease-out);
         }
         .reveal.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
         }
 
         /* ==========================================================
-               RESPONSIVE – مطابق للـ template.html
-               ========================================================== */
+           RESPONSIVE – مطابق للـ template.html
+           ========================================================== */
         @media (max-width: 1024px) {
             .footer-inner {
                 grid-template-columns: 1fr 1fr;
@@ -1318,9 +1332,7 @@
                 <h2>استعلام القضايا</h2>
                 <p class="sub">أدخل بيانات القضية للاطلاع على آخر المستجدات</p>
 
-                <!-- ==========================================================
-                LEGAL DISCLAIMER – التحذير القانوني فوق الحقول
-                ========================================================== -->
+                <!-- ===== التحذير القانوني ===== -->
                 <div class="legal-disclaimer">
                     <div class="disclaimer-title">
                         <i class="fas fa-shield-alt"></i> تنبيه قانوني هام
@@ -1345,9 +1357,7 @@
                         <span class="fixed-prefix">MA-</span>
                     </div>
 
-                    <!-- ==========================================================
-                    CHECKBOX – خانة الموافقة على التحذير
-                    ========================================================== -->
+                    <!-- ===== خانة الموافقة ===== -->
                     <div class="consent-wrapper">
                         <input type="checkbox" id="consentCheck" required>
                         <label for="consentCheck" class="consent-label">
@@ -1416,7 +1426,7 @@
     </footer>
 
     <!-- ==========================================================
-    JAVASCRIPT – مع تحسينات أمنية إضافية
+    JAVASCRIPT – مع دعم التحذير وخانة الموافقة
     ========================================================== -->
     <script type="module">
         import { getCaseData } from './supabase-config.js';
@@ -1438,12 +1448,10 @@
         });
 
         // ==========================================================
-        // UTILITY – Sanitize inputs (تحسين أمني لمنع الرموز الخطيرة)
+        // UTILITY – Sanitize inputs (تحسين أمني)
         // ==========================================================
         function sanitizeInput(value) {
-            // إزالة أي أحرف غير مسموحة (أرقام، حروف إنجليزية، وشرطة فقط)
             let cleaned = value.replace(/[^a-zA-Z0-9\-]/g, '').trim();
-            // منع الكود الضار عن طريق إزالة الرموز الخطيرة بشكل صريح
             cleaned = cleaned.replace(/[<>'"]/g, '');
             return cleaned;
         }
@@ -1486,7 +1494,6 @@
         window.handleSearch = async function(e) {
             e.preventDefault();
 
-            // التحقق من الموافقة مرة أخرى (لأمان إضافي)
             if (!consentCheck.checked) {
                 searchBtn.disabled = true;
                 Swal.fire({
@@ -1530,10 +1537,7 @@
                 if (error) throw error;
                 if (!data || !data.case) throw new Error("NOT_FOUND");
 
-                // تخزين البيانات
                 sessionStorage.setItem('caseData', JSON.stringify(data));
-
-                // الانتقال لصفحة النتيجة
                 window.location.href = 'client-inquiry-result.html';
 
             } catch (err) {
