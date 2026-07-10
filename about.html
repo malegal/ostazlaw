@@ -352,7 +352,7 @@
         }
 
         /* ==========================================================
-               HEADER – مطابق للصفحة الرئيسية
+               HEADER – خلفية ثابتة (غير شفافة) لحل مشكلة الاختفاء
                ========================================================== */
         .site-header {
             position: fixed;
@@ -365,7 +365,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: transparent;
+            background: var(--very-dark-navy);
+            border-bottom: 1px solid rgba(176, 141, 87, 0.08);
             transition: all 0.5s var(--ease-out);
         }
         .site-header.scrolled {
@@ -1869,7 +1870,7 @@
     </div>
 
     <!-- ==========================================================
-    HERO – عن المؤسسة
+    HERO – عن المؤسسة (مع خلفية نيڤي داكنة)
     ========================================================== -->
     <section class="hero-about" aria-label="عن المؤسسة">
         <div class="hero-pattern"></div>
