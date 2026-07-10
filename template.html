@@ -186,7 +186,7 @@
         }
 
         /* ==========================================================
-               GOLD UNDERLINE – تأثير الخط الذهبي على جميع العناصر
+               GOLD UNDERLINE
                ========================================================== */
         .gold-underline {
             position: relative;
@@ -410,7 +410,7 @@
         }
 
         /* ==========================================================
-               HEADER – داكن دائماً مع الشعار الجديد
+               HEADER – مع الشعار الجديد
                ========================================================== */
         .site-header {
             position: fixed;
@@ -443,9 +443,9 @@
             gap: 0.6rem;
         }
         .header-brand svg {
-            height: 44px;
+            height: 46px;
             width: auto;
-            max-width: 180px;
+            max-width: 190px;
             flex-shrink: 0;
         }
         .header-brand-text {
@@ -1811,7 +1811,7 @@
             }
             .header-brand svg {
                 height: 32px;
-                max-width: 120px;
+                max-width: 130px;
             }
             .hero-actions {
                 gap: 0.8rem;
@@ -1872,26 +1872,24 @@
     </a>
 
     <!-- ==========================================================
-    HEADER – مع الشعار الجديد
+    HEADER – مع الشعار الجديد الذهبي المطفي
     ========================================================== -->
     <header class="site-header" id="siteHeader" role="banner">
         <div class="header-brand">
-            <!-- ===== الشعار الجديد SVG ===== -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 0 270 100" class="firm-logo" role="img" aria-label="شعار مؤسسة الأستاذ محمود عبد الحميد للمحاماة OSTAZ LAW">
+            <!-- ===== الشعار الجديد بتدرج ذهبي مطفي (Matte Gold) ===== -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 0 270 80" class="firm-logo" role="img" aria-label="OSTAZ LAW FIRM">
                 <defs>
-                    <style>
-                        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&family=Playfair+Display:wght@700&display=swap');
-                        .brand-name { font-family: 'Playfair Display', 'Georgia', serif; font-weight: 700; font-size: 38px; fill: url(#ostazGold); letter-spacing: 5px; }
-                        .brand-sub { font-family: 'Montserrat', 'Helvetica Neue', sans-serif; font-weight: 400; font-size: 13px; fill: #C0C0C0; letter-spacing: 9px; }
-                    </style>
-                    <linearGradient id="ostazGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <!-- تدرج ذهبي مطفي (غير لامع) متناسق مع الموقع -->
+                    <linearGradient id="matteGold" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stop-color="#D4AF37" />
-                        <stop offset="60%" stop-color="#B08D57" />
+                        <stop offset="50%" stop-color="#B08D57" />
                         <stop offset="100%" stop-color="#8A703E" />
                     </linearGradient>
                 </defs>
-                <text x="0" y="48" class="brand-name">OSTAZ</text>
-                <text x="3" y="72" class="brand-sub">LAW FIRM</text>
+                <!-- النص الذهبي المطفي (مع خطوط احتياطية آمنة) -->
+                <text x="0" y="42" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-weight="700" font-size="34" fill="url(#matteGold)" letter-spacing="4">OSTAZ</text>
+                <!-- النص الفضي السفلي (LAW FIRM) -->
+                <text x="3" y="64" font-family="'Montserrat', Arial, 'Helvetica Neue', sans-serif" font-weight="400" font-size="13" fill="#C0C0C0" letter-spacing="8">LAW FIRM</text>
             </svg>
 
             <div class="header-brand-text">
@@ -2184,7 +2182,7 @@
     </section>
 
     <!-- ==========================================================
-    BLOG – أحدث المقالات (مكان العنصر النائب)
+    BLOG – ARTICLES_PLACEHOLDER
     ========================================================== -->
     <section class="section section-light" aria-label="المكتبة القانونية">
         <div class="section-inner">
