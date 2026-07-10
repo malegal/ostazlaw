@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta name="google-site-verification" content="Uqbjr1w7Q831Lo6JPFEe9_lK86Kp55P79Lwfp1j6EX8" />
-    
+
+    <!-- ===== سياسة أمان المحتوى (CSP) ===== -->
+    <meta http-equiv="Content-Security-Policy" 
+          content="default-src 'self'; 
+                   script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://mgvyieyismzzvdejsvcv.supabase.co; 
+                   style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; 
+                   font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; 
+                   img-src 'self' data:; 
+                   connect-src 'self' https://mgvyieyismzzvdejsvcv.supabase.co; 
+                   base-uri 'self'; 
+                   form-action 'self';">
+
     <title>نتيجة الاستعلام | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا</title>
     <meta name="description" content="نتيجة استعلام قضيتك – مؤسسة الأستاذ محمود عبد الحميد للمحاماة والاستشارات القانونية." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://ostazlaw.vercel.app/client-inquiry-result.html" />
-    
+
     <link rel="alternate" hreflang="ar-eg" href="https://ostazlaw.vercel.app/client-inquiry-result.html" />
     <link rel="alternate" hreflang="en" href="https://ostazlaw.vercel.app/en/client-inquiry-result.html" />
-    
+
     <link rel="sitemap" type="application/xml" title="Sitemap" href="https://ostazlaw.vercel.app/sitemap.xml" />
     <link rel="robots" type="text/plain" href="https://ostazlaw.vercel.app/robots.txt" />
 
-    <!-- ===== Open Graph / Twitter Cards ===== -->
+    <!-- ===== Open Graph ===== -->
     <meta property="og:title" content="نتيجة الاستعلام | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا" />
     <meta property="og:description" content="نتيجة استعلام قضيتك – مؤسسة الأستاذ محمود عبد الحميد للمحاماة والاستشارات القانونية." />
     <meta property="og:type" content="website" />
@@ -30,7 +41,21 @@
     <meta name="twitter:image" content="https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.jpg" />
     <meta name="twitter:image:alt" content="الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا" />
 
-    <!-- ===== JSON-LD للذكاء الاصطناعي ومحركات البحث ===== -->
+    <!-- ===== تحميل الخطوط ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;900&family=Tajawal:wght@300;400;500;700;800;900&family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
+
+    <!-- ===== Font Awesome ===== -->
+    <link rel="stylesheet" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+          crossorigin="anonymous" 
+          referrerpolicy="no-referrer" />
+
+    <!-- ===== SweetAlert2 ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -62,7 +87,7 @@
                 "@id": "https://ostazlaw.vercel.app/client-inquiry-result.html#webpage",
                 "url": "https://ostazlaw.vercel.app/client-inquiry-result.html",
                 "name": "نتيجة الاستعلام",
-                "description": "نتيجة استعلام قضيتك – مؤسسة الأستاذ محمود عبد الحميد للمحاماة والاستشارات القانونية.",
+                "description": "نتيجة استعلام قضيتك – مؤسسة الأستاذ محمود عبد الحميد للمحاماة.",
                 "isPartOf": { "@id": "https://ostazlaw.vercel.app/#website" },
                 "about": { "@id": "https://ostazlaw.vercel.app/#organization" }
             }, {
@@ -70,29 +95,14 @@
                 "@id": "https://ostazlaw.vercel.app/#website",
                 "name": "مؤسسة الأستاذ محمود عبد الحميد للمحاماة والاستشارات القانونية",
                 "url": "https://ostazlaw.vercel.app/",
-                "description": "مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات."
+                "description": "مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية."
             }]
         }
     </script>
 
-    <!-- ===== تحميل الخطوط ===== -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;900&family=Tajawal:wght@300;400;500;700;800;900&family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
-
-    <!-- ===== Font Awesome مع integrity ===== -->
-    <link rel="stylesheet" 
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
-          crossorigin="anonymous" 
-          referrerpolicy="no-referrer" />
-
-    <!-- ===== SweetAlert2 ===== -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <style>
         /* ==========================================================
-           الهوية البصرية – متطابقة مع بقية الموقع
+           ROOT – الهوية المؤسسية (مطابقة للـ template.html)
            ========================================================== */
         :root {
             --very-dark-navy: #0B111B;
@@ -102,39 +112,47 @@
             --light-gray: #F5F5F5;
             --charcoal: #222222;
             --matte-gold: #B08D57;
-            --matte-gold-light: rgba(176, 141, 87, 0.15);
+            --matte-gold-light: rgba(176, 141, 87, 0.12);
             --footer-navy: #0B1F35;
+            --whatsapp-green: #25D366;
             --font-ar: 'Tajawal', sans-serif;
             --font-serif: 'Amiri', serif;
             --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
             --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-            --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.02);
-            --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.04);
+            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 12px 48px rgba(0, 0, 0, 0.08);
+            --gold-glow: 0 0 30px rgba(176, 141, 87, 0.1);
         }
 
-        /* ==========================================================
-           إعادة تعيين عامة
-           ========================================================== */
-        * {
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         html {
             scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
+
         body {
             font-family: var(--font-ar);
-            background-color: var(--warm-off-white);
+            background: linear-gradient(180deg, var(--warm-off-white) 0%, #F0EDE8 100%);
             color: var(--charcoal);
             overflow-x: hidden;
             line-height: 1.7;
             direction: rtl;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
         }
         a {
             text-decoration: none;
@@ -146,10 +164,7 @@
             background: none;
             font-family: inherit;
         }
-        img {
-            max-width: 100%;
-            display: block;
-        }
+
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -161,33 +176,62 @@
             border-radius: 10px;
         }
 
-        /* ==========================================================
-           أدوات مساعدة
-           ========================================================== */
         .serif {
             font-family: var(--font-serif);
         }
         .gold-text {
             color: var(--matte-gold);
         }
-        .text-center {
-            text-align: center;
+
+        /* ==========================================================
+           GOLD UNDERLINE
+           ========================================================== */
+        .gold-underline {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .gold-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--matte-gold);
+            transition: width 0.5s var(--ease-out);
+            border-radius: 2px;
+        }
+
+        .gold-underline:hover::after,
+        .gold-underline:focus::after {
+            width: 100%;
+        }
+
+        .gold-underline:active::after {
+            width: 100%;
+        }
+
+        .gold-underline.scroll-visible::after {
+            width: 100%;
         }
 
         /* ==========================================================
-           أزرار (متطابقة مع بقية الموقع)
+           BUTTONS (مطابقة للـ template.html)
            ========================================================== */
         .btn-gold {
             display: inline-block;
             background: var(--matte-gold);
             color: #000;
             font-weight: 700;
-            padding: 14px 36px;
+            padding: 16px 40px;
             border-radius: 8px;
             border: none;
             transition: all 0.4s var(--ease-out);
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             letter-spacing: 0.02em;
             box-shadow: 0 2px 20px rgba(176, 141, 87, 0.15);
             cursor: pointer;
@@ -204,7 +248,9 @@
             background: var(--matte-gold);
             transition: width 0.6s var(--ease-out);
         }
-        .btn-gold:hover::after {
+        .btn-gold:hover::after,
+        .btn-gold:focus::after,
+        .btn-gold:active::after {
             width: 100%;
         }
         .btn-gold:hover {
@@ -218,11 +264,11 @@
             border: 1px solid var(--matte-gold);
             color: var(--matte-gold);
             font-weight: 700;
-            padding: 10px 24px;
+            padding: 12px 28px;
             border-radius: 8px;
             transition: all 0.4s var(--ease-out);
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             background: transparent;
             cursor: pointer;
             position: relative;
@@ -237,7 +283,9 @@
             background: var(--matte-gold);
             transition: width 0.6s var(--ease-out);
         }
-        .btn-outline-gold:hover::after {
+        .btn-outline-gold:hover::after,
+        .btn-outline-gold:focus::after,
+        .btn-outline-gold:active::after {
             width: 100%;
         }
         .btn-outline-gold:hover {
@@ -271,7 +319,9 @@
             background: var(--matte-gold);
             transition: width 0.6s var(--ease-out);
         }
-        .btn-outline-white:hover::after {
+        .btn-outline-white:hover::after,
+        .btn-outline-white:focus::after,
+        .btn-outline-white:active::after {
             width: 100%;
         }
         .btn-outline-white:hover {
@@ -281,17 +331,8 @@
             transform: translateY(-2px);
         }
 
-        .btn-danger {
-            background: #dc2626;
-            color: #fff;
-            border: none;
-        }
-        .btn-danger:hover {
-            background: #b91c1c;
-        }
-
         /* ==========================================================
-           الهيدر – متطابق مع بقية الموقع
+           HEADER – مطابق للـ template.html
            ========================================================== */
         .site-header {
             position: fixed;
@@ -323,7 +364,7 @@
             gap: 0.8rem;
         }
 
-        /* ===== شعار Wordmark النصي (مطابق لبقية الصفحات) ===== */
+        /* شعار Wordmark النصي */
         .brand-wordmark {
             display: flex;
             flex-direction: column;
@@ -430,7 +471,8 @@
             background: var(--matte-gold);
             transition: width 0.6s var(--ease-out);
         }
-        .header-actions .btn-consult:hover::after {
+        .header-actions .btn-consult:hover::after,
+        .header-actions .btn-consult:focus::after {
             width: 100%;
         }
         .header-actions .btn-consult:hover {
@@ -462,7 +504,8 @@
             background: var(--matte-gold);
             transition: width 0.6s var(--ease-out);
         }
-        .header-actions .btn-appointment:hover::after {
+        .header-actions .btn-appointment:hover::after,
+        .header-actions .btn-appointment:focus::after {
             width: 100%;
         }
         .header-actions .btn-appointment:hover {
@@ -498,7 +541,8 @@
             background: var(--matte-gold);
             transition: width 0.6s var(--ease-out);
         }
-        .header-actions .btn-phone:hover::after {
+        .header-actions .btn-phone:hover::after,
+        .header-actions .btn-phone:focus::after {
             width: 100%;
         }
         .header-actions .btn-phone:hover {
@@ -518,9 +562,6 @@
             cursor: pointer;
         }
 
-        /* ==========================================================
-           القائمة الجوالة (متطابقة)
-           ========================================================== */
         .mobile-menu {
             position: fixed;
             inset: 0;
@@ -624,27 +665,38 @@
         }
 
         /* ==========================================================
-           المحتوى الرئيسي – نتيجة الاستعلام
+           MAIN CONTENT – عرض النتيجة (تصميم فاخر)
            ========================================================== */
         .result-main {
             flex: 1;
             padding: 120px 2rem 4rem;
-            background: var(--warm-off-white);
+            background: linear-gradient(180deg, var(--warm-off-white) 0%, #F0EDE8 100%);
         }
         .result-main .inner {
             max-width: 900px;
             margin: 0 auto;
         }
 
+        /* ===== البطاقة الرئيسية ===== */
         .result-card {
             background: var(--pure-white);
-            border-radius: 16px;
-            padding: 2.5rem 2rem;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            box-shadow: var(--shadow-card);
-            transition: all 0.4s var(--ease-out);
+            border-radius: 20px;
+            padding: 2.8rem 2.4rem;
+            border: 1px solid rgba(176, 141, 87, 0.08);
+            box-shadow: var(--shadow-card), var(--gold-glow);
+            transition: all 0.5s var(--ease-out);
             position: relative;
             overflow: hidden;
+        }
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #D4AF37, #B08D57, #8A703E);
+            opacity: 0.6;
         }
         .result-card::after {
             content: '';
@@ -653,93 +705,141 @@
             right: 0;
             width: 0;
             height: 3px;
-            background: var(--matte-gold);
-            transition: width 0.6s var(--ease-out);
+            background: linear-gradient(90deg, #D4AF37, #B08D57, #8A703E);
+            transition: width 0.8s var(--ease-out);
         }
         .result-card:hover::after {
             width: 100%;
         }
         .result-card:hover {
             border-color: var(--matte-gold);
-            box-shadow: var(--shadow-hover);
+            box-shadow: var(--shadow-hover), var(--gold-glow);
+            transform: translateY(-2px);
         }
 
+        /* ===== رأس البطاقة ===== */
         .result-header {
             text-align: center;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            border-bottom: 1px solid rgba(176, 141, 87, 0.08);
             padding-bottom: 1.2rem;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .result-header .client-name-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        .result-header .client-name-wrap .icon-crown {
+            color: var(--matte-gold);
+            font-size: 1.2rem;
+            opacity: 0.3;
         }
         .result-header h2 {
             font-family: var(--font-serif);
             font-size: 2rem;
             font-weight: 900;
             color: var(--matte-gold);
-            margin-bottom: 0.1rem;
+            margin: 0;
+            letter-spacing: 0.02em;
+            text-shadow: 0 0 40px rgba(176, 141, 87, 0.05);
         }
         .result-header .badge-role {
-            background: var(--light-gray);
+            background: linear-gradient(135deg, rgba(176, 141, 87, 0.08), rgba(176, 141, 87, 0.02));
             color: rgba(34, 34, 34, 0.5);
-            padding: 0.2rem 1rem;
+            padding: 0.25rem 1.2rem;
             border-radius: 50px;
             font-size: 0.8rem;
             font-weight: 500;
             display: inline-block;
+            border: 1px solid rgba(176, 141, 87, 0.06);
+            margin-top: 0.2rem;
         }
 
+        /* ===== شبكة المعلومات ===== */
         .info-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 0.8rem;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
         }
         .info-item {
             background: var(--light-gray);
-            padding: 0.8rem 1rem;
-            border-radius: 10px;
+            padding: 0.9rem 1.2rem;
+            border-radius: 12px;
             border: 1px solid rgba(0, 0, 0, 0.02);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .info-item:hover {
+            border-color: var(--matte-gold);
+            box-shadow: 0 4px 16px rgba(176, 141, 87, 0.04);
+            transform: translateY(-1px);
         }
         .info-item .info-label {
             display: block;
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             color: rgba(34, 34, 34, 0.3);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.1rem;
         }
         .info-item .info-value {
             font-size: 0.95rem;
             font-weight: 700;
             color: var(--charcoal);
-            margin-top: 0.1rem;
             display: block;
             word-break: break-word;
         }
         .info-item .info-value.status {
             color: var(--matte-gold);
+            font-weight: 800;
         }
 
+        /* ===== آخر جلسة ===== */
         .last-session-box {
-            background: rgba(176, 141, 87, 0.03);
-            border-right: 3px solid var(--matte-gold);
-            padding: 1rem 1.2rem;
-            border-radius: 10px;
-            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, rgba(176, 141, 87, 0.03), rgba(176, 141, 87, 0.01));
+            border-right: 4px solid var(--matte-gold);
+            padding: 1.2rem 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .last-session-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(176, 141, 87, 0.02), transparent 60%);
+            pointer-events: none;
+        }
+        .last-session-box:hover {
+            border-color: #D4AF37;
+            box-shadow: 0 4px 20px rgba(176, 141, 87, 0.06);
         }
         .last-session-box h5 {
             font-size: 0.85rem;
             font-weight: 700;
             color: var(--charcoal);
             margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         .last-session-box h5 i {
             color: var(--matte-gold);
-            margin-left: 0.4rem;
+            font-size: 1rem;
         }
         .last-session-box .date {
             color: var(--matte-gold);
             font-weight: 700;
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
         .last-session-box .decision {
             color: rgba(34, 34, 34, 0.5);
@@ -748,18 +848,19 @@
             margin-top: 0.2rem;
         }
 
+        /* ===== أزرار الإجراءات ===== */
         .modal-actions {
             display: flex;
             gap: 0.8rem;
             justify-content: center;
             border-top: 1px solid rgba(0, 0, 0, 0.04);
-            padding-top: 1.2rem;
+            padding-top: 1.5rem;
             flex-wrap: wrap;
         }
         .modal-actions .btn-action {
             flex: 1;
-            padding: 0.6rem;
-            border-radius: 10px;
+            padding: 0.7rem 1.2rem;
+            border-radius: 12px;
             font-weight: 700;
             font-size: 0.85rem;
             transition: all 0.4s var(--ease-out);
@@ -767,6 +868,21 @@
             cursor: pointer;
             text-align: center;
             min-width: 120px;
+            position: relative;
+            overflow: hidden;
+        }
+        .modal-actions .btn-action::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--matte-gold);
+            transition: width 0.5s var(--ease-out);
+        }
+        .modal-actions .btn-action:hover::after {
+            width: 100%;
         }
         .btn-print {
             border-color: var(--matte-gold);
@@ -776,6 +892,8 @@
         .btn-print:hover {
             background: var(--matte-gold);
             color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(176, 141, 87, 0.15);
         }
         .btn-new {
             background: var(--charcoal);
@@ -783,6 +901,8 @@
         }
         .btn-new:hover {
             background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
         }
         .btn-exit {
             background: #dc2626;
@@ -790,6 +910,8 @@
         }
         .btn-exit:hover {
             background: #b91c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(220, 38, 38, 0.15);
         }
 
         /* ==========================================================
@@ -797,13 +919,13 @@
            ========================================================== */
         .loading-container,
         .error-container {
-            padding: 2rem 0;
+            padding: 3rem 0;
             text-align: center;
         }
         .spinner {
             display: inline-block;
-            width: 40px;
-            height: 40px;
+            width: 48px;
+            height: 48px;
             border: 4px solid var(--matte-gold-light);
             border-radius: 50%;
             border-top-color: var(--matte-gold);
@@ -814,22 +936,37 @@
                 transform: rotate(360deg);
             }
         }
+        .loading-container p {
+            color: rgba(34, 34, 34, 0.5);
+            margin-top: 1rem;
+        }
+
         .error-container i {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: #dc2626;
             margin-bottom: 0.5rem;
         }
         .error-container h3 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 700;
             margin-bottom: 0.3rem;
+            color: var(--charcoal);
         }
         .error-container p {
             color: rgba(34, 34, 34, 0.5);
+            max-width: 480px;
+            margin: 0 auto;
+        }
+        .error-container .error-actions {
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
         }
 
         /* ==========================================================
-           واتساب عائم
+           FLOATING WHATSAPP
            ========================================================== */
         .float-whatsapp {
             position: fixed;
@@ -864,7 +1001,7 @@
             right: 0;
             width: 0;
             height: 3px;
-            background: #25d366;
+            background: var(--whatsapp-green);
             transition: width 0.6s var(--ease-out);
             border-radius: 0 0 50% 50%;
         }
@@ -874,15 +1011,15 @@
         .float-whatsapp:hover {
             transform: translateY(-4px) scale(1.05);
             box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
-            background: #25d366;
-            border-color: #25d366;
+            background: var(--whatsapp-green);
+            border-color: var(--whatsapp-green);
         }
         .float-whatsapp:hover i {
             transform: scale(1.05);
         }
 
         /* ==========================================================
-           التذييل (متطابق مع بقية الموقع)
+           FOOTER – مطابق للـ template.html
            ========================================================== */
         .site-footer {
             background: var(--footer-navy);
@@ -989,20 +1126,20 @@
         }
 
         /* ==========================================================
-           تأثير الظهور (reveal)
+           REVEAL – تأثير الظهور الأنيق
            ========================================================== */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(40px) scale(0.98);
             transition: all 0.8s var(--ease-out);
         }
         .reveal.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
         }
 
         /* ==========================================================
-           استجابة
+           RESPONSIVE
            ========================================================== */
         @media (max-width: 1024px) {
             .footer-inner {
@@ -1065,6 +1202,9 @@
                 font-size: 0.45rem;
                 letter-spacing: 4px;
             }
+            .result-header h2 {
+                font-size: 1.6rem;
+            }
         }
 
         @media (max-width: 640px) {
@@ -1073,9 +1213,10 @@
             }
             .result-card {
                 padding: 1.2rem 0.8rem;
+                border-radius: 14px;
             }
             .result-header h2 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
             .info-item .info-value {
                 font-size: 0.85rem;
@@ -1103,6 +1244,14 @@
                 font-size: 0.4rem;
                 letter-spacing: 3px;
             }
+            .last-session-box {
+                padding: 1rem 1.2rem;
+            }
+            .modal-actions .btn-action {
+                font-size: 0.8rem;
+                padding: 0.6rem 0.8rem;
+                min-width: 80px;
+            }
         }
 
         @media print {
@@ -1114,10 +1263,20 @@
             }
             .result-card {
                 box-shadow: none !important;
-                border: none !important;
+                border: 1px solid rgba(0, 0, 0, 0.04) !important;
+                padding: 1.5rem !important;
+            }
+            .result-card::before,
+            .result-card::after {
+                display: none !important;
             }
             .result-main {
-                padding-top: 2rem;
+                padding-top: 1.5rem !important;
+                background: #fff !important;
+            }
+            .info-item {
+                background: #f5f5f5 !important;
+                border: 1px solid #eee !important;
             }
         }
     </style>
@@ -1125,23 +1284,21 @@
 <body>
 
     <!-- ==========================================================
-    واتساب عائم (مع noopener noreferrer)
+    FLOATING WHATSAPP (مع noopener noreferrer)
     ========================================================== -->
     <a href="https://wa.me/201101076000" target="_blank" rel="noopener noreferrer" class="float-whatsapp" aria-label="تواصل عبر واتساب">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- ==========================================================
-    الهيدر – مع شعار Wordmark النصي
+    HEADER – مع شعار Wordmark النصي
     ========================================================== -->
     <header class="site-header" id="siteHeader" role="banner">
         <div class="header-brand">
-            <!-- شعار Wordmark النصي -->
             <div class="brand-wordmark">
                 <span class="brand-main">OSTAZ</span>
                 <span class="brand-sub">LAW FIRM</span>
             </div>
-
             <div class="header-brand-text">
                 <span class="name">محمود عبد الحميد</span>
                 <span class="sub">المحامي بالنقض والدستورية العليا</span>
@@ -1153,7 +1310,7 @@
             <a href="https://ostazlaw.vercel.app/about.html">عن المؤسسة</a>
             <a href="https://ostazlaw.vercel.app/specialties.html">التخصصات</a>
             <a href="https://ostazlaw.vercel.app/sectors.html">قطاعات نخدمها</a>
-            <a href="https://ostazlaw.vercel.app/blog.html">المكتبة</a>  <!-- تم التغيير -->
+            <a href="https://ostazlaw.vercel.app/blog.html">المكتبة</a>
             <a href="https://ostazlaw.vercel.app/client-inquiry.html">تابع قضيتك</a>
             <a href="https://ostazlaw.vercel.app/contact.html">اتصل بنا</a>
         </nav>
@@ -1167,7 +1324,7 @@
     </header>
 
     <!-- ==========================================================
-    القائمة الجوالة
+    MOBILE MENU
     ========================================================== -->
     <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
         <button class="mobile-menu-close" id="menuClose" aria-label="إغلاق القائمة"><i class="fas fa-times"></i></button>
@@ -1176,7 +1333,7 @@
             <a href="https://ostazlaw.vercel.app/about.html" onclick="closeMobileMenu()">عن المؤسسة</a>
             <a href="https://ostazlaw.vercel.app/specialties.html" onclick="closeMobileMenu()">التخصصات</a>
             <a href="https://ostazlaw.vercel.app/sectors.html" onclick="closeMobileMenu()">قطاعات نخدمها</a>
-            <a href="https://ostazlaw.vercel.app/blog.html" onclick="closeMobileMenu()">المكتبة</a>  <!-- تم التغيير -->
+            <a href="https://ostazlaw.vercel.app/blog.html" onclick="closeMobileMenu()">المكتبة</a>
             <a href="https://ostazlaw.vercel.app/client-inquiry.html" onclick="closeMobileMenu()">تابع قضيتك</a>
             <a href="https://ostazlaw.vercel.app/contact.html" onclick="closeMobileMenu()">اتصل بنا</a>
             <div class="divider"></div>
@@ -1189,25 +1346,30 @@
     </div>
 
     <!-- ==========================================================
-    المحتوى الرئيسي
+    MAIN CONTENT – عرض نتيجة الاستعلام
     ========================================================== -->
     <main class="result-main" id="mainContent">
         <div class="inner reveal" style="transition-delay:0.1s;">
             <div class="result-card" id="resultContainer">
 
-                <!-- حالة التحميل -->
+                <!-- ===== حالة التحميل ===== -->
                 <div id="loadingIndicator" class="loading-container">
                     <div class="spinner" role="status" aria-label="جاري التحميل"></div>
-                    <p class="mt-3" style="color: rgba(34,34,34,0.5);">جاري عرض بيانات القضية...</p>
+                    <p>جاري عرض بيانات القضية...</p>
                 </div>
 
-                <!-- المحتوى الرئيسي -->
+                <!-- ===== المحتوى الرئيسي ===== -->
                 <div id="resultContent" style="display:none;">
+                    <!-- رأس البطاقة -->
                     <div class="result-header">
-                        <h2 id="r_clientName"></h2>
+                        <div class="client-name-wrap">
+                            <span class="icon-crown"><i class="fas fa-crown"></i></span>
+                            <h2 id="r_clientName"></h2>
+                        </div>
                         <span class="badge-role" id="r_clientRole"></span>
                     </div>
 
+                    <!-- شبكة المعلومات -->
                     <div class="info-grid">
                         <div class="info-item">
                             <span class="info-label">اسم الخصم</span>
@@ -1235,38 +1397,47 @@
                         </div>
                     </div>
 
+                    <!-- آخر جلسة -->
                     <div class="last-session-box">
                         <h5><i class="fas fa-clock"></i> آخر جلسة مسجلة</h5>
                         <div class="date" id="r_lastDate"></div>
                         <div class="decision" id="r_lastDecision"></div>
                     </div>
 
+                    <!-- أزرار الإجراءات -->
                     <div class="modal-actions">
-                        <button class="btn-action btn-print" onclick="window.print()"><i class="fas fa-print" style="margin-left:0.4rem;"></i> طباعة</button>
-                        <a href="client-inquiry.html" class="btn-action btn-new"><i class="fas fa-search" style="margin-left:0.4rem;"></i> بحث جديد</a>
-                        <button class="btn-action btn-exit" onclick="exitSystem()"><i class="fas fa-sign-out-alt" style="margin-left:0.4rem;"></i> خروج</button>
+                        <button class="btn-action btn-print" onclick="window.print()">
+                            <i class="fas fa-print" style="margin-left:0.4rem;"></i> طباعة
+                        </button>
+                        <a href="client-inquiry.html" class="btn-action btn-new">
+                            <i class="fas fa-search" style="margin-left:0.4rem;"></i> بحث جديد
+                        </a>
+                        <button class="btn-action btn-exit" onclick="exitSystem()">
+                            <i class="fas fa-sign-out-alt" style="margin-left:0.4rem;"></i> خروج
+                        </button>
                     </div>
                 </div>
 
-                <!-- حالة الخطأ -->
+                <!-- ===== حالة الخطأ ===== -->
                 <div id="errorContainer" style="display:none;" class="error-container">
                     <i class="fas fa-exclamation-triangle"></i>
                     <h3>عذراً</h3>
-                    <p>لم نتمكن من عرض بيانات القضية. قد تكون البيانات قد انتهت صلاحيتها أو حدث خطأ غير متوقع.</p>
-                    <div style="display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap; margin-top:1.5rem;">
+                    <p id="errorMessage">لم نتمكن من عرض بيانات القضية. قد تكون البيانات قد انتهت صلاحيتها أو حدث خطأ غير متوقع.</p>
+                    <div class="error-actions">
                         <a href="client-inquiry.html" class="btn-gold" style="padding:10px 28px; font-size:0.9rem;">العودة للاستعلام</a>
                         <button onclick="location.reload()" class="btn-outline-gold" style="padding:10px 28px; font-size:0.9rem;">إعادة المحاولة</button>
                     </div>
-                    <p style="margin-top:1rem; font-size:0.8rem; color:rgba(34,34,34,0.3);">
+                    <p style="margin-top:1.2rem; font-size:0.8rem; color:rgba(34,34,34,0.3);">
                         للدعم الفني: <a href="tel:+201101076000" style="color:var(--matte-gold);">+20 110 107 6000</a>
                     </p>
                 </div>
+
             </div>
         </div>
     </main>
 
     <!-- ==========================================================
-    التذييل – متطابق مع بقية الموقع
+    FOOTER – مطابق للـ template.html
     ========================================================== -->
     <footer class="site-footer" role="contentinfo">
         <div class="footer-inner">
@@ -1289,7 +1460,7 @@
                 <a href="https://ostazlaw.vercel.app/about.html">عن المؤسسة</a>
                 <a href="https://ostazlaw.vercel.app/specialties.html">التخصصات</a>
                 <a href="https://ostazlaw.vercel.app/sectors.html">قطاعات نخدمها</a>
-                <a href="https://ostazlaw.vercel.app/blog.html">المكتبة</a>  <!-- تم التغيير -->
+                <a href="https://ostazlaw.vercel.app/blog.html">المكتبة</a>
                 <a href="https://ostazlaw.vercel.app/client-inquiry.html">تابع قضيتك</a>
                 <a href="https://ostazlaw.vercel.app/contact.html">اتصل بنا</a>
             </div>
@@ -1317,14 +1488,14 @@
     </footer>
 
     <!-- ==========================================================
-    جافاسكريبت – محسن وآمن
+    JAVASCRIPT – آمن ومحسّن
     ========================================================== -->
     <script>
         (function() {
             'use strict';
 
             // ==========================================================
-            // 1. الهيدر والتمرير
+            // 1. HEADER SCROLL
             // ==========================================================
             const header = document.getElementById('siteHeader');
             window.addEventListener('scroll', function() {
@@ -1332,7 +1503,7 @@
             }, { passive: true });
 
             // ==========================================================
-            // 2. القائمة الجوالة
+            // 2. MOBILE MENU
             // ==========================================================
             const mobileMenu = document.getElementById('mobileMenu');
             const menuToggle = document.getElementById('menuToggle');
@@ -1355,7 +1526,7 @@
             });
 
             // ==========================================================
-            // 3. تأثير الظهور (reveal)
+            // 3. REVEAL – تأثير الظهور
             // ==========================================================
             const revealObserver = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
@@ -1364,7 +1535,7 @@
                         revealObserver.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+            }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
 
             document.querySelectorAll('.reveal').forEach(function(el) {
                 revealObserver.observe(el);
@@ -1390,12 +1561,13 @@
             }
 
             // ==========================================================
-            // 5. عرض النتيجة بأمان
+            // 5. عرض النتيجة بأمان تام
             // ==========================================================
             function loadResult() {
                 const loading = document.getElementById('loadingIndicator');
                 const content = document.getElementById('resultContent');
                 const error = document.getElementById('errorContainer');
+                const errorMsg = document.getElementById('errorMessage');
 
                 // إخفاء الكل مبدئياً
                 loading.style.display = 'none';
@@ -1403,7 +1575,7 @@
                 error.style.display = 'none';
 
                 try {
-                    // 5.1 استرجاع البيانات
+                    // 5.1 استرجاع البيانات من sessionStorage
                     const stored = sessionStorage.getItem('caseData');
                     if (!stored) {
                         throw new Error('لا توجد بيانات في الجلسة');
@@ -1417,6 +1589,7 @@
                         throw new Error('بيانات غير صالحة');
                     }
 
+                    // التحقق من وجود _timestamp (صلاحية 5 دقائق)
                     const now = Date.now();
                     const maxAge = 5 * 60 * 1000; // 5 دقائق
                     const timestamp = data._timestamp || (now - maxAge - 1);
@@ -1434,16 +1607,22 @@
                     const sessions = Array.isArray(data.sessions) ? data.sessions : [];
                     const lastSession = sessions.length > 0 ? sessions[0] : null;
 
+                    // ==========================================================
                     // 5.5 تعيين النصوص بأمان (استخدام textContent لمنع XSS)
+                    // ==========================================================
                     const setText = (id, value) => {
                         const el = document.getElementById(id);
-                        if (el) el.textContent = value || '-';
+                        if (el) {
+                            el.textContent = (value !== undefined && value !== null) ? value : '-';
+                        }
                     };
 
+                    // استخدام textContent بدلاً من innerHTML للحماية من XSS
                     setText('r_clientName', c.client_name || 'غير معروف');
                     setText('r_clientRole', c.client_role || 'عميل');
                     setText('r_opponent', c.opponent_name || 'غير محدد');
                     setText('r_court', c.court_name || 'غير محدد');
+
                     const caseNumber = (c.case_number || '') + (c.case_year ? ' / ' + c.case_year : '');
                     setText('r_caseNum', caseNumber || 'غير محدد');
                     setText('r_circle', c.circuit || 'غير محدد');
@@ -1464,11 +1643,13 @@
 
                 } catch (err) {
                     console.warn('فشل تحميل النتيجة:', err.message);
+                    // عرض صفحة الخطأ
                     error.style.display = 'block';
-                    const errorMsg = error.querySelector('p');
                     if (errorMsg) {
                         if (err.message === 'انتهت صلاحية البيانات') {
                             errorMsg.textContent = 'انتهت صلاحية بيانات الاستعلام. يرجى إعادة البحث للحصول على أحدث البيانات.';
+                        } else if (err.message === 'لا توجد بيانات في الجلسة') {
+                            errorMsg.textContent = 'لا توجد بيانات استعلام حالياً. يرجى إجراء بحث جديد.';
                         } else {
                             errorMsg.textContent = 'حدث خطأ أثناء عرض البيانات. يرجى المحاولة مرة أخرى أو الاتصال بالدعم الفني.';
                         }
@@ -1490,6 +1671,7 @@
                     confirmButtonText: 'إغلاق',
                     timer: 3000
                 }).then(function() {
+                    // مسح البيانات من sessionStorage
                     sessionStorage.removeItem('caseData');
                     window.location.href = 'https://ostazlaw.vercel.app/';
                 });
