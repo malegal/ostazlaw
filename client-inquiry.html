@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta name="google-site-verification" content="Uqbjr1w7Q831Lo6JPFEe9_lK86Kp55P79Lwfp1j6EX8" />
 
+    <!-- ==========================================================
+    سياسة أمان المحتوى (CSP) – تحديث للسماح بالمصادر المطلوبة
+    ========================================================== -->
+    <meta http-equiv="Content-Security-Policy" 
+          content="default-src 'self'; 
+                   script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://mgvyieyismzzvdejsvcv.supabase.co; 
+                   style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; 
+                   font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; 
+                   img-src 'self' data:; 
+                   connect-src 'self' https://mgvyieyismzzvdejsvcv.supabase.co; 
+                   base-uri 'self'; 
+                   form-action 'self';">
+
     <title>استعلام القضايا | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا</title>
     <meta name="description" content="نظام استعلام القضايا الإلكتروني – متابعة مستجدات قضيتك لدى مؤسسة الأستاذ محمود عبد الحميد للمحاماة." />
     <meta name="robots" content="index, follow" />
@@ -808,6 +821,76 @@
             margin-bottom: 1.8rem;
         }
 
+        /* ==========================================================
+               LEGAL DISCLAIMER – التحذير القانوني فوق الحقول
+               ========================================================== */
+        .legal-disclaimer {
+            background: rgba(176, 141, 87, 0.03);
+            border-right: 3px solid var(--matte-gold);
+            padding: 1rem 1.2rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+        .legal-disclaimer .disclaimer-title {
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: var(--charcoal);
+            margin-bottom: 0.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .legal-disclaimer .disclaimer-title i {
+            color: var(--matte-gold);
+        }
+        .legal-disclaimer .disclaimer-text {
+            font-size: 0.8rem;
+            color: rgba(34, 34, 34, 0.6);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+        .legal-disclaimer .disclaimer-text strong {
+            color: var(--charcoal);
+            font-weight: 600;
+        }
+
+        /* ==========================================================
+               CHECKBOX – خانة الموافقة
+               ========================================================== */
+        .consent-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+            padding: 0.8rem 1rem;
+            background: var(--light-gray);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+        .consent-wrapper:focus-within {
+            border-color: var(--matte-gold);
+            box-shadow: 0 0 0 3px rgba(176, 141, 87, 0.05);
+        }
+        .consent-wrapper input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            margin-top: 0.2rem;
+            accent-color: var(--matte-gold);
+            cursor: pointer;
+        }
+        .consent-wrapper .consent-label {
+            font-size: 0.8rem;
+            color: rgba(34, 34, 34, 0.55);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        .consent-wrapper .consent-label strong {
+            color: var(--charcoal);
+            font-weight: 600;
+        }
+
         .input-group-custom {
             display: flex;
             align-items: center;
@@ -855,6 +938,12 @@
             font-size: 1rem;
             font-weight: 700;
             margin-top: 0.5rem;
+        }
+        .btn-search:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
         }
 
         /* ==========================================================
@@ -1127,6 +1216,12 @@
                 font-size: 0.4rem;
                 letter-spacing: 3px;
             }
+            .legal-disclaimer {
+                padding: 0.8rem 1rem;
+            }
+            .consent-wrapper {
+                padding: 0.6rem 0.8rem;
+            }
         }
     </style>
 </head>
@@ -1211,30 +1306,60 @@
     </section>
 
     <!-- ==========================================================
-    MAIN CONTENT – استعلام
+    MAIN CONTENT – استعلام (مع التحذير القانوني وخانة الموافقة)
     ========================================================== -->
     <main class="main-inquiry" id="mainContent">
         <div class="inner reveal" style="transition-delay:0.1s;">
             <div class="search-card">
+
                 <div class="icon-header">
                     <i class="fas fa-search"></i>
                 </div>
                 <h2>استعلام القضايا</h2>
                 <p class="sub">أدخل بيانات القضية للاطلاع على آخر المستجدات</p>
 
-                <form id="searchForm" onsubmit="handleSearch(event)">
+                <!-- ==========================================================
+                LEGAL DISCLAIMER – التحذير القانوني فوق الحقول
+                ========================================================== -->
+                <div class="legal-disclaimer">
+                    <div class="disclaimer-title">
+                        <i class="fas fa-shield-alt"></i> تنبيه قانوني هام
+                    </div>
+                    <div class="disclaimer-text">
+                        نظام الاستعلام الإلكتروني مخصص حصراً للعملاء المسجلين بمكتبنا للاطلاع على قضاياهم الشخصية. 
+                        <strong>لا يجوز</strong> استخدام النظام للاستعلام عن قضايا الآخرين دون تفويض رسمي. 
+                        المكتب غير مسؤول عن أي استخدام غير مصرح به للمعلومات.
+                    </div>
+                </div>
+
+                <form id="searchForm" onsubmit="handleSearch(event)" autocomplete="off">
+                    <!-- حقل رقم الهاتف -->
                     <div class="input-group-custom">
-                        <input type="tel" id="phoneInput" class="form-control-custom" placeholder="رقم الهاتف" required>
+                        <input type="tel" id="phoneInput" class="form-control-custom" placeholder="رقم الهاتف" required autocomplete="off">
                         <span class="fixed-prefix">20</span>
                     </div>
+
+                    <!-- حقل كود القضية -->
                     <div class="input-group-custom">
-                        <input type="text" id="codeInput" class="form-control-custom" placeholder="كود القضية" required style="text-transform: uppercase;">
+                        <input type="text" id="codeInput" class="form-control-custom" placeholder="كود القضية" required style="text-transform: uppercase;" autocomplete="off">
                         <span class="fixed-prefix">MA-</span>
                     </div>
-                    <button type="submit" class="btn-gold btn-search" id="searchBtn">
+
+                    <!-- ==========================================================
+                    CHECKBOX – خانة الموافقة على التحذير
+                    ========================================================== -->
+                    <div class="consent-wrapper">
+                        <input type="checkbox" id="consentCheck" required>
+                        <label for="consentCheck" class="consent-label">
+                            أقر بأنني <strong>صاحب القضية</strong> أو <strong>مفوض قانونياً</strong> بالاستعلام عنها، وأتحمل كامل المسؤولية القانونية عن أي استخدام غير مصرح به.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-gold btn-search" id="searchBtn" disabled>
                         <i class="fas fa-search" style="margin-left:0.5rem;"></i> الاطلاع
                     </button>
                 </form>
+
             </div>
         </div>
     </main>
@@ -1291,21 +1416,41 @@
     </footer>
 
     <!-- ==========================================================
-    JAVASCRIPT – نفس الوظائف السابقة مع تحسينات
+    JAVASCRIPT – مع تحسينات أمنية إضافية
     ========================================================== -->
     <script type="module">
-        import { supabase, getCaseData } from './supabase-config.js';
-        window.__supabase = supabase;
-        window.__getCaseData = getCaseData;
+        import { getCaseData } from './supabase-config.js';
 
+        // ==========================================================
+        // العناصر
+        // ==========================================================
         const phoneInput = document.getElementById('phoneInput');
         const codeInput = document.getElementById('codeInput');
         const searchBtn = document.getElementById('searchBtn');
+        const consentCheck = document.getElementById('consentCheck');
+        const searchForm = document.getElementById('searchForm');
 
+        // ==========================================================
+        // تفعيل / تعطيل زر البحث بناءً على خانة الموافقة
+        // ==========================================================
+        consentCheck.addEventListener('change', function() {
+            searchBtn.disabled = !this.checked;
+        });
+
+        // ==========================================================
+        // UTILITY – Sanitize inputs (تحسين أمني لمنع الرموز الخطيرة)
+        // ==========================================================
         function sanitizeInput(value) {
-            return value.replace(/[^a-zA-Z0-9\-]/g, '').trim();
+            // إزالة أي أحرف غير مسموحة (أرقام، حروف إنجليزية، وشرطة فقط)
+            let cleaned = value.replace(/[^a-zA-Z0-9\-]/g, '').trim();
+            // منع الكود الضار عن طريق إزالة الرموز الخطيرة بشكل صريح
+            cleaned = cleaned.replace(/[<>'"]/g, '');
+            return cleaned;
         }
 
+        // ==========================================================
+        // REMOVE PREFIX
+        // ==========================================================
         function removePrefix(input, prefix) {
             let value = input.value.trim();
             if (value.startsWith(prefix)) {
@@ -1335,8 +1480,25 @@
             }, 10);
         });
 
+        // ==========================================================
+        // SEARCH HANDLER
+        // ==========================================================
         window.handleSearch = async function(e) {
             e.preventDefault();
+
+            // التحقق من الموافقة مرة أخرى (لأمان إضافي)
+            if (!consentCheck.checked) {
+                searchBtn.disabled = true;
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'تنبيه',
+                    text: 'يرجى الموافقة على التنبيه القانوني قبل الاستعلام.',
+                    confirmButtonColor: '#B08D57',
+                    background: '#FAFAF8',
+                    color: '#222222'
+                });
+                return;
+            }
 
             let phoneVal = sanitizeInput(phoneInput.value);
             let codeVal = sanitizeInput(codeInput.value.toUpperCase());
@@ -1368,8 +1530,12 @@
                 if (error) throw error;
                 if (!data || !data.case) throw new Error("NOT_FOUND");
 
+                // تخزين البيانات
                 sessionStorage.setItem('caseData', JSON.stringify(data));
+
+                // الانتقال لصفحة النتيجة
                 window.location.href = 'client-inquiry-result.html';
+
             } catch (err) {
                 console.error(err);
                 Swal.fire({
@@ -1383,17 +1549,21 @@
                 });
             } finally {
                 searchBtn.innerHTML = originalText;
-                searchBtn.disabled = false;
+                searchBtn.disabled = !consentCheck.checked;
             }
         };
 
-        // Header Scroll
+        // ==========================================================
+        // HEADER SCROLL
+        // ==========================================================
         const header = document.getElementById('siteHeader');
         window.addEventListener('scroll', function() {
             header.classList.toggle('scrolled', window.scrollY > 50);
         }, { passive: true });
 
-        // Mobile Menu
+        // ==========================================================
+        // MOBILE MENU
+        // ==========================================================
         const mobileMenu = document.getElementById('mobileMenu');
         const menuToggle = document.getElementById('menuToggle');
         const menuClose = document.getElementById('menuClose');
@@ -1412,7 +1582,9 @@
             if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobileMenu();
         });
 
-        // Reveal
+        // ==========================================================
+        // REVEAL
+        // ==========================================================
         const revealObserver = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
@@ -1425,7 +1597,9 @@
             revealObserver.observe(el);
         });
 
-        // Rate limiting (client-side)
+        // ==========================================================
+        // RATE LIMITING (client-side)
+        // ==========================================================
         let lastSubmitTime = 0;
         const originalSubmit = window.handleSearch;
         window.handleSearch = function(e) {
