@@ -5,17 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta name="google-site-verification" content="Uqbjr1w7Q831Lo6JPFEe9_lK86Kp55P79Lwfp1j6EX8" />
 
-    <!-- ===== سياسة أمان المحتوى (CSP) ===== -->
-    <meta http-equiv="Content-Security-Policy" 
-          content="default-src 'self'; 
-                   script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; 
-                   style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; 
-                   font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; 
-                   img-src 'self' data:; 
-                   connect-src 'self'; 
-                   base-uri 'self'; 
-                   form-action 'self';">
-
     <title>القطاعات التي نخدمها | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا</title>
     <meta name="description" content="نقدم خدمات قانونية متخصصة للشركات، المستثمرين، المطورين العقاريين، الجمعيات الأهلية، الأفراد، والورثة. فهم عميق لطبيعة كل قطاع." />
     <meta name="robots" content="index, follow" />
@@ -110,7 +99,7 @@
 
     <style>
         /* ==========================================================
-               ROOT – الهوية البصرية الموحدة (مطابقة للـ template.html)
+               ROOT – الهوية المؤسسية (مطابقة تماماً للـ template.html)
                ========================================================== */
         :root {
             --very-dark-navy: #0B111B;
@@ -368,8 +357,47 @@
             transform: translateY(-2px);
         }
 
+        .btn-outline-navy {
+            display: inline-block;
+            border: 1px solid var(--deep-navy);
+            color: var(--deep-navy);
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 8px;
+            transition: all 0.4s var(--ease-out);
+            text-align: center;
+            font-size: 0.85rem;
+            background: transparent;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .btn-outline-navy::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--matte-gold);
+            transition: width 0.6s var(--ease-out);
+        }
+
+        .btn-outline-navy:hover::after,
+        .btn-outline-navy:focus::after,
+        .btn-outline-navy:active::after {
+            width: 100%;
+        }
+
+        .btn-outline-navy:hover {
+            background: var(--deep-navy);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(16, 42, 67, 0.15);
+        }
+
         /* ==========================================================
-               HEADER – مطابق تماماً للـ template.html مع شعار Wordmark
+               HEADER – مطابق تماماً للـ template.html
                ========================================================== */
         .site-header {
             position: fixed;
@@ -402,7 +430,6 @@
             gap: 0.8rem;
         }
 
-        /* ===== الشعار النصي (Wordmark) ===== */
         .brand-wordmark {
             display: flex;
             flex-direction: column;
@@ -863,7 +890,7 @@
         }
 
         /* ==========================================================
-               INTRODUCTION – مطابق للـ template.html
+               INTRODUCTION (مطابق للـ template.html)
                ========================================================== */
         .intro-text {
             max-width: 780px;
@@ -876,7 +903,7 @@
         }
 
         /* ==========================================================
-               INDUSTRY CARD – مع خط ذهبي على hover
+               INDUSTRY CARD (مطابق لبطاقات template.html)
                ========================================================== */
         .industry-card {
             background: var(--pure-white);
@@ -984,7 +1011,7 @@
         }
 
         /* ==========================================================
-               APPROACH TIMELINE
+               APPROACH TIMELINE (مطابق للـ template.html)
                ========================================================== */
         .approach-timeline {
             display: grid;
@@ -1044,7 +1071,7 @@
         }
 
         /* ==========================================================
-               WHY US
+               WHY US (مطابق للـ template.html)
                ========================================================== */
         .why-grid {
             display: grid;
@@ -1167,7 +1194,7 @@
             right: 0;
             width: 0;
             height: 3px;
-            background: #25d366;
+            background: var(--whatsapp-green);
             transition: width 0.6s var(--ease-out);
             border-radius: 0 0 50% 50%;
         }
@@ -1177,15 +1204,15 @@
         .float-whatsapp:hover {
             transform: translateY(-4px) scale(1.05);
             box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
-            background: #25d366;
-            border-color: #25d366;
+            background: var(--whatsapp-green);
+            border-color: var(--whatsapp-green);
         }
         .float-whatsapp:hover i {
             transform: scale(1.05);
         }
 
         /* ==========================================================
-               FOOTER – مطابق للـ template.html
+               FOOTER – مطابق تماماً للـ template.html
                ========================================================== */
         .site-footer {
             background: var(--footer-navy);
@@ -1362,6 +1389,7 @@
             .why-grid {
                 grid-template-columns: 1fr 1fr;
             }
+
             .brand-wordmark .brand-main {
                 font-size: 1rem;
             }
@@ -1512,7 +1540,7 @@
     </div>
 
     <!-- ==========================================================
-    HERO
+    HERO – القطاعات
     ========================================================== -->
     <section class="hero-sectors" aria-label="القطاعات التي نخدمها">
         <div class="hero-pattern"></div>
@@ -1550,7 +1578,7 @@
     </section>
 
     <!-- ==========================================================
-    INDUSTRIES GRID – (المحتوى كما هو)
+    INDUSTRIES GRID
     ========================================================== -->
     <section class="section section-gray" aria-label="القطاعات">
         <div class="section-inner">
@@ -1789,27 +1817,27 @@
             </div>
 
             <div class="approach-timeline">
-                <div class="approach-step gold-underline-card reveal reveal-d1">
+                <div class="approach-step reveal reveal-d1">
                     <span class="num">01</span>
                     <h4>نفهم</h4>
                     <p>ندرس طبيعة نشاطك وقطاعك وتحدياتك القانونية.</p>
                 </div>
-                <div class="approach-step gold-underline-card reveal reveal-d2">
+                <div class="approach-step reveal reveal-d2">
                     <span class="num">02</span>
                     <h4>نحلل</h4>
                     <p>نقيم المخاطر والفرص والمراكز القانونية بدقة.</p>
                 </div>
-                <div class="approach-step gold-underline-card reveal reveal-d3">
+                <div class="approach-step reveal reveal-d3">
                     <span class="num">03</span>
                     <h4>نخطط</h4>
                     <p>نضع استراتيجية قانونية تتناسب مع أهدافك.</p>
                 </div>
-                <div class="approach-step gold-underline-card reveal reveal-d1">
+                <div class="approach-step reveal reveal-d1">
                     <span class="num">04</span>
                     <h4>نمثل</h4>
                     <p>ننفذ الخطة باحترافية ونتابع الإجراءات بدقة.</p>
                 </div>
-                <div class="approach-step gold-underline-card reveal reveal-d2">
+                <div class="approach-step reveal reveal-d2">
                     <span class="num">05</span>
                     <h4>نواصل</h4>
                     <p>نبقى على تواصل ونساندك حتى تحقيق النتيجة.</p>
@@ -1881,7 +1909,7 @@
     </section>
 
     <!-- ==========================================================
-    FOOTER – مطابق للـ template.html
+    FOOTER – مطابق تماماً للـ template.html
     ========================================================== -->
     <footer class="site-footer" role="contentinfo">
         <div class="footer-inner">
@@ -1988,7 +2016,7 @@
             // ==========================================================
             // GOLD UNDERLINE SCROLL (لتأثير التمرير)
             // ==========================================================
-            const goldElements = document.querySelectorAll('.gold-underline, .gold-underline-card, .header-nav a, .footer-col a, .btn-gold, .btn-outline-gold, .btn-outline-white');
+            const goldElements = document.querySelectorAll('.gold-underline, .gold-underline-card, .header-nav a, .footer-col a, .btn-gold, .btn-outline-gold, .btn-outline-white, .btn-outline-navy, .industry-card .btn-sm');
 
             const scrollObserver = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
