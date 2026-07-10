@@ -101,7 +101,7 @@
 
     <style>
         /* ==========================================================
-           ROOT – الهوية المؤسسية (مطابقة للـ template.html)
+           ROOT – الهوية المؤسسية (مطابقة تماماً لـ template.html)
            ========================================================== */
         :root {
             --very-dark-navy: #0B111B;
@@ -111,16 +111,12 @@
             --light-gray: #F5F5F5;
             --charcoal: #222222;
             --matte-gold: #B08D57;
-            --matte-gold-light: rgba(176, 141, 87, 0.12);
             --footer-navy: #0B1F35;
             --whatsapp-green: #25D366;
             --font-ar: 'Tajawal', sans-serif;
             --font-serif: 'Amiri', serif;
             --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
             --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.04);
-            --shadow-hover: 0 12px 48px rgba(0, 0, 0, 0.08);
-            --gold-glow: 0 0 30px rgba(176, 141, 87, 0.1);
         }
 
         *,
@@ -183,7 +179,7 @@
         }
 
         /* ==========================================================
-           GOLD UNDERLINE – تأثير الخط الذهبي
+           GOLD UNDERLINE (مطابق تماماً لـ template.html)
            ========================================================== */
         .gold-underline {
             position: relative;
@@ -217,8 +213,36 @@
             width: 100%;
         }
 
+        .gold-underline-card {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .gold-underline-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--matte-gold);
+            transition: width 0.6s var(--ease-out);
+            border-radius: 0 0 2px 2px;
+        }
+
+        .gold-underline-card:hover::after,
+        .gold-underline-card:focus::after,
+        .gold-underline-card.active::after {
+            width: 100%;
+        }
+
+        .gold-underline-card.scroll-visible::after {
+            width: 100%;
+        }
+
         /* ==========================================================
-           BUTTONS (مطابقة للـ template.html)
+           BUTTONS (مطابقة تماماً لـ template.html)
            ========================================================== */
         .btn-gold {
             display: inline-block;
@@ -237,6 +261,7 @@
             position: relative;
             overflow: hidden;
         }
+
         .btn-gold::after {
             content: '';
             position: absolute;
@@ -247,11 +272,13 @@
             background: var(--matte-gold);
             transition: width 0.6s var(--ease-out);
         }
+
         .btn-gold:hover::after,
         .btn-gold:focus::after,
         .btn-gold:active::after {
             width: 100%;
         }
+
         .btn-gold:hover {
             background: #c4a06a;
             transform: translateY(-2px);
@@ -272,6 +299,7 @@
             cursor: pointer;
             position: relative;
         }
+
         .btn-outline-gold::after {
             content: '';
             position: absolute;
@@ -282,11 +310,13 @@
             background: var(--matte-gold);
             transition: width 0.6s var(--ease-out);
         }
+
         .btn-outline-gold:hover::after,
         .btn-outline-gold:focus::after,
         .btn-outline-gold:active::after {
             width: 100%;
         }
+
         .btn-outline-gold:hover {
             background: var(--matte-gold);
             color: #000;
@@ -296,18 +326,19 @@
 
         .btn-outline-white {
             display: inline-block;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.25);
             color: #fff;
             font-weight: 700;
-            padding: 14px 32px;
+            padding: 16px 40px;
             border-radius: 8px;
             transition: all 0.4s var(--ease-out);
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             background: transparent;
             cursor: pointer;
             position: relative;
         }
+
         .btn-outline-white::after {
             content: '';
             position: absolute;
@@ -318,11 +349,13 @@
             background: var(--matte-gold);
             transition: width 0.6s var(--ease-out);
         }
+
         .btn-outline-white:hover::after,
         .btn-outline-white:focus::after,
         .btn-outline-white:active::after {
             width: 100%;
         }
+
         .btn-outline-white:hover {
             border-color: var(--matte-gold);
             color: var(--matte-gold);
@@ -330,8 +363,47 @@
             transform: translateY(-2px);
         }
 
+        .btn-outline-navy {
+            display: inline-block;
+            border: 1px solid var(--deep-navy);
+            color: var(--deep-navy);
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 8px;
+            transition: all 0.4s var(--ease-out);
+            text-align: center;
+            font-size: 0.85rem;
+            background: transparent;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .btn-outline-navy::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--matte-gold);
+            transition: width 0.6s var(--ease-out);
+        }
+
+        .btn-outline-navy:hover::after,
+        .btn-outline-navy:focus::after,
+        .btn-outline-navy:active::after {
+            width: 100%;
+        }
+
+        .btn-outline-navy:hover {
+            background: var(--deep-navy);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(16, 42, 67, 0.15);
+        }
+
         /* ==========================================================
-           HEADER – مطابق للـ template.html
+           HEADER – مطابق تماماً لـ template.html
            ========================================================== */
         .site-header {
             position: fixed;
@@ -348,6 +420,7 @@
             border-bottom: 1px solid rgba(176, 141, 87, 0.08);
             transition: all 0.5s var(--ease-out);
         }
+
         .site-header.scrolled {
             background: rgba(11, 17, 27, 0.94);
             backdrop-filter: blur(20px);
@@ -363,7 +436,6 @@
             gap: 0.8rem;
         }
 
-        /* ===== شعار Wordmark النصي ===== */
         .brand-wordmark {
             display: flex;
             flex-direction: column;
@@ -424,6 +496,7 @@
             padding-bottom: 2px;
             text-decoration: none;
         }
+
         .header-nav a::after {
             content: '';
             position: absolute;
@@ -434,10 +507,12 @@
             background: var(--matte-gold);
             transition: width 0.5s var(--ease-out);
         }
+
         .header-nav a:hover::after,
         .header-nav a.active::after {
             width: 100%;
         }
+
         .header-nav a:hover,
         .header-nav a.active {
             color: #fff;
@@ -448,6 +523,7 @@
             align-items: center;
             gap: 0.6rem;
         }
+
         .header-actions .btn-consult {
             padding: 8px 18px;
             font-size: 0.7rem;
@@ -460,6 +536,7 @@
             cursor: pointer;
             position: relative;
         }
+
         .header-actions .btn-consult::after {
             content: '';
             position: absolute;
@@ -470,10 +547,12 @@
             background: var(--matte-gold);
             transition: width 0.6s var(--ease-out);
         }
+
         .header-actions .btn-consult:hover::after,
         .header-actions .btn-consult:focus::after {
             width: 100%;
         }
+
         .header-actions .btn-consult:hover {
             background: #c4a06a;
             transform: translateY(-2px);
@@ -493,6 +572,7 @@
             cursor: pointer;
             position: relative;
         }
+
         .header-actions .btn-appointment::after {
             content: '';
             position: absolute;
@@ -503,10 +583,12 @@
             background: var(--matte-gold);
             transition: width 0.6s var(--ease-out);
         }
+
         .header-actions .btn-appointment:hover::after,
         .header-actions .btn-appointment:focus::after {
             width: 100%;
         }
+
         .header-actions .btn-appointment:hover {
             border-color: var(--matte-gold);
             color: var(--matte-gold);
@@ -530,6 +612,7 @@
             cursor: pointer;
             position: relative;
         }
+
         .header-actions .btn-phone::after {
             content: '';
             position: absolute;
@@ -540,10 +623,12 @@
             background: var(--matte-gold);
             transition: width 0.6s var(--ease-out);
         }
+
         .header-actions .btn-phone:hover::after,
         .header-actions .btn-phone:focus::after {
             width: 100%;
         }
+
         .header-actions .btn-phone:hover {
             border-color: var(--matte-gold);
             background: rgba(176, 141, 87, 0.08);
@@ -664,7 +749,7 @@
         }
 
         /* ==========================================================
-           HERO – استعلام القضايا (مطابق للـ template.html)
+           HERO – استعلام القضايا (مطابق لـ template.html)
            ========================================================== */
         .hero-inquiry {
             padding: 120px 2rem 3rem;
@@ -756,7 +841,7 @@
         }
 
         /* ==========================================================
-           MAIN CONTENT – استعلام (مطابق للـ template.html)
+           MAIN CONTENT – استعلام (مطابق لـ template.html)
            ========================================================== */
         .main-inquiry {
             flex: 1;
@@ -773,20 +858,10 @@
             border-radius: 16px;
             padding: 2.5rem 2rem;
             border: 1px solid rgba(0, 0, 0, 0.04);
-            box-shadow: var(--shadow-card), var(--gold-glow);
-            transition: all 0.5s var(--ease-out);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            transition: all 0.4s var(--ease-out);
             position: relative;
             overflow: hidden;
-        }
-        .search-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #D4AF37, #B08D57, #8A703E);
-            opacity: 0.6;
         }
         .search-card::after {
             content: '';
@@ -795,16 +870,15 @@
             right: 0;
             width: 0;
             height: 3px;
-            background: linear-gradient(90deg, #D4AF37, #B08D57, #8A703E);
-            transition: width 0.8s var(--ease-out);
+            background: var(--matte-gold);
+            transition: width 0.6s var(--ease-out);
         }
         .search-card:hover::after {
             width: 100%;
         }
         .search-card:hover {
             border-color: var(--matte-gold);
-            box-shadow: var(--shadow-hover), var(--gold-glow);
-            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
         }
 
         .search-card .icon-header {
@@ -840,7 +914,7 @@
         /* ===== Legal Disclaimer ===== */
         .legal-disclaimer {
             background: rgba(176, 141, 87, 0.03);
-            border-right: 4px solid var(--matte-gold);
+            border-right: 3px solid var(--matte-gold);
             padding: 1rem 1.2rem;
             border-radius: 10px;
             margin-bottom: 1.5rem;
@@ -903,7 +977,6 @@
             font-weight: 600;
         }
 
-        /* ===== Input Groups ===== */
         .input-group-custom {
             display: flex;
             align-items: center;
@@ -1013,7 +1086,7 @@
         }
 
         /* ==========================================================
-           FOOTER – مطابق للـ template.html
+           FOOTER – مطابق تماماً لـ template.html
            ========================================================== */
         .site-footer {
             background: var(--footer-navy);
@@ -1120,20 +1193,20 @@
         }
 
         /* ==========================================================
-           REVEAL – تأثير الظهور الأنيق
+           REVEAL (مطابق تماماً لـ template.html)
            ========================================================== */
         .reveal {
             opacity: 0;
-            transform: translateY(40px) scale(0.98);
+            transform: translateY(30px);
             transition: all 0.8s var(--ease-out);
         }
         .reveal.visible {
             opacity: 1;
-            transform: translateY(0) scale(1);
+            transform: translateY(0);
         }
 
         /* ==========================================================
-           RESPONSIVE – مطابق للـ template.html
+           RESPONSIVE – مطابق تماماً لـ template.html
            ========================================================== */
         @media (max-width: 1024px) {
             .footer-inner {
@@ -1375,7 +1448,7 @@
     </main>
 
     <!-- ==========================================================
-    FOOTER – مطابق للـ template.html
+    FOOTER – مطابق تماماً لـ template.html
     ========================================================== -->
     <footer class="site-footer" role="contentinfo">
         <div class="footer-inner">
@@ -1426,7 +1499,7 @@
     </footer>
 
     <!-- ==========================================================
-    JAVASCRIPT – مع دعم التحذير وخانة الموافقة
+    JAVASCRIPT
     ========================================================== -->
     <script type="module">
         import { getCaseData } from './supabase-config.js';
@@ -1448,7 +1521,7 @@
         });
 
         // ==========================================================
-        // UTILITY – Sanitize inputs (تحسين أمني)
+        // UTILITY – Sanitize inputs
         // ==========================================================
         function sanitizeInput(value) {
             let cleaned = value.replace(/[^a-zA-Z0-9\-]/g, '').trim();
