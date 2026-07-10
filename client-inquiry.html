@@ -44,7 +44,6 @@
     <!-- ===== SweetAlert2 ===== -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- ===== JSON-LD ===== -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -739,7 +738,7 @@
         }
 
         /* ==========================================================
-               HERO – استعلام القضايا (مطابق للصفحة الرئيسية)
+               HERO – استعلام القضايا (مطابق للصفحة الرئيسية مع تحسين المسافات)
                ========================================================== */
         .hero {
             position: relative;
@@ -819,13 +818,13 @@
             font-size: clamp(1rem, 1.4vw, 1.3rem);
             font-weight: 400;
             color: rgba(255, 255, 255, 0.7);
-            margin-top: 0.2rem;
+            margin-top: 0.5rem; /* تم زيادة المسافة */
             letter-spacing: 0.03em;
         }
 
         .hero-value {
             max-width: 720px;
-            margin: 1.2rem auto 0;
+            margin: 1.5rem auto 0; /* تم زيادة المسافة */
             font-size: clamp(0.9rem, 1.05vw, 1rem);
             font-weight: 300;
             color: rgba(255, 255, 255, 0.55);
@@ -884,7 +883,7 @@
         }
 
         /* ==========================================================
-               MAIN – نموذج الاستعلام (مطابق لأسلوب الصفحة الرئيسية)
+               SECTIONS – مطابق للصفحة الرئيسية
                ========================================================== */
         .section {
             padding: 4rem 2rem;
@@ -1408,7 +1407,7 @@
     </a>
 
     <!-- ==========================================================
-    HEADER – مع شعار Wordmark النصي
+    HEADER
     ========================================================== -->
     <header class="site-header" id="siteHeader" role="banner">
         <div class="header-brand">
@@ -1505,7 +1504,7 @@
     </section>
 
     <!-- ==========================================================
-    MAIN – نموذج الاستعلام
+    MAIN – نموذج الاستعلام (يحتوي على جميع العناصر)
     ========================================================== -->
     <section class="section section-light" aria-label="نموذج استعلام القضايا">
         <div class="section-inner">
@@ -1564,7 +1563,7 @@
     </section>
 
     <!-- ==========================================================
-    FOOTER – مطابق للصفحة الرئيسية
+    FOOTER
     ========================================================== -->
     <footer class="site-footer" role="contentinfo">
         <div class="footer-inner">
@@ -1614,7 +1613,7 @@
     </footer>
 
     <!-- ==========================================================
-    JAVASCRIPT – مع دعم التحذير وخانة الموافقة
+    JAVASCRIPT
     ========================================================== -->
     <script type="module">
         import { getCaseData } from './supabase-config.js';
