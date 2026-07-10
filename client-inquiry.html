@@ -5,17 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta name="google-site-verification" content="Uqbjr1w7Q831Lo6JPFEe9_lK86Kp55P79Lwfp1j6EX8" />
 
-    <!-- ===== سياسة أمان المحتوى (CSP) ===== -->
-    <meta http-equiv="Content-Security-Policy" 
-          content="default-src 'self'; 
-                   script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://mgvyieyismzzvdejsvcv.supabase.co; 
-                   style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; 
-                   font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; 
-                   img-src 'self' data:; 
-                   connect-src 'self' https://mgvyieyismzzvdejsvcv.supabase.co; 
-                   base-uri 'self'; 
-                   form-action 'self';">
-
     <title>استعلام القضايا | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا</title>
     <meta name="description" content="نظام استعلام القضايا الإلكتروني – متابعة مستجدات قضيتك لدى مؤسسة الأستاذ محمود عبد الحميد للمحاماة." />
     <meta name="robots" content="index, follow" />
@@ -55,6 +44,7 @@
     <!-- ===== SweetAlert2 ===== -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <!-- ===== JSON-LD ===== -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -101,8 +91,8 @@
 
     <style>
         /* ==========================================================
-           ROOT – الهوية المؤسسية (مطابقة تماماً لـ template.html)
-           ========================================================== */
+               ROOT – الهوية المؤسسية (مطابقة تماماً للصفحة الرئيسية)
+               ========================================================== */
         :root {
             --very-dark-navy: #0B111B;
             --deep-navy: #102A43;
@@ -179,8 +169,8 @@
         }
 
         /* ==========================================================
-           GOLD UNDERLINE (مطابق تماماً لـ template.html)
-           ========================================================== */
+               GOLD UNDERLINE
+               ========================================================== */
         .gold-underline {
             position: relative;
             display: inline-block;
@@ -242,8 +232,8 @@
         }
 
         /* ==========================================================
-           BUTTONS (مطابقة تماماً لـ template.html)
-           ========================================================== */
+               BUTTONS (مطابقة للصفحة الرئيسية)
+               ========================================================== */
         .btn-gold {
             display: inline-block;
             background: var(--matte-gold);
@@ -257,8 +247,8 @@
             font-size: 0.95rem;
             letter-spacing: 0.02em;
             box-shadow: 0 2px 20px rgba(176, 141, 87, 0.15);
-            cursor: pointer;
             position: relative;
+            cursor: pointer;
             overflow: hidden;
         }
 
@@ -403,8 +393,8 @@
         }
 
         /* ==========================================================
-           HEADER – مطابق تماماً لـ template.html
-           ========================================================== */
+               HEADER – مطابق للصفحة الرئيسية
+               ========================================================== */
         .site-header {
             position: fixed;
             top: 0;
@@ -749,31 +739,30 @@
         }
 
         /* ==========================================================
-           HERO – استعلام القضايا (مطابق لـ template.html)
-           ========================================================== */
-        .hero-inquiry {
-            padding: 120px 2rem 3rem;
-            background: var(--very-dark-navy);
+               HERO – استعلام القضايا (مطابق للصفحة الرئيسية)
+               ========================================================== */
+        .hero {
             position: relative;
-            overflow: hidden;
-            min-height: 35vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 140px 24px 60px;
+            overflow: hidden;
+            background: var(--very-dark-navy);
         }
-        .hero-inquiry .hero-pattern {
+
+        .hero-bg {
             position: absolute;
             inset: 0;
-            opacity: 0.03;
-            background-image:
-                radial-gradient(circle at 20% 30%, var(--matte-gold) 1px, transparent 1px),
-                radial-gradient(circle at 80% 70%, var(--matte-gold) 1px, transparent 1px);
-            background-size: 60px 60px;
-            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
         }
-        .hero-inquiry .hero-glow {
+        .hero-bg .glow {
             position: absolute;
-            width: 60vw;
-            height: 60vw;
+            width: 70vw;
+            height: 70vw;
             border-radius: 50%;
             background: radial-gradient(circle, rgba(176, 141, 87, 0.04) 0%, transparent 70%);
             top: -20%;
@@ -781,14 +770,14 @@
             pointer-events: none;
             animation: orbFloat 20s ease-in-out infinite alternate;
         }
-        .hero-inquiry .hero-glow-2 {
+        .hero-bg .glow-2 {
             position: absolute;
-            width: 40vw;
-            height: 40vw;
+            width: 50vw;
+            height: 50vw;
             border-radius: 50%;
             background: radial-gradient(circle, rgba(176, 141, 87, 0.02) 0%, transparent 70%);
-            bottom: -20%;
-            left: -10%;
+            bottom: -30%;
+            left: -20%;
             pointer-events: none;
             animation: orbFloat 25s ease-in-out infinite alternate-reverse;
         }
@@ -797,63 +786,151 @@
                 transform: translate(0, 0) scale(1);
             }
             100% {
-                transform: translate(40px, -30px) scale(1.05);
+                transform: translate(50px, -30px) scale(1.05);
             }
         }
 
-        .hero-inquiry .hero-inner {
-            max-width: 1200px;
-            margin: 0 auto;
+        .hero-content {
             position: relative;
-            z-index: 1;
-            width: 100%;
+            z-index: 2;
+            max-width: 1000px;
         }
-        .hero-inquiry .hero-title-wrap {
-            text-align: center;
-        }
-        .hero-inquiry .hero-title-wrap .en-tag {
-            font-size: 0.65rem;
+
+        .hero-brand-signature {
+            font-size: 0.7rem;
             font-weight: 800;
             letter-spacing: 0.4em;
             text-transform: uppercase;
             color: var(--matte-gold);
-            opacity: 0.5;
-            display: block;
-            margin-bottom: 0.3rem;
+            opacity: 0.6;
+            margin-bottom: 0.8rem;
         }
-        .hero-inquiry .hero-title-wrap h1 {
+
+        .hero-title {
             font-family: var(--font-serif);
-            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-size: clamp(2.4rem, 6vw, 4.4rem);
             font-weight: 900;
+            line-height: 1.05;
             color: #fff;
-            line-height: 1.1;
+            letter-spacing: -0.02em;
         }
-        .hero-inquiry .hero-title-wrap h1 .gold-text {
-            color: var(--matte-gold);
-        }
-        .hero-inquiry .hero-title-wrap .sub {
-            font-size: clamp(1rem, 1.3vw, 1.2rem);
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 1.4vw, 1.3rem);
             font-weight: 400;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 0.2rem;
+            letter-spacing: 0.03em;
+        }
+
+        .hero-value {
+            max-width: 720px;
+            margin: 1.2rem auto 0;
+            font-size: clamp(0.9rem, 1.05vw, 1rem);
+            font-weight: 300;
             color: rgba(255, 255, 255, 0.55);
-            max-width: 700px;
-            margin: 0.8rem auto 0;
-            line-height: 1.7;
+            line-height: 1.9;
         }
 
         /* ==========================================================
-           MAIN CONTENT – استعلام (مطابق لـ template.html)
-           ========================================================== */
-        .main-inquiry {
-            flex: 1;
-            padding: 3rem 2rem 5rem;
+               TRUST BAR (مطابق للصفحة الرئيسية)
+               ========================================================== */
+        .trust-bar {
+            background: var(--deep-navy);
+            padding: 2rem 1.5rem;
+            border-top: 1px solid rgba(176, 141, 87, 0.08);
+            border-bottom: 1px solid rgba(176, 141, 87, 0.08);
+        }
+        .trust-bar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            justify-content: center;
+            text-align: right;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.85rem;
+            font-weight: 400;
+            line-height: 1.5;
+            position: relative;
+            cursor: default;
+        }
+        .trust-item i {
+            font-size: 1.3rem;
+            color: var(--matte-gold);
+            opacity: 0.6;
+            flex-shrink: 0;
+        }
+
+        .trust-item::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--matte-gold);
+            transition: width 0.6s var(--ease-out);
+        }
+
+        .trust-item:hover::after {
+            width: 100%;
+        }
+
+        /* ==========================================================
+               MAIN – نموذج الاستعلام (مطابق لأسلوب الصفحة الرئيسية)
+               ========================================================== */
+        .section {
+            padding: 4rem 2rem;
+        }
+        .section-light {
             background: var(--warm-off-white);
         }
-        .main-inquiry .inner {
-            max-width: 600px;
+        .section-inner {
+            max-width: 1200px;
             margin: 0 auto;
         }
 
+        .section-head {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .section-head .eyebrow {
+            font-size: 0.6rem;
+            font-weight: 800;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--matte-gold);
+            opacity: 0.5;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+        .section-head h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 900;
+            color: var(--charcoal);
+            line-height: 1.15;
+        }
+        .section-head p {
+            max-width: 720px;
+            margin: 0.4rem auto 0;
+            color: rgba(34, 34, 34, 0.55);
+            font-weight: 300;
+            font-size: 0.95rem;
+            line-height: 1.9;
+        }
+
+        /* ===== بطاقة الاستعلام ===== */
         .search-card {
+            max-width: 600px;
+            margin: 0 auto;
             background: var(--pure-white);
             border-radius: 16px;
             padding: 2.5rem 2rem;
@@ -1033,66 +1110,12 @@
         }
 
         /* ==========================================================
-           FLOATING WHATSAPP
-           ========================================================== */
-        .float-whatsapp {
-            position: fixed;
-            bottom: 2rem;
-            left: 2rem;
-            z-index: 500;
-            width: 54px;
-            height: 54px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
-            transition: all 0.5s var(--ease-out);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(37, 211, 102, 0.85);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            text-decoration: none;
-            color: #fff;
-            position: relative;
-        }
-        .float-whatsapp i {
-            font-size: 1.8rem;
-            color: #fff;
-            transition: transform 0.4s ease;
-        }
-        .float-whatsapp::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            right: 0;
-            width: 0;
-            height: 3px;
-            background: var(--whatsapp-green);
-            transition: width 0.6s var(--ease-out);
-            border-radius: 0 0 50% 50%;
-        }
-        .float-whatsapp:hover::after {
-            width: 100%;
-        }
-        .float-whatsapp:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
-            background: var(--whatsapp-green);
-            border-color: var(--whatsapp-green);
-        }
-        .float-whatsapp:hover i {
-            transform: scale(1.05);
-        }
-
-        /* ==========================================================
-           FOOTER – مطابق تماماً لـ template.html
-           ========================================================== */
+               FOOTER – مطابق للصفحة الرئيسية
+               ========================================================== */
         .site-footer {
             background: var(--footer-navy);
             padding: 3rem 2rem 1.5rem;
             color: rgba(255, 255, 255, 0.6);
-            margin-top: auto;
         }
         .footer-inner {
             max-width: 1200px;
@@ -1193,8 +1216,61 @@
         }
 
         /* ==========================================================
-           REVEAL (مطابق تماماً لـ template.html)
-           ========================================================== */
+               FLOATING WHATSAPP
+               ========================================================== */
+        .float-whatsapp {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            z-index: 500;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+            transition: all 0.5s var(--ease-out);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(37, 211, 102, 0.85);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            text-decoration: none;
+            color: #fff;
+            position: relative;
+        }
+        .float-whatsapp i {
+            font-size: 1.8rem;
+            color: #fff;
+            transition: transform 0.4s ease;
+        }
+        .float-whatsapp::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            right: 0;
+            width: 0;
+            height: 3px;
+            background: var(--whatsapp-green);
+            transition: width 0.6s var(--ease-out);
+            border-radius: 0 0 50% 50%;
+        }
+        .float-whatsapp:hover::after {
+            width: 100%;
+        }
+        .float-whatsapp:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
+            background: var(--whatsapp-green);
+            border-color: var(--whatsapp-green);
+        }
+        .float-whatsapp:hover i {
+            transform: scale(1.05);
+        }
+
+        /* ==========================================================
+               REVEAL (مطابق للصفحة الرئيسية)
+               ========================================================== */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -1206,8 +1282,8 @@
         }
 
         /* ==========================================================
-           RESPONSIVE – مطابق تماماً لـ template.html
-           ========================================================== */
+               RESPONSIVE (مطابق للصفحة الرئيسية)
+               ========================================================== */
         @media (max-width: 1024px) {
             .footer-inner {
                 grid-template-columns: 1fr 1fr;
@@ -1230,12 +1306,22 @@
                 padding: 0 1rem;
                 height: 64px;
             }
-            .hero-inquiry {
-                padding: 100px 1rem 2rem;
+            .site-header.scrolled {
+                height: 60px;
+            }
+            .hero {
+                padding: 100px 16px 40px;
                 min-height: auto;
             }
-            .main-inquiry {
-                padding: 2rem 1rem 3rem;
+            .trust-bar-inner {
+                grid-template-columns: 1fr;
+                gap: 0.6rem;
+            }
+            .trust-item {
+                justify-content: flex-start;
+            }
+            .section {
+                padding: 2.5rem 1rem;
             }
             .search-card {
                 padding: 1.8rem 1.2rem;
@@ -1315,9 +1401,9 @@
 <body>
 
     <!-- ==========================================================
-    FLOATING WHATSAPP (مع noopener noreferrer)
+    FLOATING WHATSAPP
     ========================================================== -->
-    <a href="https://wa.me/201101076000" target="_blank" rel="noopener noreferrer" class="float-whatsapp" aria-label="تواصل عبر واتساب">
+    <a href="https://wa.me/201101076000" target="_blank" rel="noopener noreferrer" class="float-whatsapp" id="whatsappFloat" aria-label="تواصل عبر واتساب">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -1379,26 +1465,57 @@
     <!-- ==========================================================
     HERO – استعلام القضايا
     ========================================================== -->
-    <section class="hero-inquiry" aria-label="استعلام القضايا">
-        <div class="hero-pattern"></div>
-        <div class="hero-glow"></div>
-        <div class="hero-glow-2"></div>
-        <div class="hero-inner">
-            <div class="hero-title-wrap reveal">
-                <span class="en-tag">Case Inquiry</span>
-                <h1>استعلام <span class="gold-text">القضايا</span></h1>
-                <p class="sub">أدخل بيانات القضية للاطلاع على آخر المستجدات.</p>
+    <section class="hero" aria-label="استعلام القضايا">
+        <div class="hero-bg">
+            <div class="glow"></div>
+            <div class="glow-2"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-brand-signature">استعلام القضايا</div>
+
+            <h1 class="hero-title">تابع <span class="gold-text">قضيتك</span></h1>
+            <p class="hero-subtitle">نظام الاستعلام الإلكتروني</p>
+
+            <p class="hero-value">
+                أدخل بيانات القضية للاطلاع على آخر المستجدات.<br />
+                الخدمة متاحة لعملائنا المسجلين فقط.
+            </p>
+        </div>
+    </section>
+
+    <!-- ==========================================================
+    TRUST BAR
+    ========================================================== -->
+    <section class="trust-bar" aria-label="شريط الثقة">
+        <div class="trust-bar-inner">
+            <div class="trust-item">
+                <i class="fas fa-gavel"></i>
+                <span>محامون بالنقض والدستورية العليا</span>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-briefcase"></i>
+                <span>حلول قانونية للشركات والأفراد</span>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-scale-balanced"></i>
+                <span>تمثيل واستشارات في مختلف مراحل التقاضي</span>
             </div>
         </div>
     </section>
 
     <!-- ==========================================================
-    MAIN CONTENT – استعلام (مع التحذير القانوني وخانة الموافقة)
+    MAIN – نموذج الاستعلام
     ========================================================== -->
-    <main class="main-inquiry" id="mainContent">
-        <div class="inner reveal" style="transition-delay:0.1s;">
-            <div class="search-card">
+    <section class="section section-light" aria-label="نموذج استعلام القضايا">
+        <div class="section-inner">
+            <div class="section-head reveal">
+                <span class="eyebrow">● الاستعلام</span>
+                <h2>أدخل بيانات القضية</h2>
+                <p>للاطلاع على آخر المستجدات، يرجى إدخال رقم الهاتف وكود القضية.</p>
+            </div>
 
+            <div class="search-card reveal" style="transition-delay:0.15s;">
                 <div class="icon-header">
                     <i class="fas fa-search"></i>
                 </div>
@@ -1442,13 +1559,12 @@
                         <i class="fas fa-search" style="margin-left:0.5rem;"></i> الاطلاع
                     </button>
                 </form>
-
             </div>
         </div>
-    </main>
+    </section>
 
     <!-- ==========================================================
-    FOOTER – مطابق تماماً لـ template.html
+    FOOTER – مطابق للصفحة الرئيسية
     ========================================================== -->
     <footer class="site-footer" role="contentinfo">
         <div class="footer-inner">
@@ -1466,7 +1582,7 @@
             </div>
 
             <div class="footer-col">
-                <h4>روابط</h4>
+                <h4>روابط سريعة</h4>
                 <a href="https://ostazlaw.vercel.app/">الرئيسية</a>
                 <a href="https://ostazlaw.vercel.app/about.html">عن المؤسسة</a>
                 <a href="https://ostazlaw.vercel.app/specialties.html">التخصصات</a>
@@ -1478,10 +1594,9 @@
 
             <div class="footer-col">
                 <h4>خدمات</h4>
-                <a href="https://ostazlaw.vercel.app/contact.html?tab=consult">استشارة قانونية</a>
                 <a href="https://ostazlaw.vercel.app/contact.html?tab=appointment">حجز موعد</a>
+                <a href="https://ostazlaw.vercel.app/contact.html?tab=consult">استشارة قانونية</a>
                 <a href="https://ostazlaw.vercel.app/contact.html?tab=representation">تمثيل قانوني</a>
-                <a href="https://ostazlaw.vercel.app/client-inquiry.html">متابعة قضية</a>
             </div>
 
             <div class="footer-col">
@@ -1499,7 +1614,7 @@
     </footer>
 
     <!-- ==========================================================
-    JAVASCRIPT
+    JAVASCRIPT – مع دعم التحذير وخانة الموافقة
     ========================================================== -->
     <script type="module">
         import { getCaseData } from './supabase-config.js';
@@ -1511,7 +1626,6 @@
         const codeInput = document.getElementById('codeInput');
         const searchBtn = document.getElementById('searchBtn');
         const consentCheck = document.getElementById('consentCheck');
-        const searchForm = document.getElementById('searchForm');
 
         // ==========================================================
         // تفعيل / تعطيل زر البحث بناءً على خانة الموافقة
@@ -1649,12 +1763,14 @@
             mobileMenu.classList.add('open');
             document.body.style.overflow = 'hidden';
         }
+
         window.closeMobileMenu = function() {
             mobileMenu.classList.remove('open');
             document.body.style.overflow = '';
         };
-        if (menuToggle) menuToggle.addEventListener('click', openMobileMenu);
-        if (menuClose) menuClose.addEventListener('click', closeMobileMenu);
+
+        menuToggle.addEventListener('click', openMobileMenu);
+        menuClose.addEventListener('click', closeMobileMenu);
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobileMenu();
         });
@@ -1669,7 +1785,8 @@
                     revealObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
         document.querySelectorAll('.reveal').forEach(function(el) {
             revealObserver.observe(el);
         });
@@ -1696,6 +1813,7 @@
             lastSubmitTime = now;
             originalSubmit(e);
         };
+
     </script>
 
 </body>
