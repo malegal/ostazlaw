@@ -7,9 +7,8 @@
     --warm-off-white: #FAFAF8;
     --pure-white: #FFFFFF;
     --light-gray: #ECECEC;
-    --charcoal: #11161B;
-    /* ✅ جعل النص الوصفي أغمق بثلاث درجات (قريب من الأسود) */
-    --text-secondary: #0A0F1A; 
+    --charcoal: #0B111B; /* ✅ جعل اللون الأساسي داكناً جداً */
+    --text-secondary: #0B111B; /* ✅ إلغاء أي لون رمادي */
     --matte-gold: #B08D57;
     --footer-navy: #0B1F35;
     --whatsapp-green: #25D366;
@@ -819,13 +818,13 @@ button {
     color: var(--charcoal);
     line-height: 1.2;
 }
-/* ✅ النص التعريفي أسفل العنوان الرئيسي في كل قسم */
+/* ✅ النصوص الوصفية تحت العناوين أصبحت داكنة وعريضة */
 .section-head p {
     max-width: 720px;
     margin: 0.6rem auto 0;
-    color: var(--text-secondary);
-    font-weight: 600; /* زيادة الوزن */
-    font-size: 1.1rem; /* زيادة الحجم */
+    color: var(--charcoal); /* ✅ أسود داكن */
+    font-weight: 700; /* ✅ عريض */
+    font-size: 1.05rem;
     line-height: 1.9;
 }
 
@@ -894,10 +893,10 @@ button {
 .about-content h2 .gold-text {
     color: var(--matte-gold);
 }
-/* ✅ النصوص الوصفية في قسم "من نحن" */
+/* ✅ الفقرات في قسم "من نحن" أصبحت داكنة وعريضة */
 .about-content p {
-    color: var(--text-secondary);
-    font-weight: 600;
+    color: var(--charcoal);
+    font-weight: 700;
     font-size: 1.05rem;
     line-height: 1.9;
     margin-bottom: 0.8rem;
@@ -915,7 +914,7 @@ button {
     gap: 0.6rem;
     font-size: 0.95rem;
     color: var(--charcoal);
-    font-weight: 600;
+    font-weight: 700; /* ✅ عريض */
     position: relative;
     cursor: default;
     padding-bottom: 2px;
@@ -956,8 +955,8 @@ button {
 }
 .about-content .signature .title {
     font-size: 0.75rem;
-    color: var(--text-secondary);
-    font-weight: 500;
+    color: var(--charcoal);
+    font-weight: 700;
 }
 
 /* ==========================================================
@@ -1026,11 +1025,11 @@ button {
     color: var(--charcoal);
     margin-bottom: 0.4rem;
 }
-/* ✅ النصوص الوصفية في بطاقات الممارسة */
+/* ✅ النصوص الوصفية في بطاقات الممارسة أصبحت داكنة وعريضة */
 .practice-card p {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--charcoal);
+    font-weight: 700;
     line-height: 1.6;
 }
 
@@ -1091,11 +1090,11 @@ button {
     color: var(--charcoal);
     margin-bottom: 0.2rem;
 }
-/* ✅ النصوص الوصفية في خطوات سير العمل */
+/* ✅ النصوص الوصفية في سير العمل أصبحت داكنة وعريضة */
 .process-step .step-content p {
     font-size: 0.95rem;
-    color: var(--text-secondary);
-    font-weight: 600;
+    color: var(--charcoal);
+    font-weight: 700;
     line-height: 1.7;
 }
 
@@ -1159,11 +1158,11 @@ button {
     color: var(--charcoal);
     margin-bottom: 0.4rem;
 }
-/* ✅ النصوص الوصفية في بطاقات القطاعات والأخبار */
+/* ✅ النصوص الوصفية في بطاقات القطاعات والأخبار أصبحت داكنة وعريضة */
 .experience-card p {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--charcoal);
+    font-weight: 700;
     line-height: 1.7;
 }
 
@@ -1232,8 +1231,8 @@ button {
     display: flex;
     gap: 0.8rem;
     font-size: 0.7rem;
-    color: var(--text-secondary);
-    font-weight: 500;
+    color: var(--charcoal);
+    font-weight: 700;
     margin-bottom: 0.4rem;
 }
 .blog-card .content h3 {
@@ -1243,11 +1242,11 @@ button {
     margin-bottom: 0.4rem;
     line-height: 1.4;
 }
-/* ✅ النصوص الوصفية في بطاقات المدونة */
+/* ✅ النصوص الوصفية في بطاقات المدونة أصبحت داكنة وعريضة */
 .blog-card .content p {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--charcoal);
+    font-weight: 700;
     line-height: 1.7;
     margin-bottom: 0.8rem;
     flex: 1;
@@ -1303,7 +1302,7 @@ button {
 .map-section .map-address {
     text-align: center;
     margin-top: 1.5rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--charcoal);
     font-size: 1.05rem;
 }
@@ -1328,12 +1327,12 @@ button {
     font-weight: 900;
     color: var(--charcoal);
 }
-/* ✅ النص الوصفي في قسم CTA */
+/* ✅ النصوص الوصفية في CTA أصبحت داكنة وعريضة */
 .cta-section p {
     max-width: 640px;
     margin: 0.6rem auto 1.8rem;
-    color: var(--text-secondary);
-    font-weight: 600;
+    color: var(--charcoal);
+    font-weight: 700;
     font-size: 1.05rem;
     line-height: 1.8;
 }
