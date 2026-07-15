@@ -42,9 +42,122 @@
           referrerpolicy="no-referrer" />
 
     <!-- ==========================================================
-         ربط ملف CSS الخارجي (الهوية الرقمية الثابتة)
+         ربط ملف CSS الخارجي (الهوية الأساسية)
          ========================================================== -->
     <link rel="stylesheet" href="style.css" />
+
+    <!-- ===== أنماط إضافية خاصة بصفحة الأرشيف (إن لزم) ===== -->
+    <style>
+        /* أي أنماط إضافية هنا - لكن style.css يغطي كل شيء */
+        /* نضمن أن hero-blog موجودة في style.css، وإلا نضيفها */
+        .hero-blog {
+            padding: 120px 2rem 4rem;
+            background: var(--very-dark-navy);
+            position: relative;
+            overflow: hidden;
+            min-height: 45vh;
+            display: flex;
+            align-items: center;
+        }
+        .hero-blog .hero-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.03;
+            background-image:
+                radial-gradient(circle at 20% 30%, var(--matte-gold) 1px, transparent 1px),
+                radial-gradient(circle at 80% 70%, var(--matte-gold) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+        .hero-blog .hero-glow {
+            position: absolute;
+            width: 60vw;
+            height: 60vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(176, 141, 87, 0.04) 0%, transparent 70%);
+            top: -20%;
+            right: -20%;
+            pointer-events: none;
+            animation: orbFloat 20s ease-in-out infinite alternate;
+        }
+        .hero-blog .hero-glow-2 {
+            position: absolute;
+            width: 40vw;
+            height: 40vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(176, 141, 87, 0.02) 0%, transparent 70%);
+            bottom: -20%;
+            left: -10%;
+            pointer-events: none;
+            animation: orbFloat 25s ease-in-out infinite alternate-reverse;
+        }
+        @keyframes orbFloat {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(40px, -30px) scale(1.05); }
+        }
+        .hero-blog .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+        .hero-blog .hero-title-wrap {
+            text-align: center;
+        }
+        .hero-blog .hero-title-wrap .en-tag {
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--matte-gold);
+            opacity: 0.5;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .hero-blog .hero-title-wrap h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.1;
+        }
+        .hero-blog .hero-title-wrap h1 .gold-text {
+            color: var(--matte-gold);
+        }
+        .hero-blog .hero-title-wrap .sub {
+            font-size: clamp(1rem, 1.3vw, 1.2rem);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.5);
+            max-width: 700px;
+            margin: 0.8rem auto 0;
+            line-height: 1.7;
+        }
+
+        .blog-section {
+            padding: 5rem 2rem;
+            background: var(--warm-off-white);
+        }
+        .blog-section .inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+        }
+        /* تجاوب للشاشات الصغيرة */
+        @media (max-width: 820px) {
+            .hero-blog { padding: 100px 1rem 3rem; min-height: 35vh; }
+            .blog-section { padding: 2.5rem 1rem; }
+            .experience-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 640px) {
+            .experience-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+        }
+    </style>
 
     <script type="application/ld+json">
         {
@@ -106,21 +219,44 @@
 <body>
 
     <!-- ==========================================================
-    FLOATING WHATSAPP
+    الأزرار العائمة (مطابقة للصفحة الرئيسية)
     ========================================================== -->
+    <!-- زر واتساب -->
     <a href="https://wa.me/201101076000" target="_blank" rel="noopener noreferrer" class="float-whatsapp" aria-label="تواصل عبر واتساب">
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- زر القائمة الرئيسي (+) -->
+    <button class="float-main-btn" id="floatMainBtn" aria-label="خيارات التواصل">
+        <i class="fas fa-plus"></i>
+    </button>
+
+    <!-- الخيارات الفرعية -->
+    <div class="float-sub-buttons" id="floatSubBtns">
+        <a href="tel:+201101076000" class="float-sub-btn phone" title="اتصال هاتفي">
+            <i class="fas fa-phone-alt"></i>
+            <span class="label">اتصال</span>
+        </a>
+        <a href="https://ostazlaw.vercel.app/contact.html?tab=consult" class="float-sub-btn consult" title="طلب استشارة">
+            <i class="fas fa-file-signature"></i>
+            <span class="label">استشارة</span>
+        </a>
+        <a href="https://ostazlaw.vercel.app/contact.html?tab=appointment" class="float-sub-btn appointment" title="حجز موعد">
+            <i class="fas fa-calendar-check"></i>
+            <span class="label">حجز موعد</span>
+        </a>
+    </div>
+
     <!-- ==========================================================
-    HEADER – مطابق للـ template.html
+    الهيدر الكامل (مطابق للصفحة الرئيسية)
     ========================================================== -->
     <header class="site-header" id="siteHeader" role="banner">
         <div class="header-brand">
-            <div class="brand-wordmark">
+            <a href="https://ostazlaw.vercel.app/" class="brand-wordmark" aria-label="OSTAZ LAW – الصفحة الرئيسية">
                 <span class="brand-primary">OSTAZ</span>
                 <span class="brand-secondary">LAW FIRM</span>
-            </div>
+            </a>
+
             <div class="header-brand-text">
                 <span class="name">محمود عبد الحميد</span>
                 <span class="sub">المحامي بالنقض والدستورية العليا</span>
@@ -146,7 +282,7 @@
     </header>
 
     <!-- ==========================================================
-    MOBILE MENU
+    القائمة المتنقلة (Mobile Menu)
     ========================================================== -->
     <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
         <button class="mobile-menu-close" id="menuClose" aria-label="إغلاق القائمة"><i class="fas fa-times"></i></button>
@@ -196,7 +332,7 @@
     </section>
 
     <!-- ==========================================================
-    FOOTER – مطابق للـ template.html
+    الفوتر الكامل (مطابق للصفحة الرئيسية)
     ========================================================== -->
     <footer class="site-footer" role="contentinfo">
         <div class="footer-inner">
@@ -247,7 +383,7 @@
     </footer>
 
     <!-- ==========================================================
-    JAVASCRIPT – جلب جميع الأخبار من GitHub
+    جافا سكريبت – جلب جميع الأخبار + تفاعلات الهيدر والأزرار
     ========================================================== -->
     <script>
         (function() {
@@ -283,6 +419,39 @@
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobileMenu();
             });
+
+            // ==========================================================
+            // FLOATING MAIN BUTTON
+            // ==========================================================
+            const mainBtn = document.getElementById('floatMainBtn');
+            const subBtns = document.getElementById('floatSubBtns');
+            let isOpen = false;
+
+            if (mainBtn && subBtns) {
+                mainBtn.addEventListener('click', function() {
+                    isOpen = !isOpen;
+                    this.classList.toggle('active');
+                    subBtns.classList.toggle('open');
+                });
+
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('#floatMainBtn') && !e.target.closest('#floatSubBtns')) {
+                        if (isOpen) {
+                            isOpen = false;
+                            mainBtn.classList.remove('active');
+                            subBtns.classList.remove('open');
+                        }
+                    }
+                });
+
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && isOpen) {
+                        isOpen = false;
+                        mainBtn.classList.remove('active');
+                        subBtns.classList.remove('open');
+                    }
+                });
+            }
 
             // ==========================================================
             // REVEAL
@@ -412,7 +581,8 @@
                         grid.appendChild(card);
 
                         // مراقبة البطاقة الجديدة لتأثير Reveal
-                        revealObserver.observe(card.querySelector('.reveal'));
+                        const revealEl = card.querySelector('.reveal');
+                        if (revealEl) revealObserver.observe(revealEl);
                     }
 
                 } catch (error) {
