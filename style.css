@@ -8,7 +8,8 @@
     --pure-white: #FFFFFF;
     --light-gray: #ECECEC;
     --charcoal: #11161B;
-    --text-secondary: #0D1B2A; /* ✅ زيادة التباين بشكل كبير */
+    /* ✅ جعل النص الوصفي أغمق بثلاث درجات (قريب من الأسود) */
+    --text-secondary: #0A0F1A; 
     --matte-gold: #B08D57;
     --footer-navy: #0B1F35;
     --whatsapp-green: #25D366;
@@ -818,12 +819,13 @@ button {
     color: var(--charcoal);
     line-height: 1.2;
 }
+/* ✅ النص التعريفي أسفل العنوان الرئيسي في كل قسم */
 .section-head p {
     max-width: 720px;
     margin: 0.6rem auto 0;
     color: var(--text-secondary);
-    font-weight: 600;
-    font-size: 1.05rem;
+    font-weight: 600; /* زيادة الوزن */
+    font-size: 1.1rem; /* زيادة الحجم */
     line-height: 1.9;
 }
 
@@ -892,6 +894,7 @@ button {
 .about-content h2 .gold-text {
     color: var(--matte-gold);
 }
+/* ✅ النصوص الوصفية في قسم "من نحن" */
 .about-content p {
     color: var(--text-secondary);
     font-weight: 600;
@@ -1023,11 +1026,11 @@ button {
     color: var(--charcoal);
     margin-bottom: 0.4rem;
 }
-/* ✅ تحسين النصوص الوصفية في البطاقات */
+/* ✅ النصوص الوصفية في بطاقات الممارسة */
 .practice-card p {
-    font-size: 0.9rem; /* زيادة الحجم */
+    font-size: 0.95rem;
     color: var(--text-secondary);
-    font-weight: 600; /* زيادة الوزن */
+    font-weight: 600;
     line-height: 1.6;
 }
 
@@ -1088,6 +1091,7 @@ button {
     color: var(--charcoal);
     margin-bottom: 0.2rem;
 }
+/* ✅ النصوص الوصفية في خطوات سير العمل */
 .process-step .step-content p {
     font-size: 0.95rem;
     color: var(--text-secondary);
@@ -1155,9 +1159,9 @@ button {
     color: var(--charcoal);
     margin-bottom: 0.4rem;
 }
-/* ✅ تحسين النصوص الوصفية في بطاقات القطاعات والأخبار */
+/* ✅ النصوص الوصفية في بطاقات القطاعات والأخبار */
 .experience-card p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--text-secondary);
     font-weight: 600;
     line-height: 1.7;
@@ -1239,9 +1243,9 @@ button {
     margin-bottom: 0.4rem;
     line-height: 1.4;
 }
-/* ✅ تحسين النصوص الوصفية في بطاقات المدونة */
+/* ✅ النصوص الوصفية في بطاقات المدونة */
 .blog-card .content p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--text-secondary);
     font-weight: 600;
     line-height: 1.7;
@@ -1324,6 +1328,7 @@ button {
     font-weight: 900;
     color: var(--charcoal);
 }
+/* ✅ النص الوصفي في قسم CTA */
 .cta-section p {
     max-width: 640px;
     margin: 0.6rem auto 1.8rem;
