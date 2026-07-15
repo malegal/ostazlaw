@@ -41,6 +41,12 @@
           crossorigin="anonymous" 
           referrerpolicy="no-referrer" />
 
+    <!-- ==========================================================
+         ربط ملفات CSS الخارجية (الهوية الأساسية)
+         ========================================================== -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- ===== JSON-LD ===== -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -101,590 +107,10 @@
         }
     </script>
 
+    <!-- ==========================================================
+    أنماط خاصة بصفحة عن المؤسسة فقط (مستقلة عن style.css)
+    ========================================================== -->
     <style>
-        /* ==========================================================
-               ROOT – الهوية البصرية الموحدة مع الصفحة الرئيسية
-               ========================================================== */
-        :root {
-            --very-dark-navy: #0B111B;
-            --deep-navy: #102A43;
-            --warm-off-white: #FAFAF8;
-            --pure-white: #FFFFFF;
-            --light-gray: #F5F5F5;
-            --charcoal: #222222;
-            --matte-gold: #B08D57;
-            --footer-navy: #0B1F35;
-            --font-ar: 'Tajawal', sans-serif;
-            --font-serif: 'Amiri', serif;
-            --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-            --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-        }
-
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        body {
-            font-family: var(--font-ar);
-            background-color: var(--warm-off-white);
-            color: var(--charcoal);
-            overflow-x: hidden;
-            line-height: 1.7;
-            direction: rtl;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        button {
-            cursor: pointer;
-            border: none;
-            background: none;
-            font-family: inherit;
-        }
-
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--warm-off-white);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--matte-gold);
-            border-radius: 10px;
-        }
-
-        .serif {
-            font-family: var(--font-serif);
-        }
-        .gold-text {
-            color: var(--matte-gold);
-        }
-
-        /* ==========================================================
-               GOLD UNDERLINE
-               ========================================================== */
-        .gold-underline {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .gold-underline::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            right: 0;
-            width: 0;
-            height: 2px;
-            background: var(--matte-gold);
-            transition: width 0.5s var(--ease-out);
-            border-radius: 2px;
-        }
-
-        .gold-underline:hover::after,
-        .gold-underline:focus::after {
-            width: 100%;
-        }
-
-        .gold-underline:active::after {
-            width: 100%;
-        }
-
-        .gold-underline.scroll-visible::after {
-            width: 100%;
-        }
-
-        .gold-underline-card {
-            position: relative;
-            cursor: pointer;
-            overflow: hidden;
-        }
-
-        .gold-underline-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 0;
-            height: 2px;
-            background: var(--matte-gold);
-            transition: width 0.6s var(--ease-out);
-            border-radius: 0 0 2px 2px;
-        }
-
-        .gold-underline-card:hover::after,
-        .gold-underline-card:focus::after,
-        .gold-underline-card.active::after {
-            width: 100%;
-        }
-
-        .gold-underline-card.scroll-visible::after {
-            width: 100%;
-        }
-
-        /* ==========================================================
-               BUTTONS
-               ========================================================== */
-        .btn-gold {
-            display: inline-block;
-            background: var(--matte-gold);
-            color: #000;
-            font-weight: 700;
-            padding: 16px 40px;
-            border-radius: 8px;
-            border: none;
-            transition: all 0.4s var(--ease-out);
-            text-align: center;
-            font-size: 0.95rem;
-            letter-spacing: 0.02em;
-            box-shadow: 0 2px 20px rgba(176, 141, 87, 0.15);
-            cursor: pointer;
-            position: relative;
-        }
-        .btn-gold::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 0;
-            height: 2px;
-            background: var(--matte-gold);
-            transition: width 0.6s var(--ease-out);
-        }
-        .btn-gold:hover::after,
-        .btn-gold:focus::after,
-        .btn-gold:active::after {
-            width: 100%;
-        }
-        .btn-gold:hover {
-            background: #c4a06a;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(176, 141, 87, 0.25);
-        }
-
-        .btn-outline-gold {
-            display: inline-block;
-            border: 1px solid var(--matte-gold);
-            color: var(--matte-gold);
-            font-weight: 700;
-            padding: 12px 28px;
-            border-radius: 8px;
-            transition: all 0.4s var(--ease-out);
-            text-align: center;
-            font-size: 0.85rem;
-            background: transparent;
-            cursor: pointer;
-            position: relative;
-        }
-        .btn-outline-gold::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            right: 0;
-            width: 0;
-            height: 2px;
-            background: var(--matte-gold);
-            transition: width 0.6s var(--ease-out);
-        }
-        .btn-outline-gold:hover::after,
-        .btn-outline-gold:focus::after,
-        .btn-outline-gold:active::after {
-            width: 100%;
-        }
-        .btn-outline-gold:hover {
-            background: var(--matte-gold);
-            color: #000;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(176, 141, 87, 0.15);
-        }
-
-        .btn-outline-white {
-            display: inline-block;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #fff;
-            font-weight: 700;
-            padding: 14px 32px;
-            border-radius: 8px;
-            transition: all 0.4s var(--ease-out);
-            text-align: center;
-            font-size: 0.9rem;
-            background: transparent;
-            cursor: pointer;
-            position: relative;
-        }
-        .btn-outline-white::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            right: 0;
-            width: 0;
-            height: 2px;
-            background: var(--matte-gold);
-            transition: width 0.6s var(--ease-out);
-        }
-        .btn-outline-white:hover::after,
-        .btn-outline-white:focus::after,
-        .btn-outline-white:active::after {
-            width: 100%;
-        }
-        .btn-outline-white:hover {
-            border-color: var(--matte-gold);
-            color: var(--matte-gold);
-            background: rgba(176, 141, 87, 0.05);
-            transform: translateY(-2px);
-        }
-
-        /* ==========================================================
-               HEADER – مع شعار Wordmark النصي الجديد
-               ========================================================== */
-        .site-header {
-            position: fixed;
-            top: 0;
-            right: 0;
-            left: 0;
-            z-index: 1000;
-            padding: 0 2rem;
-            height: 72px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: var(--very-dark-navy);
-            border-bottom: 1px solid rgba(176, 141, 87, 0.08);
-            transition: all 0.5s var(--ease-out);
-        }
-
-        .site-header.scrolled {
-            background: rgba(11, 17, 27, 0.94);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(176, 141, 87, 0.08);
-            height: 64px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .header-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        /* ===== الشعار النصي (Wordmark) ===== */
-        .brand-wordmark {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.1;
-            margin-left: 0.2rem;
-            flex-shrink: 0;
-        }
-        .brand-wordmark .brand-main {
-            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-            font-weight: 700;
-            font-size: 1.25rem;
-            letter-spacing: 4px;
-            background: linear-gradient(135deg, #D4AF37 0%, #B08D57 60%, #8A703E 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .brand-wordmark .brand-sub {
-            font-family: 'Montserrat', Arial, 'Helvetica Neue', sans-serif;
-            font-weight: 300;
-            font-size: 0.55rem;
-            letter-spacing: 6px;
-            color: #FFFFFF;
-            margin-top: -2px;
-            opacity: 0.9;
-        }
-
-        .header-brand-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.1;
-        }
-        .header-brand-text .name {
-            font-size: 0.95rem;
-            font-weight: 900;
-            color: #fff;
-            font-family: var(--font-serif);
-            letter-spacing: 0.02em;
-        }
-        .header-brand-text .sub {
-            font-size: 0.5rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.5);
-            letter-spacing: 0.08em;
-        }
-
-        .header-nav {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-        .header-nav a {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.6);
-            transition: color 0.3s ease;
-            position: relative;
-            padding-bottom: 2px;
-            text-decoration: none;
-        }
-        .header-nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 0;
-            height: 2px;
-            background: var(--matte-gold);
-            transition: width 0.5s var(--ease-out);
-        }
-        .header-nav a:hover::after,
-        .header-nav a.active::after {
-            width: 100%;
-        }
-        .header-nav a:hover,
-        .header-nav a.active {
-            color: #fff;
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-        .header-actions .btn-consult {
-            padding: 8px 18px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            border-radius: 6px;
-            background: var(--matte-gold);
-            color: #000;
-            transition: all 0.4s var(--ease-out);
-            border: none;
-            cursor: pointer;
-            position: relative;
-        }
-        .header-actions .btn-consult::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            right: 0;
-            width: 0;
-            height: 2px;
-            background: var(--matte-gold);
-            transition: width 0.6s var(--ease-out);
-        }
-        .header-actions .btn-consult:hover::after,
-        .header-actions .btn-consult:focus::after {
-            width: 100%;
-        }
-        .header-actions .btn-consult:hover {
-            background: #c4a06a;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(176, 141, 87, 0.2);
-        }
-
-        .header-actions .btn-appointment {
-            padding: 8px 18px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            border-radius: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #fff;
-            background: transparent;
-            transition: all 0.4s var(--ease-out);
-            font-family: var(--font-ar);
-            cursor: pointer;
-            position: relative;
-        }
-        .header-actions .btn-appointment::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            right: 0;
-            width: 0;
-            height: 2px;
-            background: var(--matte-gold);
-            transition: width 0.6s var(--ease-out);
-        }
-        .header-actions .btn-appointment:hover::after,
-        .header-actions .btn-appointment:focus::after {
-            width: 100%;
-        }
-        .header-actions .btn-appointment:hover {
-            border-color: var(--matte-gold);
-            color: var(--matte-gold);
-            background: rgba(176, 141, 87, 0.05);
-            transform: translateY(-2px);
-        }
-
-        .header-actions .btn-phone {
-            padding: 8px 18px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            border-radius: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #fff;
-            background: transparent;
-            transition: all 0.4s var(--ease-out);
-            font-family: var(--font-ar);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            cursor: pointer;
-            position: relative;
-        }
-        .header-actions .btn-phone::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            right: 0;
-            width: 0;
-            height: 2px;
-            background: var(--matte-gold);
-            transition: width 0.6s var(--ease-out);
-        }
-        .header-actions .btn-phone:hover::after,
-        .header-actions .btn-phone:focus::after {
-            width: 100%;
-        }
-        .header-actions .btn-phone:hover {
-            border-color: var(--matte-gold);
-            background: rgba(176, 141, 87, 0.08);
-            color: var(--matte-gold);
-            transform: translateY(-2px);
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 1.4rem;
-            color: #fff;
-            background: none;
-            border: none;
-            padding: 0.5rem;
-            cursor: pointer;
-        }
-
-        .mobile-menu {
-            position: fixed;
-            inset: 0;
-            z-index: 2000;
-            background: rgba(11, 17, 27, 0.98);
-            backdrop-filter: blur(30px);
-            transform: translateX(100%);
-            transition: transform 0.6s var(--ease-in-out);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-        }
-        .mobile-menu.open {
-            transform: translateX(0);
-        }
-        .mobile-menu-close {
-            position: absolute;
-            top: 1.5rem;
-            left: 1.5rem;
-            font-size: 2rem;
-            color: #fff;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-        .mobile-menu nav {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.8rem;
-        }
-        .mobile-menu nav a {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.6);
-            transition: color 0.3s ease;
-            position: relative;
-            text-decoration: none;
-            padding-bottom: 2px;
-        }
-        .mobile-menu nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 0;
-            height: 2px;
-            background: var(--matte-gold);
-            transition: width 0.4s var(--ease-out);
-        }
-        .mobile-menu nav a:hover::after {
-            width: 100%;
-        }
-        .mobile-menu nav a:hover {
-            color: #fff;
-        }
-        .mobile-menu .divider {
-            width: 50px;
-            height: 1px;
-            background: rgba(176, 141, 87, 0.15);
-            margin: 0.5rem 0;
-        }
-        .mobile-menu .actions {
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-            width: 100%;
-            max-width: 260px;
-            margin-top: 0.5rem;
-        }
-        .mobile-menu .actions .btn-gold {
-            padding: 14px;
-            font-size: 0.9rem;
-            width: 100%;
-            text-align: center;
-        }
-        .mobile-menu .actions .btn-outline-white {
-            padding: 14px;
-            font-size: 0.9rem;
-            width: 100%;
-            text-align: center;
-            border-color: rgba(255, 255, 255, 0.15);
-            color: #fff;
-            cursor: pointer;
-            position: relative;
-        }
-        .mobile-menu .actions .btn-outline-white::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            right: 0;
-            width: 0;
-            height: 2px;
-            background: var(--matte-gold);
-            transition: width 0.4s var(--ease-out);
-        }
-        .mobile-menu .actions .btn-outline-white:hover::after {
-            width: 100%;
-        }
-
         /* ==========================================================
                HERO – عن المؤسسة (نيڤي عميق)
                ========================================================== */
@@ -1449,166 +875,7 @@
         }
 
         /* ==========================================================
-               FLOATING WHATSAPP
-               ========================================================== */
-        .float-whatsapp {
-            position: fixed;
-            bottom: 2rem;
-            left: 2rem;
-            z-index: 500;
-            width: 54px;
-            height: 54px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
-            transition: all 0.5s var(--ease-out);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(37, 211, 102, 0.85);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            text-decoration: none;
-            color: #fff;
-            position: relative;
-        }
-        .float-whatsapp i {
-            font-size: 1.8rem;
-            color: #fff;
-            transition: transform 0.4s ease;
-        }
-        .float-whatsapp::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            right: 0;
-            width: 0;
-            height: 3px;
-            background: var(--whatsapp-green);
-            transition: width 0.6s var(--ease-out);
-            border-radius: 0 0 50% 50%;
-        }
-        .float-whatsapp:hover::after {
-            width: 100%;
-        }
-        .float-whatsapp:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
-            background: #25d366;
-            border-color: #25d366;
-        }
-        .float-whatsapp:hover i {
-            transform: scale(1.05);
-        }
-
-        /* ==========================================================
-               FOOTER
-               ========================================================== */
-        .site-footer {
-            background: var(--footer-navy);
-            padding: 3rem 2rem 1.5rem;
-            color: rgba(255, 255, 255, 0.6);
-        }
-        .footer-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 2.5rem;
-        }
-        .footer-brand img {
-            width: 42px;
-            height: 42px;
-            object-fit: contain;
-            margin-bottom: 0.5rem;
-            opacity: 0.7;
-        }
-        .footer-brand h3 {
-            font-family: var(--font-serif);
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #fff;
-        }
-        .footer-brand p {
-            font-size: 0.8rem;
-            font-weight: 300;
-            margin-top: 0.1rem;
-            opacity: 0.6;
-        }
-        .footer-brand .social {
-            display: flex;
-            gap: 0.6rem;
-            margin-top: 1rem;
-        }
-        .footer-brand .social a {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.4s var(--ease-out);
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.9rem;
-        }
-        .footer-brand .social a:hover {
-            border-color: var(--matte-gold);
-            color: var(--matte-gold);
-            transform: translateY(-3px);
-        }
-
-        .footer-col h4 {
-            font-size: 0.7rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: #fff;
-            margin-bottom: 0.8rem;
-        }
-        .footer-col a {
-            display: block;
-            font-size: 0.8rem;
-            font-weight: 300;
-            padding: 0.2rem 0;
-            transition: color 0.3s ease;
-            opacity: 0.7;
-            position: relative;
-        }
-        .footer-col a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 0;
-            height: 1.5px;
-            background: var(--matte-gold);
-            transition: width 0.4s var(--ease-out);
-        }
-        .footer-col a:hover::after {
-            width: 100%;
-        }
-        .footer-col a:hover {
-            color: var(--matte-gold);
-            opacity: 1;
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 2rem auto 0;
-            padding-top: 1.2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            font-size: 0.6rem;
-            opacity: 0.3;
-        }
-
-        /* ==========================================================
-               REVEAL
+               REVEAL (مطابق للـ template.html)
                ========================================================== */
         .reveal {
             opacity: 0;
@@ -1633,7 +900,7 @@
         }
 
         /* ==========================================================
-               RESPONSIVE
+               RESPONSIVE – خاصة بصفحة about
                ========================================================== */
         @media (max-width: 1024px) {
             .philosophy-grid {
@@ -1647,10 +914,6 @@
             }
             .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-            .footer-inner {
-                grid-template-columns: 1fr 1fr;
-                gap: 1.8rem;
             }
             .leadership-grid {
                 grid-template-columns: 1fr 1fr;
@@ -1688,24 +951,10 @@
                 grid-template-columns: 1fr 1fr;
             }
 
-            .header-nav {
-                display: none;
+            .hero-about {
+                padding: 100px 1rem 3rem;
+                min-height: auto;
             }
-            .header-actions .btn-appointment,
-            .header-actions .btn-phone {
-                display: none;
-            }
-            .menu-toggle {
-                display: block;
-            }
-            .site-header {
-                padding: 0 1rem;
-                height: 64px;
-            }
-            .site-header.scrolled {
-                height: 60px;
-            }
-
             .section {
                 padding: 2.5rem 1rem;
             }
@@ -1732,20 +981,6 @@
                 max-width: 280px;
                 margin: 0 auto;
             }
-
-            .hero-about {
-                padding: 100px 1rem 3rem;
-                min-height: auto;
-            }
-
-            /* تصغير الشعار النصي على التابلت */
-            .brand-wordmark .brand-main {
-                font-size: 1rem;
-            }
-            .brand-wordmark .brand-sub {
-                font-size: 0.45rem;
-                letter-spacing: 4px;
-            }
         }
 
         @media (max-width: 640px) {
@@ -1770,42 +1005,11 @@
                 margin-left: auto;
                 margin-right: auto;
             }
-            .footer-inner {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
             .about-definition .def-cards {
                 grid-template-columns: 1fr;
                 max-width: 280px;
                 margin-left: auto;
                 margin-right: auto;
-            }
-
-            .float-whatsapp {
-                width: 44px;
-                height: 44px;
-                bottom: 1rem;
-                left: 1rem;
-            }
-            .float-whatsapp i {
-                font-size: 1.2rem;
-            }
-            .header-brand-text .name {
-                font-size: 0.8rem;
-            }
-            .header-brand-text .sub {
-                font-size: 0.45rem;
-            }
-            .header-brand {
-                gap: 0.4rem;
-            }
-            .brand-wordmark .brand-main {
-                font-size: 0.85rem;
-                letter-spacing: 2px;
-            }
-            .brand-wordmark .brand-sub {
-                font-size: 0.4rem;
-                letter-spacing: 3px;
             }
 
             .hero-about .hero-title-wrap h1 {
@@ -1848,12 +1052,6 @@
         }
 
         @media (max-width: 400px) {
-            .trust-item {
-                font-size: 0.7rem;
-            }
-            .trust-item i {
-                font-size: 0.9rem;
-            }
             .process-step {
                 padding: 0.8rem 1rem;
                 flex-direction: column;
@@ -1865,36 +1063,50 @@
                 text-align: right;
                 min-width: auto;
             }
-            .brand-wordmark .brand-main {
-                font-size: 0.7rem;
-                letter-spacing: 1px;
-            }
-            .brand-wordmark .brand-sub {
-                font-size: 0.35rem;
-                letter-spacing: 2px;
-            }
         }
     </style>
+
 </head>
 <body>
 
     <!-- ==========================================================
-    FLOATING WHATSAPP – مع noopener noreferrer
+    الأزرار العائمة (مطابقة للصفحة الرئيسية)
     ========================================================== -->
+    <!-- زر واتساب -->
     <a href="https://wa.me/201101076000" target="_blank" rel="noopener noreferrer" class="float-whatsapp" aria-label="تواصل عبر واتساب">
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- زر القائمة الرئيسي (+) -->
+    <button class="float-main-btn" id="floatMainBtn" aria-label="خيارات التواصل">
+        <i class="fas fa-plus"></i>
+    </button>
+
+    <!-- الخيارات الفرعية -->
+    <div class="float-sub-buttons" id="floatSubBtns">
+        <a href="tel:+201101076000" class="float-sub-btn phone" title="اتصال هاتفي">
+            <i class="fas fa-phone-alt"></i>
+            <span class="label">اتصال</span>
+        </a>
+        <a href="https://ostazlaw.vercel.app/contact.html?tab=consult" class="float-sub-btn consult" title="طلب استشارة">
+            <i class="fas fa-file-signature"></i>
+            <span class="label">استشارة</span>
+        </a>
+        <a href="https://ostazlaw.vercel.app/contact.html?tab=appointment" class="float-sub-btn appointment" title="حجز موعد">
+            <i class="fas fa-calendar-check"></i>
+            <span class="label">حجز موعد</span>
+        </a>
+    </div>
+
     <!-- ==========================================================
-    HEADER – مع شعار Wordmark النصي الجديد
+    HEADER – مطابق للصفحة الرئيسية
     ========================================================== -->
     <header class="site-header" id="siteHeader" role="banner">
         <div class="header-brand">
-            <!-- ===== الشعار النصي (Wordmark) ===== -->
-            <div class="brand-wordmark">
-                <span class="brand-main">OSTAZ</span>
-                <span class="brand-sub">LAW FIRM</span>
-            </div>
+            <a href="https://ostazlaw.vercel.app/" class="brand-wordmark" aria-label="OSTAZ LAW – الصفحة الرئيسية">
+                <span class="brand-primary">OSTAZ</span>
+                <span class="brand-secondary">LAW FIRM</span>
+            </a>
 
             <div class="header-brand-text">
                 <span class="name">محمود عبد الحميد</span>
@@ -1921,7 +1133,7 @@
     </header>
 
     <!-- ==========================================================
-    MOBILE MENU – الروابط تشير إلى ostazlaw.vercel.app
+    MOBILE MENU
     ========================================================== -->
     <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
         <button class="mobile-menu-close" id="menuClose" aria-label="إغلاق القائمة"><i class="fas fa-times"></i></button>
@@ -2333,7 +1545,7 @@
     </section>
 
     <!-- ==========================================================
-    FOOTER – الروابط تشير إلى ostazlaw.vercel.app
+    FOOTER – مطابق للصفحة الرئيسية
     ========================================================== -->
     <footer class="site-footer" role="contentinfo">
         <div class="footer-inner">
@@ -2384,28 +1596,36 @@
     </footer>
 
     <!-- ==========================================================
-    JAVASCRIPT
+    جافا سكريبت
     ========================================================== -->
     <script>
         (function() {
             'use strict';
 
-            // Header Scroll
+            // ==========================================================
+            // HEADER SCROLL
+            // ==========================================================
             const header = document.getElementById('siteHeader');
             window.addEventListener('scroll', function() {
                 header.classList.toggle('scrolled', window.scrollY > 50);
             }, { passive: true });
 
-            // Mobile Menu
+            // ==========================================================
+            // MOBILE MENU
+            // ==========================================================
             const mobileMenu = document.getElementById('mobileMenu');
             const menuToggle = document.getElementById('menuToggle');
             const menuClose = document.getElementById('menuClose');
 
-            function openMobileMenu() { mobileMenu.classList.add('open');
-                document.body.style.overflow = 'hidden'; }
+            function openMobileMenu() {
+                mobileMenu.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
 
-            window.closeMobileMenu = function() { mobileMenu.classList.remove('open');
-                document.body.style.overflow = ''; };
+            window.closeMobileMenu = function() {
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = '';
+            };
 
             if (menuToggle) menuToggle.addEventListener('click', openMobileMenu);
             if (menuClose) menuClose.addEventListener('click', closeMobileMenu);
@@ -2413,7 +1633,42 @@
                 if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobileMenu();
             });
 
-            // Reveal
+            // ==========================================================
+            // FLOATING MAIN BUTTON
+            // ==========================================================
+            const mainBtn = document.getElementById('floatMainBtn');
+            const subBtns = document.getElementById('floatSubBtns');
+            let isOpen = false;
+
+            if (mainBtn && subBtns) {
+                mainBtn.addEventListener('click', function() {
+                    isOpen = !isOpen;
+                    this.classList.toggle('active');
+                    subBtns.classList.toggle('open');
+                });
+
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('#floatMainBtn') && !e.target.closest('#floatSubBtns')) {
+                        if (isOpen) {
+                            isOpen = false;
+                            mainBtn.classList.remove('active');
+                            subBtns.classList.remove('open');
+                        }
+                    }
+                });
+
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && isOpen) {
+                        isOpen = false;
+                        mainBtn.classList.remove('active');
+                        subBtns.classList.remove('open');
+                    }
+                });
+            }
+
+            // ==========================================================
+            // REVEAL
+            // ==========================================================
             const revealObserver = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
@@ -2427,7 +1682,9 @@
                 revealObserver.observe(el);
             });
 
-            // Gold Underline Scroll Effect
+            // ==========================================================
+            // GOLD UNDERLINE SCROLL EFFECT
+            // ==========================================================
             const goldElements = document.querySelectorAll('.gold-underline, .gold-underline-card');
 
             const scrollObserver = new IntersectionObserver(function(entries) {
@@ -2445,7 +1702,9 @@
                 scrollObserver.observe(el);
             });
 
-            // Leadership Image – Auto Colorize (Grayscale to Color)
+            // ==========================================================
+            // LEADERSHIP IMAGE – AUTO COLORIZE (Grayscale to Color)
+            // ==========================================================
             const leadershipImage = document.getElementById('leadershipImage');
             if (leadershipImage) {
                 const imgObserver = new IntersectionObserver(function(entries) {
