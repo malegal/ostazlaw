@@ -1,15 +1,14 @@
 const fs = require('fs');
 const path = require('path');
-const { marked } = require('marked');
 
 // ============================================================
-// ✅ البيانات الحقيقية لمشروعك (تم تعبئتها بالفعل)
+// ✅ البيانات الحقيقية لمشروعك
 // ============================================================
 const GITHUB_OWNER = 'malegal';
 const GITHUB_REPO = 'mahmoud-legal';
 const BRANCH = 'main';
-const BLOG_PATH = 'blog/articles';   // مسار المقالات
-const NEWS_PATH = 'blog/news';       // 🆕 مسار الأخبار
+const ARTICLES_PATH = 'blog/articles';   // مسار المقالات
+const NEWS_PATH = 'blog/news';           // 🆕 مسار الأخبار
 // ============================================================
 
 /**
@@ -34,10 +33,8 @@ async function parseMarkdownFile(file) {
     let title = slug.replace(/-/g, ' ');
     let imageUrl = '';
     let description = '';
-    let category = 'خبر';
-    let categoryType = 'gold';
+    let category = '';
     let icon = 'fa-newspaper';
-    let link = '#';
     let date = '';
 
     try {
@@ -60,14 +57,8 @@ async function parseMarkdownFile(file) {
             const categoryMatch = frontMatter.match(/category:\s*(.*)/i);
             if (categoryMatch) category = categoryMatch[1].replace(/['"]/g, '').trim();
 
-            const typeMatch = frontMatter.match(/categoryType:\s*(.*)/i);
-            if (typeMatch) categoryType = typeMatch[1].replace(/['"]/g, '').trim();
-
             const iconMatch = frontMatter.match(/icon:\s*(.*)/i);
             if (iconMatch) icon = iconMatch[1].replace(/['"]/g, '').trim();
-
-            const linkMatch = frontMatter.match(/link:\s*(.*)/i);
-            if (linkMatch) link = linkMatch[1].replace(/['"]/g, '').trim();
 
             const dateMatch = frontMatter.match(/date:\s*(.*)/i);
             if (dateMatch) date = dateMatch[1].replace(/['"]/g, '').trim();
@@ -76,71 +67,72 @@ async function parseMarkdownFile(file) {
         console.warn(`⚠️ تعذر قراءة البيانات من ${file.name}`);
     }
 
-    return { slug, title, imageUrl, description, category, categoryType, icon, link, date };
+    return { slug, title, imageUrl, description, category, icon, date };
 }
 
 /**
- * توليد كارت HTML لعنصر (مقال أو خبر)
+ * توليد كارت الخبر (لشبكة experience-grid)
  */
-function generateCard(item, type = 'article') {
-    const isNews = (type === 'news');
+function generateNewsCard(item) {
+    // تحديد لون الشارة بناءً على الفئة (يمكن تخصيصه)
+    const badgeColors = {
+        'إنجاز قضائي': 'background:var(--matte-gold); color:#000;',
+        'فعالية': 'background:var(--deep-navy); color:#fff;',
+        'تطوير': 'background:var(--very-dark-navy); color:#fff;'
+    };
+    const badgeStyle = badgeColors[item.category] || 'background:var(--matte-gold); color:#000;';
+
+    return `
+        <a href="news.html?slug=${encodeURIComponent(item.slug)}" class="sector-link">
+            <div class="experience-card reveal" style="text-align:right; position:relative;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                    <span style="${badgeStyle} padding:0.1rem 0.8rem; border-radius:20px; font-size:0.6rem; font-weight:800;">${item.category || 'خبر'}</span>
+                    <span style="font-size:0.7rem; color:var(--text-secondary);">${item.date || ''}</span>
+                </div>
+                <span class="icon"><i class="fas ${item.icon}" style="font-size:1.5rem;"></i></span>
+                <h4>${item.title}</h4>
+                <p>${item.description || ''}</p>
+                <span style="color:var(--matte-gold); font-weight:700; font-size:0.8rem; margin-top:0.5rem; display:inline-block;">اقرأ التفاصيل ←</span>
+            </div>
+        </a>
+    `;
+}
+
+/**
+ * توليد كارت المقال (نفس الكود الموجود، مع الحفاظ على التوافق)
+ */
+function generateArticleCard(item) {
     const imageStyle = item.imageUrl
         ? `background-image: url('${item.imageUrl}'); background-size: cover; background-position: center;`
         : 'background: var(--light-gray); display: flex; align-items: center; justify-content: center; color: rgba(34,34,34,0.15); font-size: 1.5rem;';
 
-    if (isNews) {
-        // 🆕 كارت الخبر مع شارة الفئة والأيقونة
-        const badgeColors = {
-            gold: 'background:var(--matte-gold); color:#000;',
-            navy: 'background:var(--deep-navy); color:#fff;',
-            dark: 'background:var(--very-dark-navy); color:#fff;'
-        };
-        const badgeStyle = badgeColors[item.categoryType] || badgeColors.gold;
-
-        return `
-            <div class="sector-link" onclick="location.href='${item.link}'">
-                <div class="experience-card reveal" style="text-align:right; position:relative;">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-                        <span style="${badgeStyle} padding:0.1rem 0.8rem; border-radius:20px; font-size:0.6rem; font-weight:800;">${item.category}</span>
-                        <span style="font-size:0.7rem; color:var(--text-secondary);">${item.date}</span>
-                    </div>
-                    <span class="icon"><i class="fas ${item.icon}" style="font-size:1.5rem;"></i></span>
-                    <h4>${item.title}</h4>
-                    <p>${item.description || ''}</p>
-                    <span style="color:var(--matte-gold); font-weight:700; font-size:0.8rem; margin-top:0.5rem; display:inline-block; border-bottom:1px solid transparent; transition:0.3s;">اقرأ التفاصيل →</span>
-                </div>
+    return `
+        <div class="blog-card reveal">
+            <div class="image" style="${imageStyle}">
+                ${!item.imageUrl ? '⚖️' : ''}
             </div>
-        `;
-    } else {
-        // المقالات (نفس الكود الموجود)
-        return `
-            <div class="blog-card reveal">
-                <div class="image" style="${imageStyle}">
-                    ${!item.imageUrl ? '⚖️' : ''}
+            <div class="content">
+                <div class="meta">
+                    <span>${Math.ceil(item.title.length / 50) || 1} دقائق قراءة</span>
                 </div>
-                <div class="content">
-                    <div class="meta">
-                        <span>${Math.ceil(item.title.length / 50) || 1} دقائق قراءة</span>
-                    </div>
-                    <h3>${item.title}</h3>
-                    <p>${item.description || 'تحليل قانوني متخصص في مجال القانون المصري.'}</p>
-                    <a href="article.html?slug=${encodeURIComponent(item.slug)}" class="read-more">اقرأ المقال ←</a>
-                </div>
+                <h3>${item.title}</h3>
+                <p>${item.description || 'تحليل قانوني متخصص في مجال القانون المصري.'}</p>
+                <a href="article.html?slug=${encodeURIComponent(item.slug)}" class="read-more">اقرأ المقال ←</a>
             </div>
-        `;
-    }
+        </div>
+    `;
 }
 
 async function buildSite() {
     try {
         console.log('🚀 جاري بناء الموقع وجلب أحدث المحتويات من GitHub...');
 
-        // ---------- 1. جلب المقالات ----------
-        const articlesFiles = await fetchFilesFromPath(BLOG_PATH);
+        // ---------- 1. جلب المقالات (آخر 3) ----------
+        const articlesFiles = await fetchFilesFromPath(ARTICLES_PATH);
         const articlesMd = articlesFiles
             .filter(file => file.type === 'file' && file.name.endsWith('.md'))
             .reverse()          // الأحدث أولاً
-            .slice(0, 3);       // آخر 3 مقالات
+            .slice(0, 3);
 
         let articlesHtml = '';
         if (articlesMd.length === 0) {
@@ -148,16 +140,16 @@ async function buildSite() {
         } else {
             for (const file of articlesMd) {
                 const data = await parseMarkdownFile(file);
-                articlesHtml += generateCard(data, 'article');
+                articlesHtml += generateArticleCard(data);
             }
         }
 
-        // ---------- 2. جلب الأخبار ----------
+        // ---------- 2. جلب الأخبار (آخر 3) ----------
         const newsFiles = await fetchFilesFromPath(NEWS_PATH);
         const newsMd = newsFiles
             .filter(file => file.type === 'file' && file.name.endsWith('.md'))
             .reverse()          // الأحدث أولاً
-            .slice(0, 3);       // آخر 3 أخبار
+            .slice(0, 3);
 
         let newsHtml = '';
         if (newsMd.length === 0) {
@@ -165,7 +157,7 @@ async function buildSite() {
         } else {
             for (const file of newsMd) {
                 const data = await parseMarkdownFile(file);
-                newsHtml += generateCard(data, 'news');
+                newsHtml += generateNewsCard(data);
             }
         }
 
