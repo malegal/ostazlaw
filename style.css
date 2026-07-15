@@ -8,7 +8,8 @@
     --pure-white: #FFFFFF;
     --light-gray: #ECECEC;
     --charcoal: #11161B;
-    --text-secondary: #2E3A46;
+    /* ✅ [تحسين الدرجة الثانية] جعل النص أغمق لزيادة التباين */
+    --text-secondary: #1A2632; 
     --matte-gold: #B08D57;
     --footer-navy: #0B1F35;
     --whatsapp-green: #25D366;
@@ -22,7 +23,11 @@
    RESET & BASE – إعادة تعيين الهوامش والخطوط الأساسية
    ========================================================== */
 
-/* تحسين وضوح النصوص على جميع العناصر (إضافة جديدة) */
+/* 
+   ✅ [تحسين الدرجة الأولى والثالثة] 
+   - زيادة وزن الخط الأساسي إلى 500.
+   - تعزيز الظل الناعم لزيادة حدة الحروف.
+*/
 html,
 body,
 p,
@@ -48,7 +53,7 @@ blockquote,
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    text-shadow: 0 0 0.5px rgba(0, 0, 0, 0.08);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.06), 0 0 1px rgba(0, 0, 0, 0.04);
 }
 
 html, body {
@@ -56,12 +61,12 @@ html, body {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
     font-family: var(--font-ar);
+    /* ✅ [تحسين الدرجة الأولى] رفع الوزن الأساسي من 400 إلى 500 */
+    font-weight: 500; 
     background-color: var(--warm-off-white);
     color: var(--charcoal);
     overflow-x: hidden;
@@ -823,7 +828,7 @@ button {
     max-width: 720px;
     margin: 0.6rem auto 0;
     color: var(--text-secondary);
-    font-weight: 500;
+    font-weight: 500; /* ✅ [تحسين الدرجة الأولى] */
     font-size: 1.05rem;
     line-height: 1.9;
 }
@@ -895,7 +900,7 @@ button {
 }
 .about-content p {
     color: var(--text-secondary);
-    font-weight: 500;
+    font-weight: 500; /* ✅ [تحسين الدرجة الأولى] */
     font-size: 1.05rem;
     line-height: 1.9;
     margin-bottom: 0.8rem;
@@ -1027,7 +1032,7 @@ button {
 .practice-card p {
     font-size: 0.8rem;
     color: var(--text-secondary);
-    font-weight: 500;
+    font-weight: 500; /* ✅ [تحسين الدرجة الأولى] */
     line-height: 1.6;
 }
 
@@ -1091,7 +1096,7 @@ button {
 .process-step .step-content p {
     font-size: 0.9rem;
     color: var(--text-secondary);
-    font-weight: 500;
+    font-weight: 500; /* ✅ [تحسين الدرجة الأولى] */
     line-height: 1.7;
 }
 
@@ -1158,7 +1163,7 @@ button {
 .experience-card p {
     font-size: 0.85rem;
     color: var(--text-secondary);
-    font-weight: 500;
+    font-weight: 500; /* ✅ [تحسين الدرجة الأولى] */
     line-height: 1.7;
 }
 
@@ -1241,7 +1246,7 @@ button {
 .blog-card .content p {
     font-size: 0.85rem;
     color: var(--text-secondary);
-    font-weight: 500;
+    font-weight: 500; /* ✅ [تحسين الدرجة الأولى] */
     line-height: 1.7;
     margin-bottom: 0.8rem;
     flex: 1;
@@ -1326,7 +1331,7 @@ button {
     max-width: 640px;
     margin: 0.6rem auto 1.8rem;
     color: var(--text-secondary);
-    font-weight: 500;
+    font-weight: 500; /* ✅ [تحسين الدرجة الأولى] */
     font-size: 1.05rem;
     line-height: 1.8;
 }
