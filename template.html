@@ -155,7 +155,9 @@
             <a href="https://ostazlaw.vercel.app/contact.html">اتصل بنا</a>
         </nav>
 
-        <!-- تم حذف <div class="header-actions"> بالكامل -->
+        <div class="header-actions">
+            <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة"><i class="fas fa-bars-staggered"></i></button>
+        </div>
     </header>
 
     <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
@@ -169,7 +171,11 @@
             <a href="https://ostazlaw.vercel.app/client-inquiry.html" onclick="closeMobileMenu()">تابع قضيتك</a>
             <a href="https://ostazlaw.vercel.app/contact.html" onclick="closeMobileMenu()">اتصل بنا</a>
             <div class="divider"></div>
-            <!-- تم حذف <div class="actions"> بالكامل -->
+            <div class="actions">
+                <a href="https://ostazlaw.vercel.app/contact.html?tab=consult" class="btn-gold" onclick="closeMobileMenu()">طلب استشارة</a>
+                <a href="https://ostazlaw.vercel.app/contact.html?tab=appointment" class="btn-outline-white" onclick="closeMobileMenu()">حجز موعد</a>
+                <a href="tel:+201101076000" class="btn-outline-white" onclick="closeMobileMenu()"><i class="fas fa-phone-alt" style="margin-left:6px;"></i> اتصل بنا</a>
+            </div>
         </nav>
     </div>
 
@@ -399,7 +405,7 @@
     </section>
 
     <!-- ==========================================================
-    🆕 قــســم أخــبــار الـمـؤسـسـة (جديد)
+    🆕 قــســم أخــبــار الـمـؤسـسـة (ديناميكي)
     ========================================================== -->
     <section class="section section-gray" aria-label="أخبار وإنجازات المؤسسة">
         <div class="section-inner">
@@ -409,8 +415,9 @@
                 <p>نوافيكم بأحدث ما توصلنا إليه من أحكام، مشاركات مجتمعية، وتطورات مكتبنا القانوني.</p>
             </div>
 
-            <div class="experience-grid" id="newsGrid">
-                <!-- NEWS_PLACEHOLDER -->
+            <!-- سيتم ملؤها بواسطة JavaScript -->
+            <div class="experience-grid" id="homeNews">
+                <div class="col-span-full text-center text-charcoal/50 py-10">جاري تحميل الأخبار...</div>
             </div>
 
             <div class="section-cta">
@@ -420,7 +427,7 @@
     </section>
 
     <!-- ==========================================================
-    قــســم الـمـكـتـبـة الـقـانـونـيـة (المقالات)
+    قــســم الـمـكـتـبـة الـقـانـونـيـة (ديناميكي)
     ========================================================== -->
     <section class="section section-light" aria-label="المكتبة القانونية">
         <div class="section-inner">
@@ -430,8 +437,9 @@
                 <p>اطلع على أحدث ما ننشره في مجال القانون المصري.</p>
             </div>
 
-            <div class="blog-grid" id="blogGrid">
-                <!-- ARTICLES_PLACEHOLDER -->
+            <!-- سيتم ملؤها بواسطة JavaScript -->
+            <div class="blog-grid" id="homeArticles">
+                <div class="col-span-full text-center text-charcoal/50 py-10">جاري تحميل المقالات...</div>
             </div>
 
             <div class="section-cta">
@@ -518,19 +526,25 @@
     </footer>
 
     <!-- ==========================================================
-    جـافـا سـكـريـبـت (التفاعلات والحركة) – تم تعديلها لإزالة مراجع header-actions
+    جـافـا سـكـريـبـت (التفاعلات والحركة + التحميل الديناميكي)
     ========================================================== -->
     <script>
         (function() {
             'use strict';
 
+            // ==========================================================
+            // 1. HEADER SCROLL
+            // ==========================================================
             const header = document.getElementById('siteHeader');
             window.addEventListener('scroll', function() {
                 header.classList.toggle('scrolled', window.scrollY > 50);
             }, { passive: true });
 
+            // ==========================================================
+            // 2. MOBILE MENU
+            // ==========================================================
             const mobileMenu = document.getElementById('mobileMenu');
-            const menuToggle = document.getElementById('menuToggle'); // لن يتم العثور عليه لأنه حُذف
+            const menuToggle = document.getElementById('menuToggle');
             const menuClose = document.getElementById('menuClose');
 
             function openMobileMenu() {
@@ -543,23 +557,15 @@
                 document.body.style.overflow = '';
             };
 
-            // بما أن menuToggle غير موجود، سنستخدم طريقة بديلة لفتح القائمة (مثلاً عن طريق النقر على شعار أو زر آخر)
-            // لكننا سنترك الكود بحيث لا يسبب أخطاء
-            if (menuToggle) {
-                menuToggle.addEventListener('click', openMobileMenu);
-            }
-
-            if (menuClose) {
-                menuClose.addEventListener('click', closeMobileMenu);
-            }
-
+            menuToggle.addEventListener('click', openMobileMenu);
+            menuClose.addEventListener('click', closeMobileMenu);
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobileMenu();
             });
 
-            // إذا أردت إضافة طريقة لفتح القائمة، يمكنك إضافتها هنا (مثلاً النقر على الشعار)
-            // لكننا سنتركها كما هي
-
+            // ==========================================================
+            // 3. REVEAL OBSERVER (لتأثيرات الظهور)
+            // ==========================================================
             const revealObserver = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
@@ -573,6 +579,9 @@
                 revealObserver.observe(el);
             });
 
+            // ==========================================================
+            // 4. GOLD UNDERLINE SCROLL
+            // ==========================================================
             const goldElements = document.querySelectorAll('.gold-underline, .gold-underline-card, .practice-link, .sector-link, .header-nav a, .footer-col a, .btn-gold, .btn-outline-gold, .btn-outline-white, .btn-outline-navy, .trust-item, .about-why-points .point, .hero-action-item');
 
             const scrollObserver = new IntersectionObserver(function(entries) {
@@ -590,6 +599,9 @@
                 scrollObserver.observe(el);
             });
 
+            // ==========================================================
+            // 5. FLOATING MAIN BUTTON (زر +)
+            // ==========================================================
             const mainBtn = document.getElementById('floatMainBtn');
             const subBtns = document.getElementById('floatSubBtns');
             let isOpen = false;
@@ -617,6 +629,170 @@
                     subBtns.classList.remove('open');
                 }
             });
+
+            // ==========================================================
+            // 6. تحميل المحتوى ديناميكياً من GitHub (الحل الدائم)
+            // ==========================================================
+            async function loadHomeContent() {
+                const owner = 'malegal';
+                const repo = 'mahmoud-legal';
+                const branch = 'main';
+
+                // عناصر الـ DOM
+                const articlesContainer = document.getElementById('homeArticles');
+                const newsContainer = document.getElementById('homeNews');
+
+                // ==========================================================
+                // أ. جلب المقالات (آخر 3)
+                // ==========================================================
+                if (articlesContainer) {
+                    try {
+                        const articlesUrl =
+                            `https://api.github.com/repos/${owner}/${repo}/contents/blog/articles?ref=${branch}`;
+                        const articlesRes = await fetch(articlesUrl);
+
+                        if (!articlesRes.ok) throw new Error('فشل جلب المقالات');
+
+                        const articlesData = await articlesRes.json();
+                        const mdFiles = articlesData
+                            .filter(f => f.type === 'file' && f.name.endsWith('.md'))
+                            .reverse() // الأحدث أولاً
+                            .slice(0, 3); // آخر 3 فقط
+
+                        articlesContainer.innerHTML = '';
+
+                        if (mdFiles.length === 0) {
+                            articlesContainer.innerHTML =
+                                `<div class="col-span-full text-center text-charcoal/50 py-10">لا توجد مقالات حالياً.</div>`;
+                        } else {
+                            for (const file of mdFiles) {
+                                const slug = file.name.replace('.md', '');
+                                let title = slug.replace(/-/g, ' ');
+                                try {
+                                    const contentRes = await fetch(file.download_url);
+                                    const content = await contentRes.text();
+                                    const yamlMatch = content.match(/^---\s*([\s\S]*?)\s*---/);
+                                    if (yamlMatch) {
+                                        const titleMatch = yamlMatch[1].match(/title:\s*(.*)/i);
+                                        if (titleMatch) title = titleMatch[1].replace(/['"]/g, '').trim();
+                                    }
+                                } catch (e) { /* استخدام القيمة الافتراضية */ }
+
+                                const card = document.createElement('div');
+                                card.className = 'blog-card reveal';
+                                card.innerHTML = `
+                                    <div class="card-body">
+                                        <span class="badge">دراسة قانونية</span>
+                                        <h3>${title}</h3>
+                                        <div class="meta">
+                                            <span><i class="far fa-clock" style="margin-left:4px;"></i> ${Math.ceil(title.length / 50) || 1} دقائق قراءة</span>
+                                        </div>
+                                        <a href="article.html?slug=${encodeURIComponent(slug)}" class="btn-read">
+                                            استعراض الدراسة <i class="fas fa-arrow-left"></i>
+                                        </a>
+                                    </div>
+                                `;
+                                articlesContainer.appendChild(card);
+                                revealObserver.observe(card); // إعادة تفعيل تأثير الظهور
+                            }
+                        }
+                    } catch (error) {
+                        console.error('خطأ في تحميل المقالات:', error);
+                        articlesContainer.innerHTML =
+                            `<div class="col-span-full text-center py-10"><p class="text-red-500">حدث خطأ أثناء تحميل المقالات.</p></div>`;
+                    }
+                }
+
+                // ==========================================================
+                // ب. جلب الأخبار (آخر 3)
+                // ==========================================================
+                if (newsContainer) {
+                    try {
+                        const newsUrl =
+                            `https://api.github.com/repos/${owner}/${repo}/contents/blog/news?ref=${branch}`;
+                        const newsRes = await fetch(newsUrl);
+
+                        if (!newsRes.ok) throw new Error('فشل جلب الأخبار');
+
+                        const newsData = await newsRes.json();
+                        const newsFiles = newsData
+                            .filter(f => f.type === 'file' && f.name.endsWith('.md'))
+                            .reverse() // الأحدث أولاً
+                            .slice(0, 3); // آخر 3 فقط
+
+                        newsContainer.innerHTML = '';
+
+                        if (newsFiles.length === 0) {
+                            newsContainer.innerHTML =
+                                `<div class="col-span-full text-center text-charcoal/50 py-10">لا توجد أخبار حالياً.</div>`;
+                        } else {
+                            for (const file of newsFiles) {
+                                const slug = file.name.replace('.md', '');
+                                let title = slug.replace(/-/g, ' ');
+                                let category = 'خبر';
+                                let icon = 'fa-newspaper';
+                                let date = '';
+                                let description = '';
+
+                                try {
+                                    const contentRes = await fetch(file.download_url);
+                                    const content = await contentRes.text();
+                                    const yamlMatch = content.match(/^---\s*([\s\S]*?)\s*---/);
+                                    if (yamlMatch) {
+                                        const front = yamlMatch[1];
+                                        const titleMatch = front.match(/title:\s*(.*)/i);
+                                        if (titleMatch) title = titleMatch[1].replace(/['"]/g, '').trim();
+                                        const catMatch = front.match(/category:\s*(.*)/i);
+                                        if (catMatch) category = catMatch[1].replace(/['"]/g, '').trim();
+                                        const iconMatch = front.match(/icon:\s*(.*)/i);
+                                        if (iconMatch) icon = iconMatch[1].replace(/['"]/g, '').trim();
+                                        const dateMatch = front.match(/date:\s*(.*)/i);
+                                        if (dateMatch) date = dateMatch[1].replace(/['"]/g, '').trim();
+                                        const descMatch = front.match(/description:\s*(.*)/i);
+                                        if (descMatch) description = descMatch[1].replace(/['"]/g, '').trim();
+                                    }
+                                } catch (e) { /* استخدام القيم الافتراضية */ }
+
+                                const badgeColors = {
+                                    'إنجاز قضائي': 'background:var(--matte-gold); color:#000;',
+                                    'فعالية': 'background:var(--deep-navy); color:#fff;',
+                                    'تطوير': 'background:var(--very-dark-navy); color:#fff;'
+                                };
+                                const badgeStyle = badgeColors[category] ||
+                                    'background:var(--matte-gold); color:#000;';
+
+                                const card = document.createElement('div');
+                                card.className = 'sector-link';
+                                card.style.display = 'block';
+                                card.innerHTML = `
+                                    <a href="news.html?slug=${encodeURIComponent(slug)}" style="display:block; text-decoration:none; color:inherit;">
+                                        <div class="experience-card reveal" style="text-align:right; position:relative;">
+                                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                                                <span style="${badgeStyle} padding:0.1rem 0.8rem; border-radius:20px; font-size:0.6rem; font-weight:800;">${category}</span>
+                                                <span style="font-size:0.7rem; color:var(--text-secondary);">${date}</span>
+                                            </div>
+                                            <span class="icon"><i class="fas ${icon}" style="font-size:1.5rem;"></i></span>
+                                            <h4>${title}</h4>
+                                            <p>${description || ''}</p>
+                                            <span style="color:var(--matte-gold); font-weight:700; font-size:0.8rem; margin-top:0.5rem; display:inline-block;">اقرأ التفاصيل ←</span>
+                                        </div>
+                                    </a>
+                                `;
+                                newsContainer.appendChild(card);
+                                const revealEl = card.querySelector('.reveal');
+                                if (revealEl) revealObserver.observe(revealEl);
+                            }
+                        }
+                    } catch (error) {
+                        console.error('خطأ في تحميل الأخبار:', error);
+                        newsContainer.innerHTML =
+                            `<div class="col-span-full text-center py-10"><p class="text-red-500">حدث خطأ أثناء تحميل الأخبار.</p></div>`;
+                    }
+                }
+            }
+
+            // تشغيل التحميل عند تحميل الصفحة
+            document.addEventListener('DOMContentLoaded', loadHomeContent);
 
         })();
     </script>
