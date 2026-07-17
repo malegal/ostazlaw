@@ -130,13 +130,16 @@
             align-items: center;
             justify-content: center;
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(34, 34, 34, 0.5);
             margin-bottom: 1.5rem;
+            /* ✅ إضافة مسافة علوية لتجاوز الهيدر الثابت */
+            padding-top: 80px;
+            margin-top: -40px;
         }
         .article-meta .divider {
             width: 1px;
             height: 18px;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(34, 34, 34, 0.1);
         }
         .article-meta span {
             display: flex;
@@ -339,6 +342,8 @@
             .article-meta {
                 font-size: 0.75rem;
                 gap: 0.5rem 1rem;
+                padding-top: 70px;
+                margin-top: -30px;
             }
             .article-body {
                 font-size: 1rem;
@@ -375,6 +380,11 @@
             }
             .article-cta h3 {
                 font-size: 1.1rem;
+            }
+            .article-meta {
+                padding-top: 60px;
+                margin-top: -20px;
+                font-size: 0.7rem;
             }
         }
     </style>
@@ -577,8 +587,8 @@
 
         <!-- Article Content -->
         <div id="article-container" class="hidden" style="display:none;">
-            <!-- ===== المعلومات الوصفية (الكاتب والتاريخ) ===== -->
-            <div class="article-meta" style="display:flex; flex-wrap:wrap; gap:0.8rem 1.5rem; align-items:center; justify-content:center; margin-bottom:1.5rem; color:rgba(34,34,34,0.5); font-size:0.9rem;">
+            <!-- ===== المعلومات الوصفية (الكاتب والتاريخ) مع مسافة علوية ===== -->
+            <div class="article-meta" style="display:flex; flex-wrap:wrap; gap:0.8rem 1.5rem; align-items:center; justify-content:center; margin-bottom:1.5rem; color:rgba(34,34,34,0.5); font-size:0.9rem; padding-top:80px; margin-top:-40px;">
                 <span><i class="far fa-clock" style="margin-left:4px;"></i> <span id="read-time">0</span> دقائق قراءة</span>
                 <span class="divider" style="width:1px; height:18px; background:rgba(34,34,34,0.1);"></span>
                 <span><i class="fas fa-user" style="margin-left:4px;"></i> <span id="article-author"></span></span>
@@ -804,17 +814,24 @@
                         if (descMatch) description = descMatch[1].replace(/['"]/g, '').trim();
 
                         const authorMatch = frontMatter.match(/author:\s*(.*)/i);
-                        if (authorMatch) author = authorMatch[1].replace(/['"]/g, '').trim();
+                        if (authorMatch) {
+                            author = authorMatch[1].replace(/['"]/g, '').trim();
+                        } else {
+                            // ✅ إذا لم يوجد author، نعطي قيمة افتراضية
+                            author = 'الأستاذ / محمود عبد الحميد';
+                        }
 
                         const dateMatch = frontMatter.match(/date:\s*(.*)/i);
-                        if (dateMatch) date = dateMatch[1].replace(/['"]/g, '').trim();
+                        if (dateMatch) {
+                            date = dateMatch[1].replace(/['"]/g, '').trim();
+                        }
 
                         // إزالة Front Matter من المحتوى
                         md = md.replace(/^---\s*[\s\S]*?\s*---/, '');
                     }
 
                     if (!title) title = decodeURIComponent(slug.replace(/-/g, ' '));
-                    if (!author) author = 'الأستاذ / محمود عبد الحميد';
+                    if (!author) author = 'الأستاذ / محمود عبد الحميد'; // تأكيد إضافي
                     if (!date) date = '';
 
                     // ==========================================================
@@ -870,10 +887,10 @@
                     // ==========================================================
                     document.getElementById('article-title').textContent = title;
 
-                    // عرض الكاتب
+                    // ✅ عرض الكاتب (يظهر دائماً)
                     document.getElementById('article-author').textContent = author;
 
-                    // عرض التاريخ (بتنسيق عربي)
+                    // ✅ عرض التاريخ (بتنسيق عربي)
                     if (date) {
                         try {
                             const d = new Date(date);
