@@ -53,7 +53,6 @@
 
     <!-- ===== CSS مخصص ===== -->
     <style>
-        /* ===== زر المشاركة العائم ===== */
         .float-share-btn {
             position: fixed;
             bottom: 120px;
@@ -78,7 +77,6 @@
             background: #333;
         }
 
-        /* ===== قائمة المشاركة المنبثقة ===== */
         .share-popup {
             position: fixed;
             bottom: 185px;
@@ -122,7 +120,6 @@
         .bg-whatsapp { background: #25d366; }
         .bg-telegram { background: #0088cc; }
 
-        /* ===== معلومات المقال (المؤلف، التاريخ، مدة القراءة) ===== */
         .article-meta {
             display: flex;
             flex-direction: column;
@@ -166,7 +163,6 @@
             color: rgba(34, 34, 34, 0.5);
         }
 
-        /* ===== معلومات SEO (الكلمات المفتاحية والوسوم) ===== */
         .seo-info {
             margin-top: 2.5rem;
             padding: 1.5rem 2rem;
@@ -216,7 +212,6 @@
             margin-left: 0.4rem;
         }
 
-        /* ===== تنسيق المحتوى (أنيق واحترافي) ===== */
         .article-body {
             font-family: var(--font-serif);
             font-size: 1.15rem;
@@ -292,7 +287,6 @@
             margin-top: 2rem;
         }
 
-        /* ===== CTA ===== */
         .article-cta {
             background: var(--very-dark-navy);
             color: #fff;
@@ -327,7 +321,6 @@
             box-shadow: 0 4px 20px rgba(176, 141, 87, 0.3);
         }
 
-        /* ===== الحاوية الرئيسية ===== */
         .article-wrapper {
             max-width: 820px;
             margin: 0 auto;
@@ -352,7 +345,6 @@
             box-shadow: var(--shadow-card);
         }
 
-        /* ===== زر العودة إلى المكتبة ===== */
         .float-back {
             position: fixed;
             bottom: 2rem;
@@ -377,7 +369,6 @@
             color: #000;
         }
 
-        /* ===== التجاوب ===== */
         @media (max-width: 768px) {
             .float-back {
                 left: 80px;
@@ -577,12 +568,10 @@
         </a>
     </div>
 
-    <!-- ===== زر العودة إلى المكتبة ===== -->
     <a href="blog.html" class="float-back" aria-label="العودة إلى المكتبة" title="العودة إلى المكتبة">
         <i class="fas fa-arrow-right"></i>
     </a>
 
-    <!-- ===== زر المشاركة ===== -->
     <button class="float-share-btn" id="floatShareBtn" aria-label="مشاركة المقال">
         <i class="fas fa-share-alt"></i>
     </button>
@@ -648,15 +637,12 @@
 
     <!-- ===== محتوى المقال ===== -->
     <main class="article-wrapper">
-        <!-- Loader -->
         <div id="loader" style="text-align:center; padding:3rem 0;">
             <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-matte-gold" style="border-color:var(--matte-gold);"></div>
             <p style="margin-top:1.5rem; color:rgba(34,34,34,0.5);">جاري تحميل المقال...</p>
         </div>
 
-        <!-- المحتوى -->
         <div id="article-container" style="display:none;">
-            <!-- ===== معلومات المقال (المؤلف، التاريخ، مدة القراءة) ===== -->
             <div class="article-meta">
                 <div class="meta-row">
                     <span class="author-label"><i class="fas fa-user" style="margin-left:6px;"></i> المؤلف:</span>
@@ -669,30 +655,25 @@
                 </div>
             </div>
 
-            <!-- ===== العنوان ===== -->
             <h1 id="article-title" class="article-title"></h1>
 
-            <!-- ===== الصورة ===== -->
             <div id="article-image" class="article-image"></div>
 
-            <!-- ===== المحتوى النظيف (بدون أي بيانات وصفية) ===== -->
+            <!-- ✅ المحتوى النظيف بدون أي بيانات وصفية -->
             <div id="article-body" class="article-body"></div>
 
-            <!-- ===== معلومات SEO (الكلمات المفتاحية والوسوم) ===== -->
             <div id="seo-info" class="seo-info" style="display:none;">
                 <h4><i class="fas fa-search"></i> معلومات تحسين محركات البحث</h4>
                 <div id="seo-keyword-container"></div>
                 <div id="seo-tags-container"></div>
             </div>
 
-            <!-- ===== العودة إلى المكتبة ===== -->
             <div style="text-align:center; margin-top:3rem; padding-top:1.5rem; border-top:1px solid rgba(34,34,34,0.05);">
                 <a href="blog.html" class="btn-outline-gold" style="display:inline-block; border:2px solid var(--matte-gold); color:var(--matte-gold); padding:0.6rem 2rem; border-radius:8px; text-decoration:none; font-weight:600; transition:all 0.3s;">
                     <i class="fas fa-arrow-right" style="margin-left:6px;"></i> العودة إلى المكتبة
                 </a>
             </div>
 
-            <!-- ===== CTA ===== -->
             <div class="article-cta">
                 <h3>هل لديك تساؤل قانوني حول هذا الموضوع؟</h3>
                 <p>يمكنك الحصول على استشارة قانونية دقيقة ومباشرة من الأستاذ محمود عبد الحميد</p>
@@ -751,7 +732,7 @@
     </footer>
 
     <!-- ========================================================== -->
-    <!-- جافا سكريبت -->
+    <!-- جافا سكريبت – مع تحسين إزالة Front Matter -->
     <!-- ========================================================== -->
     <script>
         (function() {
@@ -840,7 +821,46 @@
                 });
             }
 
-            // ===== FETCH ARTICLE =====
+            // ==========================================================
+            // 🔧 دالة قوية لإزالة Front Matter بشكل مضمون
+            // ==========================================================
+            function removeFrontMatter(markdown) {
+                // البحث عن أول سطرين يبدآن بـ ---
+                const lines = markdown.split('\n');
+                let frontMatterStart = -1;
+                let frontMatterEnd = -1;
+
+                for (let i = 0; i < lines.length; i++) {
+                    const trimmed = lines[i].trim();
+                    if (trimmed === '---') {
+                        if (frontMatterStart === -1) {
+                            frontMatterStart = i;
+                        } else if (frontMatterEnd === -1) {
+                            frontMatterEnd = i;
+                            break;
+                        }
+                    }
+                }
+
+                // إذا تم العثور على Front Matter، نزيله
+                if (frontMatterStart !== -1 && frontMatterEnd !== -1 && frontMatterEnd > frontMatterStart) {
+                    // إزالة الأسطر من frontMatterStart إلى frontMatterEnd (ضمناً)
+                    const remaining = [];
+                    for (let i = 0; i < lines.length; i++) {
+                        if (i < frontMatterStart || i > frontMatterEnd) {
+                            remaining.push(lines[i]);
+                        }
+                    }
+                    return remaining.join('\n');
+                }
+
+                // إذا لم يتم العثور على Front Matter، نعيد النص كما هو
+                return markdown;
+            }
+
+            // ==========================================================
+            // FETCH ARTICLE (معدل بالكامل)
+            // ==========================================================
             async function fetchArticle() {
                 const slug = new URLSearchParams(window.location.search).get('slug');
                 if (!slug) {
@@ -858,7 +878,9 @@
 
                     let md = await response.text();
 
-                    // ===== استخراج البيانات الوصفية (Front Matter) =====
+                    // ==========================================================
+                    // استخراج البيانات الوصفية من Front Matter
+                    // ==========================================================
                     let title = '';
                     let image = '';
                     let description = '';
@@ -867,7 +889,7 @@
                     let seoKeyword = '';
                     let tags = [];
 
-                    // استخراج Front Matter فقط
+                    // استخراج Front Matter باستخدام تعبير نمطي مرن
                     const yamlMatch = md.match(/^---\s*([\s\S]*?)\s*---/);
                     if (yamlMatch) {
                         const frontMatter = yamlMatch[1];
@@ -902,15 +924,22 @@
                             const rawTags = tagsMatch[1].replace(/['"]/g, '').trim();
                             tags = rawTags.split(',').map(t => t.trim()).filter(t => t);
                         }
-
-                        // ✅ حذف Front Matter نهائياً من المحتوى
-                        md = md.replace(/^---\s*[\s\S]*?\s*---/, '');
                     }
+
+                    // ==========================================================
+                    // ✅ إزالة Front Matter من المحتوى (الطريقة القوية)
+                    // ==========================================================
+                    let cleanContent = removeFrontMatter(md);
+
+                    // تنظيف إضافي: إزالة أي أسطر فارغة زائدة في البداية
+                    cleanContent = cleanContent.replace(/^\s+/, '');
 
                     if (!title) title = decodeURIComponent(slug.replace(/-/g, ' '));
                     if (!author) author = 'الأستاذ / محمود عبد الحميد';
 
-                    // ===== تحديث SEO =====
+                    // ==========================================================
+                    // تحديث SEO
+                    // ==========================================================
                     document.title = title + ' | الأستاذ محمود عبد الحميد';
                     document.querySelector('meta[name="description"]').setAttribute('content', description || 'تحليل قانوني متخصص.');
                     document.querySelector('link[rel="canonical"]').setAttribute('href',
@@ -923,7 +952,9 @@
                         document.querySelector('meta[property="og:image"]').setAttribute('content', image);
                     }
 
-                    // ===== تحديث JSON-LD =====
+                    // ==========================================================
+                    // تحديث JSON-LD
+                    // ==========================================================
                     const jsonLd = document.getElementById('json-ld');
                     if (jsonLd) {
                         try {
@@ -957,7 +988,9 @@
                         } catch (e) { /* ignore */ }
                     }
 
-                    // ===== عرض البيانات الأساسية =====
+                    // ==========================================================
+                    // عرض البيانات الأساسية
+                    // ==========================================================
                     document.getElementById('article-title').textContent = title;
 
                     // المؤلف
@@ -984,7 +1017,7 @@
                     }
 
                     // مدة القراءة
-                    const words = md.split(/\s+/).length;
+                    const words = cleanContent.split(/\s+/).length;
                     document.getElementById('read-time').textContent = Math.ceil(words / 200) || 1;
 
                     // الصورة
@@ -997,10 +1030,10 @@
                         imageContainer.style.display = 'none';
                     }
 
-                    // ===== عرض المحتوى النظيف (بدون Front Matter) =====
-                    // ✅ استخدام marked لتحويل Markdown إلى HTML
-                    const rawHtml = marked.parse(md);
-                    // ✅ استخدام DOMPurify لتنقية HTML
+                    // ==========================================================
+                    // ✅ عرض المحتوى النظيف (بعد إزالة Front Matter)
+                    // ==========================================================
+                    const rawHtml = marked.parse(cleanContent);
                     const sanitizedHtml = DOMPurify.sanitize(rawHtml, {
                         ALLOWED_TAGS: [
                             'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
@@ -1011,14 +1044,15 @@
                     });
                     document.getElementById('article-body').innerHTML = sanitizedHtml;
 
-                    // ===== عرض معلومات SEO =====
+                    // ==========================================================
+                    // عرض معلومات SEO
+                    // ==========================================================
                     const seoInfo = document.getElementById('seo-info');
                     const seoKeywordContainer = document.getElementById('seo-keyword-container');
                     const seoTagsContainer = document.getElementById('seo-tags-container');
 
                     let hasSeoData = false;
 
-                    // الكلمة المفتاحية
                     if (seoKeyword) {
                         hasSeoData = true;
                         seoKeywordContainer.innerHTML = `
@@ -1029,7 +1063,6 @@
                         seoKeywordContainer.innerHTML = '';
                     }
 
-                    // الهاشتجات
                     if (tags && tags.length > 0) {
                         hasSeoData = true;
                         let tagsHtml = `<span class="seo-label"><i class="fas fa-tags" style="margin-left:6px;"></i> الوسوم:</span> `;
@@ -1047,7 +1080,9 @@
                         seoInfo.style.display = 'none';
                     }
 
-                    // ===== تحديث روابط المشاركة =====
+                    // ==========================================================
+                    // تحديث روابط المشاركة
+                    // ==========================================================
                     const url = encodeURIComponent(`https://ostazlaw.vercel.app/article.html?slug=${slug}`);
                     const encodedTitle = encodeURIComponent(title);
                     document.getElementById('share-wa').href = `https://wa.me/?text=${encodedTitle}%20${url}`;
@@ -1057,14 +1092,18 @@
                         `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${encodedTitle}`;
                     document.getElementById('share-x').href = `https://x.com/intent/tweet?url=${url}&text=${encodedTitle}`;
 
-                    // ===== إظهار المقال =====
+                    // ==========================================================
+                    // إظهار المقال
+                    // ==========================================================
                     document.getElementById('loader').style.display = 'none';
                     document.getElementById('article-container').style.display = 'block';
 
+                    console.log('✅ تم تحميل المقال بنجاح، وتم إزالة Front Matter من المحتوى.');
+
                 } catch (error) {
-                    console.error('Error loading article:', error);
+                    console.error('❌ خطأ في تحميل المقال:', error);
                     document.getElementById('loader').innerHTML =
-                        '<p style="color:#dc2626;">نعتذر، فشل تحميل المقال. يرجى المحاولة لاحقاً.</p>';
+                        `<p style="color:#dc2626;">نعتذر، فشل تحميل المقال. ${error.message}</p>`;
                 }
             }
 
