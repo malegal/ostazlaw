@@ -3,598 +3,146 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-    <title id="page-title">المقالة | OSTAZ LAW</title>
-    <meta name="description" id="page-description" content="مقال قانوني متخصص من مؤسسة الأستاذ محمود عبد الحميد للمحاماة والاستشارات القانونية." />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" id="page-canonical" href="https://ostazlaw.vercel.app/article.html" />
+    <meta name="google-site-verification" content="Uqbjr1w7Q831Lo6JPFEe9_lK86Kp55P79Lwfp1j6EX8" />
 
-    <meta property="og:title" id="og-title" content="المقالة | OSTAZ LAW" />
-    <meta property="og:description" id="og-description" content="مقال قانوني متخصص من مؤسسة الأستاذ محمود عبد الحميد للمحاماة والاستشارات القانونية." />
+    <title id="page-title">جاري تحميل المقال...</title>
+    <meta id="page-description" name="description" content="تحليل قانوني متخصص في مجال القانون المصري." />
+    <meta name="robots" content="index, follow" />
+    <link id="canonical-url" rel="canonical" href="https://ostazlaw.vercel.app/article.html" />
+
+    <link rel="alternate" hreflang="ar-eg" href="https://ostazlaw.vercel.app/article.html" />
+    <link rel="alternate" hreflang="en" href="https://ostazlaw.vercel.app/en/article.html" />
+
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://ostazlaw.vercel.app/sitemap.xml" />
+    <link rel="robots" type="text/plain" href="https://ostazlaw.vercel.app/robots.txt" />
+
+    <meta id="og-title" property="og:title" content="جاري تحميل المقال..." />
+    <meta id="og-description" property="og:description" content="تحليل قانوني متخصص في مجال القانون المصري." />
     <meta property="og:type" content="article" />
-    <meta property="og:url" id="og-url" content="https://ostazlaw.vercel.app/article.html" />
-    <meta property="og:image" content="https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.jpg" />
+    <meta id="og-url" property="og:url" content="https://ostazlaw.vercel.app/article.html" />
+    <meta id="og-image" property="og:image" content="https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.jpg" />
     <meta property="og:image:width" content="600" />
     <meta property="og:image:height" content="800" />
     <meta property="og:image:alt" content="الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا" />
     <meta property="og:locale" content="ar_EG" />
-
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.jpg" />
     <meta name="twitter:image:alt" content="الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا" />
 
+    <!-- ===== تحميل الخطوط ===== -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;900&family=Tajawal:wght@300;400;500;700;800;900&family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    
-    <!-- ===== تحميل marked.js ===== -->
+
+    <!-- ===== Font Awesome ===== -->
+    <link rel="stylesheet" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+          crossorigin="anonymous" 
+          referrerpolicy="no-referrer" />
+
+    <!-- ===== Libraries ===== -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
 
-    <style>
-        /* ==========================================================
-           ROOT – الهوية الفاخرة (مطابقة للصفحة الرئيسية)
-           ========================================================== */
-        :root {
-            --very-dark-navy: #0B111B;
-            --deep-navy: #102A43;
-            --warm-off-white: #FAFAF8;
-            --pure-white: #FFFFFF;
-            --light-gray: #F5F5F5;
-            --charcoal: #222222;
-            --matte-gold: #B08D57;
-            --matte-gold-light: rgba(176, 141, 87, 0.08);
-            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.04);
-            --shadow-hover: 0 12px 48px rgba(0, 0, 0, 0.08);
-            --gold-glow: 0 0 40px rgba(176, 141, 87, 0.05);
-            --font-ar: 'Tajawal', sans-serif;
-            --font-serif: 'Amiri', serif;
-            --font-playfair: 'Playfair Display', Georgia, serif;
-            --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-        }
+    <!-- ==========================================================
+         ربط ملفات CSS الخارجية (الهوية الأساسية + أنماط المحتوى)
+         ========================================================== -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="content.css" />
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    <!-- ===== JSON-LD ===== -->
+    <script type="application/ld+json" id="json-ld">
+        {
+            "@context": "https://schema.org",
+            "@graph": [{
+                "@type": "LegalService",
+                "@id": "https://ostazlaw.vercel.app/#organization",
+                "name": "مؤسسة الأستاذ محمود عبد الحميد للمحاماة والاستشارات القانونية",
+                "alternateName": "OSTAZ LAW",
+                "description": "مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات.",
+                "url": "https://ostazlaw.vercel.app/",
+                "logo": "https://ostazlaw.vercel.app/logo.png",
+                "email": "ma.law.firm@outlook.com",
+                "telephone": "+201101076000",
+                "foundingDate": "2005",
+                "areaServed": { "@type": "Country", "name": "مصر" },
+                "availableLanguage": ["Arabic", "English"],
+                "sameAs": [
+                    "https://www.facebook.com/malegal",
+                    "https://x.com/mahmoud_a_hamyd",
+                    "https://www.linkedin.com/in/mahmoud-abdel-hamid-0a4664374"
+                ],
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "القاهرة",
+                    "addressCountry": "مصر"
+                }
+            }, {
+                "@type": "Person",
+                "@id": "https://ostazlaw.vercel.app/#founder",
+                "name": "محمود عبد الحميد",
+                "jobTitle": "المحامي بالنقض والدستورية العليا",
+                "worksFor": { "@id": "https://ostazlaw.vercel.app/#organization" },
+                "url": "https://ostazlaw.vercel.app/about.html",
+                "image": {
+                    "@type": "ImageObject",
+                    "url": "https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.jpg",
+                    "caption": "الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا"
+                }
+            }, {
+                "@type": "WebPage",
+                "@id": "https://ostazlaw.vercel.app/article.html#webpage",
+                "url": "https://ostazlaw.vercel.app/article.html",
+                "name": "جاري تحميل المقال...",
+                "description": "تحليل قانوني متخصص في مجال القانون المصري.",
+                "isPartOf": { "@id": "https://ostazlaw.vercel.app/#website" },
+                "about": { "@id": "https://ostazlaw.vercel.app/#organization" }
+            }, {
+                "@type": "Article",
+                "@id": "https://ostazlaw.vercel.app/article.html#article",
+                "headline": "جاري تحميل المقال...",
+                "description": "تحليل قانوني متخصص في مجال القانون المصري.",
+                "author": {
+                    "@type": "Person",
+                    "name": "محمود عبد الحميد"
+                },
+                "publisher": {
+                    "@type": "LegalService",
+                    "name": "مؤسسة الأستاذ محمود عبد الحميد للمحاماة والاستشارات القانونية",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://ostazlaw.vercel.app/logo.png"
+                    }
+                },
+                "isPartOf": { "@id": "https://ostazlaw.vercel.app/#website" }
+            }, {
+                "@type": "WebSite",
+                "@id": "https://ostazlaw.vercel.app/#website",
+                "name": "مؤسسة الأستاذ محمود عبد الحميد للمحاماة والاستشارات القانونية",
+                "url": "https://ostazlaw.vercel.app/",
+                "description": "مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية."
+            }]
+        }
+    </script>
 
-        body {
-            font-family: var(--font-ar);
-            background: var(--warm-off-white);
-            color: var(--charcoal);
-            direction: rtl;
-            min-height: 100vh;
-        }
-
-        /* ===== HEADER (مطابق للصفحة الرئيسية) ===== */
-        .site-header {
-            position: fixed;
-            top: 0;
-            right: 0;
-            left: 0;
-            z-index: 100;
-            background: rgba(11, 17, 27, 0.92);
-            backdrop-filter: blur(12px);
-            padding: 0.7rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.4s var(--ease-out);
-            border-bottom: 1px solid rgba(176, 141, 87, 0.08);
-        }
-        .site-header.scrolled {
-            background: rgba(11, 17, 27, 0.98);
-            padding: 0.4rem 2rem;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-        }
-        .header-brand { display: flex; align-items: center; gap: 1.2rem; }
-        .brand-wordmark {
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            line-height: 1;
-        }
-        .brand-primary {
-            font-family: var(--font-playfair);
-            font-size: 1.2rem;
-            font-weight: 900;
-            color: var(--matte-gold);
-            letter-spacing: 0.1em;
-        }
-        .brand-secondary {
-            font-size: 0.5rem;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.3);
-            letter-spacing: 0.25em;
-        }
-        .header-brand-text { display: flex; flex-direction: column; line-height: 1.2; }
-        .header-brand-text .name {
-            font-family: var(--font-serif);
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: #fff;
-        }
-        .header-brand-text .sub {
-            font-size: 0.6rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.4);
-        }
-
-        .header-nav { display: flex; gap: 0.1rem; align-items: center; }
-        .header-nav a {
-            color: rgba(255, 255, 255, 0.5);
-            text-decoration: none;
-            font-size: 0.75rem;
-            font-weight: 500;
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            transition: all 0.3s;
-        }
-        .header-nav a:hover, .header-nav a.active {
-            color: var(--matte-gold);
-            background: rgba(176, 141, 87, 0.08);
-        }
-        .header-actions { display: flex; gap: 0.5rem; align-items: center; }
-        .menu-toggle {
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 1.3rem;
-            cursor: pointer;
-            padding: 0.3rem 0.6rem;
-            transition: color 0.3s;
-        }
-        .menu-toggle:hover { color: var(--matte-gold); }
-
-        /* ===== MOBILE MENU ===== */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 85%;
-            max-width: 340px;
-            height: 100vh;
-            background: var(--very-dark-navy);
-            z-index: 1001;
-            padding: 2rem 1.5rem;
-            transition: right 0.4s var(--ease-out);
-            overflow-y: auto;
-        }
-        .mobile-menu.open { right: 0; }
-        .mobile-menu-close {
-            background: none;
-            border: none;
-            color: var(--matte-gold);
-            font-size: 1.5rem;
-            float: left;
-            cursor: pointer;
-        }
-        .mobile-menu nav { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 2rem; }
-        .mobile-menu nav a {
-            color: rgba(255, 255, 255, 0.6);
-            text-decoration: none;
-            font-size: 1rem;
-            padding: 0.7rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            transition: color 0.3s;
-        }
-        .mobile-menu nav a:hover { color: var(--matte-gold); }
-
-        /* ===== HERO (مطابق للهيكل الأصلي) ===== */
-        .hero-article {
-            padding: 140px 2rem 4rem;
-            background: var(--very-dark-navy);
-            position: relative;
-            overflow: hidden;
-            min-height: 40vh;
-            display: flex;
-            align-items: center;
-        }
-        .hero-article .hero-pattern {
-            position: absolute;
-            inset: 0;
-            opacity: 0.03;
-            background-image: radial-gradient(circle at 20% 30%, var(--matte-gold) 1px, transparent 1px),
-                              radial-gradient(circle at 80% 70%, var(--matte-gold) 1px, transparent 1px);
-            background-size: 60px 60px;
-            pointer-events: none;
-        }
-        .hero-article .hero-glow {
-            position: absolute;
-            width: 60vw;
-            height: 60vw;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(176, 141, 87, 0.04) 0%, transparent 70%);
-            top: -20%;
-            right: -20%;
-            pointer-events: none;
-            animation: orbFloat 20s ease-in-out infinite alternate;
-        }
-        .hero-article .hero-glow-2 {
-            position: absolute;
-            width: 40vw;
-            height: 40vw;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(176, 141, 87, 0.02) 0%, transparent 70%);
-            bottom: -20%;
-            left: -10%;
-            pointer-events: none;
-            animation: orbFloat 25s ease-in-out infinite alternate-reverse;
-        }
-        @keyframes orbFloat {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(40px, -30px) scale(1.05); }
-        }
-        .hero-article .hero-inner {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-            width: 100%;
-        }
-        .hero-article .hero-title-wrap { text-align: center; }
-        .hero-article .hero-title-wrap .breadcrumb {
-            font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.3);
-            letter-spacing: 0.05em;
-            margin-bottom: 1rem;
-        }
-        .hero-article .hero-title-wrap .breadcrumb a {
-            color: var(--matte-gold);
-            text-decoration: none;
-        }
-        .hero-article .hero-title-wrap h1 {
-            font-family: var(--font-serif);
-            font-size: clamp(1.8rem, 4vw, 3.2rem);
-            font-weight: 900;
-            color: #fff;
-            line-height: 1.3;
-        }
-        .hero-article .hero-title-wrap .meta {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.85rem;
-        }
-        .hero-article .hero-title-wrap .meta span {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        /* ===== ARTICLE CONTENT (الهيكل الأصلي) ===== */
-        .article-section {
-            padding: 4rem 2rem;
-            background: var(--warm-off-white);
-        }
-        .article-section .inner {
-            max-width: 820px;
-            margin: 0 auto;
-        }
-        .article-content {
-            font-family: var(--font-serif);
-            font-size: 1.15rem;
-            line-height: 2.2;
-            color: var(--charcoal);
-            background: var(--pure-white);
-            padding: 3rem 3.5rem;
-            border-radius: 16px;
-            box-shadow: var(--shadow-card);
-            border: 1px solid rgba(0, 0, 0, 0.04);
-        }
-        .article-content h1 {
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--deep-navy);
-            margin-bottom: 1.5rem;
-        }
-        .article-content h2 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--deep-navy);
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-        .article-content h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--deep-navy);
-            margin-top: 1.5rem;
-            margin-bottom: 0.8rem;
-        }
-        .article-content p { margin-bottom: 1.2rem; }
-        .article-content ul, .article-content ol {
-            margin: 1rem 0 1.5rem 0;
-            padding-right: 1.5rem;
-        }
-        .article-content li { margin-bottom: 0.5rem; }
-        .article-content blockquote {
-            border-right: 4px solid var(--matte-gold);
-            padding-right: 1.5rem;
-            margin: 1.5rem 0;
-            background: var(--warm-off-white);
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-            border-radius: 4px;
-            font-style: italic;
-            color: #444;
-        }
-        .article-content img {
-            max-width: 100%;
-            border-radius: 12px;
-            margin: 1.5rem 0;
-        }
-        .article-content table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-        }
-        .article-content table th, .article-content table td {
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            padding: 0.7rem 1rem;
-            text-align: right;
-        }
-        .article-content table th {
-            background: var(--matte-gold-light);
-            font-weight: 700;
-        }
-        .article-content .footnote {
-            font-size: 0.85rem;
-            color: rgba(34, 34, 34, 0.5);
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-            padding-top: 1rem;
-            margin-top: 2rem;
-        }
-        .article-content .loading-spinner {
-            display: inline-block;
-            width: 32px;
-            height: 32px;
-            border: 3px solid rgba(176, 141, 87, 0.15);
-            border-top-color: var(--matte-gold);
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
-
-        /* ===== أزرار المشاركة (كما كانت في الكود الأصلي) ===== */
-        .share-buttons {
-            display: flex;
-            gap: 0.6rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .share-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.4rem 1rem;
-            border-radius: 8px;
-            color: #fff;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        .share-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-        }
-        .share-btn.facebook { background: #1877F2; }
-        .share-btn.twitter { background: #000000; }
-        .share-btn.whatsapp { background: #25D366; }
-        .share-btn.linkedin { background: #0077B5; }
-        .share-btn.telegram { background: #0088cc; }
-        .share-btn.email { background: #6c757d; }
-
-        /* ===== ARTICLE NAV ===== */
-        .article-nav {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        .article-nav a {
-            color: var(--matte-gold);
-            text-decoration: none;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: gap 0.3s;
-        }
-        .article-nav a:hover { gap: 0.8rem; }
-
-        /* ===== FOOTER (مطابق للصفحة الرئيسية) ===== */
-        .site-footer {
-            background: var(--very-dark-navy);
-            color: rgba(255, 255, 255, 0.6);
-            padding: 3rem 2rem 1.5rem;
-        }
-        .footer-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 2rem;
-        }
-        .footer-brand h3 {
-            font-family: var(--font-serif);
-            color: var(--matte-gold);
-            font-size: 1.2rem;
-        }
-        .footer-brand p {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.4);
-            margin-top: 0.3rem;
-        }
-        .footer-brand .social {
-            display: flex;
-            gap: 0.8rem;
-            margin-top: 1rem;
-        }
-        .footer-brand .social a {
-            color: rgba(255, 255, 255, 0.3);
-            transition: color 0.3s;
-            font-size: 1.1rem;
-        }
-        .footer-brand .social a:hover { color: var(--matte-gold); }
-        .footer-col h4 {
-            color: #fff;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-        .footer-col a {
-            display: block;
-            color: rgba(255, 255, 255, 0.4);
-            text-decoration: none;
-            font-size: 0.8rem;
-            padding: 0.3rem 0;
-            transition: color 0.3s;
-        }
-        .footer-col a:hover { color: var(--matte-gold); }
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 2rem auto 0;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: center;
-            font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.2);
-        }
-
-        /* ===== FLOATING BUTTONS ===== */
-        .float-whatsapp {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: #25D366;
-            color: #fff;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            z-index: 50;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-decoration: none;
-        }
-        .float-whatsapp:hover { transform: scale(1.05); box-shadow: 0 6px 30px rgba(37, 211, 102, 0.45); }
-
-        .float-main-btn {
-            position: fixed;
-            bottom: 2rem;
-            left: 2rem;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: var(--deep-navy);
-            color: var(--matte-gold);
-            border: none;
-            font-size: 1.8rem;
-            z-index: 50;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-            cursor: pointer;
-            transition: transform 0.3s, background 0.3s;
-        }
-        .float-main-btn:hover { transform: scale(1.05); }
-        .float-main-btn.active { background: var(--matte-gold); color: #000; transform: rotate(45deg); }
-
-        .float-sub-buttons {
-            position: fixed;
-            bottom: 6rem;
-            left: 2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-            z-index: 49;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.4s var(--ease-out);
-            transform: translateY(20px);
-        }
-        .float-sub-buttons.open {
-            opacity: 1;
-            pointer-events: all;
-            transform: translateY(0);
-        }
-        .float-sub-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
-            transition: transform 0.3s;
-            position: relative;
-        }
-        .float-sub-btn:hover { transform: scale(1.08); }
-        .float-sub-btn .label {
-            position: absolute;
-            left: calc(100% + 12px);
-            background: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            padding: 0.2rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.7rem;
-            white-space: nowrap;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        .float-sub-btn:hover .label { opacity: 1; }
-        .float-sub-btn.phone { background: #34B7F1; }
-        .float-sub-btn.consult { background: var(--matte-gold); }
-        .float-sub-btn.appointment { background: #059669; }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
-            .header-nav { display: none; }
-            .site-header { padding: 0.5rem 1.2rem; }
-            .article-content { padding: 2rem 1.8rem; }
-            .footer-inner { grid-template-columns: 1fr 1fr; }
-        }
-        @media (max-width: 768px) {
-            .hero-article { padding: 120px 1rem 2.5rem; min-height: 30vh; }
-            .hero-article .hero-title-wrap h1 { font-size: 1.6rem; }
-            .article-section { padding: 2rem 1rem; }
-            .article-content { padding: 1.5rem; font-size: 1rem; line-height: 2; }
-            .article-content h1 { font-size: 1.5rem; }
-            .article-content h2 { font-size: 1.3rem; }
-            .footer-inner { grid-template-columns: 1fr; gap: 1.5rem; }
-            .float-whatsapp { width: 48px; height: 48px; font-size: 1.5rem; bottom: 1.2rem; right: 1.2rem; }
-            .float-main-btn { width: 48px; height: 48px; font-size: 1.5rem; bottom: 1.2rem; left: 1.2rem; }
-            .float-sub-buttons { bottom: 5rem; left: 1.2rem; }
-            .float-sub-btn { width: 42px; height: 42px; font-size: 1rem; }
-            .share-btn { font-size: 0.7rem; padding: 0.3rem 0.6rem; }
-        }
-        @media (max-width: 480px) {
-            .brand-primary { font-size: 1rem; }
-            .header-brand-text .name { font-size: 0.7rem; }
-            .header-brand-text .sub { font-size: 0.5rem; }
-            .hero-article .hero-title-wrap .meta { font-size: 0.7rem; gap: 0.8rem; }
-        }
-    </style>
 </head>
 <body>
 
-    <!-- ===== FLOATING BUTTONS ===== -->
+    <!-- ==========================================================
+    الأزرار العائمة (مطابقة للصفحة الرئيسية)
+    ========================================================== -->
+    <!-- زر واتساب -->
     <a href="https://wa.me/201101076000" target="_blank" rel="noopener noreferrer" class="float-whatsapp" aria-label="تواصل عبر واتساب">
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- زر القائمة الرئيسي (+) -->
     <button class="float-main-btn" id="floatMainBtn" aria-label="خيارات التواصل">
         <i class="fas fa-plus"></i>
     </button>
 
+    <!-- الخيارات الفرعية -->
     <div class="float-sub-buttons" id="floatSubBtns">
         <a href="tel:+201101076000" class="float-sub-btn phone" title="اتصال هاتفي">
             <i class="fas fa-phone-alt"></i>
@@ -610,13 +158,34 @@
         </a>
     </div>
 
-    <!-- ===== HEADER ===== -->
+    <!-- ==========================================================
+    زر العودة إلى المكتبة (عائم)
+    ========================================================== -->
+    <a href="blog.html" class="float-back" aria-label="العودة إلى المكتبة" title="العودة إلى المكتبة">
+        <i class="fas fa-arrow-right"></i>
+    </a>
+
+    <!-- ==========================================================
+    أزرار المشاركة الجانبية
+    ========================================================== -->
+    <div class="share-sidebar">
+        <a href="#" id="share-fb" target="_blank" rel="noopener noreferrer" class="share-btn bg-facebook" title="مشاركة عبر فيسبوك"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" id="share-x" target="_blank" rel="noopener noreferrer" class="share-btn bg-twitter" title="مشاركة عبر تويتر"><i class="fab fa-twitter"></i></a>
+        <a href="#" id="share-in" target="_blank" rel="noopener noreferrer" class="share-btn bg-linkedin" title="مشاركة عبر لينكد إن"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" id="share-wa" target="_blank" rel="noopener noreferrer" class="share-btn bg-whatsapp" title="مشاركة عبر واتساب"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" id="share-tg" target="_blank" rel="noopener noreferrer" class="share-btn bg-telegram" title="مشاركة عبر تليجرام"><i class="fab fa-telegram-plane"></i></a>
+    </div>
+
+    <!-- ==========================================================
+    الهيدر الكامل (مطابق للصفحة الرئيسية)
+    ========================================================== -->
     <header class="site-header" id="siteHeader" role="banner">
         <div class="header-brand">
             <a href="https://ostazlaw.vercel.app/" class="brand-wordmark" aria-label="OSTAZ LAW – الصفحة الرئيسية">
                 <span class="brand-primary">OSTAZ</span>
                 <span class="brand-secondary">LAW FIRM</span>
             </a>
+
             <div class="header-brand-text">
                 <span class="name">محمود عبد الحميد</span>
                 <span class="sub">المحامي بالنقض والدستورية العليا</span>
@@ -628,18 +197,22 @@
             <a href="https://ostazlaw.vercel.app/about.html">عن المؤسسة</a>
             <a href="https://ostazlaw.vercel.app/specialties.html">التخصصات</a>
             <a href="https://ostazlaw.vercel.app/sectors.html">قطاعات نخدمها</a>
-            <a href="https://ostazlaw.vercel.app/news-archive.html">الأخبار</a>
-            <a href="https://ostazlaw.vercel.app/blog.html">المكتبة</a>
+            <a href="https://ostazlaw.vercel.app/blog.html" class="active">المكتبة</a>
             <a href="https://ostazlaw.vercel.app/client-inquiry.html">تابع قضيتك</a>
             <a href="https://ostazlaw.vercel.app/contact.html">اتصل بنا</a>
         </nav>
 
         <div class="header-actions">
+            <a href="https://ostazlaw.vercel.app/contact.html?tab=consult" class="btn-consult">طلب استشارة</a>
+            <a href="https://ostazlaw.vercel.app/contact.html?tab=appointment" class="btn-appointment">حجز موعد</a>
+            <a href="tel:+201101076000" class="btn-phone"><i class="fas fa-phone-alt"></i> اتصل بنا</a>
             <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة"><i class="fas fa-bars-staggered"></i></button>
         </div>
     </header>
 
-    <!-- ===== MOBILE MENU ===== -->
+    <!-- ==========================================================
+    القائمة المتنقلة (Mobile Menu)
+    ========================================================== -->
     <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
         <button class="mobile-menu-close" id="menuClose" aria-label="إغلاق القائمة"><i class="fas fa-times"></i></button>
         <nav>
@@ -647,87 +220,70 @@
             <a href="https://ostazlaw.vercel.app/about.html" onclick="closeMobileMenu()">عن المؤسسة</a>
             <a href="https://ostazlaw.vercel.app/specialties.html" onclick="closeMobileMenu()">التخصصات</a>
             <a href="https://ostazlaw.vercel.app/sectors.html" onclick="closeMobileMenu()">قطاعات نخدمها</a>
-            <a href="https://ostazlaw.vercel.app/news-archive.html" onclick="closeMobileMenu()">الأخبار</a>
             <a href="https://ostazlaw.vercel.app/blog.html" onclick="closeMobileMenu()">المكتبة</a>
             <a href="https://ostazlaw.vercel.app/client-inquiry.html" onclick="closeMobileMenu()">تابع قضيتك</a>
             <a href="https://ostazlaw.vercel.app/contact.html" onclick="closeMobileMenu()">اتصل بنا</a>
+            <div class="divider"></div>
+            <div class="actions">
+                <a href="https://ostazlaw.vercel.app/contact.html?tab=consult" class="btn-gold" onclick="closeMobileMenu()">طلب استشارة</a>
+                <a href="https://ostazlaw.vercel.app/contact.html?tab=appointment" class="btn-outline-white" onclick="closeMobileMenu()">حجز موعد</a>
+                <a href="tel:+201101076000" class="btn-outline-white" onclick="closeMobileMenu()"><i class="fas fa-phone-alt" style="margin-left:6px;"></i> اتصل بنا</a>
+            </div>
         </nav>
     </div>
 
-    <!-- ===== HERO ===== -->
-    <section class="hero-article" aria-label="رأس المقالة">
-        <div class="hero-pattern"></div>
-        <div class="hero-glow"></div>
-        <div class="hero-glow-2"></div>
+    <!-- ==========================================================
+    محتوى المقال
+    ========================================================== -->
+    <main class="article-wrapper">
+        <!-- Loader -->
+        <div id="loader" class="text-center py-20" style="padding:3rem 0;">
+            <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-matte-gold" style="border-color:var(--matte-gold);"></div>
+            <p class="mt-4 text-charcoal/50" style="color:rgba(34,34,34,0.5);">جاري تحميل المقال...</p>
+        </div>
 
-        <div class="hero-inner">
-            <div class="hero-title-wrap">
-                <div class="breadcrumb">
-                    <a href="https://ostazlaw.vercel.app/">الرئيسية</a>
-                    <span style="margin:0 0.5rem;">/</span>
-                    <a href="https://ostazlaw.vercel.app/blog.html">المكتبة القانونية</a>
-                    <span style="margin:0 0.5rem;">/</span>
-                    <span id="breadcrumb-title" style="color:rgba(255,255,255,0.3);">جاري التحميل...</span>
-                </div>
-                <h1 id="article-hero-title">جاري تحميل المقال...</h1>
-                <div class="meta" id="article-hero-meta">
-                    <span id="article-author-display"><i class="fas fa-user"></i> جاري التحميل...</span>
-                    <span id="article-date-display"><i class="far fa-calendar-alt"></i> جاري التحميل...</span>
-                    <span id="article-read-time"><i class="far fa-clock"></i> جاري التحميل...</span>
-                </div>
+        <!-- Article Content -->
+        <div id="article-container" class="hidden" style="display:none;">
+            <div class="article-meta">
+                <span><i class="far fa-clock" style="margin-left:4px;"></i> <span id="read-time">0</span> دقائق قراءة</span>
+                <span class="divider"></span>
+                <span>دراسة قانونية متخصصة</span>
+            </div>
+
+            <h1 id="article-title" class="article-title"></h1>
+
+            <div id="article-image" class="article-image"></div>
+
+            <div id="article-body" class="article-body"></div>
+
+            <!-- Back to Library (نصي) -->
+            <div class="text-center mt-10 pt-6 border-t border-charcoal/5" style="border-color:rgba(34,34,34,0.05);">
+                <a href="blog.html" class="btn-outline-gold" style="padding:10px 28px; font-size:0.85rem;">
+                    <i class="fas fa-arrow-right" style="margin-left:6px;"></i> العودة إلى المكتبة
+                </a>
+            </div>
+
+            <!-- CTA -->
+            <div class="article-cta">
+                <h3>هل لديك تساؤل قانوني حول هذا الموضوع؟</h3>
+                <p>يمكنك الحصول على استشارة قانونية دقيقة ومباشرة من الأستاذ محمود عبد الحميد</p>
+                <a href="https://ostazlaw.vercel.app/contact.html?tab=consult" class="btn-gold">احجز استشارتك الآن</a>
             </div>
         </div>
-    </section>
+    </main>
 
-    <!-- ===== ARTICLE CONTENT ===== -->
-    <section class="article-section" aria-label="محتوى المقالة">
-        <div class="inner">
-            <div class="article-content" id="article-container">
-                <div style="text-align:center;padding:3rem 0;">
-                    <span class="loading-spinner"></span>
-                    <p style="margin-top:1.5rem;color:rgba(34,34,34,0.4);">جاري تحميل المقال...</p>
-                </div>
-            </div>
-
-            <!-- ===== أزرار المشاركة (مثل الكود الأصلي) ===== -->
-            <div class="share-buttons" id="shareButtons">
-                <button class="share-btn facebook" onclick="shareArticle('facebook')">
-                    <i class="fab fa-facebook-f"></i> فيسبوك
-                </button>
-                <button class="share-btn twitter" onclick="shareArticle('twitter')">
-                    <i class="fab fa-x-twitter"></i> X
-                </button>
-                <button class="share-btn whatsapp" onclick="shareArticle('whatsapp')">
-                    <i class="fab fa-whatsapp"></i> واتساب
-                </button>
-                <button class="share-btn linkedin" onclick="shareArticle('linkedin')">
-                    <i class="fab fa-linkedin-in"></i> لينكد إن
-                </button>
-                <button class="share-btn telegram" onclick="shareArticle('telegram')">
-                    <i class="fab fa-telegram-plane"></i> تيليجرام
-                </button>
-                <button class="share-btn email" onclick="shareArticle('email')">
-                    <i class="fas fa-envelope"></i> بريد
-                </button>
-            </div>
-
-            <!-- ===== ARTICLE NAV ===== -->
-            <div class="article-nav">
-                <a href="https://ostazlaw.vercel.app/blog.html"><i class="fas fa-arrow-right"></i> العودة إلى المكتبة</a>
-                <a href="https://ostazlaw.vercel.app/contact.html?tab=consult">طلب استشارة <i class="fas fa-arrow-left"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
+    <!-- ==========================================================
+    الفوتر الكامل (مطابق للصفحة الرئيسية)
+    ========================================================== -->
     <footer class="site-footer" role="contentinfo">
         <div class="footer-inner">
             <div class="footer-brand">
+                <img src="logo.png" alt="شعار المؤسسة" width="42" height="42" loading="lazy" />
                 <h3>مؤسسة الأستاذ محمود عبد الحميد</h3>
                 <p>للمحاماة والاستشارات القانونية</p>
                 <div class="social">
                     <a href="https://www.facebook.com/malegal" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://x.com/mahmoud_a_hamyd" target="_blank" rel="noopener noreferrer" aria-label="تويتر"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://x.com/mahmoud_a_hamyd" target="_blank" rel="noopener noreferrer" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
                     <a href="https://t.me/mahmoud_a_hamyd" target="_blank" rel="noopener noreferrer" aria-label="تليجرام"><i class="fab fa-telegram-plane"></i></a>
                     <a href="https://www.linkedin.com/in/mahmoud-abdel-hamid-0a4664374" target="_blank" rel="noopener noreferrer" aria-label="لينكد إن"><i class="fab fa-linkedin-in"></i></a>
                     <a href="mailto:ma.law.firm@outlook.com" aria-label="البريد الإلكتروني"><i class="fas fa-envelope"></i></a>
@@ -735,12 +291,13 @@
             </div>
 
             <div class="footer-col">
-                <h4>روابط سريعة</h4>
+                <h4>روابط</h4>
                 <a href="https://ostazlaw.vercel.app/">الرئيسية</a>
                 <a href="https://ostazlaw.vercel.app/about.html">عن المؤسسة</a>
                 <a href="https://ostazlaw.vercel.app/specialties.html">التخصصات</a>
                 <a href="https://ostazlaw.vercel.app/sectors.html">قطاعات نخدمها</a>
                 <a href="https://ostazlaw.vercel.app/blog.html">المكتبة</a>
+                <a href="https://ostazlaw.vercel.app/client-inquiry.html">تابع قضيتك</a>
                 <a href="https://ostazlaw.vercel.app/contact.html">اتصل بنا</a>
             </div>
 
@@ -756,7 +313,7 @@
                 <h4>اتصال</h4>
                 <a href="tel:+201101076000"><i class="fas fa-phone" style="margin-left:6px;opacity:0.3;"></i> +20 110 107 6000</a>
                 <a href="mailto:ma.law.firm@outlook.com"><i class="fas fa-envelope" style="margin-left:6px;opacity:0.3;"></i> ma.law.firm@outlook.com</a>
-                <a href="https://maps.app.goo.gl/inYTfr9Js78JwXqx5" target="_blank" rel="noopener noreferrer"><i class="fas fa-map-marker-alt" style="margin-left:6px;opacity:0.3;"></i> الموقع الجغرافي</a>
+                <a href="https://maps.app.goo.gl/inYTfr9Js78JwXqx5" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer-when-cross-origin"><i class="fas fa-map-marker-alt" style="margin-left:6px;opacity:0.3;"></i> الموقع الجغرافي</a>
             </div>
         </div>
 
@@ -766,15 +323,15 @@
         </div>
     </footer>
 
-    <!-- ========================================================== -->
-    <!-- JAVASCRIPT -->
-    <!-- ========================================================== -->
+    <!-- ==========================================================
+    جافا سكريبت
+    ========================================================== -->
     <script>
         (function() {
             'use strict';
 
             // ==========================================================
-            // 1. HEADER SCROLL
+            // HEADER SCROLL
             // ==========================================================
             const header = document.getElementById('siteHeader');
             window.addEventListener('scroll', function() {
@@ -782,7 +339,7 @@
             }, { passive: true });
 
             // ==========================================================
-            // 2. MOBILE MENU
+            // MOBILE MENU
             // ==========================================================
             const mobileMenu = document.getElementById('mobileMenu');
             const menuToggle = document.getElementById('menuToggle');
@@ -805,7 +362,7 @@
             });
 
             // ==========================================================
-            // 3. FLOATING BUTTONS
+            // FLOATING MAIN BUTTON
             // ==========================================================
             const mainBtn = document.getElementById('floatMainBtn');
             const subBtns = document.getElementById('floatSubBtns');
@@ -838,180 +395,175 @@
             }
 
             // ==========================================================
-            // 4. CONFIG
+            // REVEAL
             // ==========================================================
-            const CONFIG = {
-                owner: 'malegal',
-                repo: 'mahmoud-legal',
-                branch: 'main',
-                path: 'blog/articles'
-            };
-
-            // ==========================================================
-            // 5. PARSE FRONT MATTER
-            // ==========================================================
-            function parseFrontMatter(content) {
-                const yamlMatch = content.match(/---\s*([\s\S]*?)\s*---/);
-                if (!yamlMatch) {
-                    return { frontMatter: {}, body: content };
-                }
-
-                const frontMatterText = yamlMatch[1];
-                const body = content.replace(/---\s*[\s\S]*?\s*---/, '').trim();
-                const frontMatter = {};
-
-                const fields = ['title', 'date', 'author', 'description', 'image', 'tags', 'status', 'category',
-                    'seoKeyword'
-                ];
-                fields.forEach(field => {
-                    const regex = new RegExp(`^${field}:\\s*(.*)`, 'mi');
-                    const match = frontMatterText.match(regex);
-                    if (match) {
-                        let value = match[1].replace(/['"]/g, '').trim();
-                        if (field === 'tags') {
-                            value = value.split(',').map(t => t.trim());
-                        }
-                        frontMatter[field] = value;
+            const revealObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        revealObserver.unobserve(entry.target);
                     }
                 });
+            }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
 
-                return { frontMatter, body };
-            }
+            document.querySelectorAll('.reveal').forEach(function(el) {
+                revealObserver.observe(el);
+            });
 
             // ==========================================================
-            // 6. LOAD ARTICLE
+            // GOLD UNDERLINE SCROLL
             // ==========================================================
-            async function loadArticle() {
-                const params = new URLSearchParams(window.location.search);
-                const slug = params.get('slug');
+            const goldElements = document.querySelectorAll('.gold-underline, .header-nav a, .footer-col a, .btn-gold, .btn-outline-gold, .btn-outline-white');
 
-                const container = document.getElementById('article-container');
-                const heroTitle = document.getElementById('article-hero-title');
-                const breadcrumbTitle = document.getElementById('breadcrumb-title');
-                const authorDisplay = document.getElementById('article-author-display');
-                const dateDisplay = document.getElementById('article-date-display');
-                const readTimeDisplay = document.getElementById('article-read-time');
+            const scrollObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('scroll-visible');
+                        setTimeout(function() {
+                            entry.target.classList.remove('scroll-visible');
+                        }, 1500);
+                    }
+                });
+            }, { threshold: 0.3, rootMargin: '0px 0px -50px 0px' });
 
+            goldElements.forEach(function(el) {
+                scrollObserver.observe(el);
+            });
+
+            // ==========================================================
+            // FETCH ARTICLE
+            // ==========================================================
+            async function fetchArticle() {
+                const slug = new URLSearchParams(window.location.search).get('slug');
                 if (!slug) {
-                    container.innerHTML =
-                        `<div style="text-align:center;padding:3rem 0;"><i class="fas fa-exclamation-triangle text-3xl text-red-400"></i><p style="margin-top:1rem;color:var(--charcoal);font-size:1.1rem;">❌ لم يتم تحديد المقال.</p><p style="color:rgba(34,34,34,0.4);">الرجاء العودة إلى <a href="blog.html" style="color:var(--matte-gold);">المكتبة</a></p></div>`;
-                    heroTitle.textContent = '⚠️ المقال غير موجود';
-                    breadcrumbTitle.textContent = 'خطأ';
+                    document.getElementById('loader').innerHTML = '<p class="text-red-500" style="color:#dc2626;">لم يتم تحديد المقال.</p>';
                     return;
                 }
 
+                const owner = 'malegal';
+                const repo = 'mahmoud-legal';
+                const baseUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main/blog/articles`;
+
                 try {
-                    const url =
-                        `https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${CONFIG.path}/${slug}.md?ref=${CONFIG.branch}`;
-                    const response = await fetch(url);
+                    const response = await fetch(`${baseUrl}/${slug}.md`);
+                    if (!response.ok) throw new Error('المقال غير موجود');
 
-                    if (!response.ok) {
-                        if (response.status === 404) {
-                            throw new Error('المقال غير موجود');
-                        }
-                        throw new Error(`فشل التحميل (${response.status})`);
+                    let md = await response.text();
+
+                    // ==========================================================
+                    // EXTRACT FRONT MATTER
+                    // ==========================================================
+                    let title = '';
+                    let image = '';
+                    let description = '';
+                    const yamlMatch = md.match(/^---\s*([\s\S]*?)\s*---/);
+                    if (yamlMatch) {
+                        const frontMatter = yamlMatch[1];
+                        const titleMatch = frontMatter.match(/title:\s*(.*)/i);
+                        if (titleMatch) title = titleMatch[1].replace(/['"]/g, '').trim();
+                        const imageMatch = frontMatter.match(/image:\s*(.*)/i);
+                        if (imageMatch) image = imageMatch[1].replace(/['"]/g, '').trim();
+                        const descMatch = frontMatter.match(/description:\s*(.*)/i);
+                        if (descMatch) description = descMatch[1].replace(/['"]/g, '').trim();
+                        md = md.replace(/^---\s*[\s\S]*?\s*---/, '');
                     }
 
-                    const data = await response.json();
-                    const rawContent = atob(data.content);
+                    if (!title) title = decodeURIComponent(slug.replace(/-/g, ' '));
+                    if (!description) description = 'تحليل قانوني متخصص في مجال القانون المصري.';
 
-                    // استخراج البيانات الوصفية والمحتوى
-                    const { frontMatter, body } = parseFrontMatter(rawContent);
+                    // ==========================================================
+                    // UPDATE META TAGS (SEO)
+                    // ==========================================================
+                    document.title = title + ' | الأستاذ محمود عبد الحميد';
+                    document.querySelector('meta[name="description"]').setAttribute('content', description);
+                    document.querySelector('link[rel="canonical"]').setAttribute('href',
+                        `https://ostazlaw.vercel.app/article.html?slug=${slug}`);
+                    document.querySelector('meta[property="og:title"]').setAttribute('content', title);
+                    document.querySelector('meta[property="og:description"]').setAttribute('content', description);
+                    document.querySelector('meta[property="og:url"]').setAttribute('content',
+                        `https://ostazlaw.vercel.app/article.html?slug=${slug}`);
+                    if (image) {
+                        document.querySelector('meta[property="og:image"]').setAttribute('content', image);
+                    }
 
-                    const title = frontMatter.title || slug.replace(/-/g, ' ');
-                    const author = frontMatter.author || 'الأستاذ / محمود عبد الحميد';
-                    const date = frontMatter.date || '';
-                    const description = frontMatter.description || '';
+                    // ==========================================================
+                    // UPDATE JSON-LD
+                    // ==========================================================
+                    const jsonLd = document.getElementById('json-ld');
+                    if (jsonLd) {
+                        try {
+                            const data = JSON.parse(jsonLd.textContent);
+                            if (data['@graph']) {
+                                const article = data['@graph'].find(item => item['@type'] === 'Article');
+                                if (article) {
+                                    article.headline = title;
+                                    article.description = description;
+                                    if (image) article.image = image;
+                                }
+                                const webpage = data['@graph'].find(item => item['@type'] === 'WebPage');
+                                if (webpage) {
+                                    webpage.name = title;
+                                    webpage.description = description;
+                                }
+                                jsonLd.textContent = JSON.stringify(data);
+                            }
+                        } catch (e) { /* ignore */ }
+                    }
 
-                    // ===== تحديث SEO =====
-                    document.title = `${title} | OSTAZ LAW`;
-                    document.getElementById('page-title').textContent = `${title} | OSTAZ LAW`;
-                    document.getElementById('page-description').content = description || `مقال قانوني متخصص بعنوان "${title}"`;
-                    document.getElementById('og-title').content = title;
-                    document.getElementById('og-description').content = description || `مقال قانوني متخصص بعنوان "${title}"`;
-                    document.getElementById('og-url').content = `https://ostazlaw.vercel.app/article.html?slug=${slug}`;
-                    document.getElementById('page-canonical').href =
-                    `https://ostazlaw.vercel.app/article.html?slug=${slug}`;
+                    // ==========================================================
+                    // RENDER ARTICLE
+                    // ==========================================================
+                    document.getElementById('article-title').textContent = title;
 
-                    // ===== تحديث الهيرو =====
-                    heroTitle.textContent = title;
-                    breadcrumbTitle.textContent = title;
-                    authorDisplay.innerHTML = `<i class="fas fa-user"></i> ${author}`;
-
-                    if (date) {
-                        const d = new Date(date);
-                        if (!isNaN(d.getTime())) {
-                            dateDisplay.innerHTML =
-                                `<i class="far fa-calendar-alt"></i> ${d.toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' })}`;
-                        } else {
-                            dateDisplay.innerHTML = `<i class="far fa-calendar-alt"></i> ${date}`;
-                        }
+                    const imageContainer = document.getElementById('article-image');
+                    if (image) {
+                        imageContainer.innerHTML =
+                            `<img src="${image}" alt="${title}" loading="lazy" onerror="this.style.display='none'" />`;
+                        imageContainer.style.display = 'block';
                     } else {
-                        dateDisplay.innerHTML = `<i class="far fa-calendar-alt"></i> غير محدد`;
+                        imageContainer.style.display = 'none';
                     }
 
-                    // ===== حساب وقت القراءة =====
-                    const wordCount = body.split(/\s+/).length;
-                    const readTime = Math.ceil(wordCount / 200) || 1;
-                    readTimeDisplay.innerHTML = `<i class="far fa-clock"></i> ${readTime} دقيقة قراءة`;
+                    const rawHtml = marked.parse(md);
+                    const sanitizedHtml = DOMPurify.sanitize(rawHtml, {
+                        ALLOWED_TAGS: [
+                            'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+                            'ul', 'ol', 'li', 'blockquote', 'table', 'thead', 'tbody', 'tr', 'th', 'td',
+                            'strong', 'em', 'u', 'br', 'hr', 'a', 'img', 'code', 'pre', 'span', 'div'
+                        ],
+                        ALLOWED_ATTR: ['href', 'target', 'src', 'alt', 'title', 'class', 'style']
+                    });
+                    document.getElementById('article-body').innerHTML = sanitizedHtml;
 
-                    // ===== عرض المحتوى باستخدام marked =====
-                    container.innerHTML = marked.parse(body, { sanitize: false });
+                    const words = md.split(/\s+/).length;
+                    document.getElementById('read-time').textContent = Math.ceil(words / 200) || 1;
+
+                    // ==========================================================
+                    // UPDATE SHARE BUTTONS
+                    // ==========================================================
+                    const url = encodeURIComponent(`https://ostazlaw.vercel.app/article.html?slug=${slug}`);
+                    const encodedTitle = encodeURIComponent(title);
+                    document.getElementById('share-wa').href = `https://wa.me/?text=${encodedTitle}%20${url}`;
+                    document.getElementById('share-tg').href = `https://t.me/share/url?url=${url}&text=${encodedTitle}`;
+                    document.getElementById('share-fb').href = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    document.getElementById('share-in').href =
+                        `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${encodedTitle}`;
+                    document.getElementById('share-x').href = `https://x.com/intent/tweet?url=${url}&text=${encodedTitle}`;
+
+                    // ==========================================================
+                    // SHOW ARTICLE
+                    // ==========================================================
+                    document.getElementById('loader').style.display = 'none';
+                    document.getElementById('article-container').style.display = 'block';
 
                 } catch (error) {
-                    console.error('❌ خطأ في تحميل المقال:', error);
-                    container.innerHTML = `
-                        <div style="text-align:center;padding:3rem 0;">
-                            <i class="fas fa-exclamation-triangle text-3xl text-red-400"></i>
-                            <p style="margin-top:1rem;color:var(--charcoal);font-size:1.1rem;">❌ ${error.message}</p>
-                            <p style="color:rgba(34,34,34,0.4);margin-top:0.5rem;">الرجاء العودة إلى <a href="blog.html" style="color:var(--matte-gold);">المكتبة</a></p>
-                        </div>
-                    `;
-                    heroTitle.textContent = '⚠️ تعذر تحميل المقال';
-                    breadcrumbTitle.textContent = 'خطأ';
+                    console.error('Error loading article:', error);
+                    document.getElementById('loader').innerHTML =
+                        '<p class="text-red-500" style="color:#dc2626;">نعتذر، فشل تحميل المقال. يرجى المحاولة لاحقاً.</p>';
                 }
             }
 
-            // ==========================================================
-            // 7. SHARE FUNCTION (مثل الكود الأصلي)
-            // ==========================================================
-            window.shareArticle = function(platform) {
-                const url = encodeURIComponent(window.location.href);
-                const title = encodeURIComponent(document.title);
-                let shareUrl = '';
-
-                switch (platform) {
-                    case 'facebook':
-                        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-                        break;
-                    case 'twitter':
-                        shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
-                        break;
-                    case 'whatsapp':
-                        shareUrl = `https://api.whatsapp.com/send?text=${title}%20${url}`;
-                        break;
-                    case 'linkedin':
-                        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
-                        break;
-                    case 'telegram':
-                        shareUrl = `https://t.me/share/url?url=${url}&text=${title}`;
-                        break;
-                    case 'email':
-                        shareUrl = `mailto:?subject=${title}&body=${title}%0A%0A${decodeURIComponent(url)}`;
-                        break;
-                    default:
-                        return;
-                }
-
-                if (shareUrl) {
-                    window.open(shareUrl, '_blank', 'width=600,height=500');
-                }
-            };
-
-            // ==========================================================
-            // 8. التهيئة
-            // ==========================================================
-            document.addEventListener('DOMContentLoaded', loadArticle);
+            fetchArticle();
 
         })();
     </script>
