@@ -1673,6 +1673,100 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* ==========================================================
+   SKELETON LOADERS – تحسين CLS
+   ========================================================== */
+.skeleton-card {
+    background: var(--pure-white);
+    border-radius: 10px;
+    padding: 1.2rem;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+.skeleton-image {
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 8px;
+}
+.skeleton-title {
+    height: 20px;
+    width: 80%;
+    background: #e0e0e0;
+    border-radius: 4px;
+    margin: 12px 0 8px;
+}
+.skeleton-meta {
+    height: 14px;
+    width: 50%;
+    background: #e0e0e0;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+.skeleton-excerpt {
+    height: 40px;
+    width: 100%;
+    background: #e0e0e0;
+    border-radius: 4px;
+}
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* ==========================================================
+   VIRTUALIZED LIST – تحسين DOM Size
+   ========================================================== */
+.virtualized-list {
+    width: 100%;
+}
+.virtualized-list > div {
+    overflow-y: auto !important;
+}
+.virtualized-list .blog-list-item {
+    padding: 0.5rem 0;
+}
+
+/* ==========================================================
+   NOTIFICATIONS – تحسين ARIA Live Regions
+   ========================================================== */
+.notification {
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+.notification-success {
+    background: #d4edda;
+    color: #155724;
+    border-right: 4px solid #28a745;
+}
+.notification-error {
+    background: #f8d7da;
+    color: #721c24;
+    border-right: 4px solid #dc3545;
+}
+.notification-info {
+    background: #d1ecf1;
+    color: #0c5460;
+    border-right: 4px solid #17a2b8;
+}
+
+/* ==========================================================
+   MAP PLACEHOLDER – للتحميل الكسول
+   ========================================================== */
+.map-placeholder {
+    height: 350px;
+    background: var(--light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    color: rgba(34, 34, 34, 0.3);
+    font-weight: 700;
+}
+
+/* ==========================================================
    RESPONSIVE – التجاوب مع جميع أحجام الشاشات
    ========================================================== */
 @media (max-width: 1024px) {
