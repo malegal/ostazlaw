@@ -6,31 +6,27 @@ export default function Document() {
       <Head>
         {/* ===== Preconnect ===== */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
 
-        {/* ===== Preload للخطوط الأساسية (تحميل مسبق) ===== */}
+        {/* ===== Preload للخطوط الأساسية (Tajawal و Amiri) ===== */}
         <link
           rel="preload"
-          href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;900&family=Tajawal:wght@300;400;500;700;800;900&family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Amiri:wght@400;700;900&display=swap"
           as="style"
           fetchPriority="high"
         />
 
-        {/* ===== Google Fonts مع display=swap ===== */}
+        {/* ===== Google Fonts مع display=swap وتحسين الأداء ===== */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;900&family=Tajawal:wght@300;400;500;700;800;900&family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Amiri:wght@400;700;900&family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;700&display=swap"
           rel="stylesheet"
           media="print"
           onLoad="this.media='all'"
         />
         <noscript>
           <link
-            href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;900&family=Tajawal:wght@300;400;500;700;800;900&family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Amiri:wght@400;700;900&family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;700&display=swap"
             rel="stylesheet"
           />
         </noscript>
@@ -98,7 +94,7 @@ export default function Document() {
         />
         <meta name="twitter:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
 
-        {/* ===== بيانات منظمة (JSON-LD) للمؤسسة ===== */}
+        {/* ===== بيانات منظمة (JSON-LD) ===== */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -140,38 +136,6 @@ export default function Document() {
                 ],
               },
             }),
-          }}
-        />
-
-        {/* ===== إضافة font-display لجميع الخطوط ===== */}
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `
-              @font-face {
-                font-family: 'Amiri';
-                font-display: swap;
-              }
-              @font-face {
-                font-family: 'Tajawal';
-                font-display: swap;
-              }
-              @font-face {
-                font-family: 'Playfair Display';
-                font-display: swap;
-              }
-              @font-face {
-                font-family: 'Montserrat';
-                font-display: swap;
-              }
-              @font-face {
-                font-family: 'Font Awesome 6 Free';
-                font-display: swap;
-              }
-              @font-face {
-                font-family: 'Font Awesome 6 Brands';
-                font-display: swap;
-              }
-            `,
           }}
         />
       </Head>
