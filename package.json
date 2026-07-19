@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "next": "14.2.5",
@@ -14,8 +15,13 @@
     "gray-matter": "^4.0.3",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
-    "@supabase/supabase-js": "^2.43.5",
-    "swr": "^2.2.5",
-    "react-window": "^1.8.10"
+    "@supabase/supabase-js": "^2.43.5"
+  },
+  "devDependencies": {
+    "@next/eslint-plugin-next": "14.2.5",
+    "eslint": "8.57.0",
+    "eslint-config-next": "14.2.5",
+    "next-sitemap": "4.2.3",
+    "sharp": "0.33.4"
   }
 }
