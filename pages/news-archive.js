@@ -2,7 +2,6 @@ import Layout from '../components/Layout';
 import Link from 'next/link';
 import Head from 'next/head';
 import { useEffect } from 'react';
-import { FixedSizeList as List } from 'react-window';
 import { getAllNews } from '../lib/github';
 
 export default function NewsArchive({ newsItems }) {
@@ -26,36 +25,6 @@ export default function NewsArchive({ newsItems }) {
     'إنجاز قضائي': 'background:var(--matte-gold); color:#000;',
     'فعالية': 'background:var(--deep-navy); color:#fff;',
     'تطوير': 'background:var(--very-dark-navy); color:#fff;',
-  };
-
-  // مكون الصف للقائمة الافتراضية
-  const Row = ({ index, style, data }) => {
-    const item = data[index];
-    const badgeStyle = badgeColors[item.category] || 'background:var(--matte-gold); color:#000;';
-    return (
-      <div style={style} className="news-list-item">
-        <div className="sector-link" style={{ display: 'block' }}>
-          <Link href={`/news/${item.slug}`} style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
-            <div className="experience-card reveal" style={{ textAlign: 'right', position: 'relative' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-                <span style={{ ...badgeStyle, padding: '0.1rem 0.8rem', borderRadius: '20px', fontSize: '0.6rem', fontWeight: '800' }}>
-                  {item.category || 'خبر'}
-                </span>
-                <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)' }}>
-                  {item.date ? new Date(item.date).toLocaleDateString('ar-EG') : ''}
-                </span>
-              </div>
-              <span className="icon"><i className={`fas ${item.icon || 'fa-newspaper'}`} style={{ fontSize: '1.5rem' }}></i></span>
-              <h4>{item.title}</h4>
-              <p>{item.description || ''}</p>
-              <span style={{ color: 'var(--matte-gold)', fontWeight: '700', fontSize: '0.8rem', marginTop: '0.5rem', display: 'inline-block' }}>
-                اقرأ التفاصيل ←
-              </span>
-            </div>
-          </Link>
-        </div>
-      </div>
-    );
   };
 
   return (
@@ -144,7 +113,6 @@ export default function NewsArchive({ newsItems }) {
         />
       </Head>
 
-      {/* Hero */}
       <section className="hero-blog" aria-label="أرشيف الأخبار والإنجازات">
         <div className="hero-pattern"></div>
         <div className="hero-glow"></div>
@@ -158,25 +126,41 @@ export default function NewsArchive({ newsItems }) {
         </div>
       </section>
 
-      {/* News Grid with Virtualization */}
       <section className="blog-section" aria-label="قائمة الأخبار">
         <div className="inner">
-          {newsItems.length === 0 ? (
-            <div className="text-center py-10">
-              <p className="text-charcoal/50">لا توجد أخبار حالياً.</p>
-            </div>
-          ) : (
-            <List
-              height={800}
-              itemCount={newsItems.length}
-              itemSize={220}
-              width="100%"
-              itemData={newsItems}
-              className="virtualized-list"
-            >
-              {Row}
-            </List>
-          )}
+          <div className="experience-grid">
+            {newsItems.length === 0 ? (
+              <div className="col-span-full text-center py-10">
+                <p className="text-charcoal/50">لا توجد أخبار حالياً.</p>
+              </div>
+            ) : (
+              newsItems.map((item) => {
+                const badgeStyle = badgeColors[item.category] || 'background:var(--matte-gold); color:#000;';
+                return (
+                  <div className="sector-link" key={item.slug} style={{ display: 'block' }}>
+                    <Link href={`/news/${item.slug}`} style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
+                      <div className="experience-card reveal" style={{ textAlign: 'right', position: 'relative' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+                          <span style={{ ...badgeStyle, padding: '0.1rem 0.8rem', borderRadius: '20px', fontSize: '0.6rem', fontWeight: '800' }}>
+                            {item.category || 'خبر'}
+                          </span>
+                          <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)' }}>
+                            {item.date ? new Date(item.date).toLocaleDateString('ar-EG') : ''}
+                          </span>
+                        </div>
+                        <span className="icon"><i className={`fas ${item.icon || 'fa-newspaper'}`} style={{ fontSize: '1.5rem' }}></i></span>
+                        <h4>{item.title}</h4>
+                        <p>{item.description || ''}</p>
+                        <span style={{ color: 'var(--matte-gold)', fontWeight: '700', fontSize: '0.8rem', marginTop: '0.5rem', display: 'inline-block' }}>
+                          اقرأ التفاصيل ←
+                        </span>
+                      </div>
+                    </Link>
+                  </div>
+                );
+              })
+            )}
+          </div>
         </div>
       </section>
 
@@ -262,6 +246,7 @@ export default function NewsArchive({ newsItems }) {
           margin: 0.8rem auto 0;
           line-height: 1.7;
         }
+
         .blog-section {
           padding: 5rem 2rem;
           background: var(--warm-off-white);
@@ -269,6 +254,12 @@ export default function NewsArchive({ newsItems }) {
         .blog-section .inner {
           max-width: 1200px;
           margin: 0 auto;
+        }
+
+        .experience-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.2rem;
         }
         .sector-link {
           display: block;
@@ -328,15 +319,14 @@ export default function NewsArchive({ newsItems }) {
           font-weight: 700;
           line-height: 1.7;
         }
-        .news-list-item {
-          padding: 0.3rem 0;
-        }
-        .text-center { text-align: center; }
-        .py-10 { padding: 2.5rem 0; }
-        .text-charcoal\\/50 { color: rgba(34, 34, 34, 0.5); }
+
         @media (max-width: 820px) {
           .hero-blog { padding: 100px 1rem 3rem; min-height: 35vh; }
           .blog-section { padding: 2.5rem 1rem; }
+          .experience-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 640px) {
+          .experience-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
         }
       `}</style>
     </Layout>
