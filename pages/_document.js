@@ -9,29 +9,21 @@ export default function Document() {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
 
-        {/* ===== Preload للخطوط الأساسية (Tajawal و Amiri) ===== */}
+        {/* ===== تحميل Google Fonts بشكل غير متزامن ===== */}
         <link
-          rel="preload"
-          href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Amiri:wght@400;700;900&display=swap"
-          as="style"
-          fetchPriority="high"
-        />
-
-        {/* ===== Google Fonts مع display=swap وتحسين الأداء ===== */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Amiri:wght@400;700;900&family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;700&display=swap"
           rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Amiri:wght@400;700;900&family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;700&display=swap"
           media="print"
           onLoad="this.media='all'"
         />
         <noscript>
           <link
-            href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Amiri:wght@400;700;900&family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;700&display=swap"
             rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Amiri:wght@400;700;900&family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;700&display=swap"
           />
         </noscript>
 
-        {/* ===== Font Awesome – تحميل غير متزامن مع display=swap ===== */}
+        {/* ===== تحميل Font Awesome بشكل غير متزامن ===== */}
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -40,7 +32,6 @@ export default function Document() {
           referrerPolicy="no-referrer"
           media="print"
           onLoad="this.media='all'"
-          fetchPriority="low"
         />
         <noscript>
           <link
@@ -94,7 +85,7 @@ export default function Document() {
         />
         <meta name="twitter:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
 
-        {/* ===== بيانات منظمة (JSON-LD) ===== */}
+        {/* ===== JSON-LD ===== */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
