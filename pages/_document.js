@@ -6,10 +6,14 @@ export default function Document() {
       <Head>
         {/* ===== Preconnect ===== */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
 
-        {/* ===== Preload للخطوط الأساسية ===== */}
+        {/* ===== Preload للخطوط الأساسية (تحميل مسبق) ===== */}
         <link
           rel="preload"
           href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;900&family=Tajawal:wght@300;400;500;700;800;900&family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;700&display=swap"
@@ -136,6 +140,38 @@ export default function Document() {
                 ],
               },
             }),
+          }}
+        />
+
+        {/* ===== إضافة font-display لجميع الخطوط ===== */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              @font-face {
+                font-family: 'Amiri';
+                font-display: swap;
+              }
+              @font-face {
+                font-family: 'Tajawal';
+                font-display: swap;
+              }
+              @font-face {
+                font-family: 'Playfair Display';
+                font-display: swap;
+              }
+              @font-face {
+                font-family: 'Montserrat';
+                font-display: swap;
+              }
+              @font-face {
+                font-family: 'Font Awesome 6 Free';
+                font-display: swap;
+              }
+              @font-face {
+                font-family: 'Font Awesome 6 Brands';
+                font-display: swap;
+              }
+            `,
           }}
         />
       </Head>
