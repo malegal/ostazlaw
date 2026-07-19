@@ -27,7 +27,6 @@ export default function Header() {
     document.body.style.overflow = '';
   };
 
-  // إغلاق القائمة بالضغط على Escape
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === 'Escape' && menuOpen) closeMenu();
