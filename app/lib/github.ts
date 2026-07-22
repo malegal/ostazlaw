@@ -8,7 +8,7 @@ interface FileData {
   type: 'file' | 'dir';
 }
 
-interface ArticleMeta {
+export interface ArticleMeta {
   slug: string;
   title: string;
   description: string;
@@ -19,7 +19,7 @@ interface ArticleMeta {
   tags?: string[];
 }
 
-interface NewsMeta extends ArticleMeta {
+export interface NewsMeta extends ArticleMeta {
   category?: string;
   icon?: string;
 }
@@ -30,7 +30,7 @@ function extractFrontMatter(content: string): { meta: any; body: string } {
   const front = match[1];
   const body = content.replace(/^---\s*[\s\S]*?\s*---/, '');
   const meta: any = {};
-  front.split('\n').forEach(line => {
+  front.split('\n').forEach((line) => {
     const [key, ...val] = line.split(':');
     if (key && val.length) meta[key.trim()] = val.join(':').replace(/['"]/g, '').trim();
   });
@@ -54,7 +54,7 @@ async function fetchFileContent(url: string): Promise<string> {
 
 export async function getArticles(): Promise<ArticleMeta[]> {
   const files = await fetchFiles('blog/articles');
-  const mdFiles = files.filter(f => f.type === 'file' && f.name.endsWith('.md'));
+  const mdFiles = files.filter((f) => f.type === 'file' && f.name.endsWith('.md'));
   const results: ArticleMeta[] = [];
   for (const file of mdFiles) {
     const content = await fetchFileContent(file.download_url);
@@ -70,7 +70,6 @@ export async function getArticles(): Promise<ArticleMeta[]> {
       tags: meta.tags ? meta.tags.split(',').map((t: string) => t.trim()) : [],
     });
   }
-  // ترتيب حسب التاريخ تنازلياً (الأحدث أولاً)
   results.sort((a, b) => (b.date && a.date ? new Date(b.date).getTime() - new Date(a.date).getTime() : 0));
   return results;
 }
@@ -100,7 +99,7 @@ export async function getArticle(slug: string): Promise<{ meta: ArticleMeta; con
 
 export async function getNews(): Promise<NewsMeta[]> {
   const files = await fetchFiles('blog/news');
-  const mdFiles = files.filter(f => f.type === 'file' && f.name.endsWith('.md'));
+  const mdFiles = files.filter((f) => f.type === 'file' && f.name.endsWith('.md'));
   const results: NewsMeta[] = [];
   for (const file of mdFiles) {
     const content = await fetchFileContent(file.download_url);
