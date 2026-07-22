@@ -4,13 +4,20 @@ const nextConfig = {
   images: {
     domains: ['raw.githubusercontent.com', 'github.com'],
     formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60,
   },
   swcMinify: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   poweredByHeader: false,
-  // إزالة redirects التي تسبب الخطأ
+  // إضافة output: 'standalone' لتحسين النشر
+  output: 'standalone',
+  // تحسين تجميع CSS
+  experimental: {
+    optimizeCss: true,
+  },
+  // إزالة redirects نهائياً
   async redirects() {
     return [];
   },
