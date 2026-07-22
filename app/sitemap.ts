@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/client-inquiry',
     '/client-inquiry-result',
   ];
-  return pages.map(page => ({
+  return pages.map((page) => ({
     url: `${baseUrl}${page}`,
     lastModified: new Date(),
     changeFrequency: page === '' ? 'weekly' : 'monthly',
