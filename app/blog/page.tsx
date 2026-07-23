@@ -35,8 +35,8 @@ export default async function BlogPage() {
             {articles.length === 0 ? (
               <div className="col-span-full text-center py-16">
                 <i className="fas fa-book-open text-4xl text-matte-gold/30 mb-4"></i>
-                <p className="text-charcoal/50">لا توجد مقالات قانونية حالياً</p>
-                <p className="text-charcoal/30 text-sm mt-2">سيتم نشر محتوى جديد قريباً</p>
+                <p className="text-charcoal/50 text-2xl font-bold">قريباً</p>
+                <p className="text-charcoal/30 text-sm mt-2">سيتم نشر مقالات قانونية جديدة</p>
               </div>
             ) : (
               articles.map((article, index) => (
@@ -66,7 +66,7 @@ export default async function BlogPage() {
         </div>
       </section>
 
-      {/* ===== أنماط إضافية مدمجة لهذه الصفحة ===== */}
+      {/* ===== أنماط إضافية ===== */}
       <style>{`
         .hero-blog {
           padding: 120px 2rem 4rem;
