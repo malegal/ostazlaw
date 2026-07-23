@@ -31,7 +31,8 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
   if (!news) notFound();
 
   const { meta, content } = news;
-  const html = marked(content);
+  // ✅ إصلاح: استخدام marked.parse() للحصول على string مباشرة
+  const html = marked.parse(content) as string;
   const sanitizedHtml = DOMPurify.sanitize(html);
 
   return (
