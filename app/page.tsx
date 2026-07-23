@@ -87,7 +87,10 @@ export default function HomePage() {
     };
     if (mainBtn) mainBtn.addEventListener('click', toggleFloating);
     document.addEventListener('click', (e) => {
-      if (!e.target.closest('#floatMainBtn') && !e.target.closest('#floatSubBtns')) closeFloating();
+      // ✅ إصلاح الخطأ: استخدام e.target?.closest بدلاً من e.target.closest
+      if (!e.target?.closest('#floatMainBtn') && !e.target?.closest('#floatSubBtns')) {
+        closeFloating();
+      }
     });
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeFloating();
@@ -102,7 +105,7 @@ export default function HomePage() {
       const newsContainer = document.getElementById('homeNews');
 
       // Extract date from file (simplified)
-      function extractDateFromFile(file, content) {
+      function extractDateFromFile(file: any, content: string) {
         const yamlMatch = content.match(/---\s*([\s\S]*?)\s*---/);
         if (yamlMatch) {
           const dateMatch = yamlMatch[1].match(/date:\s*(.*)/i);
@@ -131,8 +134,8 @@ export default function HomePage() {
           const articlesRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/blog/articles?ref=${branch}`);
           if (!articlesRes.ok) throw new Error('Failed to fetch articles');
           const articlesData = await articlesRes.json();
-          let mdFiles = articlesData.filter(f => f.type === 'file' && f.name.endsWith('.md'));
-          const filesWithDate = [];
+          let mdFiles = articlesData.filter((f: any) => f.type === 'file' && f.name.endsWith('.md'));
+          const filesWithDate: any[] = [];
           for (const file of mdFiles) {
             try {
               const contentRes = await fetch(file.download_url);
@@ -206,8 +209,8 @@ export default function HomePage() {
           const newsRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/blog/news?ref=${branch}`);
           if (!newsRes.ok) throw new Error('Failed to fetch news');
           const newsData = await newsRes.json();
-          let newsFiles = newsData.filter(f => f.type === 'file' && f.name.endsWith('.md'));
-          const filesWithDate = [];
+          let newsFiles = newsData.filter((f: any) => f.type === 'file' && f.name.endsWith('.md'));
+          const filesWithDate: any[] = [];
           for (const file of newsFiles) {
             try {
               const contentRes = await fetch(file.download_url);
@@ -252,7 +255,7 @@ export default function HomePage() {
                 const descMatch = front.match(/description:\s*(.*)/i);
                 if (descMatch) description = descMatch[1].replace(/['"]/g, '').trim();
               }
-              const badgeColors = {
+              const badgeColors: Record<string, string> = {
                 'إنجاز قضائي': 'background:var(--matte-gold); color:#000;',
                 'فعالية': 'background:var(--deep-navy); color:#fff;',
                 'تطوير': 'background:var(--very-dark-navy); color:#fff;'
@@ -296,10 +299,8 @@ export default function HomePage() {
 
     loadHomeContent();
 
-    // Cleanup observers and event listeners (optional but good practice)
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      // Other cleanup can be added here if needed
+      // Cleanup
     };
   }, []);
 
