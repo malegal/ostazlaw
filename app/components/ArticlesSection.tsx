@@ -16,7 +16,10 @@ export default async function ArticlesSection() {
 
         <div className="blog-grid">
           {latest.length === 0 ? (
-            <div className="col-span-full text-center text-charcoal/50 py-10">لا توجد مقالات حالياً.</div>
+            <div className="col-span-full text-center py-10">
+              <p className="text-charcoal/50 text-xl font-bold">قريباً</p>
+              <p className="text-charcoal/30 text-sm mt-1">سيتم نشر مقالات قانونية جديدة</p>
+            </div>
           ) : (
             latest.map((article, index) => (
               <div key={article.slug} className="blog-card reveal" style={{ transitionDelay: `${index * 0.08}s` }}>
