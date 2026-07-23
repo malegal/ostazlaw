@@ -22,7 +22,10 @@ export default async function NewsSection() {
 
         <div className="experience-grid">
           {latest.length === 0 ? (
-            <div className="col-span-full text-center text-charcoal/50 py-10">لا توجد أخبار حالياً.</div>
+            <div className="col-span-full text-center py-10">
+              <p className="text-charcoal/50 text-xl font-bold">قريباً</p>
+              <p className="text-charcoal/30 text-sm mt-1">سيتم نشر أخبار وإنجازات جديدة</p>
+            </div>
           ) : (
             latest.map((item, index) => {
               const badgeStyle = badgeColors[item.category || ''] || 'background:var(--matte-gold); color:#000;';
