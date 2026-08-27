@@ -40,7 +40,7 @@ const montserrat = Montserrat({
 function MyApp({ Component, pageProps }) {
   return (
     <main
-      className={`${ibmPlexSansArabic.variable} ${amiri.variable} ${playfair.variable} ${montserrat.variable}`}
+      className={`app-shell ${ibmPlexSansArabic.variable} ${amiri.variable} ${playfair.variable} ${montserrat.variable}`}
       style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}
     >
       <Component {...pageProps} />

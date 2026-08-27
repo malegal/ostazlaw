@@ -81,6 +81,10 @@ body {
     direction: rtl;
 }
 
+.app-shell {
+    font-family: var(--font-body-ar);
+}
+
 h1,
 h2,
 h3,
