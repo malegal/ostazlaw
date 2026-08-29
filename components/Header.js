@@ -56,7 +56,6 @@ export default function Header() {
           <Link href="/sectors">قطاعات نخدمها</Link>
           <Link href="/news-archive">الأخبار</Link>
           <Link href="/blog">المكتبة</Link>
-          <Link href="/client-inquiry">تابع قضيتك</Link>
           <Link href="/contact">اتصل بنا</Link>
         </nav>
         <div className="header-actions">
@@ -77,7 +76,6 @@ export default function Header() {
           <Link href="/sectors" onClick={closeMenu}>قطاعات نخدمها</Link>
           <Link href="/news-archive" onClick={closeMenu}>الأخبار</Link>
           <Link href="/blog" onClick={closeMenu}>المكتبة</Link>
-          <Link href="/client-inquiry" onClick={closeMenu}>تابع قضيتك</Link>
           <Link href="/contact" onClick={closeMenu}>اتصل بنا</Link>
         </nav>
       </div>

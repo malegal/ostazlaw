@@ -54,6 +54,8 @@ export default function Home({ articles, news }) {
             <Link href="/contact?tab=appointment" className="hero-action-item gold-underline"><span className="icon-wrap"><Icon name="calendar-check" /></span><span className="label">حجز موعد</span></Link>
             <Link href="/contact?tab=representation" className="hero-action-item gold-underline"><span className="icon-wrap"><Icon name="gavel" /></span><span className="label">تمثيل قضائي</span></Link>
           </div>
+          {/* Case tracking stays out of the global navigation and is exposed here as a rectangular action linking to the existing inquiry page. */}
+          <div className="section-cta"><Link href="/client-inquiry" className="btn-outline-gold">تابع قضيتك</Link></div>
         </div>
       </section>
 
