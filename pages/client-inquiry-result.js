@@ -26,7 +26,7 @@ export default function ClientInquiryResult() {
     Swal.fire({
       icon: 'success',
       title: 'شكراً لك',
-      text: 'شكراً لاستخدامكم نظام الاستعلام الإلكتروني لمؤسسة الأستاذ محمود عبد الحميد.',
+      text: 'شكراً لاستخدامكم نظام الاستعلام الإلكتروني لمؤسسة جاد الرب.',
       background: '#FAFAF8',
       color: '#222222',
       confirmButtonColor: '#B08D57',
@@ -111,7 +111,7 @@ export default function ClientInquiryResult() {
     <Layout>
       <Head>
         <title>نتيجة الاستعلام | الأستاذ محمود عبد الحميد</title>
-        <meta name="description" content="نتيجة استعلام قضيتك – مؤسسة الأستاذ محمود عبد الحميد للمحاماة." />
+        <meta name="description" content="نتيجة استعلام قضيتك – مؤسسة جاد الرب للمحاماة." />
         <link rel="canonical" href="https://ostazlaw.vercel.app/client-inquiry-result.html" />
         <meta property="og:title" content="نتيجة الاستعلام | الأستاذ محمود عبد الحميد" />
         <meta property="og:description" content="نتيجة استعلام قضيتك." />

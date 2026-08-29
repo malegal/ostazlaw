@@ -19,7 +19,7 @@ const amiri = Amiri({
   preload: true,
 });
 
-// خط الشعار النصي "OSTAZ"
+// خط الشعار النصي لعلامة JAD ELRAB
 const playfair = Playfair_Display({
   subsets: ['latin'],
   weight: ['700', '900'],

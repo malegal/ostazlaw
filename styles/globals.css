@@ -296,6 +296,16 @@ button {
     box-shadow: 0 8px 30px rgba(176, 141, 87, 0.15);
 }
 
+/* مطابقة زر متابعة القضية لقياس زر الاستشارة المقاس: 265px عرضًا و59.36px ارتفاعًا تقريبًا. */
+/* تم تقليل الحشو الرأسي بنحو 1px لتعويض حد الإطار الموجود في الزر ذي اللون الحالي. */
+.case-tracking-cta {
+    min-width: 265px;
+    padding: 15px 40px;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+}
+/* لا نعيد تعريف hover هنا؛ لذلك تظل ألوان وتأثيرات btn-outline-gold الحالية محفوظة بالكامل. */
+
 .btn-outline-white {
     display: inline-block;
     border: 1px solid rgba(255, 255, 255, 0.25);
@@ -1420,6 +1430,12 @@ button {
     font-size: 2rem;
     color: #fff;
     transition: transform 0.4s ease;
+}
+/* مقاس متوازن لمسار واتساب الرسمي داخل الدائرة الخضراء، دون تعديل تأثير hover للزر. */
+.float-whatsapp .whatsapp-official-icon {
+    width: 30px;
+    height: 30px;
+    display: block;
 }
 .float-whatsapp:hover {
     transform: translateY(-4px) scale(1.05);

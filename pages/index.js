@@ -14,10 +14,10 @@ export default function Home({ articles, news }) {
   return (
     <Layout>
       <Head>
-        <title>مؤسسة الأستاذ محمود عبد الحميد للمحاماة والاستشارات القانونية | OSTAZ LAW</title>
+        <title>مؤسسة جاد الرب للمحاماة والاستشارات القانونية | JAD ELRAB</title>
         <meta name="description" content="مؤسسة قانونية مصرية تقدم استشارات، تمثيلاً قضائياً، وحلولاً قانونية للشركات والأفراد. خبرة في النقض والدستورية العليا." />
         <link rel="canonical" href="https://ostazlaw.vercel.app/" />
-        <meta property="og:title" content="مؤسسة الأستاذ محمود عبد الحميد للمحاماة والاستشارات القانونية | OSTAZ LAW" />
+        <meta property="og:title" content="مؤسسة جاد الرب للمحاماة والاستشارات القانونية | JAD ELRAB" />
         <meta property="og:description" content="بوابة الوصول إلى خدمات قانونية متخصصة: استشارات، تمثيل قضائي، وحلول قانونية للشركات والأفراد." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/" />
@@ -25,18 +25,18 @@ export default function Home({ articles, news }) {
         <meta property="og:image:width" content="600" />
         <meta property="og:image:height" content="800" />
         <meta property="og:locale" content="ar_EG" />
-        <meta property="og:site_name" content="OSTAZ LAW" />
+        <meta property="og:site_name" content="JAD ELRAB" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="/mahmoud-abdel-hamid-lawyer-portrait.webp" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@graph": [
-              { "@type": "LegalService", "@id": "https://ostazlaw.vercel.app/#organization", "name": "مؤسسة الأستاذ محمود عبد الحميد للمحاماة والاستشارات القانونية", "alternateName": "OSTAZ LAW", "description": "مؤسسة قانونية مصرية تقدم استشارات وتمثيلاً قضائياً وحلولاً قانونية للشركات والأفراد.", "url": "https://ostazlaw.vercel.app/", "logo": "/logo.png", "email": "ma.law.firm@outlook.com", "telephone": "+201101076000", "foundingDate": "2005", "areaServed": { "@type": "Country", "name": "مصر" }, "availableLanguage": ["Arabic", "English"], "sameAs": ["https://www.facebook.com/malegal", "https://x.com/mahmoud_a_hamyd", "https://www.linkedin.com/in/mahmoud-abdel-hamid-0a4664374"], "address": { "@type": "PostalAddress", "addressLocality": "أسوان", "addressCountry": "مصر" }, "priceRange": "$$" },
+              { "@type": "LegalService", "@id": "https://ostazlaw.vercel.app/#organization", "name": "مؤسسة جاد الرب للمحاماة والاستشارات القانونية", "alternateName": "JAD ELRAB", "description": "مؤسسة قانونية مصرية تقدم استشارات وتمثيلاً قضائياً وحلولاً قانونية للشركات والأفراد.", "url": "https://ostazlaw.vercel.app/", "logo": "/logo.png", "email": "ma.law.firm@outlook.com", "telephone": "+201101076000", "foundingDate": "2005", "areaServed": { "@type": "Country", "name": "مصر" }, "availableLanguage": ["Arabic", "English"], "sameAs": ["https://www.facebook.com/malegal", "https://x.com/mahmoud_a_hamyd", "https://www.linkedin.com/in/mahmoud-abdel-hamid-0a4664374"], "address": { "@type": "PostalAddress", "addressLocality": "أسوان", "addressCountry": "مصر" }, "priceRange": "$$" },
               { "@type": "Person", "@id": "https://ostazlaw.vercel.app/#founder", "name": "محمود عبد الحميد", "jobTitle": "المحامي بالنقض والدستورية العليا", "worksFor": { "@id": "https://ostazlaw.vercel.app/#organization" }, "url": "/about", "image": { "@type": "ImageObject", "url": "/mahmoud-abdel-hamid-lawyer-portrait.webp", "caption": "الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا" } },
-              { "@type": "WebPage", "@id": "https://ostazlaw.vercel.app/#webpage", "url": "https://ostazlaw.vercel.app/", "name": "الصفحة الرئيسية – مؤسسة الأستاذ محمود عبد الحميد للمحاماة", "description": "بوابة الوصول إلى خدمات قانونية متخصصة: استشارات، تمثيل قضائي، وحلول قانونية.", "isPartOf": { "@id": "https://ostazlaw.vercel.app/#website" }, "about": { "@id": "https://ostazlaw.vercel.app/#organization" }, "primaryImageOfPage": { "@type": "ImageObject", "url": "/mahmoud-abdel-hamid-lawyer-portrait.webp", "caption": "الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا" } },
+              { "@type": "WebPage", "@id": "https://ostazlaw.vercel.app/#webpage", "url": "https://ostazlaw.vercel.app/", "name": "الصفحة الرئيسية – مؤسسة جاد الرب للمحاماة", "description": "بوابة الوصول إلى خدمات قانونية متخصصة: استشارات، تمثيل قضائي، وحلول قانونية.", "isPartOf": { "@id": "https://ostazlaw.vercel.app/#website" }, "about": { "@id": "https://ostazlaw.vercel.app/#organization" }, "primaryImageOfPage": { "@type": "ImageObject", "url": "/mahmoud-abdel-hamid-lawyer-portrait.webp", "caption": "الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا" } },
               { "@type": "BreadcrumbList", "@id": "https://ostazlaw.vercel.app/#breadcrumb", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://ostazlaw.vercel.app/" }] },
-              { "@type": "WebSite", "@id": "https://ostazlaw.vercel.app/#website", "name": "مؤسسة الأستاذ محمود عبد الحميد للمحاماة والاستشارات القانونية", "url": "https://ostazlaw.vercel.app/", "description": "مؤسسة قانونية مصرية تقدم استشارات وتمثيلاً قضائياً وحلولاً قانونية." }
+              { "@type": "WebSite", "@id": "https://ostazlaw.vercel.app/#website", "name": "مؤسسة جاد الرب للمحاماة والاستشارات القانونية", "url": "https://ostazlaw.vercel.app/", "description": "مؤسسة قانونية مصرية تقدم استشارات وتمثيلاً قضائياً وحلولاً قانونية." }
             ]
           })
         }} />
@@ -45,8 +45,8 @@ export default function Home({ articles, news }) {
       <section className="hero" aria-label="الصفحة الرئيسية">
         <div className="hero-bg"><div className="glow"></div><div className="glow-2"></div></div>
         <div className="hero-content">
-          <div className="hero-brand-signature">OSTAZ LAW</div>
-          <h1 className="hero-title">مؤسسة الأستاذ محمود عبد الحميد</h1>
+          <div className="hero-brand-signature">JAD ELRAB</div>
+          <h1 className="hero-title">مؤسسة جاد الرب</h1>
           <p className="hero-subtitle">للمحاماة والاستشارات القانونية</p>
           <p className="hero-value">نقدم تمثيلًا قضائيًا واستشارات قانونية للشركات والأفراد، مستندين إلى خبرة راسخة أمام محكمة النقض والمحكمة الدستورية العليا، لحماية الحقوق والمصالح والاستثمارات.</p>
           <div className="hero-actions">
@@ -54,8 +54,9 @@ export default function Home({ articles, news }) {
             <Link href="/contact?tab=appointment" className="hero-action-item gold-underline"><span className="icon-wrap"><Icon name="calendar-check" /></span><span className="label">حجز موعد</span></Link>
             <Link href="/contact?tab=representation" className="hero-action-item gold-underline"><span className="icon-wrap"><Icon name="gavel" /></span><span className="label">تمثيل قضائي</span></Link>
           </div>
-          {/* Case tracking stays out of the global navigation and is exposed here as a rectangular action linking to the existing inquiry page. */}
-          <div className="section-cta"><Link href="/client-inquiry" className="btn-outline-gold">تابع قضيتك</Link></div>
+          {/* زر متابعة القضية موجود أسفل خدمات الـHero، مع الحفاظ على وجهته الحالية إلى صفحة الاستعلام. */}
+          {/* الفئة الإضافية توحّد أبعاد الزر مع زر الاستشارة في صفحة التخصصات، بينما تبقي ألوانه الأساسية كما هي. */}
+          <div className="section-cta"><Link href="/client-inquiry" className="btn-outline-gold case-tracking-cta">تابع قضيتك</Link></div>
         </div>
       </section>
 
@@ -78,7 +79,7 @@ export default function Home({ articles, news }) {
               <span className="eyebrow">● المؤسس</span>
               <h2>خبرة قانونية تُرسخ الثقة،<br /><span className="gold-text">وحلولٌ تحمي المصالح والاستثمارات</span></h2>
               <p>نؤمن بأن العمل القانوني المتميز يبدأ بفهمٍ عميق للوقائع، وصياغة استراتيجية قانونية دقيقة، ثم تقديم تمثيل قانوني مهني ونزيه يهدف إلى حماية الحقوق والمصالح وتحقيق أفضل النتائج الممكنة. ونؤمن كذلك بأن الثقة لا تُبني باستعراض ملفات العملاء و اعلان نتائج قضاياهم بل تُبنى على الكفاءة والالتزام، وعلي ما نقدمه للعملاء لا ما نعلنه عنهم ؛ لذلك نلتزم بعدم الإفصاح عن أسماء عملائنا أو أرقام قضاياهم أو تفاصيلها أو استخدامها في اغراض تسويقية احترامًا لواجب السرية المهنية وآداب مهنة المحاماة، ونحرص بدلاً من ذلك على أن نقدم ما يمكن التحقق منه من خبراتنا ومؤهلاتنا ومحتوانا العلمي، بما يعكس قيمنا المهنية دون الإخلال بحقوق عملائنا أو التزاماتنا القانونية</p>
-              <p>تأسست مؤسسة الأستاذ محمود عبد الحميد للمحاماة عام <strong>2005</strong> واكتسبت منذ ذلك الحين خبرة عملية متراكمة تقوم علي :</p>
+              <p>تأسست مؤسسة جاد الرب للمحاماة عام <strong>2005</strong> واكتسبت منذ ذلك الحين خبرة عملية متراكمة تقوم علي :</p>
               <div style={{ background: "rgba(176,141,87,0.05)", padding: "1.2rem 1.5rem", borderRight: "4px solid var(--matte-gold)", borderRadius: "8px", margin: "1.2rem 0" }}>
                 <p style={{ margin: 0, fontSize: "1.05rem", lineHeight: "1.9", color: "var(--charcoal)", fontWeight: "700" }}>نركز على القضايا القانونية ذات الأهمية والتعقيد، والتي تتطلب خبرة قانونية متخصصة ورؤية استراتيجية. ونقدم خدماتنا للأفراد والشركات والمستثمرين الباحثين عن تمثيل قانوني احترافي وحلول قانونية فعالة.</p>
               </div>
@@ -144,6 +145,7 @@ export default function Home({ articles, news }) {
         <div className="section-inner">
           <div className="section-head reveal"><span className="eyebrow">● أخبار المؤسسة</span><h2>آخر الأخبار والمستجدات</h2><p>نوافيكم بأحدث ما توصلنا إليه من أحكام، مشاركات مجتمعية، وتطورات مكتبنا القانوني.</p></div>
           <div className="experience-grid">{latestNews.length > 0 ? latestNews.map((item) => <NewsCard key={item.slug} news={item} />) : <div className="col-span-full text-center text-charcoal/50 py-10">لا توجد أخبار حالياً.</div>}</div>
+          {/* رابط الأخبار يوجّه إلى صفحة المحتوى الموحّدة التي تضم الأخبار والمكتبة معًا. */}
           <div className="section-cta"><Link href="/news-archive" className="btn-outline-gold">أرشيف الأخبار والإنجازات</Link></div>
         </div>
       </section>
@@ -152,12 +154,13 @@ export default function Home({ articles, news }) {
         <div className="section-inner">
           <div className="section-head reveal"><span className="eyebrow">● المكتبة القانونية</span><h2>أحدث المقالات القانونية</h2><p>اطلع على أحدث ما ننشره في مجال القانون المصري.</p></div>
           <div className="blog-grid">{latestArticles.length > 0 ? latestArticles.map((article) => <ArticleCard key={article.slug} article={article} />) : <div className="col-span-full text-center text-charcoal/50 py-10">لا توجد مقالات حالياً.</div>}</div>
-          <div className="section-cta"><Link href="/blog" className="btn-outline-gold">اطلع على المدونة القانونية</Link></div>
+          {/* يبقى النص كما هو، لكن الوجهة أصبحت الصفحة الموحّدة للأخبار والمكتبة. */}
+          <div className="section-cta"><Link href="/news-archive" className="btn-outline-gold">اطلع على المدونة القانونية</Link></div>
         </div>
       </section>
 
       <section className="map-section" aria-label="موقع المكتب">
-        <div className="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1819.3414902100868!2d32.8988582!3d24.0886561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDA1JzE5LjIiTiAzMsKwNTMnNTUuOSJF!5e0!3m2!1sar!2seg!4v1700000000000!5m2!1sar!2seg" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-cross-origin" title="موقع مؤسسة الأستاذ محمود عبد الحميد للمحاماة في أسوان"></iframe></div>
+        <div className="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1819.3414902100868!2d32.8988582!3d24.0886561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDA1JzE5LjIiTiAzMsKwNTMnNTUuOSJF!5e0!3m2!1sar!2seg!4v1700000000000!5m2!1sar!2seg" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-cross-origin" title="موقع مؤسسة جاد الرب للمحاماة في أسوان"></iframe></div>
         <div className="map-address"><Icon name="map-marker-alt" /> شارع كسر الحجر، المتفرع من شارع كورنيش النيل، أمام مجمع المحاكم – أسوان، مصر</div>
       </section>
 

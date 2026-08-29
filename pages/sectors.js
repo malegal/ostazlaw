@@ -26,8 +26,8 @@ export default function Sectors() {
               {
                 "@type": "LegalService",
                 "@id": "https://ostazlaw.vercel.app/#organization",
-                "name": "مؤسسة الأستاذ محمود عبد الحميد للمحاماة والاستشارات القانونية",
-                "alternateName": "OSTAZ LAW",
+                "name": "مؤسسة جاد الرب للمحاماة والاستشارات القانونية",
+                "alternateName": "JAD ELRAB",
                 "description": "مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات في قطاعات متنوعة.",
                 "url": "https://ostazlaw.vercel.app/",
                 "logo": "https://ostazlaw.vercel.app/logo.png",
@@ -65,14 +65,14 @@ export default function Sectors() {
                 "@id": "https://ostazlaw.vercel.app/sectors.html#webpage",
                 "url": "https://ostazlaw.vercel.app/sectors.html",
                 "name": "القطاعات التي نخدمها",
-                "description": "قائمة القطاعات التي تقدم لها مؤسسة الأستاذ محمود عبد الحميد خدماتها القانونية المتخصصة.",
+                "description": "قائمة القطاعات التي تقدم لها مؤسسة جاد الرب خدماتها القانونية المتخصصة.",
                 "isPartOf": { "@id": "https://ostazlaw.vercel.app/#website" },
                 "about": { "@id": "https://ostazlaw.vercel.app/#organization" }
               },
               {
                 "@type": "WebSite",
                 "@id": "https://ostazlaw.vercel.app/#website",
-                "name": "مؤسسة الأستاذ محمود عبد الحميد للمحاماة والاستشارات القانونية",
+                "name": "مؤسسة جاد الرب للمحاماة والاستشارات القانونية",
                 "url": "https://ostazlaw.vercel.app/",
                 "description": "مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية."
               }

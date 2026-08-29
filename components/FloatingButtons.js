@@ -26,7 +26,8 @@ export default function FloatingButtons() {
   return (
     <>
       <a href="https://wa.me/201101076000" target="_blank" rel="noopener noreferrer" className="float-whatsapp" aria-label="تواصل عبر واتساب">
-        <Icon name="whatsapp" />
+        {/* الأيقونة تستخدم مسار واتساب الرسمي، والفئة المخصصة تضبط حجمه داخل الزر العائم فقط. */}
+        <Icon name="whatsapp" className="whatsapp-official-icon" />
       </a>
       <button className={`float-main-btn ${subOpen ? 'active' : ''}`} onClick={toggleSub} aria-label="خيارات التواصل">
         <Icon name="plus" />

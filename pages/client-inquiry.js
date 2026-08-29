@@ -37,10 +37,10 @@ export default function ClientInquiry() {
     <Layout>
       <Head>
         <title>استعلام القضايا | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا</title>
-        <meta name="description" content="نظام استعلام القضايا الإلكتروني – متابعة مستجدات قضيتك لدى مؤسسة الأستاذ محمود عبد الحميد للمحاماة." />
+        <meta name="description" content="نظام استعلام القضايا الإلكتروني – متابعة مستجدات قضيتك لدى مؤسسة جاد الرب للمحاماة." />
         <link rel="canonical" href="https://ostazlaw.vercel.app/client-inquiry.html" />
         <meta property="og:title" content="استعلام القضايا | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا" />
-        <meta property="og:description" content="نظام استعلام القضايا الإلكتروني – متابعة مستجدات قضيتك لدى مؤسسة الأستاذ محمود عبد الحميد للمحاماة." />
+        <meta property="og:description" content="نظام استعلام القضايا الإلكتروني – متابعة مستجدات قضيتك لدى مؤسسة جاد الرب للمحاماة." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/client-inquiry.html" />
         <meta property="og:image" content="https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.webp" />
@@ -55,8 +55,8 @@ export default function ClientInquiry() {
               {
                 "@type": "LegalService",
                 "@id": "https://ostazlaw.vercel.app/#organization",
-                "name": "مؤسسة الأستاذ محمود عبد الحميد للمحاماة والاستشارات القانونية",
-                "alternateName": "OSTAZ LAW",
+                "name": "مؤسسة جاد الرب للمحاماة والاستشارات القانونية",
+                "alternateName": "JAD ELRAB",
                 "description": "مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات.",
                 "url": "https://ostazlaw.vercel.app/",
                 "logo": "https://ostazlaw.vercel.app/logo.png",
@@ -88,7 +88,7 @@ export default function ClientInquiry() {
               {
                 "@type": "WebSite",
                 "@id": "https://ostazlaw.vercel.app/#website",
-                "name": "مؤسسة الأستاذ محمود عبد الحميد للمحاماة والاستشارات القانونية",
+                "name": "مؤسسة جاد الرب للمحاماة والاستشارات القانونية",
                 "url": "https://ostazlaw.vercel.app/",
                 "description": "مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية."
               }

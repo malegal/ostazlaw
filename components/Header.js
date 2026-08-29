@@ -41,7 +41,8 @@ export default function Header() {
       <header className="site-header" id="siteHeader">
         <div className="header-brand">
           <Link href="/" className="brand-wordmark">
-            <span className="brand-primary">OSTAZ</span>
+            {/* اسم العلامة التجارية الجديد، مع بقاء اسم المحامي المؤسس في النص المجاور دون تغيير. */}
+            <span className="brand-primary">JAD ELRAB</span>
             <span className="brand-secondary">LAW FIRM</span>
           </Link>
           <div className="header-brand-text">
@@ -54,8 +55,8 @@ export default function Header() {
           <Link href="/about">عن المؤسسة</Link>
           <Link href="/specialties">التخصصات</Link>
           <Link href="/sectors">قطاعات نخدمها</Link>
-          <Link href="/news-archive">الأخبار</Link>
-          <Link href="/blog">المكتبة</Link>
+          {/* تم دمج الأخبار والمكتبة في صفحة واحدة لتقليل تشتت المحتوى مع الحفاظ على مساري المحتوى التفصيليين. */}
+          <Link href="/news-archive">الأخبار والمكتبة</Link>
           <Link href="/contact">اتصل بنا</Link>
         </nav>
         <div className="header-actions">
@@ -74,8 +75,8 @@ export default function Header() {
           <Link href="/about" onClick={closeMenu}>عن المؤسسة</Link>
           <Link href="/specialties" onClick={closeMenu}>التخصصات</Link>
           <Link href="/sectors" onClick={closeMenu}>قطاعات نخدمها</Link>
-          <Link href="/news-archive" onClick={closeMenu}>الأخبار</Link>
-          <Link href="/blog" onClick={closeMenu}>المكتبة</Link>
+          {/* توحيد قائمة الهاتف مع الترويسة الرئيسية بعد دمج الأخبار والمكتبة. */}
+          <Link href="/news-archive" onClick={closeMenu}>الأخبار والمكتبة</Link>
           <Link href="/contact" onClick={closeMenu}>اتصل بنا</Link>
         </nav>
       </div>

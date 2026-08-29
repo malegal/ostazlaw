@@ -22,7 +22,8 @@ export default function ArticlePage({ article, contentHtml }) {
         <div style={{ textAlign: 'center', padding: '4rem 1rem' }}>
           <h1 style={{ fontSize: '3rem', color: '#dc2626' }}>404</h1>
           <p style={{ fontSize: '1.2rem' }}>⚠️ المقال غير موجود أو تم حذفه.</p>
-          <Link href="/blog" className="btn-gold" style={{ display: 'inline-block', marginTop: '1.5rem' }}>العودة إلى المكتبة</Link>
+          {/* العودة إلى الصفحة الموحّدة تضمن استمرار التصفح حتى عند عرض حالة المقال غير الموجود. */}
+          <Link href="/news-archive" className="btn-gold" style={{ display: 'inline-block', marginTop: '1.5rem' }}>العودة إلى المكتبة</Link>
         </div>
       </Layout>
     );
@@ -60,7 +61,8 @@ export default function ArticlePage({ article, contentHtml }) {
         <div className="article-body" dangerouslySetInnerHTML={{ __html: contentHtml }} />
         
         <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-          <Link href="/blog" className="btn-outline-gold">العودة للمكتبة</Link>
+          {/* رابط الرجوع الموحد يحافظ على رحلة المستخدم بعد دمج الأخبار والمكتبة. */}
+          <Link href="/news-archive" className="btn-outline-gold">العودة للمكتبة</Link>
         </div>
       </div>
 
