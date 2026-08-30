@@ -149,11 +149,12 @@ export default function About() {
               </div>
             </div>
             <div className="def-image reveal" style={{ transitionDelay: '0.15s' }}>
-              <Image 
-                src="/about.webp" 
-                alt="مقر المؤسسة" 
-                width={800} 
-                height={600} 
+              {/* صورة مكتبة قانونية محلية بدل تكرار صورة المؤسسة، مع بقاء المصدر داخل المشروع. */}
+              <Image
+                src="/image/legal-library.jpg"
+                alt="مكتبة قانونية ورفوف كتب متخصصة"
+                width={800}
+                height={533}
                 className="def-image-inner"
               />
             </div>
