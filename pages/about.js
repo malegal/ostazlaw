@@ -105,7 +105,8 @@ export default function About() {
         <div className="hero-inner">
           <div className="hero-title-wrap reveal">
             <span className="en-tag">About Our Firm</span>
-            <h1>مؤسسة الأستاذ<br /><span className="gold-text">محمود عبد الحميد</span></h1>
+            {/* العنوان يعرّف المؤسسة باسمها الرسمي، بينما يبقى اسم المحامي المؤسس محفوظًا في بياناته داخل الصفحة. */}
+            <h1>مؤسسة <span className="gold-text">جاد الرب</span></h1>
             <p className="sub">للمحاماة والاستشارات القانونية</p>
             <p className="sub sub-gold">نبني الثقة بالخبرة، ونحمي المصالح باستراتيجية قانونية مدروسة.</p>
           </div>
