@@ -435,12 +435,12 @@ button {
     opacity: 0.85;
 }
 
-/* تصغير JAD ELRAB ومحاذاته مع LAW FIRM حتى يظهر الشعار كوحدة بصرية متوازنة. */
+/* تصغير إضافي لـ JAD ELRAB حتى يتوازن بصريًا مع سطر LAW FIRM. */
 .brand-primary {
-    font-size: 34px;
+    font-size: 28px;
     font-weight: 900;
     color: #D4AF37;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
     white-space: nowrap;
 }
 
@@ -1980,7 +1980,7 @@ button {
         font-size: 0.6rem;
     }
     .brand-primary {
-        font-size: 30px;
+        font-size: 25px;
     }
     .brand-secondary {
         font-size: 12px;
@@ -2070,7 +2070,7 @@ button {
         letter-spacing: 0.02em;
     }
     .brand-primary {
-        font-size: 24px;
+        font-size: 21px;
     }
     .brand-secondary {
         font-size: 10px;
@@ -2193,7 +2193,7 @@ button {
         font-size: 0.45rem;
     }
     .brand-primary {
-        font-size: 20px;
+        font-size: 18px;
     }
     .brand-secondary {
         font-size: 9px;
