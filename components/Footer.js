@@ -24,6 +24,8 @@ export default function Footer() {
           <Link href="/sectors">قطاعات نخدمها</Link>
           {/* رابط واحد للمحتوى التحريري بعد دمج صفحتي الأخبار والمكتبة. */}
           <Link href="/news-archive">الأخبار والمكتبة</Link>
+          {/* رابط مباشر لصفحة الأسئلة الشائعة المستقلة. */}
+          <Link href="/faq">الأسئلة الشائعة</Link>
           <Link href="/contact">اتصل بنا</Link>
         </div>
         <div className="footer-col">

@@ -188,34 +188,7 @@ export default function Specialties() {
         </div>
       </section>
 
-      <section className="section section-gray" aria-label="الأسئلة الشائعة">
-        <div className="section-inner">
-          <div className="section-head reveal">
-            <span className="eyebrow">● استفسارات</span>
-            <h2>أسئلة شائعة</h2>
-            <p>إجابات على أكثر الأسئلة التي تهم عملاءنا.</p>
-          </div>
-          <div className="faq-list">
-            {[
-              { q: 'ما هي درجات التقاضي التي تمثلون العملاء أمامها؟', a: 'نمثل العملاء أمام جميع درجات التقاضي في مصر، بدءاً من المحاكم الجزئية والابتدائية، مروراً بمحاكم الاستئناف، وصولاً إلى محكمة النقض والمحكمة الدستورية العليا والمحكمة الإدارية العليا.' },
-              { q: 'هل تقدمون استشارات قانونية قبل رفع الدعوى؟', a: 'نعم، نؤمن بأن الاستشارة القانونية المبكرة هي خط الدفاع الأول. نقدم تحليلاً قانونياً دقيقاً للوقائع، ونعرض البدائل المتاحة مع بيان الآثار القانونية والمالية لكل خيار.' },
-              { q: 'كيف تتعاملون مع سرية معلومات العملاء؟', a: 'نلتزم بأعلى معايير السرية المهنية وفقاً لأخلاقيات مهنة المحاماة. جميع المعلومات والوثائق والبيانات المتعلقة بعملائنا تُحفظ بسرية تامة ولا تُكشف لأي طرف ثالث.' },
-              { q: 'كم تستغرق مدة التقاضي في القضايا التي تتبعونها؟', a: 'تختلف مدة التقاضي حسب نوع القضية ودرجة المحكمة. نعمل على تسريع الإجراءات قدر الإمكان مع الالتزام الكامل بالأطر القانونية، ونطلع عملاءنا بانتظام على تطورات قضاياهم.' },
-              { q: 'هل تتعاملون مع قضايا التحكيم التجاري؟', a: 'نعم، لدينا خبرة في تمثيل العملاء في إجراءات التحكيم التجاري المحلي والدولي، ونقدم استشارات متخصصة في هذا المجال.' }
-            ].map((item, idx) => (
-              <div key={idx} className={`faq-item reveal ${idx === 0 ? 'active' : ''}`}>
-                <button className="faq-question" aria-expanded={idx === 0}>
-                  <span>{item.q}</span>
-                  <span className="icon"><Icon name="chevron-down" /></span>
-                </button>
-                <div className="faq-answer">
-                  <p>{item.a}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* تم نقل الأسئلة الشائعة إلى /faq لتكون صفحة مستقلة دون تكرار المحتوى داخل التخصصات. */}
 
       <style jsx>{`
         .hero-specialties { padding: 120px 2rem 4rem; background: var(--very-dark-navy); position: relative; overflow: hidden; min-height: 70vh; display: flex; align-items: center; }
@@ -265,21 +238,8 @@ export default function Specialties() {
         .cta-section { text-align: center; padding: 4rem 2rem; background: var(--warm-off-white); border-top: 1px solid rgba(176,141,87,0.06); border-bottom: 1px solid rgba(176,141,87,0.06); }
         .cta-section h2 { font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 900; color: var(--charcoal); }
         .cta-section p { max-width: 640px; margin: 0.4rem auto 1.8rem; color: var(--charcoal); font-weight: 700; font-size: 0.95rem; line-height: 1.8; }
-        .faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.6rem; }
-        .faq-item { background: var(--pure-white); border-radius: 10px; border: 1px solid rgba(0,0,0,0.04); overflow: hidden; transition: all 0.3s var(--ease-out); box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
-        .faq-item:hover { border-color: rgba(176,141,87,0.15); }
-        .faq-item.active { border-color: var(--matte-gold); }
-        .faq-question { width: 100%; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; background: transparent; border: none; color: var(--charcoal); font-size: 0.95rem; font-weight: 700; text-align: right; gap: 1rem; transition: color 0.3s ease; cursor: pointer; position: relative; }
-        .faq-question::after { content: ''; position: absolute; bottom: 0; right: 0; width: 0; height: 2px; background: var(--matte-gold); transition: width 0.4s var(--ease-out); }
-        .faq-question:hover::after { width: 100%; }
-        .faq-question:hover { color: var(--matte-gold); }
-        .faq-question .icon { flex-shrink: 0; font-size: 0.7rem; color: var(--matte-gold); opacity: 0.3; transition: transform 0.4s var(--ease-out); }
-        .faq-item.active .faq-question .icon { transform: rotate(180deg); opacity: 0.7; }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s var(--ease-in-out), padding 0.5s var(--ease-in-out); padding: 0 1.5rem; }
-        .faq-item.active .faq-answer { max-height: 280px; padding: 0 1.5rem 1.2rem; }
-        .faq-answer p { font-size: 0.85rem; color: var(--charcoal); line-height: 1.8; font-weight: 700; }
         @media (max-width: 820px) { .hero-specialties { padding: 100px 1rem 3rem; min-height: auto; } .specialty-details .detail-grid { grid-template-columns: 1fr; } .specialty-card-header { padding: 1rem 1.2rem; gap: 0.8rem; } .specialty-card-wrap.active .specialty-details { padding: 0 1.2rem 1.2rem; } .specialty-details .detail-cta { flex-direction: column; align-items: stretch; } }
-        @media (max-width: 640px) { .hero-specialties .hero-title-wrap h1 { font-size: clamp(2rem, 8vw, 2.8rem); } .hero-specialties .hero-badges { gap: 0.3rem; } .hero-specialties .hero-badge { font-size: 0.45rem; padding: 3px 10px; } .specialty-card-header .info h3 { font-size: 0.9rem; } .specialty-card-header .info p { font-size: 0.7rem; } .specialty-card-header .icon-wrap { width: 40px; height: 40px; } .specialty-card-header .icon-wrap .icon-svg { font-size: 1rem; } .faq-question { padding: 0.8rem 1rem; font-size: 0.85rem; } .faq-answer { padding: 0 1rem; } .faq-item.active .faq-answer { padding: 0 1rem 1rem; } .cta-section { padding: 2.5rem 1rem; } }
+        @media (max-width: 640px) { .hero-specialties .hero-title-wrap h1 { font-size: clamp(2rem, 8vw, 2.8rem); } .hero-specialties .hero-badges { gap: 0.3rem; } .hero-specialties .hero-badge { font-size: 0.45rem; padding: 3px 10px; } .specialty-card-header .info h3 { font-size: 0.9rem; } .specialty-card-header .info p { font-size: 0.7rem; } .specialty-card-header .icon-wrap { width: 40px; height: 40px; } .specialty-card-header .icon-wrap .icon-svg { font-size: 1rem; } .cta-section { padding: 2.5rem 1rem; } }
         @media (max-width: 400px) { .hero-specialties .hero-badges { gap: 0.2rem; } .hero-specialties .hero-badge { font-size: 0.4rem; padding: 2px 8px; } }
       `}</style>
     </Layout>

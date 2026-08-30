@@ -10,11 +10,11 @@ export default function NewsArchive({ newsItems, articles }) {
   return (
     <Layout>
       <Head>
-        <title>أرشيف الأخبار والإنجازات | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا</title>
-        <meta name="description" content="أرشيف أخبار وإنجازات مؤسسة جاد الرب – أحدث الأحكام، المشاركات المجتمعية، وتطورات المكتب القانوني." />
+        <title>الأخبار والمكتبة | مؤسسة جاد الرب للمحاماة والاستشارات القانونية</title>
+        <meta name="description" content="الأخبار والمقالات والدراسات القانونية التي تنشرها مؤسسة جاد الرب للمحاماة والاستشارات القانونية." />
         <link rel="canonical" href="https://ostazlaw.vercel.app/news-archive.html" />
-        <meta property="og:title" content="أرشيف الأخبار والإنجازات | الأستاذ محمود عبد الحميد" />
-        <meta property="og:description" content="أرشيف أخبار وإنجازات مؤسسة جاد الرب – أحدث الأحكام والمشاركات المجتمعية." />
+        <meta property="og:title" content="الأخبار والمكتبة | مؤسسة جاد الرب للمحاماة والاستشارات القانونية" />
+        <meta property="og:description" content="الأخبار والمقالات والدراسات القانونية التي تنشرها مؤسسة جاد الرب للمحاماة والاستشارات القانونية." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/news-archive.html" />
         <meta property="og:image" content="/mahmoud-abdel-hamid-lawyer-portrait.webp" />
@@ -67,8 +67,8 @@ export default function NewsArchive({ newsItems, articles }) {
                 "@type": "CollectionPage",
                 "@id": "https://ostazlaw.vercel.app/news-archive.html#webpage",
                 "url": "https://ostazlaw.vercel.app/news-archive.html",
-                "name": "أرشيف الأخبار والإنجازات",
-                "description": "أرشيف أخبار وإنجازات مؤسسة جاد الرب.",
+                "name": "الأخبار والمكتبة",
+                "description": "الأخبار والمقالات والدراسات القانونية التي تنشرها مؤسسة جاد الرب.",
                 "isPartOf": { "@id": "https://ostazlaw.vercel.app/#website" },
                 "about": { "@id": "https://ostazlaw.vercel.app/#organization" }
               },
@@ -84,21 +84,28 @@ export default function NewsArchive({ newsItems, articles }) {
         }} />
       </Head>
 
-      <section className="hero-blog" aria-label="أرشيف الأخبار والإنجازات">
+      <section className="hero-blog" aria-label="الأخبار والمكتبة">
         <div className="hero-pattern"></div>
         <div className="hero-glow"></div>
         <div className="hero-glow-2"></div>
         <div className="hero-inner">
           <div className="hero-title-wrap reveal">
-            <span className="en-tag">News Archive</span>
-            <h1>أرشيف <span className="gold-text">الأخبار</span></h1>
-            <p className="sub">جميع أخبار وإنجازات مؤسسة جاد الرب – أحكام، مشاركات، وتطورات.</p>
+            <span className="en-tag">News &amp; Library</span>
+            <h1>الأخبار <span className="gold-text">والمكتبة</span></h1>
+            {/* العنوان الفرعي يعرّف نطاق الصفحة قبل تقسيمها إلى قسمي الأخبار والمقالات. */}
+            <p className="sub">الأخبار والمقالات</p>
           </div>
         </div>
       </section>
 
-      <section className="blog-section" aria-label="قائمة الأخبار">
+      <section className="blog-section" aria-label="الأخبار والمستجدات">
         <div className="inner">
+          {/* القسم الأول مخصص للأخبار والمستجدات مع نفس شبكة البطاقات المعتمدة. */}
+          <div className="section-heading">
+            <span className="eyebrow">● الأخبار والمستجدات</span>
+            <h2>الأخبار والمستجدات</h2>
+            <p>آخر أخبار وإنجازات مؤسسة جاد الرب وتطورات العمل القانوني.</p>
+          </div>
           <div className="experience-grid">
             {newsItems.length === 0 ? (
               <div className="col-span-full text-center py-16">
@@ -137,12 +144,12 @@ export default function NewsArchive({ newsItems, articles }) {
       </section>
 
       {/* قسم المكتبة القانونية داخل نفس الصفحة لتجميع المحتوى التحريري في وجهة واحدة. */}
-      <section className="blog-section library-section" aria-label="المكتبة القانونية">
+      <section className="blog-section library-section" aria-label="المقالات والآراء">
         <div className="inner">
           <div className="section-heading">
-            <span className="eyebrow">● المكتبة القانونية</span>
-            <h2>أحدث المقالات القانونية</h2>
-            <p>اطلع على أحدث ما ننشره في مجال القانون المصري.</p>
+            <span className="eyebrow">● المقالات والآراء</span>
+            <h2>المقالات والآراء</h2>
+            <p>اطلع على أحدث ما ننشره من مقالات ودراسات في مجال القانون المصري.</p>
           </div>
           <div className="blog-grid">
             {articles.length === 0 ? (

@@ -57,6 +57,8 @@ export default function Header() {
           <Link href="/sectors">قطاعات نخدمها</Link>
           {/* تم دمج الأخبار والمكتبة في صفحة واحدة لتقليل تشتت المحتوى مع الحفاظ على مساري المحتوى التفصيليين. */}
           <Link href="/news-archive">الأخبار والمكتبة</Link>
+          {/* رابط واضح لصفحة الأسئلة الشائعة الجديدة ضمن التنقل الرئيسي. */}
+          <Link href="/faq">الأسئلة الشائعة</Link>
           <Link href="/contact">اتصل بنا</Link>
         </nav>
         <div className="header-actions">
@@ -77,6 +79,8 @@ export default function Header() {
           <Link href="/sectors" onClick={closeMenu}>قطاعات نخدمها</Link>
           {/* توحيد قائمة الهاتف مع الترويسة الرئيسية بعد دمج الأخبار والمكتبة. */}
           <Link href="/news-archive" onClick={closeMenu}>الأخبار والمكتبة</Link>
+          {/* توحيد قائمة الهاتف مع قائمة سطح المكتب وإتاحة صفحة FAQ. */}
+          <Link href="/faq" onClick={closeMenu}>الأسئلة الشائعة</Link>
           <Link href="/contact" onClick={closeMenu}>اتصل بنا</Link>
         </nav>
       </div>
