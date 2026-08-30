@@ -48,9 +48,10 @@ export default function Home({ articles, news }) {
           <div className="hero-brand-signature">JAD ELRAB</div>
           <h1 className="hero-title">مؤسسة جاد الرب</h1>
           <p className="hero-subtitle">للمحاماة والاستشارات القانونية</p>
-          <p className="hero-value">نقدم تمثيلًا قضائيًا واستشارات قانونية للشركات والأفراد، مستندين إلى خبرة راسخة أمام محكمة النقض والمحكمة الدستورية العليا، لحماية الحقوق والمصالح والاستثمارات.</p>
+          {/* صياغة ترويجية تركز على المنهج القانوني وحماية المصالح دون وعود بنتيجة قضائية مضمونة. */}
+          <p className="hero-value">نقدم خدمات قانونية متخصصة للأفراد والشركات، تقوم على فهم دقيق للوقائع، وتحليل المراكز القانونية، وبناء استراتيجية واضحة لحماية الحقوق والمصالح والاستثمارات.</p>
           <div className="hero-actions">
-            <Link href="/contact?tab=consult" className="hero-action-item gold-underline"><span className="icon-wrap"><Icon name="file-signature" /></span><span className="label">استشارة قانونية</span></Link>
+            <Link href="/contact?tab=consult" className="hero-action-item gold-underline"><span className="icon-wrap"><Icon name="file-signature" /></span><span className="label">ابدأ باستشارة قانونية</span></Link>
             <Link href="/contact?tab=appointment" className="hero-action-item gold-underline"><span className="icon-wrap"><Icon name="calendar-check" /></span><span className="label">حجز موعد</span></Link>
             <Link href="/contact?tab=representation" className="hero-action-item gold-underline"><span className="icon-wrap"><Icon name="gavel" /></span><span className="label">تمثيل قضائي</span></Link>
           </div>
@@ -77,9 +78,10 @@ export default function Home({ articles, news }) {
             </div>
             <div className="about-content reveal">
               <span className="eyebrow">● المؤسس</span>
-              <h2>خبرة قانونية تُرسخ الثقة،<br /><span className="gold-text">وحلولٌ تحمي المصالح والاستثمارات</span></h2>
+              {/* العنوان يبرز الثقة والمنهج العملي بدل الاكتفاء بعبارة ترويجية عامة. */}
+              <h2>خبرة قانونية تُبنى عليها الثقة،<br /><span className="gold-text">وحلولٌ تحمي المصالح والاستثمارات</span></h2>
               <p>نؤمن بأن العمل القانوني المتميز يبدأ بفهمٍ عميق للوقائع، وصياغة استراتيجية قانونية دقيقة، ثم تقديم تمثيل قانوني مهني ونزيه يهدف إلى حماية الحقوق والمصالح وتحقيق أفضل النتائج الممكنة. ونؤمن كذلك بأن الثقة لا تُبني باستعراض ملفات العملاء و اعلان نتائج قضاياهم بل تُبنى على الكفاءة والالتزام، وعلي ما نقدمه للعملاء لا ما نعلنه عنهم ؛ لذلك نلتزم بعدم الإفصاح عن أسماء عملائنا أو أرقام قضاياهم أو تفاصيلها أو استخدامها في اغراض تسويقية احترامًا لواجب السرية المهنية وآداب مهنة المحاماة، ونحرص بدلاً من ذلك على أن نقدم ما يمكن التحقق منه من خبراتنا ومؤهلاتنا ومحتوانا العلمي، بما يعكس قيمنا المهنية دون الإخلال بحقوق عملائنا أو التزاماتنا القانونية</p>
-              <p>تأسست مؤسسة جاد الرب للمحاماة عام <strong>2005</strong> واكتسبت منذ ذلك الحين خبرة عملية متراكمة تقوم علي :</p>
+              <p>تأسست مؤسسة جاد الرب للمحاماة عام <strong>2005</strong>، وتقوم خبرتها العملية على الفهم الدقيق، والتخطيط القانوني، والمتابعة المهنية.</p>
               <div style={{ background: "rgba(176,141,87,0.05)", padding: "1.2rem 1.5rem", borderRight: "4px solid var(--matte-gold)", borderRadius: "8px", margin: "1.2rem 0" }}>
                 <p style={{ margin: 0, fontSize: "1.05rem", lineHeight: "1.9", color: "var(--charcoal)", fontWeight: "700" }}>نركز على القضايا القانونية ذات الأهمية والتعقيد، والتي تتطلب خبرة قانونية متخصصة ورؤية استراتيجية. ونقدم خدماتنا للأفراد والشركات والمستثمرين الباحثين عن تمثيل قانوني احترافي وحلول قانونية فعالة.</p>
               </div>
