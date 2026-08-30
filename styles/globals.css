@@ -435,12 +435,12 @@ button {
     opacity: 0.85;
 }
 
-/* تصغير إضافي لـ JAD ELRAB حتى يتوازن بصريًا مع سطر LAW FIRM. */
+/* ضبط عرض JAD ELRAB ليقارب عرض LAW FIRM، بحيث تصطف بداية J مع F ونهاية B مع M. */
 .brand-primary {
-    font-size: 28px;
+    font-size: 18px;
     font-weight: 900;
     color: #D4AF37;
-    letter-spacing: 1.2px;
+    letter-spacing: 1px;
     white-space: nowrap;
 }
 
@@ -1980,7 +1980,7 @@ button {
         font-size: 0.6rem;
     }
     .brand-primary {
-        font-size: 25px;
+        font-size: 17px;
     }
     .brand-secondary {
         font-size: 12px;
@@ -2070,7 +2070,7 @@ button {
         letter-spacing: 0.02em;
     }
     .brand-primary {
-        font-size: 21px;
+        font-size: 16px;
     }
     .brand-secondary {
         font-size: 10px;
@@ -2193,7 +2193,7 @@ button {
         font-size: 0.45rem;
     }
     .brand-primary {
-        font-size: 18px;
+        font-size: 15px;
     }
     .brand-secondary {
         font-size: 9px;
