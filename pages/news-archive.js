@@ -143,6 +143,13 @@ export default function NewsArchive({ newsItems, articles }) {
         </div>
       </section>
 
+      {/* فاصل بصري يوضح انتقال المستخدم من الأخبار إلى المكتبة دون إنشاء صفحة أو شريط جديد. */}
+      <div className="content-divider" aria-hidden="true">
+        <span className="divider-line"></span>
+        <span className="divider-icon"><Icon name="book-open" /></span>
+        <span className="divider-line"></span>
+      </div>
+
       {/* قسم المكتبة القانونية داخل نفس الصفحة لتجميع المحتوى التحريري في وجهة واحدة. */}
       <section className="blog-section library-section" aria-label="المقالات والآراء">
         <div className="inner">
@@ -189,8 +196,11 @@ export default function NewsArchive({ newsItems, articles }) {
         .hero-blog .hero-title-wrap h1 .gold-text { color: var(--matte-gold); }
         .hero-blog .hero-title-wrap .sub { font-size: clamp(1rem, 1.3vw, 1.2rem); font-weight: 400; color: rgba(255,255,255,0.5); max-width: 700px; margin: 0.8rem auto 0; line-height: 1.7; }
         .blog-section { padding: 5rem 2rem; background: var(--warm-off-white); }
+        .content-divider { display: flex; align-items: center; gap: 1rem; padding: 0 2rem; background: var(--warm-off-white); color: var(--matte-gold); }
+        .divider-line { flex: 1; height: 1px; background: rgba(176,141,87,0.35); }
+        .divider-icon { width: 2.3rem; height: 2.3rem; border: 1px solid rgba(176,141,87,0.45); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; font-size: 0.95rem; background: var(--section-light, #fff); }
         /* يفصل بصريًا بين الأخبار والمكتبة مع إبقاء الصفحة والهوية البصرية موحّدة. */
-        .library-section { background: var(--section-light, #fff); }
+        .library-section { background: var(--section-light, #fff); border-top: 1px solid rgba(176,141,87,0.08); }
         .section-heading { max-width: 1200px; margin: 0 auto 2rem; text-align: center; }
         .section-heading .eyebrow { color: var(--matte-gold); font-weight: 700; }
         .section-heading h2 { color: var(--charcoal); margin: 0.5rem 0; }
@@ -213,7 +223,7 @@ export default function NewsArchive({ newsItems, articles }) {
         .blog-card h3 { color: var(--charcoal); font-size: 1.05rem; line-height: 1.5; }
         .blog-card .meta { color: var(--charcoal); font-size: 0.7rem; display: flex; gap: 0.8rem; flex-wrap: wrap; }
         .btn-read { display: inline-flex; gap: 0.4rem; color: var(--matte-gold); font-weight: 700; font-size: 0.75rem; margin-top: 0.8rem; }
-        @media (max-width: 820px) { .hero-blog { padding: 100px 1rem 3rem; min-height: 35vh; } .blog-section { padding: 2.5rem 1rem; } .experience-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 820px) { .hero-blog { padding: 100px 1rem 3rem; min-height: 35vh; } .blog-section { padding: 2.5rem 1rem; } .content-divider { padding: 0 1rem; gap: 0.7rem; } .experience-grid { grid-template-columns: 1fr 1fr; } }
         @media (max-width: 1024px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 640px) { .experience-grid, .blog-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; } }
       `}</style>
