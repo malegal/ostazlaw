@@ -207,7 +207,7 @@ export default function Contact() {
             </div>
 
             <div className="lg:col-span-7 reveal" style={{ transitionDelay: '0.2s' }}>
-              <div className="tab-container">
+              <div id="service-form" className="tab-container" style={{ scrollMarginTop: '96px' }}>
                 <div className="tab-buttons">
                   <button onClick={() => setActiveTab('consult')} className={`tab-btn ${activeTab === 'consult' ? 'active' : ''}`}><Icon name="comment-dots" /> استشارة سريعة</button>
                   <button onClick={() => setActiveTab('visit')} className={`tab-btn ${activeTab === 'visit' ? 'active' : ''}`}><Icon name="calendar-check" /> حجز موعد</button>

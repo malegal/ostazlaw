@@ -37,11 +37,11 @@ export default function FloatingButtons() {
           <Icon name="phone-alt" />
           <span className="label">اتصال</span>
         </a>
-        <Link href="/contact?tab=consult" className="float-sub-btn consult" title="طلب استشارة">
+        <Link href="/contact?tab=consult#service-form" className="float-sub-btn consult" title="طلب استشارة">
           <Icon name="file-signature" />
           <span className="label">استشارة</span>
         </Link>
-        <Link href="/contact?tab=visit" className="float-sub-btn appointment" title="حجز موعد">
+        <Link href="/contact?tab=visit#service-form" className="float-sub-btn appointment" title="حجز موعد">
           <Icon name="calendar-check" />
           <span className="label">حجز موعد</span>
         </Link>

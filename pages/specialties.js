@@ -110,7 +110,7 @@ export default function Specialties() {
             <span className="hero-badge">المنازعات العمالية</span>
           </div>
           <div className="hero-cta">
-            <Link href="/contact?tab=consult" className="btn-gold">احصل على استشارة فورية <Icon name="arrow-left" style={{ marginRight: '8px' }} /></Link>
+            <Link href="/contact?tab=consult#service-form" className="btn-gold">احصل على استشارة فورية <Icon name="arrow-left" style={{ marginRight: '8px' }} /></Link>
           </div>
         </div>
       </section>
@@ -169,8 +169,8 @@ export default function Specialties() {
                     </div>
                   </div>
                   <div className="detail-cta">
-                    <Link href={`/contact?tab=consult&specialty=${encodeURIComponent(spec.title)}`} className="btn-gold">طلب استشارة</Link>
-                    <Link href={`/contact?tab=visit&specialty=${encodeURIComponent(spec.title)}`} className="btn-outline-gold">حجز موعد</Link>
+                    <Link href={`/contact?tab=consult&specialty=${encodeURIComponent(spec.title)}#service-form`} className="btn-gold">طلب استشارة</Link>
+                    <Link href={`/contact?tab=visit&specialty=${encodeURIComponent(spec.title)}#service-form`} className="btn-outline-gold">حجز موعد</Link>
                   </div>
                 </div>
               </div>
@@ -184,7 +184,7 @@ export default function Specialties() {
           <span className="eyebrow" style={{ display: 'block', fontSize: '0.65rem', fontWeight: '800', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--matte-gold)', opacity: '0.5', marginBottom: '0.3rem' }}>● تواصل معنا</span>
           <h2>لم تجد مسألتك القانونية؟</h2>
           <p>فريقنا القانوني المتخصص يقدم استشارات دقيقة في كافة التخصصات. تواصل معنا الآن.</p>
-          <Link href="/contact?tab=consult" className="btn-gold">طلب استشارة قانونية <Icon name="arrow-left" style={{ marginRight: '8px' }} /></Link>
+          <Link href="/contact?tab=consult#service-form" className="btn-gold">طلب استشارة قانونية <Icon name="arrow-left" style={{ marginRight: '8px' }} /></Link>
         </div>
       </section>
 

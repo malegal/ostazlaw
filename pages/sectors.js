@@ -92,7 +92,7 @@ export default function Sectors() {
             <p className="sub">لكل قطاع تحدياته القانونية الخاصة، ولذلك نعتمد على فهم طبيعة النشاط والبيئة القانونية المحيطة به قبل تقديم الاستشارة أو بناء الاستراتيجية القانونية، بما يضمن حلولاً أكثر دقة وفاعلية.</p>
           </div>
           <div className="hero-cta reveal">
-            <Link href="/contact?tab=consult" className="btn-gold">اطلب استشارة متخصصة <Icon name="arrow-left" style={{ marginRight: '8px' }} /></Link>
+            <Link href="/contact?tab=consult#service-form" className="btn-gold">اطلب استشارة متخصصة <Icon name="arrow-left" style={{ marginRight: '8px' }} /></Link>
           </div>
         </div>
       </section>
@@ -125,7 +125,7 @@ export default function Sectors() {
                 <li>إعادة الهيكلة</li><li>الاندماجات</li><li>الاستحواذ</li><li>تصفية الشركات</li>
                 <li>العقود التجارية</li><li>الامتثال القانوني</li><li>المنازعات التجارية</li><li>الاستشارات المستمرة</li>
               </ul>
-              <Link href="/contact?tab=consult&sector=الشركات%20التجارية" className="btn-sm">اطلب استشارة</Link>
+              <Link href="/contact?tab=consult&sector=الشركات%20التجارية#service-form" className="btn-sm">اطلب استشارة</Link>
             </div>
 
             <div className="industry-card gold-underline-card reveal reveal-d2">
@@ -137,7 +137,7 @@ export default function Sectors() {
                 <li>إعادة هيكلة مجلس الإدارة</li><li>الامتثال</li><li>الرأي القانوني</li><li>العقود</li>
                 <li>المنازعات الإدارية</li><li>إجراءات التصفية</li>
               </ul>
-              <Link href="/contact?tab=consult&sector=الجمعيات%20الأهلية" className="btn-sm">اطلب استشارة</Link>
+              <Link href="/contact?tab=consult&sector=الجمعيات%20الأهلية#service-form" className="btn-sm">اطلب استشارة</Link>
             </div>
 
             <div className="industry-card gold-underline-card reveal reveal-d3">
@@ -148,7 +148,7 @@ export default function Sectors() {
                 <li>الاستشارات الاستثمارية</li><li>العناية القانونية الواجبة</li><li>مراجعة العقود</li>
                 <li>المشاريع المشتركة</li><li>تحليل المخاطر</li><li>المنازعات الاستثمارية</li>
               </ul>
-              <Link href="/contact?tab=consult&sector=المستثمرون" className="btn-sm">اطلب استشارة</Link>
+              <Link href="/contact?tab=consult&sector=المستثمرون#service-form" className="btn-sm">اطلب استشارة</Link>
             </div>
 
             <div className="industry-card gold-underline-card reveal reveal-d1">
@@ -159,7 +159,7 @@ export default function Sectors() {
                 <li>اتفاقيات التطوير</li><li>عقود البيع</li><li>المراجعة القانونية للأراضي</li>
                 <li>التحقق من الملكية</li><li>منازعات المشاريع</li><li>إدارة العقود</li>
               </ul>
-              <Link href="/contact?tab=consult&sector=المطورون%20العقاريون" className="btn-sm">اطلب استشارة</Link>
+              <Link href="/contact?tab=consult&sector=المطورون%20العقاريون#service-form" className="btn-sm">اطلب استشارة</Link>
             </div>
 
             <div className="industry-card gold-underline-card reveal reveal-d2">
@@ -170,7 +170,7 @@ export default function Sectors() {
                 <li>صياغة العقود</li><li>المطالبات المالية</li><li>منازعات المشاريع</li>
                 <li>استرداد المدفوعات</li><li>تخفيف المخاطر</li><li>الاستشارات المستمرة</li>
               </ul>
-              <Link href="/contact?tab=consult&sector=المقاولون" className="btn-sm">اطلب استشارة</Link>
+              <Link href="/contact?tab=consult&sector=المقاولون#service-form" className="btn-sm">اطلب استشارة</Link>
             </div>
 
             <div className="industry-card gold-underline-card reveal reveal-d3">
@@ -182,7 +182,7 @@ export default function Sectors() {
                 <li>منازعات الملكية</li><li>استرداد الديون</li><li>التنفيذ المدني</li>
                 <li>الاستشارات القانونية</li><li>صياغة العقود</li><li>تسوية المنازعات</li>
               </ul>
-              <Link href="/contact?tab=consult&sector=الأفراد" className="btn-sm">اطلب استشارة</Link>
+              <Link href="/contact?tab=consult&sector=الأفراد#service-form" className="btn-sm">اطلب استشارة</Link>
             </div>
 
             <div className="industry-card gold-underline-card reveal reveal-d1">
@@ -195,7 +195,7 @@ export default function Sectors() {
                 <li>حل الشراكة</li><li>التصفية القضائية</li><li>الوساطة والتسوية</li>
                 <li>المنازعات التجارية</li>
               </ul>
-              <Link href="/contact?tab=consult&sector=الشركاء" className="btn-sm">اطلب استشارة</Link>
+              <Link href="/contact?tab=consult&sector=الشركاء#service-form" className="btn-sm">اطلب استشارة</Link>
             </div>
 
             <div className="industry-card gold-underline-card reveal reveal-d2">
@@ -207,7 +207,7 @@ export default function Sectors() {
                 <li>إجراءات الإثبات</li><li>اتفاقيات التسوية</li><li>نقل ملكية العقارات</li>
                 <li>المنازعات المدنية</li><li>تنفيذ أحكام الميراث</li>
               </ul>
-              <Link href="/contact?tab=consult&sector=الورثة" className="btn-sm">اطلب استشارة</Link>
+              <Link href="/contact?tab=consult&sector=الورثة#service-form" className="btn-sm">اطلب استشارة</Link>
             </div>
 
             <div className="industry-card gold-underline-card reveal reveal-d3">
@@ -220,7 +220,7 @@ export default function Sectors() {
                 <li>الأضرار المالية</li><li>التقاضي</li><li>التسوية الودية</li>
                 <li>تنفيذ الأحكام</li>
               </ul>
-              <Link href="/contact?tab=consult&sector=قضايا%20التعويضات" className="btn-sm">اطلب استشارة</Link>
+              <Link href="/contact?tab=consult&sector=قضايا%20التعويضات#service-form" className="btn-sm">اطلب استشارة</Link>
             </div>
 
             <div className="industry-card gold-underline-card reveal reveal-d1">
@@ -233,7 +233,7 @@ export default function Sectors() {
                 <li>المنازعات العمالية</li><li>التسوية الودية</li><li>الامتثال القانوني</li>
                 <li>الاستشارات العمالية</li>
               </ul>
-              <Link href="/contact?tab=consult&sector=العمال%20وأصحاب%20الأعمال" className="btn-sm">اطلب استشارة</Link>
+              <Link href="/contact?tab=consult&sector=العمال%20وأصحاب%20الأعمال#service-form" className="btn-sm">اطلب استشارة</Link>
             </div>
           </div>
         </div>
@@ -323,7 +323,7 @@ export default function Sectors() {
           <h2>هل تحتاج إلى استشارة قانونية تتناسب مع طبيعة نشاطك؟</h2>
           <p>ندرس طبيعة نشاطك أولاً، ثم نبني الحل القانوني المناسب لاحتياجاتك، سواء كنت فرداً، شركة، مستثمراً، أو تمثل جهة مؤسسية.</p>
           <div className="cta-actions">
-            <Link href="/contact?tab=consult" className="btn-gold">طلب استشارة</Link>
+            <Link href="/contact?tab=consult#service-form" className="btn-gold">طلب استشارة</Link>
             <a href="https://wa.me/201101076000" target="_blank" rel="noopener noreferrer" className="btn-outline-white">تواصل عبر واتساب</a>
           </div>
         </div>

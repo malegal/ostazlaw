@@ -360,7 +360,7 @@ export default function About() {
           <h2>هل تبحث عن شريك قانوني يمكنك الاعتماد عليه؟</h2>
           <p>يسعدنا مناقشة احتياجاتك القانونية وتقديم المشورة المناسبة بما يتوافق مع ظروف كل حالة وأهدافها.</p>
           <div className="cta-actions">
-            <Link href="/contact?tab=consult" className="btn-gold">طلب استشارة</Link>
+            <Link href="/contact?tab=consult#service-form" className="btn-gold">طلب استشارة</Link>
             <Link href="/contact" className="btn-outline-white">تواصل معنا</Link>
           </div>
         </div>
