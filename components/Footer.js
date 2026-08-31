@@ -31,7 +31,7 @@ export default function Footer() {
         <div className="footer-col">
           <h4>خدمات</h4>
           <Link href="/contact?tab=consult">استشارة قانونية</Link>
-          <Link href="/contact?tab=appointment">حجز موعد</Link>
+          <Link href="/contact?tab=visit">حجز موعد</Link>
           <Link href="/contact?tab=representation">تمثيل قانوني</Link>
           {/* إعادة إظهار خدمة متابعة القضية داخل الفوتر بناءً على طلب الموقع. */}
           <Link href="/client-inquiry">تابع قضيتك</Link>

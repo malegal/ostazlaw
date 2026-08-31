@@ -170,7 +170,7 @@ export default function Specialties() {
                   </div>
                   <div className="detail-cta">
                     <Link href={`/contact?tab=consult&specialty=${encodeURIComponent(spec.title)}`} className="btn-gold">طلب استشارة</Link>
-                    <Link href={`/contact?tab=appointment&specialty=${encodeURIComponent(spec.title)}`} className="btn-outline-gold">حجز موعد</Link>
+                    <Link href={`/contact?tab=visit&specialty=${encodeURIComponent(spec.title)}`} className="btn-outline-gold">حجز موعد</Link>
                   </div>
                 </div>
               </div>

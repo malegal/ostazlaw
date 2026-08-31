@@ -52,7 +52,7 @@ export default function Home({ articles, news }) {
           <p className="hero-value">نقدم خدمات قانونية متخصصة للأفراد والشركات، تقوم على فهم دقيق للوقائع، وتحليل المراكز القانونية، وبناء استراتيجية واضحة لحماية الحقوق والمصالح والاستثمارات.</p>
           <div className="hero-actions">
             <Link href="/contact?tab=consult" className="hero-action-item gold-underline"><span className="icon-wrap"><Icon name="file-signature" /></span><span className="label">ابدأ باستشارة قانونية</span></Link>
-            <Link href="/contact?tab=appointment" className="hero-action-item gold-underline"><span className="icon-wrap"><Icon name="calendar-check" /></span><span className="label">حجز موعد</span></Link>
+            <Link href="/contact?tab=visit" className="hero-action-item gold-underline"><span className="icon-wrap"><Icon name="calendar-check" /></span><span className="label">حجز موعد</span></Link>
             <Link href="/contact?tab=representation" className="hero-action-item gold-underline"><span className="icon-wrap"><Icon name="gavel" /></span><span className="label">تمثيل قضائي</span></Link>
           </div>
           {/* زر متابعة القضية موجود أسفل خدمات الـHero، مع الحفاظ على وجهته الحالية إلى صفحة الاستعلام. */}
@@ -172,7 +172,7 @@ export default function Home({ articles, news }) {
           <h2>ابدأ شراكة قانونية تحمي مصالحك</h2>
           <p>سواء كنت فرداً أو شركة أو مستثمراً، نحن على استعداد لتقديم الدعم القانوني الذي يناسب احتياجاتك ويساعدك على اتخاذ القرار القانوني بثقة.</p>
           <div className="cta-actions">
-            <Link href="/contact?tab=appointment" className="btn-gold">حجز موعد استشارة</Link>
+            <Link href="/contact?tab=visit" className="btn-gold">حجز موعد استشارة</Link>
             <Link href="/contact?tab=consult" className="btn-outline-gold">طلب استشارة قانونية</Link>
             <Link href="/contact?tab=representation" className="btn-outline-navy">طلب تمثيل قانوني</Link>
           </div>

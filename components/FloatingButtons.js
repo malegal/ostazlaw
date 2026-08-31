@@ -41,7 +41,7 @@ export default function FloatingButtons() {
           <Icon name="file-signature" />
           <span className="label">استشارة</span>
         </Link>
-        <Link href="/contact?tab=appointment" className="float-sub-btn appointment" title="حجز موعد">
+        <Link href="/contact?tab=visit" className="float-sub-btn appointment" title="حجز موعد">
           <Icon name="calendar-check" />
           <span className="label">حجز موعد</span>
         </Link>
