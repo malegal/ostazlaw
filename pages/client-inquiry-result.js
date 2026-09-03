@@ -112,11 +112,12 @@ export default function ClientInquiryResult() {
       <Head>
         <title>نتيجة الاستعلام | الأستاذ محمود عبد الحميد</title>
         <meta name="description" content="نتيجة استعلام قضيتك – مؤسسة جاد الرب للمحاماة." />
-        <link rel="canonical" href="https://ostazlaw.vercel.app/client-inquiry-result.html" />
+        <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://ostazlaw.vercel.app/client-inquiry-result" />
         <meta property="og:title" content="نتيجة الاستعلام | الأستاذ محمود عبد الحميد" />
         <meta property="og:description" content="نتيجة استعلام قضيتك." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ostazlaw.vercel.app/client-inquiry-result.html" />
+        <meta property="og:url" content="https://ostazlaw.vercel.app/client-inquiry-result" />
         <meta property="og:image" content="https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.webp" />

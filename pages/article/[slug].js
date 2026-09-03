@@ -42,6 +42,22 @@ export default function ArticlePage({ article, contentHtml }) {
         <meta name="twitter:card" content="summary_large_image" />
         {article.image && <meta name="twitter:image" content={article.image} />}
         <link rel="canonical" href={articleUrl} />
+        <meta property="og:url" content={articleUrl} />
+        <meta name="twitter:description" content={article.description || ''} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "mainEntityOfPage": { "@type": "WebPage", "@id": articleUrl },
+            "headline": article.title,
+            "description": article.description || '',
+            "image": article.image ? [article.image] : undefined,
+            "datePublished": article.date || undefined,
+            "dateModified": article.updatedAt || article.date || undefined,
+            "author": { "@type": "Person", "name": article.author || 'محمود عبد الحميد' },
+            "publisher": { "@type": "Organization", "name": 'مؤسسة جاد الرب للمحاماة والاستشارات القانونية' }
+          })
+        }} />
       </Head>
 
       <div className="article-wrapper">

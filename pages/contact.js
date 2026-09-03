@@ -35,11 +35,11 @@ export default function Contact() {
       <Head>
         <title>تواصل معنا | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا</title>
         <meta name="description" content="تواصل مع مؤسسة جاد الرب للمحاماة والاستشارات القانونية. المكتب الرئيسي في أسوان، وفروع في القاهرة والإسكندرية. احجز موعداً، اطلب استشارة، أو قدم طلب تمثيل قانوني." />
-        <link rel="canonical" href="https://ostazlaw.vercel.app/contact.html" />
+        <link rel="canonical" href="https://ostazlaw.vercel.app/contact" />
         <meta property="og:title" content="تواصل معنا | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا" />
         <meta property="og:description" content="تواصل مع مؤسسة جاد الرب للمحاماة والاستشارات القانونية. المكتب الرئيسي في أسوان، وفروع في القاهرة والإسكندرية." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ostazlaw.vercel.app/contact.html" />
+        <meta property="og:url" content="https://ostazlaw.vercel.app/contact" />
         <meta property="og:image" content="https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.webp" />
         <meta property="og:image:width" content="600" />
         <meta property="og:image:height" content="800" />
@@ -56,7 +56,6 @@ export default function Contact() {
                 "alternateName": "JAD ELRAB",
                 "description": "مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات. المكتب الرئيسي في أسوان، وفروع في القاهرة والإسكندرية.",
                 "url": "https://ostazlaw.vercel.app/",
-                "logo": "https://ostazlaw.vercel.app/logo.png",
                 "email": "ma.law.firm@outlook.com",
                 "telephone": "+201101076000",
                 "foundingDate": "2005",
@@ -83,7 +82,7 @@ export default function Contact() {
                 "name": "محمود عبد الحميد",
                 "jobTitle": "المحامي بالنقض والدستورية العليا",
                 "worksFor": { "@id": "https://ostazlaw.vercel.app/#organization" },
-                "url": "https://ostazlaw.vercel.app/about.html",
+                "url": "https://ostazlaw.vercel.app/about",
                 "image": {
                   "@type": "ImageObject",
                   "url": "https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.webp",
@@ -92,8 +91,8 @@ export default function Contact() {
               },
               {
                 "@type": "ContactPage",
-                "@id": "https://ostazlaw.vercel.app/contact.html#webpage",
-                "url": "https://ostazlaw.vercel.app/contact.html",
+                "@id": "https://ostazlaw.vercel.app/contact#webpage",
+                "url": "https://ostazlaw.vercel.app/contact",
                 "name": "تواصل معنا",
                 "description": "تواصل مع مؤسسة جاد الرب للمحاماة والاستشارات القانونية.",
                 "isPartOf": { "@id": "https://ostazlaw.vercel.app/#website" },

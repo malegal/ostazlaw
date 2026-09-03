@@ -39,6 +39,22 @@ export default function NewsPage({ news, contentHtml }) {
         <meta property="og:description" content={news.description || ''} />
         {news.image && <meta property="og:image" content={news.image} />}
         <link rel="canonical" href={newsUrl} />
+        <meta property="og:url" content={newsUrl} />
+        <meta name="twitter:description" content={news.description || ''} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "NewsArticle",
+            "mainEntityOfPage": { "@type": "WebPage", "@id": newsUrl },
+            "headline": news.title,
+            "description": news.description || '',
+            "image": news.image ? [news.image] : undefined,
+            "datePublished": news.date || undefined,
+            "dateModified": news.updatedAt || news.date || undefined,
+            "author": { "@type": "Person", "name": news.author || 'محمود عبد الحميد' },
+            "publisher": { "@type": "Organization", "name": 'مؤسسة جاد الرب للمحاماة والاستشارات القانونية' }
+          })
+        }} />
       </Head>
 
       <div className="article-wrapper">

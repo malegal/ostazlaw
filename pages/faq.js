@@ -27,6 +27,22 @@ export default function FAQ() {
       <Head>
         <title>الأسئلة الشائعة | مؤسسة جاد الرب للمحاماة والاستشارات القانونية</title>
         <meta name="description" content="إجابات على أكثر الأسئلة التي تهم عملاء مؤسسة جاد الرب للمحاماة والاستشارات القانونية." />
+        <link rel="canonical" href="https://ostazlaw.vercel.app/faq" />
+        <meta property="og:title" content="الأسئلة الشائعة | مؤسسة جاد الرب للمحاماة والاستشارات القانونية" />
+        <meta property="og:description" content="إجابات واضحة على الأسئلة التي تسبق طلب الاستشارة أو بدء المتابعة." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ostazlaw.vercel.app/faq" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqItems.map((item) => ({
+              "@type": "Question",
+              "name": item.q,
+              "acceptedAnswer": { "@type": "Answer", "text": item.a }
+            }))
+          })
+        }} />
       </Head>
 
       {/* رأس الصفحة يستخدم نفس الخلفية والهرمية البصرية المعتمدة في الموقع. */}

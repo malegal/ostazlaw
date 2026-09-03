@@ -12,11 +12,11 @@ export default function NewsArchive({ newsItems, articles }) {
       <Head>
         <title>الأخبار والمكتبة | مؤسسة جاد الرب للمحاماة والاستشارات القانونية</title>
         <meta name="description" content="الأخبار والمقالات والدراسات القانونية التي تنشرها مؤسسة جاد الرب للمحاماة والاستشارات القانونية." />
-        <link rel="canonical" href="https://ostazlaw.vercel.app/news-archive.html" />
+        <link rel="canonical" href="https://ostazlaw.vercel.app/news-archive" />
         <meta property="og:title" content="الأخبار والمكتبة | مؤسسة جاد الرب للمحاماة والاستشارات القانونية" />
         <meta property="og:description" content="الأخبار والمقالات والدراسات القانونية التي تنشرها مؤسسة جاد الرب للمحاماة والاستشارات القانونية." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ostazlaw.vercel.app/news-archive.html" />
+        <meta property="og:url" content="https://ostazlaw.vercel.app/news-archive" />
         <meta property="og:image" content="/mahmoud-abdel-hamid-lawyer-portrait.webp" />
         <meta property="og:image:width" content="600" />
         <meta property="og:image:height" content="800" />
@@ -33,7 +33,6 @@ export default function NewsArchive({ newsItems, articles }) {
                 "alternateName": "JAD ELRAB",
                 "description": "مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات.",
                 "url": "https://ostazlaw.vercel.app/",
-                "logo": "/logo.png",
                 "email": "ma.law.firm@outlook.com",
                 "telephone": "+201101076000",
                 "foundingDate": "2005",
@@ -65,8 +64,8 @@ export default function NewsArchive({ newsItems, articles }) {
               },
               {
                 "@type": "CollectionPage",
-                "@id": "https://ostazlaw.vercel.app/news-archive.html#webpage",
-                "url": "https://ostazlaw.vercel.app/news-archive.html",
+                "@id": "https://ostazlaw.vercel.app/news-archive#webpage",
+                "url": "https://ostazlaw.vercel.app/news-archive",
                 "name": "الأخبار والمكتبة",
                 "description": "الأخبار والمقالات والدراسات القانونية التي تنشرها مؤسسة جاد الرب.",
                 "isPartOf": { "@id": "https://ostazlaw.vercel.app/#website" },

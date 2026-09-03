@@ -38,11 +38,12 @@ export default function ClientInquiry() {
       <Head>
         <title>استعلام القضايا | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا</title>
         <meta name="description" content="نظام استعلام القضايا الإلكتروني – متابعة مستجدات قضيتك لدى مؤسسة جاد الرب للمحاماة." />
-        <link rel="canonical" href="https://ostazlaw.vercel.app/client-inquiry.html" />
+        <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://ostazlaw.vercel.app/client-inquiry" />
         <meta property="og:title" content="استعلام القضايا | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا" />
         <meta property="og:description" content="نظام استعلام القضايا الإلكتروني – متابعة مستجدات قضيتك لدى مؤسسة جاد الرب للمحاماة." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ostazlaw.vercel.app/client-inquiry.html" />
+        <meta property="og:url" content="https://ostazlaw.vercel.app/client-inquiry" />
         <meta property="og:image" content="https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.webp" />
         <meta property="og:image:width" content="600" />
         <meta property="og:image:height" content="800" />
@@ -59,7 +60,6 @@ export default function ClientInquiry() {
                 "alternateName": "JAD ELRAB",
                 "description": "مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات.",
                 "url": "https://ostazlaw.vercel.app/",
-                "logo": "https://ostazlaw.vercel.app/logo.png",
                 "email": "ma.law.firm@outlook.com",
                 "telephone": "+201101076000",
                 "foundingDate": "2005",
@@ -78,8 +78,8 @@ export default function ClientInquiry() {
               },
               {
                 "@type": "WebPage",
-                "@id": "https://ostazlaw.vercel.app/client-inquiry.html#webpage",
-                "url": "https://ostazlaw.vercel.app/client-inquiry.html",
+                "@id": "https://ostazlaw.vercel.app/client-inquiry#webpage",
+                "url": "https://ostazlaw.vercel.app/client-inquiry",
                 "name": "استعلام القضايا",
                 "description": "نظام استعلام القضايا الإلكتروني – متابعة مستجدات قضيتك.",
                 "isPartOf": { "@id": "https://ostazlaw.vercel.app/#website" },

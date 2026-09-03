@@ -7,11 +7,8 @@ module.exports = {
     policies: [
       { userAgent: '*', allow: '/' },
     ],
-    additionalSitemaps: [
-      'https://ostazlaw.vercel.app/sitemap.xml',
-    ],
   },
-  exclude: ['/admin', '/api/*', '/server-sitemap.xml'],
+  exclude: ['/admin', '/api/*', '/server-sitemap.xml', '/client-inquiry', '/client-inquiry-result'],
   transform: async (config, path) => {
     let priority = 0.5;
     let changefreq = 'daily';
