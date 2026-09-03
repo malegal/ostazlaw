@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="مؤسسة جاد الرب للمحاماة">
+  <!-- الهوية: نفس رمز الموازين المستخدم في الموقع، باللون الذهبي على خلفية الكحلي. -->
+  <rect width="24" height="24" rx="4" fill="#0B1B2B"/>
+  <path fill="#B08D57" d="M12 2 2 7v1h20V7L12 2Zm0 4.5L5.5 8.5h13L12 6.5ZM4 10v2h2v6H4v2h16v-2h-2v-6h2v-2H4Zm4 2h2v6H8v-6Zm4 0h2v6h-2v-6Zm4 0h2v6h-2v-6Z"/>
+</svg>

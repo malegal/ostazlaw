@@ -8,7 +8,8 @@ module.exports = {
       { userAgent: '*', allow: '/' },
     ],
   },
-  exclude: ['/admin', '/api/*', '/server-sitemap.xml', '/client-inquiry', '/client-inquiry-result'],
+  // SEO: blog مسار قديم يعيد التوجيه خادمياً؛ استبعاده يمنع ظهوره كرابط مستقل في sitemap.
+  exclude: ['/admin', '/api/*', '/server-sitemap.xml', '/blog', '/client-inquiry', '/client-inquiry-result'],
   transform: async (config, path) => {
     let priority = 0.5;
     let changefreq = 'daily';

@@ -41,7 +41,11 @@ export default function ClientInquiryResult() {
   if (error) {
     return (
       <Layout>
-        <Head><title>خطأ في الاستعلام</title></Head>
+        <Head>
+          {/* SEO: منع فهرسة حالة الخطأ أيضاً لأن المسار يعرض نتيجة استعلام داخلية. */}
+          <meta name="robots" content="noindex, nofollow" />
+          <title>خطأ في الاستعلام</title>
+        </Head>
         <section className="result-main">
           <div className="inner reveal">
             <div className="result-card">
@@ -76,7 +80,11 @@ export default function ClientInquiryResult() {
   if (!data) {
     return (
       <Layout>
-        <Head><title>جاري التحميل...</title></Head>
+        <Head>
+          {/* SEO: منع فهرسة حالة التحميل حتى لا تُحفظ صفحة مؤقتة بلا بيانات في نتائج البحث. */}
+          <meta name="robots" content="noindex, nofollow" />
+          <title>جاري التحميل...</title>
+        </Head>
         <section className="result-main">
           <div className="inner reveal">
             <div className="result-card">
@@ -110,6 +118,7 @@ export default function ClientInquiryResult() {
   return (
     <Layout>
       <Head>
+        {/* SEO: هذه النتيجة خاصة بالعميل وتعتمد على sessionStorage؛ لا تُفهرس في أي حالة. */}
         <title>نتيجة الاستعلام | الأستاذ محمود عبد الحميد</title>
         <meta name="description" content="نتيجة استعلام قضيتك – مؤسسة جاد الرب للمحاماة." />
         <meta name="robots" content="noindex, nofollow" />
