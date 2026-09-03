@@ -112,7 +112,8 @@ export default function ClientInquiryResult() {
   }
 
   const c = data.case;
-  const sessions = data.sessions || [];
+  // ترتيب نسخة محلية من الجلسات يضمن أن آخر جلسة فعلية تظهر حتى لو تغيّر ترتيب RPC.
+  const sessions = [...(data.sessions || [])].sort((a, b) => new Date(b.session_date) - new Date(a.session_date));
   const lastSession = sessions.length > 0 ? sessions[0] : null;
 
   return (
@@ -153,6 +154,8 @@ export default function ClientInquiryResult() {
               <span className="badge-role">{c.client_role || 'عميل'}</span>
             </div>
             <div className="info-grid">
+              {/* عرض case_code يطابق الكود الذي أنشأه qayd ويساعد العميل على تأكيد القضية الصحيحة. */}
+              <div className="info-item"><span className="info-label">كود القضية</span><span className="info-value">{c.case_code || 'غير متاح'}</span></div>
               <div className="info-item"><span className="info-label">اسم الخصم</span><span className="info-value">{c.opponent_name || 'غير محدد'}</span></div>
               <div className="info-item"><span className="info-label">المحكمة</span><span className="info-value">{c.court_name || 'غير محدد'}</span></div>
               <div className="info-item"><span className="info-label">رقم القضية</span><span className="info-value">{(c.case_number || '') + (c.case_year ? ' / ' + c.case_year : '')}</span></div>

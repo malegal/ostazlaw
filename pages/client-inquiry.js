@@ -19,12 +19,17 @@ export default function ClientInquiry() {
     setLoading(true);
     try {
       const fullPhone = '20' + phone.replace(/^20/, '');
-      const fullCode = 'MA-' + code.toUpperCase().replace(/^MA-/, '');
+      // توحيد كود qayd محليًا قبل استدعاء RPC؛ الكود الجديد يبدأ بـ JELR.
+      const normalizedCode = code.trim().toUpperCase().replace(/\s+/g, '');
+      const fullCode = normalizedCode.startsWith('JELR-') || normalizedCode.startsWith('MA-')
+        ? normalizedCode
+        : `JELR-${normalizedCode}`;
       const { data, error } = await getCaseData(fullPhone, fullCode);
       if (error || !data || !data.case) {
         throw new Error('بيانات الدخول غير صحيحة');
       }
-      sessionStorage.setItem('caseData', JSON.stringify(data));
+      // تخزين وقت النتيجة حتى تنتهي جلسة الاستعلام تلقائيًا بعد مدة قصيرة.
+      sessionStorage.setItem('caseData', JSON.stringify({ ...data, _timestamp: Date.now() }));
       window.location.href = '/client-inquiry-result';
     } catch (err) {
       alert('بيانات الدخول غير صحيحة. يرجى التأكد من الكود ورقم الهاتف.');
@@ -139,8 +144,7 @@ export default function ClientInquiry() {
                 <span className="fixed-prefix">20</span>
               </div>
               <div className="input-group-custom">
-                <input type="text" className="form-control-custom" placeholder="كود القضية" value={code} onChange={(e) => setCode(e.target.value.toUpperCase())} required style={{ textTransform: 'uppercase' }} />
-                <span className="fixed-prefix">MA-</span>
+                <input type="text" className="form-control-custom" placeholder="JELR-26-0001-ABC123" value={code} onChange={(e) => setCode(e.target.value.toUpperCase())} required style={{ textTransform: 'uppercase' }} />
               </div>
               <div className="consent-wrapper">
                 <input type="checkbox" id="consentCheck" checked={consent} onChange={(e) => setConsent(e.target.checked)} required />
