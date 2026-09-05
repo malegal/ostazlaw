@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://ostazlaw.vercel.app
+Host: https://ostazlaw.vercel.app/
 
 # Sitemaps
 Sitemap: https://ostazlaw.vercel.app/sitemap.xml

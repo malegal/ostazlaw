@@ -1,6 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://ostazlaw.vercel.app',
+  // SEO: الشرطة المائلة النهائية مطابقة للـ canonical في الصفحة الرئيسية لتفادي إشارتين مختلفتين للجذر.
+  siteUrl: 'https://ostazlaw.vercel.app/',
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   robotsTxtOptions: {
