@@ -111,7 +111,37 @@ export default function ClientInquiryResult() {
     );
   }
 
-  const c = data.case;
+  const fileType = data.file_type || 'judicial';
+  const file = data.file || data.case;
+
+  // الخدمات المهنية تستخدم سجل أحداث مختلفًا عن جلسات القضايا القضائية.
+  if (fileType !== 'judicial') {
+    const events = [...(data.events || [])].sort((a, b) => new Date(b.event_date) - new Date(a.event_date));
+    const typeLabels = { real_estate: 'تسجيل عقار - الشهر العقاري', company_formation: 'إنشاء شركة', administrative: 'خدمة مهنية إدارية' };
+    return (
+      <Layout>
+        <Head><title>متابعة الخدمة المهنية | مؤسسة جاد الرب</title><meta name="robots" content="noindex, nofollow" /></Head>
+        <section className="hero-result" aria-label="نتيجة متابعة الخدمة المهنية"><div className="hero-pattern"></div><div className="hero-glow"></div><div className="hero-glow-2"></div><div className="hero-inner"><div className="hero-title-wrap reveal"><span className="en-tag">Professional Service</span><h1>متابعة <span className="gold-text">الخدمة المهنية</span></h1><p className="sub">{typeLabels[fileType] || 'ملف مهني'}</p></div></div></section>
+        <section className="result-main"><div className="inner reveal"><div className="result-card professional-result-card">
+          <div className="result-header"><h2>{file.client_name || 'غير معروف'}</h2><span className="badge-role">{typeLabels[fileType] || 'خدمة مهنية'}</span></div>
+          <div className="info-grid">
+            <div className="info-item"><span className="info-label">كود الملف</span><span className="info-value">{file.file_code || 'غير متاح'}</span></div>
+            <div className="info-item"><span className="info-label">اسم الخدمة</span><span className="info-value">{file.title || 'غير محدد'}</span></div>
+            <div className="info-item"><span className="info-label">الحالة الحالية</span><span className="info-value status">{file.status || 'قيد الإجراء'}</span></div>
+            <div className="info-item"><span className="info-label">آخر تحديث</span><span className="info-value">{file.updated_at ? new Date(file.updated_at).toLocaleDateString('ar-EG') : 'غير محدد'}</span></div>
+            {file.description && <div className="info-item info-item-wide"><span className="info-label">وصف الخدمة</span><span className="info-value">{file.description}</span></div>}
+          </div>
+          <section className="sessions-history professional-events" aria-labelledby="professional-events-title"><div className="sessions-history-heading"><div><span className="section-kicker">مراحل إنجاز الخدمة</span><h3 id="professional-events-title">سجل المتابعة</h3></div><span className="sessions-count">{events.length} تحديث</span></div>
+            {events.length ? <div className="sessions-timeline">{events.map((event, index) => <article className={`session-card ${index === 0 ? 'session-card-latest' : ''}`} key={event.id || index}><div className="session-marker">{events.length - index}</div><div className="session-card-content"><div className="session-card-topline"><time dateTime={event.event_date}>{event.event_date ? new Date(event.event_date).toLocaleDateString('ar-EG', { dateStyle: 'full' }) : 'تاريخ غير محدد'}</time><span className="session-status status-new">{event.status || 'قيد الإجراء'}</span></div><div className="session-decision-label">التحديث</div><p className="session-decision">{event.title}{event.details ? ` — ${event.details}` : ''}</p></div></article>)}</div> : <div className="sessions-empty"><Icon name="briefcase" /><strong>لا توجد تحديثات مسجلة حتى الآن</strong><span>ستظهر مراحل الخدمة هنا عند تحديث الملف.</span></div>}
+          </section>
+          <div className="modal-actions"><button className="btn-action btn-print" onClick={() => window.print()}><Icon name="print" style={{ marginLeft: '0.4rem' }} /> طباعة</button><a href="/client-inquiry" className="btn-action btn-new"><Icon name="search" style={{ marginLeft: '0.4rem' }} /> بحث جديد</a><button className="btn-action btn-exit" onClick={exitSystem}><Icon name="sign-out-alt" style={{ marginLeft: '0.4rem' }} /> خروج</button></div>
+        </div></div></section>
+        <style jsx>{`.professional-result-card { border-top: 3px solid var(--matte-gold); } .info-item-wide { grid-column: 1 / -1; }`}</style>
+      </Layout>
+    );
+  }
+
+  const c = file;
   // ترتيب نسخة محلية من الجلسات يضمن أن آخر جلسة فعلية تظهر حتى لو تغيّر ترتيب RPC.
   const sessions = [...(data.sessions || [])].sort((a, b) => new Date(b.session_date) - new Date(a.session_date));
   const lastSession = sessions.length > 0 ? sessions[0] : null;

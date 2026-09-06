@@ -1,7 +1,7 @@
 import Layout from '../components/Layout';
 import Head from 'next/head';
 import { useState } from 'react';
-import { getCaseData } from '../lib/supabase-config';
+import { getPortalFileData } from '../lib/supabase-config';
 import Icon from '../components/Icon';
 
 export default function ClientInquiry() {
@@ -19,13 +19,12 @@ export default function ClientInquiry() {
     setLoading(true);
     try {
       const fullPhone = '20' + phone.replace(/^20/, '');
-      // توحيد كود qayd محليًا قبل استدعاء RPC؛ الكود الجديد يبدأ بـ JELR.
+      // قبول كود القضية JELR أو كود الخدمة المهنية RE/CO/AD كما أنشأه qayd.
       const normalizedCode = code.trim().toUpperCase().replace(/\s+/g, '');
-      const fullCode = normalizedCode.startsWith('JELR-') || normalizedCode.startsWith('MA-')
-        ? normalizedCode
-        : `JELR-${normalizedCode}`;
-      const { data, error } = await getCaseData(fullPhone, fullCode);
-      if (error || !data || !data.case) {
+      const hasKnownPrefix = /^(JELR|MA|RE|CO|AD)-/.test(normalizedCode);
+      const fullCode = hasKnownPrefix ? normalizedCode : `JELR-${normalizedCode}`;
+      const { data, error } = await getPortalFileData(fullPhone, fullCode);
+      if (error || !data || !data.file) {
         throw new Error('بيانات الدخول غير صحيحة');
       }
       // تخزين وقت النتيجة حتى تنتهي جلسة الاستعلام تلقائيًا بعد مدة قصيرة.
@@ -102,13 +101,13 @@ export default function ClientInquiry() {
         }} />
       </Head>
 
-      <section className="hero" aria-label="استعلام القضايا">
+        <section className="hero" aria-label="استعلام القضايا والخدمات المهنية">
         <div className="hero-bg"><div className="glow"></div><div className="glow-2"></div></div>
         <div className="hero-content">
-          <div className="hero-brand-signature">استعلام القضايا</div>
+          <div className="hero-brand-signature">بوابة متابعة الملفات</div>
           <h1 className="hero-title">تابع <span className="gold-text">قضيتك</span></h1>
           <p className="hero-subtitle">نظام الاستعلام الإلكتروني</p>
-          <p className="hero-value">أدخل بيانات القضية للاطلاع على آخر المستجدات.<br />الخدمة متاحة لعملائنا المسجلين فقط.</p>
+          <p className="hero-value">أدخل بيانات الهاتف والكود لمتابعة قضيتك أو خدمتك المهنية.<br />الخدمة متاحة لعملائنا المسجلين فقط.</p>
         </div>
       </section>
 
@@ -124,19 +123,19 @@ export default function ClientInquiry() {
         <div className="section-inner">
           <div className="section-head reveal">
             <span className="eyebrow">● الاستعلام</span>
-            <h2>أدخل بيانات القضية</h2>
-            <p>للاطلاع على آخر المستجدات، يرجى إدخال رقم الهاتف وكود القضية.</p>
+            <h2>أدخل بيانات الملف</h2>
+            <p>للاطلاع على آخر المستجدات، يرجى إدخال رقم الهاتف والكود الخاص بالقضية أو الخدمة.</p>
           </div>
 
           <div className="search-card">
             <div className="icon-header"><Icon name="search" /></div>
-            <h2>استعلام القضايا</h2>
-            <p className="sub">أدخل بيانات القضية للاطلاع على آخر المستجدات</p>
+            <h2>استعلام موحد</h2>
+            <p className="sub">تابع قضيتك أو خدمتك المهنية من مكان واحد</p>
 
-            <div className="legal-disclaimer">
-              <div className="disclaimer-title"><Icon name="shield-alt" /> تنبيه قانوني هام</div>
-              <div className="disclaimer-text">نظام الاستعلام الإلكتروني مخصص حصراً للعملاء المسجلين بمكتبنا للاطلاع على قضاياهم الشخصية. <strong>لا يجوز</strong> استخدام النظام للاستعلام عن قضايا الآخرين دون تفويض رسمي. المكتب غير مسؤول عن أي استخدام غير مصرح به للمعلومات.</div>
-            </div>
+              <div className="legal-disclaimer">
+                <div className="disclaimer-title"><Icon name="shield-alt" /> تنبيه قانوني هام</div>
+                <div className="disclaimer-text">نظام الاستعلام الإلكتروني مخصص حصراً للعملاء المسجلين بمكتبنا لمتابعة قضاياهم أو خدماتهم المهنية. <strong>لا يجوز</strong> استخدام النظام للاستعلام عن ملفات الآخرين دون تفويض رسمي.</div>
+              </div>
 
             <form onSubmit={handleSubmit}>
               <div className="input-group-custom">
@@ -144,7 +143,7 @@ export default function ClientInquiry() {
                 <span className="fixed-prefix">20</span>
               </div>
               <div className="input-group-custom">
-                <input type="text" className="form-control-custom" placeholder="JELR-26-0001-ABC123" value={code} onChange={(e) => setCode(e.target.value.toUpperCase())} required style={{ textTransform: 'uppercase' }} />
+                <input type="text" className="form-control-custom" placeholder="JELR-26-0001-ABC123 أو RE-26-000001-ABC123" value={code} onChange={(e) => setCode(e.target.value.toUpperCase())} required style={{ textTransform: 'uppercase' }} />
               </div>
               <div className="consent-wrapper">
                 <input type="checkbox" id="consentCheck" checked={consent} onChange={(e) => setConsent(e.target.checked)} required />
