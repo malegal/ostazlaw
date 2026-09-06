@@ -40,12 +40,12 @@ export default function ClientInquiry() {
   return (
     <Layout>
       <Head>
-        <title>استعلام القضايا | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا</title>
-        <meta name="description" content="نظام استعلام القضايا الإلكتروني – متابعة مستجدات قضيتك لدى مؤسسة جاد الرب للمحاماة." />
+        <title>بوابة متابعة ملفات العملاء | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا</title>
+        <meta name="description" content="نظام بوابة متابعة ملفات العملاء – متابعة مستجدات ملفك القانوني لدى مؤسسة جاد الرب للمحاماة." />
         <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href="https://ostazlaw.vercel.app/client-inquiry" />
-        <meta property="og:title" content="استعلام القضايا | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا" />
-        <meta property="og:description" content="نظام استعلام القضايا الإلكتروني – متابعة مستجدات قضيتك لدى مؤسسة جاد الرب للمحاماة." />
+        <meta property="og:title" content="بوابة متابعة ملفات العملاء | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا" />
+        <meta property="og:description" content="نظام بوابة متابعة ملفات العملاء – متابعة مستجدات ملفك القانوني لدى مؤسسة جاد الرب للمحاماة." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/client-inquiry" />
         <meta property="og:image" content="https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.webp" />
@@ -84,8 +84,8 @@ export default function ClientInquiry() {
                 "@type": "WebPage",
                 "@id": "https://ostazlaw.vercel.app/client-inquiry#webpage",
                 "url": "https://ostazlaw.vercel.app/client-inquiry",
-                "name": "استعلام القضايا",
-                "description": "نظام استعلام القضايا الإلكتروني – متابعة مستجدات قضيتك.",
+                "name": "بوابة متابعة ملفات العملاء",
+                "description": "نظام بوابة متابعة ملفات العملاء – متابعة مستجدات ملفك القانوني.",
                 "isPartOf": { "@id": "https://ostazlaw.vercel.app/#website" },
                 "about": { "@id": "https://ostazlaw.vercel.app/#organization" }
               },
@@ -101,13 +101,13 @@ export default function ClientInquiry() {
         }} />
       </Head>
 
-        <section className="hero" aria-label="استعلام القضايا والخدمات المهنية">
+        <section className="hero" aria-label="بوابة متابعة ملفات العملاء والخدمات المهنية">
         <div className="hero-bg"><div className="glow"></div><div className="glow-2"></div></div>
         <div className="hero-content">
-          <div className="hero-brand-signature">بوابة متابعة الملفات</div>
-          <h1 className="hero-title">تابع <span className="gold-text">قضيتك</span></h1>
+          <div className="hero-brand-signature">بوابة متابعة ملفات العملاء</div>
+          <h1 className="hero-title">تابع <span className="gold-text">ملفك القانوني</span></h1>
           <p className="hero-subtitle">نظام الاستعلام الإلكتروني</p>
-          <p className="hero-value">أدخل بيانات الهاتف والكود لمتابعة قضيتك أو خدمتك المهنية.<br />الخدمة متاحة لعملائنا المسجلين فقط.</p>
+          <p className="hero-value">أدخل بيانات الهاتف والكود لمتابعة ملفك القانوني أو خدمتك المهنية.<br />الخدمة متاحة لعملائنا المسجلين فقط.</p>
         </div>
       </section>
 
@@ -119,7 +119,7 @@ export default function ClientInquiry() {
         </div>
       </section>
 
-      <section className="section section-light" aria-label="نموذج استعلام القضايا">
+      <section className="section section-light" aria-label="نموذج بوابة متابعة ملفات العملاء">
         <div className="section-inner">
           <div className="section-head reveal">
             <span className="eyebrow">● الاستعلام</span>
@@ -130,7 +130,7 @@ export default function ClientInquiry() {
           <div className="search-card">
             <div className="icon-header"><Icon name="search" /></div>
             <h2>استعلام موحد</h2>
-            <p className="sub">تابع قضيتك أو خدمتك المهنية من مكان واحد</p>
+            <p className="sub">تابع ملفك القانوني أو خدمتك المهنية من مكان واحد</p>
 
               <div className="legal-disclaimer">
                 <div className="disclaimer-title"><Icon name="shield-alt" /> تنبيه قانوني هام</div>

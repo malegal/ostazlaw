@@ -56,9 +56,9 @@ export default function Home({ articles, news }) {
             <Link href="/contact?tab=visit#service-form" className="hero-action-item gold-underline"><span className="icon-wrap"><Icon name="calendar-check" /></span><span className="label">حجز موعد</span></Link>
             <Link href="/contact?tab=representation#service-form" className="hero-action-item gold-underline"><span className="icon-wrap"><Icon name="gavel" /></span><span className="label">تمثيل قضائي</span></Link>
           </div>
-          {/* زر متابعة القضية موجود أسفل خدمات الـHero، مع الحفاظ على وجهته الحالية إلى صفحة الاستعلام. */}
+          {/* زر متابعة الملف القانوني موجود أسفل خدمات الـHero، مع الحفاظ على وجهته الحالية إلى صفحة المتابعة. */}
           {/* الفئة الإضافية توحّد أبعاد الزر مع زر الاستشارة في صفحة التخصصات، بينما تبقي ألوانه الأساسية كما هي. */}
-          <div className="section-cta"><Link href="/client-inquiry" className="btn-outline-gold case-tracking-cta">تابع قضيتك</Link></div>
+          <div className="section-cta"><Link href="/client-inquiry" className="btn-outline-gold case-tracking-cta">تابع ملفك لدينا</Link></div>
         </div>
       </section>
 

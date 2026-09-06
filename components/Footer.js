@@ -33,8 +33,8 @@ export default function Footer() {
           <Link href="/contact?tab=consult#service-form">استشارة قانونية</Link>
           <Link href="/contact?tab=visit#service-form">حجز موعد</Link>
           <Link href="/contact?tab=representation#service-form">تمثيل قانوني</Link>
-          {/* إعادة إظهار خدمة متابعة القضية داخل الفوتر بناءً على طلب الموقع. */}
-          <Link href="/client-inquiry">تابع قضيتك</Link>
+          {/* إظهار خدمة متابعة الملفات القانونية داخل الفوتر. */}
+          <Link href="/client-inquiry">تابع ملفك لدينا</Link>
         </div>
         <div className="footer-col">
           <h4>اتصال</h4>
