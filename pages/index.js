@@ -16,7 +16,8 @@ export default function Home({ articles, news }) {
       <Head>
         <title>مؤسسة جاد الرب للمحاماة والاستشارات القانونية | JAD ELRAB</title>
         <meta name="description" content="مؤسسة قانونية مصرية تقدم استشارات، تمثيلاً قضائياً، وحلولاً قانونية للشركات والأفراد. خبرة في النقض والدستورية العليا." />
-        <link rel="canonical" href="https://ostazlaw.vercel.app/" />
+        {/* SEO: يطابق canonical صيغة الجذر التي يدرجها sitemap دون شرطة مائلة زائدة. */}
+        <link rel="canonical" href="https://ostazlaw.vercel.app" />
         <meta property="og:title" content="مؤسسة جاد الرب للمحاماة والاستشارات القانونية | JAD ELRAB" />
         <meta property="og:description" content="بوابة الوصول إلى خدمات قانونية متخصصة: استشارات، تمثيل قضائي، وحلول قانونية للشركات والأفراد." />
         <meta property="og:type" content="website" />
