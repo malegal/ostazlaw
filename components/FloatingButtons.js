@@ -8,8 +8,9 @@ export default function FloatingButtons() {
         {/* الأيقونة تستخدم مسار واتساب الرسمي، والفئة المخصصة تضبط حجمه داخل الزر العائم فقط. */}
         <Icon name="whatsapp" className="whatsapp-official-icon" />
       </a>
-      <a href="tel:+201101076000" className="float-phone" aria-label="اتصال هاتفي بمؤسسة جاد الرب">
-        <Icon name="phone-alt" />
+      {/* زر اتصال مستقل وواضح على الهاتف، بعيد بصريًا عن لون واتساب. */}
+      <a href="tel:+201101076000" className="float-phone" aria-label="اتصال هاتفي بمؤسسة جاد الرب" title="اتصال هاتفي">
+        <Icon name="phone" />
       </a>
     </>
   );
