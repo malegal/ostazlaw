@@ -17,11 +17,11 @@ export default function NewsArchive({ newsItems, articles }) {
         <meta property="og:description" content="الأخبار والمقالات والدراسات القانونية التي تنشرها مؤسسة جاد الرب للمحاماة والاستشارات القانونية." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/news-archive" />
-        <meta property="og:image" content="/mahmoud-abdel-hamid-lawyer-portrait.webp" />
-        <meta property="og:image:width" content="600" />
-        <meta property="og:image:height" content="800" />
+        <meta property="og:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="/mahmoud-abdel-hamid-lawyer-portrait.webp" />
+        <meta name="twitter:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
@@ -45,7 +45,7 @@ export default function NewsArchive({ newsItems, articles }) {
                 ],
                 "address": {
                   "@type": "PostalAddress",
-                  "addressLocality": "القاهرة",
+                  "addressLocality": "أسوان",
                   "addressCountry": "مصر"
                 }
               },

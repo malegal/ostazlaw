@@ -20,18 +20,18 @@ export default function About() {
   return (
     <Layout>
       <Head>
-        <title>عن المؤسسة | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا</title>
-        <meta name="description" content="مؤسسة جاد الرب للمحاماة والاستشارات القانونية – تأسست عام 2005، تقدم خدمات قانونية واستشارات متكاملة للأفراد والشركات." />
+        <title>عن المؤسسة | مؤسسة جاد الرب للمحاماة والاستشارات القانونية</title>
+        <meta name="description" content="مؤسسة جاد الرب للمحاماة والاستشارات القانونية، مقرها أسوان، تأسست عام 2005 وتقدم خدماتها للأفراد والشركات في مختلف محافظات مصر." />
         <link rel="canonical" href="https://ostazlaw.vercel.app/about" />
-        <meta property="og:title" content="عن المؤسسة | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا" />
+        <meta property="og:title" content="عن المؤسسة | مؤسسة جاد الرب للمحاماة والاستشارات القانونية" />
         <meta property="og:description" content="مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/about" />
-        <meta property="og:image" content="/mahmoud-abdel-hamid-lawyer-portrait.webp" />
-        <meta property="og:image:width" content="600" />
-        <meta property="og:image:height" content="800" />
+        <meta property="og:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="/mahmoud-abdel-hamid-lawyer-portrait.webp" />
+        <meta name="twitter:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
@@ -120,7 +120,7 @@ export default function About() {
               />
             </div>
             <div className="hero-text reveal" style={{ transitionDelay: '0.15s' }}>
-              <p><strong>مؤسسة قانونية تؤمن بأن العمل القانوني المتميز يبدأ بالفهم العميق، ويُبنى على التخطيط، ويُقاس بحماية مصالح العميل.</strong></p>
+              <p><strong>مؤسسة قانونية مقرها أسوان، تخدم الأفراد والشركات في مختلف محافظات مصر، وتؤمن بأن العمل القانوني المتميز يبدأ بالفهم العميق، ويُبنى على التخطيط، ويُقاس بحماية مصالح العميل.</strong></p>
               <p>تُعد مؤسسة جاد الرب للمحاماة والاستشارات القانونية <strong>(JAD ELRAB)</strong> مؤسسة قانونية تقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات، مستندة إلى منهج مهني يقوم على التحليل الدقيق، والتخطيط القانوني، والتمثيل الاحترافي أمام جهات القضاء.</p>
               <p>نؤمن بأن القضايا لا تُدار بردود الأفعال، بل بفهمٍ عميق للوقائع، وتحليلٍ صحيح للمراكز القانونية، ثم بناء استراتيجية تحقق أفضل حماية ممكنة لمصالح عملائنا.</p>
               <div className="cta-wrap">

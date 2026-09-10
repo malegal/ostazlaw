@@ -5,6 +5,7 @@ import Icon from './Icon';
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef();
+  const menuToggleRef = useRef();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,7 +19,10 @@ export default function Header() {
   }, []);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
-  const closeMenu = () => setMenuOpen(false);
+  const closeMenu = () => {
+    setMenuOpen(false);
+    menuToggleRef.current?.focus();
+  };
 
   useEffect(() => {
     const handleEscape = (e) => {
@@ -59,16 +63,21 @@ export default function Header() {
           <Link href="/news-archive">الأخبار والمكتبة</Link>
           {/* رابط واضح لصفحة الأسئلة الشائعة الجديدة ضمن التنقل الرئيسي. */}
           <Link href="/faq">الأسئلة الشائعة</Link>
-          <Link href="/contact">اتصل بنا</Link>
+          <Link href="/contact">تواصل معنا</Link>
         </nav>
         <div className="header-actions">
-          <button className="menu-toggle" onClick={toggleMenu} aria-label="فتح القائمة">
+          {/* الهاتف ظاهر في سطح المكتب كإجراء مباشر؛ على الهاتف ينتقل إلى زر عائم لتجنب ازدحام الهيدر. */}
+          <a href="tel:+201101076000" className="header-phone" aria-label="اتصل بمؤسسة جاد الرب على الرقم +20 110 107 6000">
+            <Icon name="phone" />
+            <span dir="ltr">+20 110 107 6000</span>
+          </a>
+          <button ref={menuToggleRef} className="menu-toggle" onClick={toggleMenu} aria-label="فتح القائمة" aria-expanded={menuOpen} aria-controls="mobile-navigation">
             <Icon name="bars-staggered" />
           </button>
         </div>
       </header>
 
-      <div className={`mobile-menu ${menuOpen ? 'open' : ''}`} ref={menuRef}>
+      <div id="mobile-navigation" className={`mobile-menu ${menuOpen ? 'open' : ''}`} ref={menuRef} role="dialog" aria-modal="true" aria-label="قائمة التنقل">
         <button className="mobile-menu-close" onClick={closeMenu} aria-label="إغلاق القائمة">
           <Icon name="times" />
         </button>
@@ -81,7 +90,7 @@ export default function Header() {
           <Link href="/news-archive" onClick={closeMenu}>الأخبار والمكتبة</Link>
           {/* توحيد قائمة الهاتف مع قائمة سطح المكتب وإتاحة صفحة FAQ. */}
           <Link href="/faq" onClick={closeMenu}>الأسئلة الشائعة</Link>
-          <Link href="/contact" onClick={closeMenu}>اتصل بنا</Link>
+          <Link href="/contact" onClick={closeMenu}>تواصل معنا</Link>
         </nav>
       </div>
     </>

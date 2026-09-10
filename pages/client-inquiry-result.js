@@ -172,9 +172,9 @@ export default function ClientInquiryResult() {
         <meta property="og:description" content="نتيجة استعلام قضيتك." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/client-inquiry-result" />
-        <meta property="og:image" content="https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.webp" />
+        <meta property="og:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.webp" />
+        <meta name="twitter:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
       </Head>
 
       <section className="hero-result" aria-label="نتيجة الاستعلام">
@@ -335,7 +335,8 @@ export default function ClientInquiryResult() {
         .btn-exit:hover { background: #b91c1c; }
         @media (max-width: 820px) { .hero-result { padding: 100px 1rem 2rem; min-height: auto; } .result-main { padding: 2rem 1rem 3rem; } .result-card { padding: 1.8rem 1.2rem; } .info-grid { grid-template-columns: 1fr; } .modal-actions { flex-direction: column; align-items: stretch; } .result-header h2 { font-size: 1.6rem; } }
         @media (max-width: 640px) { .result-main { padding: 90px 1rem 2rem; } .result-card { padding: 1.2rem 0.8rem; } .result-header h2 { font-size: 1.4rem; } .info-item .info-value { font-size: 0.85rem; } .last-session-box { padding: 0.8rem 1rem; } .sessions-history-heading { align-items: flex-start; } .sessions-history-heading h3 { font-size: 1.15rem; } .session-card { gap: 0.55rem; } .session-marker { flex-basis: 1.7rem; width: 1.7rem; height: 1.7rem; font-size: 0.65rem; } .sessions-timeline::before { right: 0.85rem; } .session-card-content { padding: 0.75rem; } .session-card-topline { display: grid; justify-content: stretch; gap: 0.45rem; } .session-status { justify-self: start; } .modal-actions .btn-action { font-size: 0.8rem; padding: 0.5rem 0.8rem; min-width: 80px; } }
-        @media print { .site-header, .site-footer, .float-whatsapp, .float-main-btn, .float-sub-buttons, .modal-actions { display: none !important; } .result-card { box-shadow: none !important; border: 1px solid rgba(0,0,0,0.04) !important; padding: 1.5rem !important; } .result-card::after { display: none !important; } .result-main { padding-top: 1.5rem !important; background: #fff !important; } .info-item, .session-card-content { background: #f5f5f5 !important; border: 1px solid #eee !important; box-shadow: none !important; } .sessions-timeline::before { background: #bbb !important; } .session-marker { background: #fff !important; } }
+        /* لا تظهر أدوات التواصل أو عناصر التحكم عند طباعة نتيجة الملف. */
+        @media print { .site-header, .site-footer, .float-whatsapp, .float-phone, .modal-actions { display: none !important; } .result-card { box-shadow: none !important; border: 1px solid rgba(0,0,0,0.04) !important; padding: 1.5rem !important; } .result-card::after { display: none !important; } .result-main { padding-top: 1.5rem !important; background: #fff !important; } .info-item, .session-card-content { background: #f5f5f5 !important; border: 1px solid #eee !important; box-shadow: none !important; } .sessions-timeline::before { background: #bbb !important; } .session-marker { background: #fff !important; } }
       `}</style>
     </Layout>
   );

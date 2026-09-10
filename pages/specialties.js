@@ -14,18 +14,18 @@ export default function Specialties() {
   return (
     <Layout>
       <Head>
-        <title>التخصصات القانونية | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا</title>
+        <title>التخصصات القانونية | مؤسسة جاد الرب للمحاماة والاستشارات القانونية</title>
         <meta name="description" content="خبرة قانونية منذ 2005 في المنازعات المدنية، التجارية، العمالية، الإدارية، قضايا الأسرة، الدفاع الجنائي، والطعن الدستوري، والنقض، والطعون الإدارية." />
         <link rel="canonical" href="https://ostazlaw.vercel.app/specialties" />
-        <meta property="og:title" content="التخصصات القانونية | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا" />
+        <meta property="og:title" content="التخصصات القانونية | مؤسسة جاد الرب للمحاماة والاستشارات القانونية" />
         <meta property="og:description" content="خدمات قانونية متكاملة في المنازعات المدنية، التجارية، العمالية، الإدارية، قضايا الأسرة، والدفاع الجنائي، والطعن الدستوري، والنقض، والطعون الإدارية." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/specialties" />
-        <meta property="og:image" content="https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.webp" />
-        <meta property="og:image:width" content="600" />
-        <meta property="og:image:height" content="800" />
+        <meta property="og:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.webp" />
+        <meta name="twitter:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
@@ -49,7 +49,7 @@ export default function Specialties() {
                 ],
                 "address": {
                   "@type": "PostalAddress",
-                  "addressLocality": "القاهرة",
+                  "addressLocality": "أسوان",
                   "addressCountry": "مصر"
                 }
               },

@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 import Header from './Header';
 import Footer from './Footer';
 import FloatingButtons from './FloatingButtons';
+import Head from 'next/head';
+import { organizationJsonLd } from '../lib/seo';
 
 export default function Layout({ children }) {
   const router = useRouter();
@@ -49,8 +51,13 @@ export default function Layout({ children }) {
 
   return (
     <>
+      {/* Schema موحد: مقر المؤسسة في أسوان ونطاق الخدمة مختلف محافظات مصر. */}
+      <Head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: organizationJsonLd() }} />
+      </Head>
+      <a className="skip-link" href="#main-content">تخطَّ إلى المحتوى الرئيسي</a>
       <Header />
-      <main>{children}</main>
+      <main id="main-content">{children}</main>
       <Footer />
       <FloatingButtons />
     </>

@@ -32,6 +32,13 @@ export default function FAQ() {
         <meta property="og:description" content="إجابات واضحة على الأسئلة التي تسبق طلب الاستشارة أو بدء المتابعة." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/faq" />
+        <meta property="og:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="الأسئلة الشائعة | مؤسسة جاد الرب للمحاماة والاستشارات القانونية" />
+        <meta name="twitter:description" content="إجابات واضحة على الأسئلة التي تسبق طلب الاستشارة أو بدء المتابعة." />
+        <meta name="twitter:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
@@ -55,7 +62,7 @@ export default function FAQ() {
         </div>
       </section>
 
-      {/* كل سؤال زر مستقل للوصول السهل، مع فتح إجابة واحدة أو إغلاقها عند النقر. */}
+      {/* كل سؤال عنوان h3 يحتوي زرًا؛ هذا يحافظ على الدلالة والوصول دون التضحية بتصميم الأكورديون. */}
       <section className="section section-gray faq-page-section" aria-label="قائمة الأسئلة الشائعة">
         <div className="section-inner">
           {/* تمهيد مختصر يوضح وظيفة الصفحة ويقود الزائر إلى الأسئلة الأكثر عملية. */}
@@ -63,13 +70,16 @@ export default function FAQ() {
           <div className="faq-list">
             {faqItems.map((item, index) => {
               const isActive = activeIndex === index;
+              const answerId = `faq-answer-${index}`;
               return (
                 <div key={item.q} className={`faq-item ${isActive ? 'active' : ''}`}>
-                  <button type="button" className="faq-question" aria-expanded={isActive} onClick={() => setActiveIndex(isActive ? -1 : index)}>
-                    <span>{item.q}</span>
-                    <span className="icon"><Icon name="chevron-down" /></span>
-                  </button>
-                  <div className="faq-answer" aria-hidden={!isActive}><p>{item.a}</p></div>
+                  <h3 className="faq-heading">
+                    <button type="button" className="faq-question" aria-expanded={isActive} aria-controls={answerId} onClick={() => setActiveIndex(isActive ? -1 : index)}>
+                      <span>{item.q}</span>
+                      <span className="icon"><Icon name="chevron-down" /></span>
+                    </button>
+                  </h3>
+                  <div id={answerId} className="faq-answer" aria-hidden={!isActive}><p>{item.a}</p></div>
                 </div>
               );
             })}
@@ -94,6 +104,7 @@ export default function FAQ() {
         .faq-item { background: var(--pure-white); border-radius: 10px; border: 1px solid rgba(0,0,0,0.04); overflow: hidden; transition: all 0.3s var(--ease-out); box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
         .faq-item:hover, .faq-item.active { border-color: var(--matte-gold); }
         .faq-question { width: 100%; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; background: transparent; border: none; color: var(--charcoal); font-size: 0.95rem; font-weight: 700; text-align: right; gap: 1rem; cursor: pointer; }
+        .faq-heading { margin: 0; font: inherit; }
         .faq-question:hover { color: var(--matte-gold); }
         .faq-question .icon { flex-shrink: 0; font-size: 0.7rem; color: var(--matte-gold); opacity: 0.5; transition: transform 0.4s var(--ease-out); }
         .faq-item.active .faq-question .icon { transform: rotate(180deg); opacity: 0.9; }

@@ -40,19 +40,19 @@ export default function ClientInquiry() {
   return (
     <Layout>
       <Head>
-        <title>بوابة متابعة ملفات العملاء | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا</title>
+        <title>بوابة متابعة ملفات العملاء | مؤسسة جاد الرب للمحاماة والاستشارات القانونية</title>
         <meta name="description" content="نظام بوابة متابعة ملفات العملاء – متابعة مستجدات ملفك القانوني لدى مؤسسة جاد الرب للمحاماة." />
         <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href="https://ostazlaw.vercel.app/client-inquiry" />
-        <meta property="og:title" content="بوابة متابعة ملفات العملاء | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا" />
+        <meta property="og:title" content="بوابة متابعة ملفات العملاء | مؤسسة جاد الرب للمحاماة والاستشارات القانونية" />
         <meta property="og:description" content="نظام بوابة متابعة ملفات العملاء – متابعة مستجدات ملفك القانوني لدى مؤسسة جاد الرب للمحاماة." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/client-inquiry" />
-        <meta property="og:image" content="https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.webp" />
-        <meta property="og:image:width" content="600" />
-        <meta property="og:image:height" content="800" />
+        <meta property="og:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.webp" />
+        <meta name="twitter:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
@@ -76,7 +76,7 @@ export default function ClientInquiry() {
                 ],
                 "address": {
                   "@type": "PostalAddress",
-                  "addressLocality": "القاهرة",
+                  "addressLocality": "أسوان",
                   "addressCountry": "مصر"
                 }
               },

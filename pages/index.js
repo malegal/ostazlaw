@@ -15,25 +15,25 @@ export default function Home({ articles, news }) {
     <Layout>
       <Head>
         <title>مؤسسة جاد الرب للمحاماة والاستشارات القانونية | JAD ELRAB</title>
-        <meta name="description" content="مؤسسة قانونية مصرية تقدم استشارات، تمثيلاً قضائياً، وحلولاً قانونية للشركات والأفراد. خبرة في النقض والدستورية العليا." />
+        <meta name="description" content="مؤسسة جاد الرب للمحاماة والاستشارات القانونية، مقرها أسوان، تقدم الاستشارات والتمثيل القانوني وصياغة العقود للأفراد والشركات في مختلف محافظات مصر." />
         {/* SEO: يطابق canonical صيغة الجذر التي يدرجها sitemap دون شرطة مائلة زائدة. */}
         <link rel="canonical" href="https://ostazlaw.vercel.app" />
         <meta property="og:title" content="مؤسسة جاد الرب للمحاماة والاستشارات القانونية | JAD ELRAB" />
-        <meta property="og:description" content="بوابة الوصول إلى خدمات قانونية متخصصة: استشارات، تمثيل قضائي، وحلول قانونية للشركات والأفراد." />
+        <meta property="og:description" content="مقر مؤسسة جاد الرب في أسوان، ونقدم خدمات قانونية متخصصة للأفراد والشركات في مختلف محافظات مصر." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/" />
-        <meta property="og:image" content="/mahmoud-abdel-hamid-lawyer-portrait.webp" />
-        <meta property="og:image:width" content="600" />
-        <meta property="og:image:height" content="800" />
+        <meta property="og:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:locale" content="ar_EG" />
         <meta property="og:site_name" content="JAD ELRAB" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="/mahmoud-abdel-hamid-lawyer-portrait.webp" />
+        <meta name="twitter:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@graph": [
-              { "@type": "LegalService", "@id": "https://ostazlaw.vercel.app/#organization", "name": "مؤسسة جاد الرب للمحاماة والاستشارات القانونية", "alternateName": "JAD ELRAB", "description": "مؤسسة قانونية مصرية تقدم استشارات وتمثيلاً قضائياً وحلولاً قانونية للشركات والأفراد.", "url": "https://ostazlaw.vercel.app/", "email": "ma.law.firm@outlook.com", "telephone": "+201101076000", "foundingDate": "2005", "areaServed": { "@type": "Country", "name": "مصر" }, "availableLanguage": ["Arabic", "English"], "sameAs": ["https://www.facebook.com/malegal", "https://x.com/mahmoud_a_hamyd", "https://www.linkedin.com/in/mahmoud-abdel-hamid-0a4664374"], "address": { "@type": "PostalAddress", "addressLocality": "أسوان", "addressCountry": "مصر" }, "priceRange": "$$" },
+              { "@type": "LegalService", "@id": "https://ostazlaw.vercel.app/#organization", "name": "مؤسسة جاد الرب للمحاماة والاستشارات القانونية", "alternateName": "JAD ELRAB", "description": "مؤسسة قانونية مصرية مقرها أسوان، تقدم الاستشارات والتمثيل القانوني وصياغة العقود للأفراد والشركات في مختلف محافظات مصر.", "url": "https://ostazlaw.vercel.app/", "email": "ma.law.firm@outlook.com", "telephone": "+201101076000", "foundingDate": "2005", "areaServed": { "@type": "Country", "name": "مصر" }, "availableLanguage": ["Arabic", "English"], "sameAs": ["https://www.facebook.com/malegal", "https://x.com/mahmoud_a_hamyd", "https://www.linkedin.com/in/mahmoud-abdel-hamid-0a4664374"], "address": { "@type": "PostalAddress", "addressLocality": "أسوان", "addressCountry": "EG" }, "priceRange": "$$" },
               { "@type": "Person", "@id": "https://ostazlaw.vercel.app/#founder", "name": "محمود عبد الحميد", "jobTitle": "المحامي بالنقض والدستورية العليا", "worksFor": { "@id": "https://ostazlaw.vercel.app/#organization" }, "url": "/about", "image": { "@type": "ImageObject", "url": "/mahmoud-abdel-hamid-lawyer-portrait.webp", "caption": "الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا" } },
               { "@type": "WebPage", "@id": "https://ostazlaw.vercel.app/#webpage", "url": "https://ostazlaw.vercel.app/", "name": "الصفحة الرئيسية – مؤسسة جاد الرب للمحاماة", "description": "بوابة الوصول إلى خدمات قانونية متخصصة: استشارات، تمثيل قضائي، وحلول قانونية.", "isPartOf": { "@id": "https://ostazlaw.vercel.app/#website" }, "about": { "@id": "https://ostazlaw.vercel.app/#organization" }, "primaryImageOfPage": { "@type": "ImageObject", "url": "/mahmoud-abdel-hamid-lawyer-portrait.webp", "caption": "الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا" } },
               { "@type": "BreadcrumbList", "@id": "https://ostazlaw.vercel.app/#breadcrumb", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://ostazlaw.vercel.app/" }] },
@@ -50,7 +50,7 @@ export default function Home({ articles, news }) {
           <h1 className="hero-title">مؤسسة جاد الرب</h1>
           <p className="hero-subtitle">للمحاماة والاستشارات القانونية</p>
           {/* صياغة ترويجية تركز على المنهج القانوني وحماية المصالح دون وعود بنتيجة قضائية مضمونة. */}
-          <p className="hero-value">نقدم خدمات قانونية متخصصة للأفراد والشركات، تقوم على فهم دقيق للوقائع، وتحليل المراكز القانونية، وبناء استراتيجية واضحة لحماية الحقوق والمصالح والاستثمارات.</p>
+          <p className="hero-value">مقرنا في أسوان، ونقدم خدمات قانونية متخصصة للأفراد والشركات في مختلف محافظات مصر، تقوم على فهم دقيق للوقائع، وتحليل المراكز القانونية، وبناء استراتيجية واضحة لحماية الحقوق والمصالح والاستثمارات.</p>
           <div className="hero-actions">
             <Link href="/contact?tab=consult#service-form" className="hero-action-item gold-underline"><span className="icon-wrap"><Icon name="file-signature" /></span><span className="label">ابدأ باستشارة قانونية</span></Link>
             <Link href="/contact?tab=visit#service-form" className="hero-action-item gold-underline"><span className="icon-wrap"><Icon name="calendar-check" /></span><span className="label">حجز موعد</span></Link>

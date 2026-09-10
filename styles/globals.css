@@ -123,6 +123,27 @@ button {
     background: none;
     font-family: inherit;
 }
+.skip-link {
+    position: fixed;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 3000;
+    padding: 0.65rem 1rem;
+    border-radius: 0.35rem;
+    background: var(--matte-gold);
+    color: var(--very-dark-navy);
+    font-weight: 700;
+    transform: translateY(-180%);
+    transition: transform 0.2s ease;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+    transform: translateY(0);
+}
+:focus-visible {
+    outline: 3px solid var(--matte-gold);
+    outline-offset: 3px;
+}
 
 ::-webkit-scrollbar {
     width: 6px;
@@ -518,6 +539,34 @@ button {
     display: flex;
     align-items: center;
     gap: 0.6rem;
+}
+.header-phone {
+    /* رقم الهاتف إجراء مباشر على سطح المكتب، ويُستبدل بزر اتصال عائم على الهاتف. */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.75rem;
+    border: 1px solid rgba(176, 141, 87, 0.65);
+    border-radius: 0.35rem;
+    color: var(--matte-gold);
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+.header-phone:hover,
+.header-phone:focus-visible {
+    background: var(--matte-gold);
+    border-color: var(--matte-gold);
+    color: var(--very-dark-navy);
+}
+.header-phone .icon-svg {
+    font-size: 0.9rem;
+}
+.float-phone {
+    /* مخفي افتراضيًا؛ يُفعّل فقط داخل media query للهاتف أسفل الملف. */
+    display: none;
 }
 
 .menu-toggle {
@@ -1448,101 +1497,6 @@ button {
     background: #1ebe5c;
 }
 
-.float-main-btn {
-    position: fixed;
-    bottom: calc(2rem + 56px + 0.8rem);
-    left: 2rem;
-    z-index: 9999;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: var(--matte-gold);
-    color: #000;
-    border: none;
-    box-shadow: 0 4px 30px rgba(176, 141, 87, 0.3);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.6rem;
-    transition: all 0.4s var(--ease-out);
-}
-.float-main-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 40px rgba(176, 141, 87, 0.45);
-}
-.float-main-btn.active {
-    transform: rotate(45deg);
-}
-
-.float-sub-buttons {
-    position: fixed;
-    bottom: calc(2rem + 56px + 0.8rem + 56px + 0.8rem);
-    left: 2rem;
-    z-index: 9998;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    align-items: center;
-    opacity: 0;
-    transform: translateY(20px) scale(0.9);
-    pointer-events: none;
-    transition: all 0.4s var(--ease-out);
-}
-.float-sub-buttons.open {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    pointer-events: all;
-}
-
-.float-sub-btn {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: #fff;
-    font-size: 0.7rem;
-    font-weight: 600;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    transition: all 0.4s var(--ease-out);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    flex-direction: column;
-    gap: 0.1rem;
-    font-family: var(--font-body-ar);
-    text-align: center;
-    line-height: 1.2;
-    background: rgba(16, 42, 67, 0.95);
-}
-.float-sub-btn:hover {
-    transform: scale(1.1) translateY(-3px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-}
-.float-sub-btn .icon-svg {
-    font-size: 1.1rem;
-    margin-bottom: 0.1rem;
-}
-.float-sub-btn .label {
-    font-size: 0.5rem;
-    opacity: 0.9;
-}
-
-.float-sub-btn.phone {
-    background: rgba(5, 150, 105, 0.95);
-}
-.float-sub-btn.consult {
-    background: rgba(176, 141, 87, 0.98);
-    color: #000;
-}
-.float-sub-btn.appointment {
-    background: rgba(16, 42, 67, 0.98);
-    color: #fff;
-}
-
 /* ==========================================================
    FOOTER – تذييل الصفحة
    ========================================================== */
@@ -1967,6 +1921,25 @@ button {
 }
 
 @media (max-width: 820px) {
+    .header-phone {
+        display: none;
+    }
+    .float-phone {
+        display: flex;
+        position: fixed;
+        left: 2rem;
+        bottom: calc(2rem + 56px + 0.8rem);
+        z-index: 1001;
+        width: 48px;
+        height: 48px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--deep-navy);
+        color: #fff;
+        border: 2px solid var(--matte-gold);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    }
     .hero {
         padding-top: 150px;
     }

@@ -33,18 +33,18 @@ export default function Contact() {
   return (
     <Layout>
       <Head>
-        <title>تواصل معنا | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا</title>
-        <meta name="description" content="تواصل مع مؤسسة جاد الرب للمحاماة والاستشارات القانونية. المكتب الرئيسي في أسوان، وفروع في القاهرة والإسكندرية. احجز موعداً، اطلب استشارة، أو قدم طلب تمثيل قانوني." />
+        <title>تواصل معنا | مؤسسة جاد الرب للمحاماة والاستشارات القانونية</title>
+        <meta name="description" content="تواصل مع مؤسسة جاد الرب للمحاماة والاستشارات القانونية، مقرها أسوان وتقدم خدماتها للعملاء في مختلف محافظات مصر. احجز موعداً أو اطلب استشارة أو تمثيلاً قانونياً." />
         <link rel="canonical" href="https://ostazlaw.vercel.app/contact" />
-        <meta property="og:title" content="تواصل معنا | الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا" />
-        <meta property="og:description" content="تواصل مع مؤسسة جاد الرب للمحاماة والاستشارات القانونية. المكتب الرئيسي في أسوان، وفروع في القاهرة والإسكندرية." />
+        <meta property="og:title" content="تواصل معنا | مؤسسة جاد الرب للمحاماة والاستشارات القانونية" />
+        <meta property="og:description" content="تواصل مع مؤسسة جاد الرب للمحاماة والاستشارات القانونية، مقرها أسوان وتقدم خدماتها للعملاء في مختلف محافظات مصر." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/contact" />
-        <meta property="og:image" content="https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.webp" />
-        <meta property="og:image:width" content="600" />
-        <meta property="og:image:height" content="800" />
+        <meta property="og:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.webp" />
+        <meta name="twitter:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
@@ -54,15 +54,14 @@ export default function Contact() {
                 "@id": "https://ostazlaw.vercel.app/#organization",
                 "name": "مؤسسة جاد الرب للمحاماة والاستشارات القانونية",
                 "alternateName": "JAD ELRAB",
-                "description": "مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات. المكتب الرئيسي في أسوان، وفروع في القاهرة والإسكندرية.",
+                "description": "مؤسسة قانونية مصرية مقرها أسوان وتقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات في مختلف محافظات مصر.",
                 "url": "https://ostazlaw.vercel.app/",
                 "email": "ma.law.firm@outlook.com",
                 "telephone": "+201101076000",
                 "foundingDate": "2005",
                 "areaServed": [
                   { "@type": "City", "name": "أسوان" },
-                  { "@type": "City", "name": "القاهرة" },
-                  { "@type": "City", "name": "الإسكندرية" }
+                  { "@type": "Country", "name": "مصر" }
                 ],
                 "availableLanguage": ["Arabic", "English"],
                 "sameAs": [
@@ -127,25 +126,15 @@ export default function Contact() {
         <div className="inner">
           <div className="reveal text-center mb-8">
             <span className="eyebrow" style={{ display: 'block', fontSize: '0.65rem', fontWeight: '800', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--matte-gold)', opacity: '0.5', marginBottom: '0.3rem' }}>● مواقعنا</span>
-            <h2 className="text-2xl md:text-3xl font-bold serif gold-text">المكتب الرئيسي والفروع</h2>
-            <p className="text-sm max-w-2xl mx-auto" style={{ color: 'var(--charcoal)', fontWeight: '700' }}>نخدم عملاءنا في مختلف أنحاء مصر. المكتب الرئيسي في أسوان، مع مكاتب وفروع في القاهرة والإسكندرية لتلبية احتياجاتكم القانونية.</p>
+            <h2 className="text-2xl md:text-3xl font-bold serif gold-text">مقر المؤسسة في أسوان وخدماتنا في مختلف محافظات مصر</h2>
+            <p className="text-sm max-w-2xl mx-auto" style={{ color: 'var(--charcoal)', fontWeight: '700' }}>يقع مقر المؤسسة في أسوان، ونقدم خدماتنا للعملاء في مختلف محافظات مصر بحسب طبيعة الخدمة والقضية والجهة المختصة.</p>
           </div>
 
           <div className="branches-grid mb-8">
             <div className="branch-card reveal">
               <div className="branch-icon"><Icon name="flag" /></div>
-              <h4>أسوان <span className="badge-main">المقر الرئيسي</span></h4>
+              <h4>مقر المؤسسة – أسوان <span className="badge-main">المقر الفعلي</span></h4>
               <p>شارع كسر الحجر، المتفرع من شارع كورنيش النيل، أمام مجمع المحاكم، أسوان</p>
-            </div>
-            <div className="branch-card reveal" style={{ transitionDelay: '0.1s' }}>
-              <div className="branch-icon"><Icon name="building" /></div>
-              <h4>القاهرة <span className="badge-main" style={{ background: 'rgba(176,141,87,0.15)', color: 'var(--matte-gold)' }}>فرع</span></h4>
-              <p>منطقة وسط البلد، شارع القصر العيني (خدمة الاستشارات والتمثيل القضائي)</p>
-            </div>
-            <div className="branch-card reveal" style={{ transitionDelay: '0.2s' }}>
-              <div className="branch-icon"><Icon name="city" /></div>
-              <h4>الإسكندرية <span className="badge-main" style={{ background: 'rgba(176,141,87,0.15)', color: 'var(--matte-gold)' }}>فرع</span></h4>
-              <p>منطقة محطة الرمل، شارع سعد زغلول (خدمة الاستشارات والمتابعة القضائية)</p>
             </div>
           </div>
 
@@ -153,7 +142,7 @@ export default function Contact() {
             <div className="lg:col-span-5 space-y-6">
               <div className="reveal">
                 <h2 className="text-2xl font-bold serif gold-text mb-1">بيانات التواصل</h2>
-                <p className="text-sm" style={{ color: 'var(--charcoal)', fontWeight: '700' }}>تفضل بزيارة مقرنا الرئيسي في أسوان، أو اتصل بنا في فروعنا</p>
+                <p className="text-sm" style={{ color: 'var(--charcoal)', fontWeight: '700' }}>تفضل بزيارة مقر المؤسسة في أسوان، أو ابدأ طلبك عبر الهاتف أو واتساب من أي محافظة في مصر.</p>
               </div>
               <div className="space-y-3">
                 <div className="contact-card reveal">
@@ -161,7 +150,7 @@ export default function Contact() {
                   <div className="info">
                     <h4>المقر الرئيسي (أسوان)</h4>
                     <p>شارع كسر الحجر، أمام مجمع المحاكم، أسوان</p>
-                    <p style={{ fontSize: '0.7rem', color: 'var(--charcoal)', fontWeight: '700' }}>فروع القاهرة والإسكندرية حسب المواعيد المسبقة</p>
+                    <p style={{ fontSize: '0.7rem', color: 'var(--charcoal)', fontWeight: '700' }}>تُحدد وسيلة تقديم الخدمة بحسب طبيعة الطلب والجهة القضائية المختصة.</p>
                   </div>
                 </div>
                 <div className="contact-card reveal" style={{ transitionDelay: '0.08s' }}>
@@ -238,7 +227,7 @@ export default function Contact() {
                       <div className="form-group"><label htmlFor="visitDate">تاريخ المقابلة المفضل</label><input type="date" id="visitDate" required /></div>
                     </div>
                     <div className="form-group"><label htmlFor="visitLocation">موقع المقابلة المفضل</label>
-                      <select id="visitLocation"><option value="أسوان">المقر الرئيسي - أسوان</option><option value="القاهرة">فرع القاهرة</option><option value="الإسكندرية">فرع الإسكندرية</option></select>
+                      <select id="visitLocation"><option value="أسوان">مقر المؤسسة - أسوان</option></select>
                     </div>
                     <div className="form-group"><label htmlFor="visitReason">سبب الزيارة</label><textarea id="visitReason" rows="3" placeholder="استشارة بخصوص قضية..." required></textarea></div>
                     <button type="submit" className="btn-gold w-full py-3 rounded-lg flex items-center justify-center gap-3"><span>تأكيد طلب الحجز</span><Icon name="calendar-check" /></button>
