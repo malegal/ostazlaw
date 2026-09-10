@@ -6,6 +6,7 @@ import { remark } from 'remark';
 import html from 'remark-html';
 import { useState, useEffect } from 'react';
 import Icon from '../../components/Icon';
+import { SITE_NAME, absoluteUrl } from '../../lib/seo';
 
 export default function ArticlePage({ article, contentHtml }) {
   const [shareOpen, setShareOpen] = useState(false);
@@ -30,32 +31,45 @@ export default function ArticlePage({ article, contentHtml }) {
   }
 
   const articleUrl = `https://ostazlaw.vercel.app/article/${encodeURIComponent(article.slug)}`;
+  const articleDescription = article.description || `اقرأ مقال ${article.title} من ${SITE_NAME}.`;
+  const articleImage = absoluteUrl(article.image);
+  const publishedDate = article.date || undefined;
 
   return (
     <Layout>
       <Head>
-        <title>{article.title} | الأستاذ محمود عبد الحميد</title>
-        <meta name="description" content={article.description || ''} />
+        <title>{article.title} | مؤسسة جاد الرب للمحاماة والاستشارات القانونية</title>
+        <meta name="description" content={articleDescription} />
         <meta property="og:title" content={article.title} />
-        <meta property="og:description" content={article.description || ''} />
-        {article.image && <meta property="og:image" content={article.image} />}
+        <meta property="og:description" content={articleDescription} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content={articleImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={article.title} />
+        <meta property="og:image:type" content="image/jpeg" />
         <meta name="twitter:card" content="summary_large_image" />
-        {article.image && <meta name="twitter:image" content={article.image} />}
+        <meta name="twitter:title" content={article.title} />
+        <meta name="twitter:description" content={articleDescription} />
+        <meta name="twitter:image" content={articleImage} />
         <link rel="canonical" href={articleUrl} />
         <meta property="og:url" content={articleUrl} />
-        <meta name="twitter:description" content={article.description || ''} />
+        {publishedDate && <meta property="article:published_time" content={publishedDate} />}
+        {publishedDate && <meta property="article:modified_time" content={publishedDate} />}
+        <meta property="article:author" content={article.author || 'محمود عبد الحميد'} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
             "mainEntityOfPage": { "@type": "WebPage", "@id": articleUrl },
             "headline": article.title,
-            "description": article.description || '',
-            "image": article.image ? [article.image] : undefined,
-            "datePublished": article.date || undefined,
-            "dateModified": article.updatedAt || article.date || undefined,
+            "description": articleDescription,
+            "image": [articleImage],
+            "datePublished": publishedDate,
+            "dateModified": publishedDate,
             "author": { "@type": "Person", "name": article.author || 'محمود عبد الحميد' },
-            "publisher": { "@type": "Organization", "name": 'مؤسسة جاد الرب للمحاماة والاستشارات القانونية' }
+            "publisher": { "@type": "Organization", "name": SITE_NAME, "logo": { "@type": "ImageObject", "url": 'https://ostazlaw.vercel.app/icon-512.png' } },
+            "inLanguage": "ar-EG"
           })
         }} />
       </Head>

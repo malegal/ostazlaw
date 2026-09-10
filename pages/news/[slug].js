@@ -6,6 +6,7 @@ import { remark } from 'remark';
 import html from 'remark-html';
 import { useState, useEffect } from 'react';
 import Icon from '../../components/Icon';
+import { SITE_NAME, absoluteUrl } from '../../lib/seo';
 
 export default function NewsPage({ news, contentHtml }) {
   const [shareOpen, setShareOpen] = useState(false);
@@ -29,30 +30,45 @@ export default function NewsPage({ news, contentHtml }) {
   }
 
   const newsUrl = `https://ostazlaw.vercel.app/news/${encodeURIComponent(news.slug)}`;
+  const newsDescription = news.description || `اقرأ خبر ${news.title} من ${SITE_NAME}.`;
+  const newsImage = absoluteUrl(news.image);
+  const publishedDate = news.date || undefined;
 
   return (
     <Layout>
       <Head>
-        <title>{news.title} | أخبار المؤسسة</title>
-        <meta name="description" content={news.description || ''} />
+        <title>{news.title} | أخبار مؤسسة جاد الرب</title>
+        <meta name="description" content={newsDescription} />
         <meta property="og:title" content={news.title} />
-        <meta property="og:description" content={news.description || ''} />
-        {news.image && <meta property="og:image" content={news.image} />}
+        <meta property="og:description" content={newsDescription} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content={newsImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={news.title} />
+        <meta property="og:image:type" content="image/jpeg" />
         <link rel="canonical" href={newsUrl} />
         <meta property="og:url" content={newsUrl} />
-        <meta name="twitter:description" content={news.description || ''} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={news.title} />
+        <meta name="twitter:description" content={newsDescription} />
+        <meta name="twitter:image" content={newsImage} />
+        {publishedDate && <meta property="article:published_time" content={publishedDate} />}
+        {publishedDate && <meta property="article:modified_time" content={publishedDate} />}
+        <meta property="article:author" content={news.author || 'محمود عبد الحميد'} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "NewsArticle",
             "mainEntityOfPage": { "@type": "WebPage", "@id": newsUrl },
             "headline": news.title,
-            "description": news.description || '',
-            "image": news.image ? [news.image] : undefined,
-            "datePublished": news.date || undefined,
-            "dateModified": news.updatedAt || news.date || undefined,
+            "description": newsDescription,
+            "image": [newsImage],
+            "datePublished": publishedDate,
+            "dateModified": publishedDate,
             "author": { "@type": "Person", "name": news.author || 'محمود عبد الحميد' },
-            "publisher": { "@type": "Organization", "name": 'مؤسسة جاد الرب للمحاماة والاستشارات القانونية' }
+            "publisher": { "@type": "Organization", "name": SITE_NAME, "logo": { "@type": "ImageObject", "url": 'https://ostazlaw.vercel.app/icon-512.png' } },
+            "inLanguage": "ar-EG"
           })
         }} />
       </Head>

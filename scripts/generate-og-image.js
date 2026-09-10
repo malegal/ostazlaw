@@ -3,9 +3,20 @@ const path = require('path');
 const sharp = require('sharp');
 
 const output = path.join(__dirname, '..', 'public', 'og-image.jpg');
+const fontDir = path.join(__dirname, '..', 'public', 'fonts');
+const regularFont = fs.readFileSync(path.join(fontDir, 'ibm-plex-sans-arabic-regular.ttf')).toString('base64');
+const boldFont = fs.readFileSync(path.join(fontDir, 'ibm-plex-sans-arabic-bold.ttf')).toString('base64');
+
+// الخط مضمّن داخل SVG بدل الاعتماد على خطوط النظام؛ لذلك تطابق الصورة خط الموقع في كل بيئات البناء.
 const svg = `
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <defs>
+    <style>
+      @font-face { font-family: 'IBM Plex Sans Arabic'; font-weight: 400; src: url(data:font/ttf;base64,${regularFont}); }
+      @font-face { font-family: 'IBM Plex Sans Arabic'; font-weight: 700; src: url(data:font/ttf;base64,${boldFont}); }
+      .arabic { font-family: 'IBM Plex Sans Arabic', sans-serif; }
+      .bold { font-weight: 700; }
+    </style>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#0B111B"/>
       <stop offset="100%" stop-color="#102A43"/>
@@ -22,12 +33,12 @@ const svg = `
   <path d="M90 110 H1110" stroke="url(#gold)" stroke-width="2"/>
   <path d="M90 520 H1110" stroke="url(#gold)" stroke-width="2"/>
   <text x="600" y="210" text-anchor="middle" fill="#D4AF37" font-family="Arial, sans-serif" font-size="54" font-weight="700" letter-spacing="8">JAD ELRAB</text>
-  <text x="600" y="315" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="48" font-weight="700">مؤسسة جاد الرب</text>
-  <text x="600" y="375" text-anchor="middle" fill="#F0F0F0" font-family="Arial, sans-serif" font-size="28">للمحاماة والاستشارات القانونية</text>
-  <text x="600" y="455" text-anchor="middle" fill="#D4AF37" font-family="Arial, sans-serif" font-size="27" font-weight="700">مقرنا في أسوان — خدمات قانونية في مختلف محافظات مصر</text>
+  <text x="600" y="315" text-anchor="middle" fill="#FFFFFF" class="arabic bold" font-size="48" direction="rtl">مؤسسة جاد الرب</text>
+  <text x="600" y="375" text-anchor="middle" fill="#F0F0F0" class="arabic" font-size="28" direction="rtl">للمحاماة والاستشارات القانونية</text>
+  <text x="600" y="455" text-anchor="middle" fill="#D4AF37" class="arabic bold" font-size="27" direction="rtl">مقرنا في أسوان — خدمات قانونية في مختلف محافظات مصر</text>
 </svg>`;
 
 fs.mkdirSync(path.dirname(output), { recursive: true });
 sharp(Buffer.from(svg)).jpeg({ quality: 90, chromaSubsampling: '4:4:4' }).toFile(output)
-  .then(() => console.log(`Generated ${output}`))
+  .then(() => console.log(`Generated ${output} using IBM Plex Sans Arabic`))
   .catch((error) => { console.error(error); process.exit(1); });
