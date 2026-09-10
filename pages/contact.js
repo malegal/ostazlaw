@@ -7,6 +7,18 @@ import Icon from '../components/Icon';
 export default function Contact() {
   const [activeTab, setActiveTab] = useState('consult');
 
+  const referralOptions = [
+    ['friend_referral', 'ترشيح من صديق أو عميل سابق'],
+    ['google', 'بحث Google'],
+    ['social_media', 'Facebook أو Instagram'],
+    ['whatsapp', 'WhatsApp'],
+    ['video', 'YouTube أو TikTok'],
+    ['ai', 'اقتراح من ChatGPT أو Google AI أو أداة ذكاء اصطناعي أخرى'],
+    ['directory', 'موقع أو دليل قانوني'],
+    ['advertising', 'إعلان أو رأيتنا في مكان'],
+    ['other', 'أخرى'],
+  ];
+
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const tab = params.get('tab');
@@ -26,9 +38,24 @@ export default function Contact() {
     const name = form.querySelector('input[type="text"], input[placeholder*="الاسم"]')?.value || '';
     const phone = form.querySelector('input[type="tel"]')?.value || '';
     const message = form.querySelector('textarea')?.value || '';
-    const msg = `*طلب ${type === 'consult' ? 'استشارة قانونية' : type === 'visit' ? 'حجز موعد' : 'تمثيل قانوني'}*%0Aالاسم: ${name}%0Aالهاتف: ${phone}%0Aالتفاصيل: ${message}`;
+    const referralSelect = form.querySelector('[name="referralSource"]');
+    const referral = referralSelect?.selectedOptions?.[0]?.textContent || 'لم يحدد';
+    const referralOther = form.querySelector('[name="referralSourceOther"]')?.value || '';
+    const referralText = referral === 'أخرى' && referralOther ? `${referral} (${referralOther})` : referral;
+    const msg = `*طلب ${type === 'consult' ? 'استشارة قانونية' : type === 'visit' ? 'حجز موعد' : 'تمثيل قانوني'}*%0Aالاسم: ${encodeURIComponent(name)}%0Aالهاتف: ${encodeURIComponent(phone)}%0Aمصدر معرفة المؤسسة: ${encodeURIComponent(referralText)}%0Aالتفاصيل: ${encodeURIComponent(message)}`;
     window.open(`https://wa.me/201101076000?text=${msg}`, '_blank');
   };
+
+  const ReferralSourceField = ({ id }) => (
+    <div className="form-group">
+      <label htmlFor={id}>كيف عرفت بمؤسسة جاد الرب؟ <span style={{ fontWeight: '400' }}>(اختياري)</span></label>
+      <select id={id} name="referralSource" defaultValue="">
+        <option value="">اختر مصدر التعرف علينا</option>
+        {referralOptions.map(([value, label]) => <option key={value} value={value}>{label}</option>)}
+      </select>
+      <input name="referralSourceOther" type="text" placeholder="إذا اخترت أخرى، يرجى التوضيح (اختياري)" style={{ marginTop: '0.5rem' }} />
+    </div>
+  );
 
   return (
     <Layout>
@@ -211,6 +238,7 @@ export default function Contact() {
                     <div className="form-group"><label htmlFor="consultName">الاسم بالكامل</label><input type="text" id="consultName" placeholder="الاسم ثلاثي..." required /></div>
                     <div className="form-group"><label htmlFor="consultPhone">رقم الهاتف / الواتساب</label><input type="tel" id="consultPhone" placeholder="01xxxxxxxxx" required /></div>
                     <div className="form-group"><label htmlFor="consultMessage">تفاصيل الاستشارة</label><textarea id="consultMessage" rows="4" placeholder="يرجى كتابة ملخص للقضية أو الاستفسار..." required></textarea></div>
+                    <ReferralSourceField id="consultReferralSource" />
                     <button type="submit" className="btn-gold w-full py-3 rounded-lg flex items-center justify-center gap-3"><span>إرسال الاستشارة</span><Icon name="whatsapp" style={{ fontSize: '1.5rem' }} /></button>
                   </form>
                 </div>
@@ -230,6 +258,7 @@ export default function Contact() {
                       <select id="visitLocation"><option value="أسوان">مقر المؤسسة - أسوان</option></select>
                     </div>
                     <div className="form-group"><label htmlFor="visitReason">سبب الزيارة</label><textarea id="visitReason" rows="3" placeholder="استشارة بخصوص قضية..." required></textarea></div>
+                    <ReferralSourceField id="visitReferralSource" />
                     <button type="submit" className="btn-gold w-full py-3 rounded-lg flex items-center justify-center gap-3"><span>تأكيد طلب الحجز</span><Icon name="calendar-check" /></button>
                   </form>
                 </div>
@@ -265,6 +294,7 @@ export default function Contact() {
                     <div className="form-group"><label htmlFor="repCourt">الجهة القضائية (المحكمة)</label><input type="text" id="repCourt" placeholder="مثال: محكمة النقض، المحكمة الإدارية العليا، محكمة استئناف القاهرة..." required /></div>
                     <div className="form-group"><label htmlFor="repCaseNumber">رقم القضية (إن وجد)</label><input type="text" id="repCaseNumber" placeholder="رقم القضية والسنة" /></div>
                     <div className="form-group"><label htmlFor="repDescription">وصف القضية</label><textarea id="repDescription" rows="5" placeholder="يرجى كتابة وصف تفصيلي للقضية، والجهات المعنية، وأي معلومات أخرى تراها مهمة..." required></textarea></div>
+                    <ReferralSourceField id="repReferralSource" />
                     <div className="form-group"><label htmlFor="repContract">إرفاق عقد الخدمة (PDF) <span style={{ color: 'var(--charcoal)', fontWeight: '400' }}>(اختياري)</span></label><input type="file" id="repContract" accept=".pdf" />
                       <p style={{ fontSize: '0.65rem', color: 'var(--charcoal)', fontWeight: '700', marginTop: '0.2rem' }}>يمكنك إرفاق عقد الخدمة الموقع بصيغة PDF</p>
                     </div>
