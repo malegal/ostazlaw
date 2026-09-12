@@ -1936,21 +1936,24 @@ button {
         align-items: center;
         justify-content: center;
         border-radius: 50%;
-        background: var(--matte-gold);
-        color: var(--deep-navy);
-        border: 2px solid var(--deep-navy);
-        box-shadow: 0 8px 25px rgba(176, 141, 87, 0.35);
+        /* الهاتف إجراء مباشر؛ الأزرق يميّزه بوضوح عن واتساب والهوية الذهبية. */
+        background: #1769aa;
+        color: #fff;
+        border: 2px solid #0d4775;
+        box-shadow: 0 8px 25px rgba(23, 105, 170, 0.4);
         transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
     .float-phone:hover,
     .float-phone:focus-visible {
         transform: translateY(-3px) scale(1.05);
-        box-shadow: 0 12px 30px rgba(176, 141, 87, 0.45);
+        background: #0d5b96;
+        box-shadow: 0 12px 30px rgba(23, 105, 170, 0.5);
     }
     .float-phone .icon-svg {
-        width: 26px;
-        height: 26px;
-        font-size: 1.5rem;
+        width: 30px;
+        height: 30px;
+        font-size: 1.7rem;
+        stroke-width: 2.4;
     }
     .hero {
         padding-top: 150px;

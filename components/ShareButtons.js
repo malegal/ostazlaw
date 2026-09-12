@@ -22,7 +22,7 @@ export default function ShareButtons({ url, title }) {
       </button>
       <div className={`share-popup ${isOpen ? 'open' : ''}`}>
         <a href={shareLinks.facebook} target="_blank" rel="noopener noreferrer" className="share-icon facebook" onClick={closeShare} title="فيسبوك"><Icon name="facebook-f" /></a>
-        <a href={shareLinks.twitter} target="_blank" rel="noopener noreferrer" className="share-icon twitter" onClick={closeShare} title="تويتر"><Icon name="twitter" /></a>
+        <a href={shareLinks.twitter} target="_blank" rel="noopener noreferrer" className="share-icon twitter" onClick={closeShare} title="مشاركة على X"><Icon name="x" /></a>
         <a href={shareLinks.linkedin} target="_blank" rel="noopener noreferrer" className="share-icon linkedin" onClick={closeShare} title="لينكد إن"><Icon name="linkedin-in" /></a>
         <a href={shareLinks.whatsapp} target="_blank" rel="noopener noreferrer" className="share-icon whatsapp" onClick={closeShare} title="واتساب"><Icon name="whatsapp" /></a>
         <a href={shareLinks.telegram} target="_blank" rel="noopener noreferrer" className="share-icon telegram" onClick={closeShare} title="تليجرام"><Icon name="telegram-plane" /></a>
