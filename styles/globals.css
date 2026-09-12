@@ -491,11 +491,13 @@ button {
 }
 
 .header-brand-text .sub {
-    font-size: 0.7rem;
+    font-size: 0.66rem;
     font-weight: 400;
     color: #F0F0F0;
-    letter-spacing: 0.04em;
-    font-family: var(--font-eng), Arial, sans-serif;
+    letter-spacing: 0;
+    white-space: nowrap;
+    font-family: var(--font-body-ar), Arial, sans-serif;
+    text-align: center;
 }
 
 .header-nav {
@@ -668,6 +670,17 @@ button {
     overflow: hidden;
     background-color: var(--very-dark-navy);
 }
+/* خلفية أصلية من أجواء أسوان تربط العلامة بمقرها، مع طبقة داكنة تحفظ وضوح الرسالة. */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: linear-gradient(90deg, rgba(8, 20, 38, 0.88) 0%, rgba(8, 20, 38, 0.7) 48%, rgba(8, 20, 38, 0.58) 100%), url('/hero-legal-aswan.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.92;
+}
 
 .hero-bg {
     position: absolute;
@@ -730,6 +743,8 @@ button {
     line-height: 1.1;
     color: #fff;
     letter-spacing: -0.02em;
+    max-width: 950px;
+    margin-inline: auto;
 }
 
 .hero-subtitle {
@@ -737,7 +752,9 @@ button {
     font-size: clamp(1.1rem, 1.4vw, 1.4rem);
     font-weight: 500;
     color: rgba(255, 255, 255, 0.8);
-    margin-top: 0.2rem;
+    margin: 0.65rem auto 0;
+    max-width: 850px;
+    line-height: 1.8;
     letter-spacing: 0.03em;
 }
 
