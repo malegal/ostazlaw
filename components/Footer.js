@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="social">
             <a href="https://www.facebook.com/malegal" target="_blank" rel="noopener noreferrer" aria-label="صفحة المؤسسة على فيسبوك"><Icon name="facebook-f" /></a>
             <a href="https://x.com/mahmoud_a_hamyd" target="_blank" rel="noopener noreferrer" aria-label="صفحة المؤسسة على إكس"><Icon name="x" /></a>
-            <a href="https://www.linkedin.com/in/mahmoud-abdel-hamid-0a4664374" target="_blank" rel="noopener noreferrer" aria-label="صفحة الأستاذ محمود عبد الحميد على لينكدإن"><Icon name="linkedin-in" /></a>
+            <a href="https://www.linkedin.com/in/mahmoud-abdel-hamid-0a4664374" target="_blank" rel="noopener noreferrer" aria-label="صفحة الأستاذ محمود عبد الحميد جاد الرب على لينكدإن"><Icon name="linkedin-in" /></a>
           </div>
         </div>
         <div className="footer-col">

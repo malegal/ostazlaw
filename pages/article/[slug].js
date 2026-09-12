@@ -56,7 +56,7 @@ export default function ArticlePage({ article, contentHtml }) {
         <meta property="og:url" content={articleUrl} />
         {publishedDate && <meta property="article:published_time" content={publishedDate} />}
         {publishedDate && <meta property="article:modified_time" content={publishedDate} />}
-        <meta property="article:author" content={article.author || 'محمود عبد الحميد'} />
+        <meta property="article:author" content={article.author || 'محمود عبد الحميد جاد الرب'} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
@@ -67,7 +67,7 @@ export default function ArticlePage({ article, contentHtml }) {
             "image": [articleImage],
             "datePublished": publishedDate,
             "dateModified": publishedDate,
-            "author": { "@type": "Person", "name": article.author || 'محمود عبد الحميد' },
+            "author": { "@type": "Person", "name": article.author || 'محمود عبد الحميد جاد الرب' },
             "publisher": { "@type": "Organization", "name": SITE_NAME, "logo": { "@type": "ImageObject", "url": 'https://ostazlaw.vercel.app/icon-512.png' } },
             "inLanguage": "ar-EG"
           })
@@ -77,7 +77,7 @@ export default function ArticlePage({ article, contentHtml }) {
       <div className="article-wrapper">
         <div className="article-header-info">
           <div className="meta-row">
-            <span><Icon name="user" style={{ marginLeft: '6px', color: 'var(--matte-gold)' }} /> <span style={{ fontWeight: 700 }}>{article.author || 'محمود عبد الحميد'}</span></span>
+            <span><Icon name="user" style={{ marginLeft: '6px', color: 'var(--matte-gold)' }} /> <span style={{ fontWeight: 700 }}>{article.author || 'محمود عبد الحميد جاد الرب'}</span></span>
             <span className="divider"></span>
             <span><Icon name="calendar-alt" style={{ marginLeft: '6px', color: 'var(--matte-gold)' }} /> {article.date ? new Date(article.date).toLocaleDateString('ar-EG') : ''}</span>
           </div>

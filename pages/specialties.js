@@ -56,14 +56,14 @@ export default function Specialties() {
               {
                 "@type": "Person",
                 "@id": "https://ostazlaw.vercel.app/#founder",
-                "name": "محمود عبد الحميد",
+                "name": "محمود عبد الحميد جاد الرب",
                 "jobTitle": "المحامي بالنقض والدستورية العليا",
                 "worksFor": { "@id": "https://ostazlaw.vercel.app/#organization" },
                 "url": "https://ostazlaw.vercel.app/about",
                 "image": {
                   "@type": "ImageObject",
                   "url": "https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.webp",
-                  "caption": "الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا"
+                  "caption": "الأستاذ محمود عبد الحميد جاد الرب – المحامي بالنقض والدستورية العليا"
                 }
               },
               {

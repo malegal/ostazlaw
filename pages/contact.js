@@ -105,14 +105,14 @@ export default function Contact() {
               {
                 "@type": "Person",
                 "@id": "https://ostazlaw.vercel.app/#founder",
-                "name": "محمود عبد الحميد",
+                "name": "محمود عبد الحميد جاد الرب",
                 "jobTitle": "المحامي بالنقض والدستورية العليا",
                 "worksFor": { "@id": "https://ostazlaw.vercel.app/#organization" },
                 "url": "https://ostazlaw.vercel.app/about",
                 "image": {
                   "@type": "ImageObject",
                   "url": "https://ostazlaw.vercel.app/mahmoud-abdel-hamid-lawyer-portrait.webp",
-                  "caption": "الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا"
+                  "caption": "الأستاذ محمود عبد الحميد جاد الرب – المحامي بالنقض والدستورية العليا"
                 }
               },
               {
@@ -246,7 +246,7 @@ export default function Contact() {
                 <div className={`tab-pane ${activeTab === 'visit' ? '' : 'hidden'}`}>
                   <div className="text-center mb-4">
                     <h3 className="text-xl font-bold" style={{ color: 'var(--charcoal)' }}>حجز موعد في المكتب</h3>
-                    <p className="text-sm" style={{ color: 'var(--charcoal)', fontWeight: '700' }}>ناقش قضيتك وجهاً لوجه مع الأستاذ محمود عبد الحميد</p>
+                    <p className="text-sm" style={{ color: 'var(--charcoal)', fontWeight: '700' }}>ناقش قضيتك وجهاً لوجه مع الأستاذ محمود عبد الحميد جاد الرب</p>
                   </div>
                   <form id="visitForm" onSubmit={(e) => handleSubmit(e, 'visit')} className="space-y-4">
                     <div className="form-group"><label htmlFor="visitName">الاسم بالكامل</label><input type="text" id="visitName" placeholder="الاسم ثلاثي..." required /></div>
@@ -266,7 +266,7 @@ export default function Contact() {
                 <div className={`tab-pane ${activeTab === 'representation' ? '' : 'hidden'}`}>
                   <div className="text-center mb-4">
                     <h3 className="text-xl font-bold" style={{ color: 'var(--charcoal)' }}>طلب تمثيل قانوني</h3>
-                    <p className="text-sm" style={{ color: 'var(--charcoal)', fontWeight: '700' }}>قدم طلباً لتولي قضيتك بالكامل من قبل الأستاذ محمود عبد الحميد</p>
+                    <p className="text-sm" style={{ color: 'var(--charcoal)', fontWeight: '700' }}>قدم طلباً لتولي قضيتك بالكامل من قبل الأستاذ محمود عبد الحميد جاد الرب</p>
                   </div>
                   <form id="representationForm" onSubmit={(e) => handleSubmit(e, 'representation')} className="space-y-4">
                     <div className="form-group"><label htmlFor="repName">الاسم بالكامل</label><input type="text" id="repName" placeholder="الاسم ثلاثي..." required /></div>

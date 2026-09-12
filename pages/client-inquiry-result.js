@@ -164,11 +164,11 @@ export default function ClientInquiryResult() {
     <Layout>
       <Head>
         {/* SEO: هذه النتيجة خاصة بالعميل وتعتمد على sessionStorage؛ لا تُفهرس في أي حالة. */}
-        <title>نتيجة الاستعلام | الأستاذ محمود عبد الحميد</title>
+        <title>نتيجة الاستعلام | الأستاذ محمود عبد الحميد جاد الرب</title>
         <meta name="description" content="نتيجة استعلام قضيتك – مؤسسة جاد الرب للمحاماة." />
         <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href="https://ostazlaw.vercel.app/client-inquiry-result" />
-        <meta property="og:title" content="نتيجة الاستعلام | الأستاذ محمود عبد الحميد" />
+        <meta property="og:title" content="نتيجة الاستعلام | الأستاذ محمود عبد الحميد جاد الرب" />
         <meta property="og:description" content="نتيجة استعلام قضيتك." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/client-inquiry-result" />

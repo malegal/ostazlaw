@@ -50,7 +50,7 @@ export default function Header() {
             <span className="brand-secondary">LAW FIRM</span>
           </Link>
           <div className="header-brand-text">
-            <span className="name">محمود عبد الحميد</span>
+            <span className="name">محمود عبد الحميد جاد الرب</span>
             <span className="sub">المحامي بالنقض والدستورية العليا</span>
           </div>
         </div>

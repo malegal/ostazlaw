@@ -62,14 +62,14 @@ export default function About() {
               {
                 "@type": "Person",
                 "@id": "https://ostazlaw.vercel.app/#founder",
-                "name": "محمود عبد الحميد",
+                "name": "محمود عبد الحميد جاد الرب",
                 "jobTitle": "المحامي بالنقض والدستورية العليا",
                 "worksFor": { "@id": "https://ostazlaw.vercel.app/#organization" },
                 "url": "/about",
                 "image": {
                   "@type": "ImageObject",
                   "url": "/mahmoud-abdel-hamid-lawyer-portrait.webp",
-                  "caption": "الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا"
+                  "caption": "الأستاذ محمود عبد الحميد جاد الرب – المحامي بالنقض والدستورية العليا"
                 }
               },
               {
@@ -82,7 +82,7 @@ export default function About() {
                 "primaryImageOfPage": {
                   "@type": "ImageObject",
                   "url": "/mahmoud-abdel-hamid-lawyer-portrait.webp",
-                  "caption": "الأستاذ محمود عبد الحميد – المحامي بالنقض والدستورية العليا"
+                  "caption": "الأستاذ محمود عبد الحميد جاد الرب – المحامي بالنقض والدستورية العليا"
                 }
               },
               {
@@ -111,11 +111,11 @@ export default function About() {
           </div>
           <div className="hero-grid">
             <div className="hero-image reveal">
-              <Image 
-                src="/about.webp" 
-                alt="مقر المؤسسة" 
-                width={800} 
-                height={600} 
+              <Image
+                src="/about.webp"
+                alt="مقر المؤسسة"
+                width={800}
+                height={600}
                 className="hero-image-inner"
               />
             </div>
@@ -244,17 +244,17 @@ export default function About() {
           </div>
           <div className="leadership-grid">
             <div className="leadership-image reveal" id="leadershipImage" ref={leadershipImageRef}>
-              <Image 
-                src="/mahmoud-abdel-hamid-lawyer-portrait.webp" 
-                alt="الأستاذ محمود عبد الحميد" 
-                width={400} 
-                height={533} 
+              <Image
+                src="/mahmoud-abdel-hamid-lawyer-portrait.webp"
+                alt="الأستاذ محمود عبد الحميد جاد الرب"
+                width={400}
+                height={533}
                 className="leadership-image-inner"
                 priority
               />
             </div>
             <div className="leadership-content reveal" style={{ transitionDelay: '0.15s' }}>
-              <h3>الأستاذ محمود عبد الحميد</h3>
+              <h3>الأستاذ محمود عبد الحميد جاد الرب</h3>
               <div className="title">محام بالنقض</div>
               <div className="en-title">Founder &amp; Managing Attorney</div>
               <p>يقود المؤسسة جاد الرب، المحامي بالنقض، مستندًا إلى رؤية تؤمن بأن النجاح في العمل القانوني يبدأ قبل قاعة المحكمة؛ من خلال الفهم العميق للوقائع، والتحليل القانوني الدقيق، وبناء استراتيجية مدروسة لكل قضية.</p>

@@ -55,7 +55,7 @@ export default function NewsPage({ news, contentHtml }) {
         <meta name="twitter:image" content={newsImage} />
         {publishedDate && <meta property="article:published_time" content={publishedDate} />}
         {publishedDate && <meta property="article:modified_time" content={publishedDate} />}
-        <meta property="article:author" content={news.author || 'محمود عبد الحميد'} />
+        <meta property="article:author" content={news.author || 'محمود عبد الحميد جاد الرب'} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
@@ -66,7 +66,7 @@ export default function NewsPage({ news, contentHtml }) {
             "image": [newsImage],
             "datePublished": publishedDate,
             "dateModified": publishedDate,
-            "author": { "@type": "Person", "name": news.author || 'محمود عبد الحميد' },
+            "author": { "@type": "Person", "name": news.author || 'محمود عبد الحميد جاد الرب' },
             "publisher": { "@type": "Organization", "name": SITE_NAME, "logo": { "@type": "ImageObject", "url": 'https://ostazlaw.vercel.app/icon-512.png' } },
             "inLanguage": "ar-EG"
           })
