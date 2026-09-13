@@ -976,15 +976,15 @@ button {
     background: linear-gradient(180deg, rgba(11, 17, 27, 0.12), rgba(11, 17, 27, 0.72));
 }
 .client-segment-business .client-segment-image {
-    background-image: url('/audience-business.jpg');
+    background-image: url('/audience-business.webp');
     background-position: center;
 }
 .client-segment-entrepreneurs .client-segment-image {
-    background-image: url('/audience-investors.jpg');
+    background-image: url('/audience-investors.webp');
     background-position: center;
 }
 .client-segment-individuals .client-segment-image {
-    background-image: url('/audience-individuals.jpg');
+    background-image: url('/audience-individuals.webp');
     background-position: center;
 }
 .client-segment-body {

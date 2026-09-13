@@ -279,7 +279,7 @@ export default function Sectors() {
         <div className="section-inner">
           <div className="section-head reveal">
             <span className="eyebrow">● لماذا نثق بنا</span>
-            <h2>لماذا يختار عملاؤنا مؤسستنا؟</h2>
+            <h2>لماذا يختار عملاؤنا مكتبنا؟</h2>
             <p>مزايا تجعلنا الشريك القانوني الموثوق في مختلف القطاعات.</p>
           </div>
           <div className="why-grid">
@@ -320,7 +320,7 @@ export default function Sectors() {
       <section className="cta-final">
         <div className="section-inner reveal">
           <h2>هل تحتاج إلى استشارة قانونية تتناسب مع طبيعة نشاطك؟</h2>
-          <p>ندرس طبيعة نشاطك أولاً، ثم نبني الحل القانوني المناسب لاحتياجاتك، سواء كنت فرداً، شركة، مستثمراً، أو تمثل جهة مؤسسية.</p>
+          <p>ندرس طبيعة نشاطك أولاً، ثم نبني الحل القانوني المناسب لاحتياجاتك، سواء كنت فرداً، شركة، مستثمراً، أو تمثل جهة اعتبارية.</p>
           <div className="cta-actions">
             <Link href="/contact?tab=consult#service-form" className="btn-gold">طلب استشارة</Link>
             <a href="https://wa.me/201101076000" target="_blank" rel="noopener noreferrer" className="btn-outline-white">تواصل عبر واتساب</a>

@@ -69,7 +69,7 @@ export default function Home({ articles, news }) {
         </div>
       </section>
 
-      <section className="section client-segments-section" aria-label="خدماتنا بحسب فئة العميل">
+      <section className="section client-segments-section" aria-label="قطاعات نخدمها">
         <div className="section-inner">
           <div className="section-head reveal">
             <span className="eyebrow">● خدماتنا</span>
@@ -80,9 +80,9 @@ export default function Home({ articles, news }) {
             <article className="client-segment-card client-segment-business reveal">
               <div className="client-segment-image" role="img" aria-label="مبنى يرمز إلى الشركات والأعمال"></div>
               <div className="client-segment-body">
-                <span className="client-segment-kicker">للشركات والمؤسسات</span>
+                <span className="client-segment-kicker">للشركات والمنشآت</span>
                 <h3>نفهم احتياجات الشركات وقراراتها</h3>
-                <p>نقدم للشركات والمؤسسات دعمًا قانونيًا يواكب أعمالها، ويساعدها على اتخاذ قرارات أكثر وضوحًا وحماية مصالحها قبل الالتزام.</p>
+                <p>نقدم للشركات والمنشآت دعمًا قانونيًا يواكب أعمالها، ويساعدها على اتخاذ قرارات أكثر وضوحًا وحماية مصالحها قبل الالتزام.</p>
                 <ul><li>استشارات قانونية مستمرة</li><li>دعم اتخاذ القرار القانوني</li><li>مراجعة العقود وتأسيس الشركات</li><li>حماية الاستثمارات والمصالح</li></ul>
                 <Link href="/contact?tab=consult&audience=business#service-form" className="btn-outline-gold">ناقش احتياج شركتك <span aria-hidden="true">←</span></Link>
               </div>

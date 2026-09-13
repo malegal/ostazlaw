@@ -104,7 +104,7 @@ export default function About() {
         <div className="hero-inner">
           <div className="hero-title-wrap reveal">
             <span className="en-tag">About Our Firm</span>
-            {/* العنوان يعرّف المكتب باسمها الرسمي، بينما يبقى اسم المحامي المؤسس محفوظًا في بياناته داخل الصفحة. */}
+            {/* العنوان يعرّف المكتب باسمه الرسمي، بينما يبقى اسم المحامي المؤسس محفوظًا في بياناته داخل الصفحة. */}
             <h1><span className="gold-text">جاد الرب</span></h1>
             <p className="sub">للمحاماة والاستشارات القانونية</p>
             <p className="sub sub-gold">نبني الثقة بالخبرة، ونحمي المصالح باستراتيجية قانونية مدروسة.</p>
@@ -314,7 +314,7 @@ export default function About() {
           <div className="section-head reveal">
             <span className="eyebrow">● الثقة</span>
             <h2>لماذا يثق بنا عملاؤنا؟</h2>
-            <p>مزايا تجعل مؤسستنا الخيار القانوني الموثوق.</p>
+            <p>مزايا تجعل مكتبنا الخيار القانوني الموثوق.</p>
           </div>
           <div className="trust-grid">
             <div className="trust-card gold-underline-card reveal reveal-d1"><span className="icon"><Icon name="check-circle" /></span><h4>دراسة دقيقة</h4></div>
@@ -348,7 +348,7 @@ export default function About() {
       <section className="founder-message" aria-label="كلمة المؤسس">
         <div className="inner reveal">
           <span className="quote-icon">"</span>
-          <blockquote>نؤمن بأن المحاماة ليست مجرد مهنة للدفاع عن الحقوق، بل مسؤولية تقتضي الفهم، والأمانة، والالتزام. ولذلك نسعى في كل قضية إلى تقديم عمل قانوني يليق بثقة عملائنا ويعكس قيم مؤسستنا.</blockquote>
+          <blockquote>نؤمن بأن المحاماة ليست مجرد مهنة للدفاع عن الحقوق، بل مسؤولية تقتضي الفهم، والأمانة، والالتزام. ولذلك نسعى في كل قضية إلى تقديم عمل قانوني يليق بثقة عملائنا ويعكس قيم مكتبنا.</blockquote>
           <div className="signature">Mahmoud Abdel Hamid</div>
           <div className="signature-sub">Founder</div>
         </div>
