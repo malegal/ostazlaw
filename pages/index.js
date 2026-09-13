@@ -193,7 +193,7 @@ export default function Home({ articles, news }) {
       {/* المحتوى يثبت المعرفة ويخدم SEO، لكنه يأتي بعد مسار التحويل الأساسي حتى لا يؤخر التواصل. */}
       <section className="section section-light" aria-label="المكتبة القانونية">
         <div className="section-inner">
-          <div className="section-head reveal"><span className="eyebrow">● المكتبة القانونية</span><h2>معلومات قانونية تساعدك على اتخاذ القرار</h2><p>اطلع على مواد قانونية مبسطة تساعدك على فهم الأسئلة التي تسبق الخطوة التالية.</p></div>
+          <div className="section-head reveal"><span className="eyebrow">● المكتبة القانونية</span><h2>المكتبة القانونية</h2><p>اطلع على أحدث المقالات القانونية.</p></div>
           <div className="blog-grid">{latestArticles.length > 0 ? latestArticles.map((article) => <ArticleCard key={article.slug} article={article} />) : <div className="col-span-full text-center text-charcoal/50 py-10">لا توجد مقالات حالياً.</div>}</div>
           <div className="section-cta"><Link href="/news-archive" className="btn-outline-gold">تصفح المكتبة القانونية</Link></div>
         </div>
