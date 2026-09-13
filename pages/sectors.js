@@ -7,10 +7,10 @@ export default function Sectors() {
   return (
     <Layout>
       <Head>
-        <title>القطاعات التي نخدمها | مؤسسة جاد الرب للمحاماة والاستشارات القانونية</title>
+        <title>القطاعات التي نخدمها | جاد الرب للمحاماة والاستشارات القانونية</title>
         <meta name="description" content="نقدم خدمات قانونية متخصصة للشركات، المستثمرين، المطورين العقاريين، الجمعيات الأهلية، الأفراد، والورثة. فهم عميق لطبيعة كل قطاع." />
         <link rel="canonical" href="https://ostazlaw.vercel.app/sectors" />
-        <meta property="og:title" content="القطاعات التي نخدمها | مؤسسة جاد الرب للمحاماة والاستشارات القانونية" />
+        <meta property="og:title" content="القطاعات التي نخدمها | جاد الرب للمحاماة والاستشارات القانونية" />
         <meta property="og:description" content="خدمات قانونية متخصصة تتناسب مع طبيعة كل قطاع: الشركات، المستثمرون، المطورون العقاريون، الأفراد، والورثة." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/sectors" />
@@ -26,9 +26,9 @@ export default function Sectors() {
               {
                 "@type": "LegalService",
                 "@id": "https://ostazlaw.vercel.app/#organization",
-                "name": "مؤسسة جاد الرب للمحاماة والاستشارات القانونية",
+                "name": "جاد الرب للمحاماة والاستشارات القانونية",
                 "alternateName": "JAD ELRAB",
-                "description": "مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات في قطاعات متنوعة.",
+                "description": "مكتب محاماة مصرية تقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات في قطاعات متنوعة.",
                 "url": "https://ostazlaw.vercel.app/",
                 "email": "ma.law.firm@outlook.com",
                 "telephone": "+201101076000",
@@ -64,16 +64,16 @@ export default function Sectors() {
                 "@id": "https://ostazlaw.vercel.app/sectors#webpage",
                 "url": "https://ostazlaw.vercel.app/sectors",
                 "name": "القطاعات التي نخدمها",
-                "description": "قائمة القطاعات التي تقدم لها مؤسسة جاد الرب خدماتها القانونية المتخصصة.",
+                "description": "قائمة القطاعات التي تقدم لها جاد الرب خدماتها القانونية المتخصصة.",
                 "isPartOf": { "@id": "https://ostazlaw.vercel.app/#website" },
                 "about": { "@id": "https://ostazlaw.vercel.app/#organization" }
               },
               {
                 "@type": "WebSite",
                 "@id": "https://ostazlaw.vercel.app/#website",
-                "name": "مؤسسة جاد الرب للمحاماة والاستشارات القانونية",
+                "name": "جاد الرب للمحاماة والاستشارات القانونية",
                 "url": "https://ostazlaw.vercel.app/",
-                "description": "مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية."
+                "description": "مكتب محاماة مصرية تقدم خدمات المحاماة والاستشارات القانونية."
               }
             ]
           })

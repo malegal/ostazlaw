@@ -37,7 +37,7 @@ export default function NewsPage({ news, contentHtml }) {
   return (
     <Layout>
       <Head>
-        <title>{news.title} | أخبار مؤسسة جاد الرب</title>
+        <title>{news.title} | أخبار جاد الرب</title>
         <meta name="description" content={newsDescription} />
         <meta property="og:title" content={news.title} />
         <meta property="og:description" content={newsDescription} />

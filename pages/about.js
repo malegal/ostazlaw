@@ -20,11 +20,11 @@ export default function About() {
   return (
     <Layout>
       <Head>
-        <title>عن المؤسسة | مؤسسة جاد الرب للمحاماة والاستشارات القانونية</title>
-        <meta name="description" content="مؤسسة جاد الرب للمحاماة والاستشارات القانونية، مقرها أسوان، تأسست عام 2005 وتقدم خدماتها للأفراد والشركات في مختلف محافظات مصر." />
+        <title>عنا | جاد الرب للمحاماة والاستشارات القانونية</title>
+        <meta name="description" content="جاد الرب للمحاماة والاستشارات القانونية، مقرها أسوان، تأسست عام 2005 وتقدم خدماتها للأفراد والشركات في مختلف محافظات مصر." />
         <link rel="canonical" href="https://ostazlaw.vercel.app/about" />
-        <meta property="og:title" content="عن المؤسسة | مؤسسة جاد الرب للمحاماة والاستشارات القانونية" />
-        <meta property="og:description" content="مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات." />
+        <meta property="og:title" content="عنا | جاد الرب للمحاماة والاستشارات القانونية" />
+        <meta property="og:description" content="مكتب محاماة مصري يقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/about" />
         <meta property="og:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
@@ -39,9 +39,9 @@ export default function About() {
               {
                 "@type": "LegalService",
                 "@id": "https://ostazlaw.vercel.app/#organization",
-                "name": "مؤسسة جاد الرب للمحاماة والاستشارات القانونية",
+                "name": "جاد الرب للمحاماة والاستشارات القانونية",
                 "alternateName": "JAD ELRAB",
-                "description": "مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات.",
+                "description": "مكتب محاماة مصري يقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات.",
                 "url": "https://ostazlaw.vercel.app/",
                 "email": "ma.law.firm@outlook.com",
                 "telephone": "+201101076000",
@@ -76,7 +76,7 @@ export default function About() {
                 "@type": "AboutPage",
                 "@id": "https://ostazlaw.vercel.app/about#webpage",
                 "url": "https://ostazlaw.vercel.app/about",
-                "name": "عن المؤسسة",
+                "name": "عنا",
                 "isPartOf": { "@id": "https://ostazlaw.vercel.app/#website" },
                 "about": { "@id": "https://ostazlaw.vercel.app/#organization" },
                 "primaryImageOfPage": {
@@ -88,24 +88,24 @@ export default function About() {
               {
                 "@type": "WebSite",
                 "@id": "https://ostazlaw.vercel.app/#website",
-                "name": "مؤسسة جاد الرب للمحاماة والاستشارات القانونية",
+                "name": "جاد الرب للمحاماة والاستشارات القانونية",
                 "url": "https://ostazlaw.vercel.app/",
-                "description": "مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية."
+                "description": "مكتب محاماة مصرية تقدم خدمات المحاماة والاستشارات القانونية."
               }
             ]
           })
         }} />
       </Head>
 
-      <section className="hero-about" aria-label="عن المؤسسة">
+      <section className="hero-about" aria-label="عنا">
         <div className="hero-pattern"></div>
         <div className="hero-glow"></div>
         <div className="hero-glow-2"></div>
         <div className="hero-inner">
           <div className="hero-title-wrap reveal">
             <span className="en-tag">About Our Firm</span>
-            {/* العنوان يعرّف المؤسسة باسمها الرسمي، بينما يبقى اسم المحامي المؤسس محفوظًا في بياناته داخل الصفحة. */}
-            <h1>مؤسسة <span className="gold-text">جاد الرب</span></h1>
+            {/* العنوان يعرّف المكتب باسمها الرسمي، بينما يبقى اسم المحامي المؤسس محفوظًا في بياناته داخل الصفحة. */}
+            <h1><span className="gold-text">جاد الرب</span></h1>
             <p className="sub">للمحاماة والاستشارات القانونية</p>
             <p className="sub sub-gold">نبني الثقة بالخبرة، ونحمي المصالح باستراتيجية قانونية مدروسة.</p>
           </div>
@@ -113,15 +113,15 @@ export default function About() {
             <div className="hero-image reveal">
               <Image
                 src="/about.webp"
-                alt="مقر المؤسسة"
+                alt="مقر المكتب"
                 width={800}
                 height={600}
                 className="hero-image-inner"
               />
             </div>
             <div className="hero-text reveal" style={{ transitionDelay: '0.15s' }}>
-              <p><strong>مؤسسة قانونية مقرها أسوان، تخدم الأفراد والشركات في مختلف محافظات مصر، وتؤمن بأن العمل القانوني المتميز يبدأ بالفهم العميق، ويُبنى على التخطيط، ويُقاس بحماية مصالح العميل.</strong></p>
-              <p>تُعد مؤسسة جاد الرب للمحاماة والاستشارات القانونية <strong>(JAD ELRAB)</strong> مؤسسة قانونية تقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات، مستندة إلى منهج مهني يقوم على التحليل الدقيق، والتخطيط القانوني، والتمثيل الاحترافي أمام جهات القضاء.</p>
+              <p><strong>مكتب محاماة مقره أسوان، يخدم الأفراد والشركات في مختلف محافظات مصر، وتؤمن بأن العمل القانوني المتميز يبدأ بالفهم العميق، ويُبنى على التخطيط، ويُقاس بحماية مصالح العميل.</strong></p>
+              <p>تُعد جاد الرب للمحاماة والاستشارات القانونية <strong>(JAD ELRAB)</strong> مكتب محاماة يقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات، مستندة إلى منهج مهني يقوم على التحليل الدقيق، والتخطيط القانوني، والتمثيل الاحترافي أمام جهات القضاء.</p>
               <p>نؤمن بأن القضايا لا تُدار بردود الأفعال، بل بفهمٍ عميق للوقائع، وتحليلٍ صحيح للمراكز القانونية، ثم بناء استراتيجية تحقق أفضل حماية ممكنة لمصالح عملائنا.</p>
               <div className="cta-wrap">
                 <Link href="/specialties" className="btn-gold">تعرف على مجالات الممارسة</Link>
@@ -136,19 +136,19 @@ export default function About() {
           <div className="def-grid">
             <div className="def-text reveal">
               <span className="eyebrow">● من نحن</span>
-              <h2>مؤسسة قانونية<br /><span className="gold-text">تُبنى على الفهم والتخطيط</span></h2>
-              <p>تأسست مؤسسة جاد الرب للمحاماة والاستشارات القانونية عام <strong>2005</strong>، لتقديم خدمات قانونية واستشارات متخصصة للأفراد والشركات، بخبرة قضائية راسخة أمام محكمة النقض والمحكمة الدستورية العليا.</p>
+              <h2>مكتب محاماة<br /><span className="gold-text">تُبنى على الفهم والتخطيط</span></h2>
+              <p>تأسست جاد الرب للمحاماة والاستشارات القانونية عام <strong>2005</strong>، لتقديم خدمات قانونية واستشارات متخصصة للأفراد والشركات، بخبرة قضائية راسخة أمام محكمة النقض والمحكمة الدستورية العليا.</p>
               <p>نؤمن بأن العمل القانوني المتميز يبدأ بفهم عميق للوقائع، ويُبنى على تخطيط دقيق، ويُقاس بحماية مصالح العميل. ولذلك نتعامل مع كل قضية كمسؤولية مستقلة، ندرسها من جميع جوانبها القانونية والواقعية.</p>
               <p>نخدم الشركات والأفراد على حد سواء، مع التزامنا بالشفافية، والسرية، والدقة، باعتبارها المبادئ التي تقوم عليها علاقتنا مع عملائنا في جمهورية مصر العربية.</p>
               <div className="def-cards">
-                <div className="def-card gold-underline-card"><span className="icon"><Icon name="scale-balanced" /></span><h4>مؤسسة قانونية</h4></div>
+                <div className="def-card gold-underline-card"><span className="icon"><Icon name="scale-balanced" /></span><h4>مكتب محاماة</h4></div>
                 <div className="def-card gold-underline-card"><span className="icon"><Icon name="building" /></span><h4>خدمات للشركات والأفراد</h4></div>
                 <div className="def-card gold-underline-card"><span className="icon"><Icon name="shield-alt" /></span><h4>حلول قانونية متخصصة</h4></div>
                 <div className="def-card gold-underline-card"><span className="icon"><Icon name="map-marker-alt" /></span><h4>جمهورية مصر العربية</h4></div>
               </div>
             </div>
             <div className="def-image reveal" style={{ transitionDelay: '0.15s' }}>
-              {/* صورة مكتبة قانونية محلية بدل تكرار صورة المؤسسة، مع بقاء المصدر داخل المشروع. */}
+              {/* صورة مكتبة قانونية محلية بدل تكرار صورة المكتب، مع بقاء المصدر داخل المشروع. */}
               <Image
                 src="/image/legal-library.jpg"
                 alt="مكتبة قانونية ورفوف كتب متخصصة"
@@ -193,7 +193,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section section-white" aria-label="قيم المؤسسة">
+      <section className="section section-white" aria-label="قيم المكتب">
         <div className="section-inner">
           <div className="section-head reveal">
             <span className="eyebrow">● قيمنا</span>
@@ -239,7 +239,7 @@ export default function About() {
         <div className="section-inner">
           <div className="section-head reveal">
             <span className="eyebrow">● القيادة</span>
-            <h2>قيادة المؤسسة</h2>
+            <h2>قيادة المكتب</h2>
             <p>خبرة قضائية راسخة تقود رؤيتنا القانونية.</p>
           </div>
           <div className="leadership-grid">
@@ -257,8 +257,8 @@ export default function About() {
               <h3>الأستاذ محمود عبد الحميد جاد الرب</h3>
               <div className="title">محام بالنقض</div>
               <div className="en-title">Founder &amp; Managing Attorney</div>
-              <p>يقود المؤسسة الأستاذ محمود عبد الحميد جاد الرب، المحامي بالنقض، مستندًا إلى رؤية تؤمن بأن النجاح في العمل القانوني يبدأ قبل قاعة المحكمة؛ من خلال الفهم العميق للوقائع، والتحليل القانوني الدقيق، وبناء استراتيجية مدروسة لكل قضية.</p>
-              <p>ويشرف على أعمال المؤسسة لضمان الالتزام بأعلى المعايير المهنية، وتقديم خدمات قانونية تتسم بالدقة والشفافية والاحتراف، مع الحرص على بناء علاقة قائمة على الثقة مع كل عميل.</p>
+              <p>يقود المكتب الأستاذ محمود عبد الحميد جاد الرب، المحامي بالنقض، مستندًا إلى رؤية تؤمن بأن النجاح في العمل القانوني يبدأ قبل قاعة المحكمة؛ من خلال الفهم العميق للوقائع، والتحليل القانوني الدقيق، وبناء استراتيجية مدروسة لكل قضية.</p>
+              <p>ويشرف على أعمال المكتب لضمان الالتزام بأعلى المعايير المهنية، وتقديم خدمات قانونية تتسم بالدقة والشفافية والاحتراف، مع الحرص على بناء علاقة قائمة على الثقة مع كل عميل.</p>
               <div className="leadership-quote">"نؤمن بأن القرار القانوني الصحيح يبدأ بفهم صحيح للوقائع، وأن أفضل المرافعات هي التي يسبقها أفضل إعداد."</div>
             </div>
             <div className="leadership-side reveal" style={{ transitionDelay: '0.3s' }}>
@@ -327,10 +327,10 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section section-light" aria-label="داخل المؤسسة">
+      <section className="section section-light" aria-label="داخل المكتب">
         <div className="section-inner">
           <div className="section-head reveal">
-            <span className="eyebrow">● داخل المؤسسة</span>
+            <span className="eyebrow">● داخل المكتب</span>
             <h2>معرض الصور</h2>
             <p>لمحة عن بيئة العمل التي تعكس منهجنا المهني.</p>
           </div>

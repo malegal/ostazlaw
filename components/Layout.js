@@ -51,7 +51,7 @@ export default function Layout({ children }) {
 
   return (
     <>
-      {/* Schema موحد: مقر المؤسسة في أسوان ونطاق الخدمة مختلف محافظات مصر. */}
+      {/* Schema موحد: مقر المكتب في أسوان ونطاق الخدمة مختلف محافظات مصر. */}
       <Head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: organizationJsonLd() }} />
       </Head>

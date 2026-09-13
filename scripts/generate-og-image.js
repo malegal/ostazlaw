@@ -33,7 +33,7 @@ const svg = `
   <path d="M90 110 H1110" stroke="url(#gold)" stroke-width="2"/>
   <path d="M90 520 H1110" stroke="url(#gold)" stroke-width="2"/>
   <text x="600" y="210" text-anchor="middle" fill="#D4AF37" font-family="Arial, sans-serif" font-size="54" font-weight="700" letter-spacing="8">JAD ELRAB</text>
-  <text x="600" y="315" text-anchor="middle" fill="#FFFFFF" class="arabic bold" font-size="48" direction="rtl">مؤسسة جاد الرب</text>
+  <text x="600" y="315" text-anchor="middle" fill="#FFFFFF" class="arabic bold" font-size="48" direction="rtl">جاد الرب</text>
   <text x="600" y="375" text-anchor="middle" fill="#F0F0F0" class="arabic" font-size="28" direction="rtl">للمحاماة والاستشارات القانونية</text>
   <text x="600" y="455" text-anchor="middle" fill="#D4AF37" class="arabic bold" font-size="27" direction="rtl">مقرنا في أسوان — خدمات قانونية في مختلف محافظات مصر</text>
 </svg>`;

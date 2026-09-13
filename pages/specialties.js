@@ -14,10 +14,10 @@ export default function Specialties() {
   return (
     <Layout>
       <Head>
-        <title>التخصصات القانونية | مؤسسة جاد الرب للمحاماة والاستشارات القانونية</title>
+        <title>التخصصات القانونية | جاد الرب للمحاماة والاستشارات القانونية</title>
         <meta name="description" content="خبرة قانونية منذ 2005 في المنازعات المدنية، التجارية، العمالية، الإدارية، قضايا الأسرة، الدفاع الجنائي، والطعن الدستوري، والنقض، والطعون الإدارية." />
         <link rel="canonical" href="https://ostazlaw.vercel.app/specialties" />
-        <meta property="og:title" content="التخصصات القانونية | مؤسسة جاد الرب للمحاماة والاستشارات القانونية" />
+        <meta property="og:title" content="التخصصات القانونية | جاد الرب للمحاماة والاستشارات القانونية" />
         <meta property="og:description" content="خدمات قانونية متكاملة في المنازعات المدنية، التجارية، العمالية، الإدارية، قضايا الأسرة، والدفاع الجنائي، والطعن الدستوري، والنقض، والطعون الإدارية." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/specialties" />
@@ -33,9 +33,9 @@ export default function Specialties() {
               {
                 "@type": "LegalService",
                 "@id": "https://ostazlaw.vercel.app/#organization",
-                "name": "مؤسسة جاد الرب للمحاماة والاستشارات القانونية",
+                "name": "جاد الرب للمحاماة والاستشارات القانونية",
                 "alternateName": "JAD ELRAB",
-                "description": "مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات.",
+                "description": "مكتب محاماة مصرية تقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات.",
                 "url": "https://ostazlaw.vercel.app/",
                 "email": "ma.law.firm@outlook.com",
                 "telephone": "+201101076000",
@@ -71,16 +71,16 @@ export default function Specialties() {
                 "@id": "https://ostazlaw.vercel.app/specialties#webpage",
                 "url": "https://ostazlaw.vercel.app/specialties",
                 "name": "التخصصات القانونية",
-                "description": "قائمة شاملة بتخصصات مؤسسة جاد الرب للمحاماة والاستشارات القانونية",
+                "description": "قائمة شاملة بتخصصات جاد الرب للمحاماة والاستشارات القانونية",
                 "isPartOf": { "@id": "https://ostazlaw.vercel.app/#website" },
                 "about": { "@id": "https://ostazlaw.vercel.app/#organization" }
               },
               {
                 "@type": "WebSite",
                 "@id": "https://ostazlaw.vercel.app/#website",
-                "name": "مؤسسة جاد الرب للمحاماة والاستشارات القانونية",
+                "name": "جاد الرب للمحاماة والاستشارات القانونية",
                 "url": "https://ostazlaw.vercel.app/",
-                "description": "مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية."
+                "description": "مكتب محاماة مصرية تقدم خدمات المحاماة والاستشارات القانونية."
               }
             ]
           })

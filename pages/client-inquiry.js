@@ -40,12 +40,12 @@ export default function ClientInquiry() {
   return (
     <Layout>
       <Head>
-        <title>بوابة متابعة ملفات العملاء | مؤسسة جاد الرب للمحاماة والاستشارات القانونية</title>
-        <meta name="description" content="نظام بوابة متابعة ملفات العملاء – متابعة مستجدات ملفك القانوني لدى مؤسسة جاد الرب للمحاماة." />
+        <title>بوابة متابعة ملفات العملاء | جاد الرب للمحاماة والاستشارات القانونية</title>
+        <meta name="description" content="نظام بوابة متابعة ملفات العملاء – متابعة مستجدات ملفك القانوني لدى جاد الرب للمحاماة." />
         <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href="https://ostazlaw.vercel.app/client-inquiry" />
-        <meta property="og:title" content="بوابة متابعة ملفات العملاء | مؤسسة جاد الرب للمحاماة والاستشارات القانونية" />
-        <meta property="og:description" content="نظام بوابة متابعة ملفات العملاء – متابعة مستجدات ملفك القانوني لدى مؤسسة جاد الرب للمحاماة." />
+        <meta property="og:title" content="بوابة متابعة ملفات العملاء | جاد الرب للمحاماة والاستشارات القانونية" />
+        <meta property="og:description" content="نظام بوابة متابعة ملفات العملاء – متابعة مستجدات ملفك القانوني لدى جاد الرب للمحاماة." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/client-inquiry" />
         <meta property="og:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
@@ -60,9 +60,9 @@ export default function ClientInquiry() {
               {
                 "@type": "LegalService",
                 "@id": "https://ostazlaw.vercel.app/#organization",
-                "name": "مؤسسة جاد الرب للمحاماة والاستشارات القانونية",
+                "name": "جاد الرب للمحاماة والاستشارات القانونية",
                 "alternateName": "JAD ELRAB",
-                "description": "مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات.",
+                "description": "مكتب محاماة مصرية تقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات.",
                 "url": "https://ostazlaw.vercel.app/",
                 "email": "ma.law.firm@outlook.com",
                 "telephone": "+201101076000",
@@ -92,9 +92,9 @@ export default function ClientInquiry() {
               {
                 "@type": "WebSite",
                 "@id": "https://ostazlaw.vercel.app/#website",
-                "name": "مؤسسة جاد الرب للمحاماة والاستشارات القانونية",
+                "name": "جاد الرب للمحاماة والاستشارات القانونية",
                 "url": "https://ostazlaw.vercel.app/",
-                "description": "مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية."
+                "description": "مكتب محاماة مصرية تقدم خدمات المحاماة والاستشارات القانونية."
               }
             ]
           })

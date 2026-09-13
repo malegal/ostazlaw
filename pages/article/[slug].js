@@ -38,7 +38,7 @@ export default function ArticlePage({ article, contentHtml }) {
   return (
     <Layout>
       <Head>
-        <title>{article.title} | مؤسسة جاد الرب للمحاماة والاستشارات القانونية</title>
+        <title>{article.title} | جاد الرب للمحاماة والاستشارات القانونية</title>
         <meta name="description" content={articleDescription} />
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={articleDescription} />

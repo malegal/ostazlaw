@@ -9,7 +9,7 @@ export default function FloatingButtons() {
         <Icon name="whatsapp" className="whatsapp-official-icon" />
       </a>
       {/* زر اتصال مستقل وواضح على الهاتف، بعيد بصريًا عن لون واتساب. */}
-      <a href="tel:+201101076000" className="float-phone" aria-label="اتصال هاتفي بمؤسسة جاد الرب" title="اتصال هاتفي">
+      <a href="tel:+201101076000" className="float-phone" aria-label="اتصال هاتفي بجاد الرب" title="اتصال هاتفي">
         <Icon name="phone" />
       </a>
     </>

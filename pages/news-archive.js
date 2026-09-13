@@ -10,11 +10,11 @@ export default function NewsArchive({ newsItems, articles }) {
   return (
     <Layout>
       <Head>
-        <title>الأخبار والمكتبة | مؤسسة جاد الرب للمحاماة والاستشارات القانونية</title>
-        <meta name="description" content="الأخبار والمقالات والدراسات القانونية التي تنشرها مؤسسة جاد الرب للمحاماة والاستشارات القانونية." />
+        <title>الأخبار والمكتبة | جاد الرب للمحاماة والاستشارات القانونية</title>
+        <meta name="description" content="الأخبار والمقالات والدراسات القانونية التي تنشرها جاد الرب للمحاماة والاستشارات القانونية." />
         <link rel="canonical" href="https://ostazlaw.vercel.app/news-archive" />
-        <meta property="og:title" content="الأخبار والمكتبة | مؤسسة جاد الرب للمحاماة والاستشارات القانونية" />
-        <meta property="og:description" content="الأخبار والمقالات والدراسات القانونية التي تنشرها مؤسسة جاد الرب للمحاماة والاستشارات القانونية." />
+        <meta property="og:title" content="الأخبار والمكتبة | جاد الرب للمحاماة والاستشارات القانونية" />
+        <meta property="og:description" content="الأخبار والمقالات والدراسات القانونية التي تنشرها جاد الرب للمحاماة والاستشارات القانونية." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/news-archive" />
         <meta property="og:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
@@ -29,9 +29,9 @@ export default function NewsArchive({ newsItems, articles }) {
               {
                 "@type": "LegalService",
                 "@id": "https://ostazlaw.vercel.app/#organization",
-                "name": "مؤسسة جاد الرب للمحاماة والاستشارات القانونية",
+                "name": "جاد الرب للمحاماة والاستشارات القانونية",
                 "alternateName": "JAD ELRAB",
-                "description": "مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات.",
+                "description": "مكتب محاماة مصرية تقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات.",
                 "url": "https://ostazlaw.vercel.app/",
                 "email": "ma.law.firm@outlook.com",
                 "telephone": "+201101076000",
@@ -67,16 +67,16 @@ export default function NewsArchive({ newsItems, articles }) {
                 "@id": "https://ostazlaw.vercel.app/news-archive#webpage",
                 "url": "https://ostazlaw.vercel.app/news-archive",
                 "name": "الأخبار والمكتبة",
-                "description": "الأخبار والمقالات والدراسات القانونية التي تنشرها مؤسسة جاد الرب.",
+                "description": "الأخبار والمقالات والدراسات القانونية التي تنشرها جاد الرب.",
                 "isPartOf": { "@id": "https://ostazlaw.vercel.app/#website" },
                 "about": { "@id": "https://ostazlaw.vercel.app/#organization" }
               },
               {
                 "@type": "WebSite",
                 "@id": "https://ostazlaw.vercel.app/#website",
-                "name": "مؤسسة جاد الرب للمحاماة والاستشارات القانونية",
+                "name": "جاد الرب للمحاماة والاستشارات القانونية",
                 "url": "https://ostazlaw.vercel.app/",
-                "description": "مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية."
+                "description": "مكتب محاماة مصرية تقدم خدمات المحاماة والاستشارات القانونية."
               }
             ]
           })
@@ -103,7 +103,7 @@ export default function NewsArchive({ newsItems, articles }) {
           <div className="section-heading">
             <span className="eyebrow">● الأخبار والمستجدات</span>
             <h2>الأخبار والمستجدات</h2>
-            <p>آخر أخبار وإنجازات مؤسسة جاد الرب وتطورات العمل القانوني.</p>
+            <p>آخر أخبار وإنجازات جاد الرب وتطورات العمل القانوني.</p>
           </div>
           <div className="experience-grid">
             {newsItems.length === 0 ? (

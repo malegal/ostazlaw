@@ -26,7 +26,7 @@ export default function ClientInquiryResult() {
     Swal.fire({
       icon: 'success',
       title: 'شكراً لك',
-      text: 'شكراً لاستخدامكم نظام الاستعلام الإلكتروني لمؤسسة جاد الرب.',
+      text: 'شكراً لاستخدامكم نظام الاستعلام الإلكتروني لجاد الرب.',
       background: '#FAFAF8',
       color: '#222222',
       confirmButtonColor: '#B08D57',
@@ -120,7 +120,7 @@ export default function ClientInquiryResult() {
     const typeLabels = { real_estate: 'تسجيل عقار - الشهر العقاري', company_formation: 'إنشاء شركة', administrative: 'خدمة مهنية إدارية' };
     return (
       <Layout>
-        <Head><title>متابعة الخدمة المهنية | مؤسسة جاد الرب</title><meta name="robots" content="noindex, nofollow" /></Head>
+        <Head><title>متابعة الخدمة المهنية | جاد الرب</title><meta name="robots" content="noindex, nofollow" /></Head>
         <section className="hero-result" aria-label="نتيجة متابعة الخدمة المهنية"><div className="hero-pattern"></div><div className="hero-glow"></div><div className="hero-glow-2"></div><div className="hero-inner"><div className="hero-title-wrap reveal"><span className="en-tag">Professional Service</span><h1>متابعة <span className="gold-text">الخدمة المهنية</span></h1><p className="sub">{typeLabels[fileType] || 'ملف مهني'}</p></div></div></section>
         <section className="result-main"><div className="inner reveal"><div className="result-card professional-result-card">
           <div className="result-header"><h2>{file.client_name || 'غير معروف'}</h2><span className="badge-role">{typeLabels[fileType] || 'خدمة مهنية'}</span></div>
@@ -165,7 +165,7 @@ export default function ClientInquiryResult() {
       <Head>
         {/* SEO: هذه النتيجة خاصة بالعميل وتعتمد على sessionStorage؛ لا تُفهرس في أي حالة. */}
         <title>نتيجة الاستعلام | الأستاذ محمود عبد الحميد جاد الرب</title>
-        <meta name="description" content="نتيجة استعلام قضيتك – مؤسسة جاد الرب للمحاماة." />
+        <meta name="description" content="نتيجة استعلام قضيتك – جاد الرب للمحاماة." />
         <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href="https://ostazlaw.vercel.app/client-inquiry-result" />
         <meta property="og:title" content="نتيجة الاستعلام | الأستاذ محمود عبد الحميد جاد الرب" />

@@ -42,13 +42,13 @@ export default function Contact() {
     const referral = referralSelect?.selectedOptions?.[0]?.textContent || 'لم يحدد';
     const referralOther = form.querySelector('[name="referralSourceOther"]')?.value || '';
     const referralText = referral === 'أخرى' && referralOther ? `${referral} (${referralOther})` : referral;
-    const msg = `*طلب ${type === 'consult' ? 'استشارة قانونية' : type === 'visit' ? 'حجز موعد' : 'تمثيل قانوني'}*%0Aالاسم: ${encodeURIComponent(name)}%0Aالهاتف: ${encodeURIComponent(phone)}%0Aمصدر معرفة المؤسسة: ${encodeURIComponent(referralText)}%0Aالتفاصيل: ${encodeURIComponent(message)}`;
+    const msg = `*طلب ${type === 'consult' ? 'استشارة قانونية' : type === 'visit' ? 'حجز موعد' : 'تمثيل قانوني'}*%0Aالاسم: ${encodeURIComponent(name)}%0Aالهاتف: ${encodeURIComponent(phone)}%0Aمصدر معرفة المكتب: ${encodeURIComponent(referralText)}%0Aالتفاصيل: ${encodeURIComponent(message)}`;
     window.open(`https://wa.me/201101076000?text=${msg}`, '_blank');
   };
 
   const ReferralSourceField = ({ id }) => (
     <div className="form-group">
-      <label htmlFor={id}>كيف عرفت بمؤسسة جاد الرب؟ <span style={{ fontWeight: '400' }}>(اختياري)</span></label>
+      <label htmlFor={id}>كيف عرفت بجاد الرب؟ <span style={{ fontWeight: '400' }}>(اختياري)</span></label>
       <select id={id} name="referralSource" defaultValue="">
         <option value="">اختر مصدر التعرف علينا</option>
         {referralOptions.map(([value, label]) => <option key={value} value={value}>{label}</option>)}
@@ -60,11 +60,11 @@ export default function Contact() {
   return (
     <Layout>
       <Head>
-        <title>تواصل معنا | مؤسسة جاد الرب للمحاماة والاستشارات القانونية</title>
-        <meta name="description" content="تواصل مع مؤسسة جاد الرب للمحاماة والاستشارات القانونية، مقرها أسوان وتقدم خدماتها للعملاء في مختلف محافظات مصر. احجز موعداً أو اطلب استشارة أو تمثيلاً قانونياً." />
+        <title>تواصل معنا | جاد الرب للمحاماة والاستشارات القانونية</title>
+        <meta name="description" content="تواصل مع جاد الرب للمحاماة والاستشارات القانونية، مقرها أسوان وتقدم خدماتها للعملاء في مختلف محافظات مصر. احجز موعداً أو اطلب استشارة أو تمثيلاً قانونياً." />
         <link rel="canonical" href="https://ostazlaw.vercel.app/contact" />
-        <meta property="og:title" content="تواصل معنا | مؤسسة جاد الرب للمحاماة والاستشارات القانونية" />
-        <meta property="og:description" content="تواصل مع مؤسسة جاد الرب للمحاماة والاستشارات القانونية، مقرها أسوان وتقدم خدماتها للعملاء في مختلف محافظات مصر." />
+        <meta property="og:title" content="تواصل معنا | جاد الرب للمحاماة والاستشارات القانونية" />
+        <meta property="og:description" content="تواصل مع جاد الرب للمحاماة والاستشارات القانونية، مقرها أسوان وتقدم خدماتها للعملاء في مختلف محافظات مصر." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/contact" />
         <meta property="og:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
@@ -79,9 +79,9 @@ export default function Contact() {
               {
                 "@type": "LegalService",
                 "@id": "https://ostazlaw.vercel.app/#organization",
-                "name": "مؤسسة جاد الرب للمحاماة والاستشارات القانونية",
+                "name": "جاد الرب للمحاماة والاستشارات القانونية",
                 "alternateName": "JAD ELRAB",
-                "description": "مؤسسة قانونية مصرية مقرها أسوان وتقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات في مختلف محافظات مصر.",
+                "description": "مكتب محاماة مصرية مقرها أسوان وتقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات في مختلف محافظات مصر.",
                 "url": "https://ostazlaw.vercel.app/",
                 "email": "ma.law.firm@outlook.com",
                 "telephone": "+201101076000",
@@ -120,16 +120,16 @@ export default function Contact() {
                 "@id": "https://ostazlaw.vercel.app/contact#webpage",
                 "url": "https://ostazlaw.vercel.app/contact",
                 "name": "تواصل معنا",
-                "description": "تواصل مع مؤسسة جاد الرب للمحاماة والاستشارات القانونية.",
+                "description": "تواصل مع جاد الرب للمحاماة والاستشارات القانونية.",
                 "isPartOf": { "@id": "https://ostazlaw.vercel.app/#website" },
                 "about": { "@id": "https://ostazlaw.vercel.app/#organization" }
               },
               {
                 "@type": "WebSite",
                 "@id": "https://ostazlaw.vercel.app/#website",
-                "name": "مؤسسة جاد الرب للمحاماة والاستشارات القانونية",
+                "name": "جاد الرب للمحاماة والاستشارات القانونية",
                 "url": "https://ostazlaw.vercel.app/",
-                "description": "مؤسسة قانونية مصرية تقدم خدمات المحاماة والاستشارات القانونية."
+                "description": "مكتب محاماة مصرية تقدم خدمات المحاماة والاستشارات القانونية."
               }
             ]
           })
@@ -153,14 +153,14 @@ export default function Contact() {
         <div className="inner">
           <div className="reveal text-center mb-8">
             <span className="eyebrow" style={{ display: 'block', fontSize: '0.65rem', fontWeight: '800', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--matte-gold)', opacity: '0.5', marginBottom: '0.3rem' }}>● مواقعنا</span>
-            <h2 className="text-2xl md:text-3xl font-bold serif gold-text">مقر المؤسسة في أسوان وخدماتنا في مختلف محافظات مصر</h2>
-            <p className="text-sm max-w-2xl mx-auto" style={{ color: 'var(--charcoal)', fontWeight: '700' }}>يقع مقر المؤسسة في أسوان، ونقدم خدماتنا للعملاء في مختلف محافظات مصر بحسب طبيعة الخدمة والقضية والجهة المختصة.</p>
+            <h2 className="text-2xl md:text-3xl font-bold serif gold-text">مقر المكتب في أسوان وخدماتنا في مختلف محافظات مصر</h2>
+            <p className="text-sm max-w-2xl mx-auto" style={{ color: 'var(--charcoal)', fontWeight: '700' }}>يقع مقر المكتب في أسوان، ونقدم خدماتنا للعملاء في مختلف محافظات مصر بحسب طبيعة الخدمة والقضية والجهة المختصة.</p>
           </div>
 
           <div className="branches-grid mb-8">
             <div className="branch-card reveal">
               <div className="branch-icon"><Icon name="flag" /></div>
-              <h4>مقر المؤسسة – أسوان <span className="badge-main">المقر الفعلي</span></h4>
+              <h4>مقر المكتب – أسوان <span className="badge-main">المقر الفعلي</span></h4>
               <p>شارع كسر الحجر، المتفرع من شارع كورنيش النيل، أمام مجمع المحاكم، أسوان</p>
             </div>
           </div>
@@ -169,7 +169,7 @@ export default function Contact() {
             <div className="lg:col-span-5 space-y-6">
               <div className="reveal">
                 <h2 className="text-2xl font-bold serif gold-text mb-1">بيانات التواصل</h2>
-                <p className="text-sm" style={{ color: 'var(--charcoal)', fontWeight: '700' }}>تفضل بزيارة مقر المؤسسة في أسوان، أو ابدأ طلبك عبر الهاتف أو واتساب من أي محافظة في مصر.</p>
+                <p className="text-sm" style={{ color: 'var(--charcoal)', fontWeight: '700' }}>تفضل بزيارة مقر المكتب في أسوان، أو ابدأ طلبك عبر الهاتف أو واتساب من أي محافظة في مصر.</p>
               </div>
               <div className="space-y-3">
                 <div className="contact-card reveal">
@@ -213,7 +213,7 @@ export default function Contact() {
                 <p className="text-sm font-bold" style={{ color: 'var(--charcoal)', marginBottom: '0.75rem' }}>تابعنا على المنصات:</p>
                 <div className="flex gap-3 justify-center flex-wrap">
                   <a href="https://www.facebook.com/malegal" target="_blank" rel="noopener noreferrer" className="social-icon-circle"><Icon name="facebook-f" /></a>
-                  <a href="https://x.com/mahmoud_a_hamyd" target="_blank" rel="noopener noreferrer" className="social-icon-circle" aria-label="صفحة المؤسسة على إكس"><Icon name="x" /></a>
+                  <a href="https://x.com/mahmoud_a_hamyd" target="_blank" rel="noopener noreferrer" className="social-icon-circle" aria-label="صفحة المكتب على إكس"><Icon name="x" /></a>
                   <a href="https://www.linkedin.com/in/mahmoud-abdel-hamid-0a4664374" target="_blank" rel="noopener noreferrer" className="social-icon-circle"><Icon name="linkedin-in" /></a>
                   <a href="https://t.me/mahmoud_a_hamyd" target="_blank" rel="noopener noreferrer" className="social-icon-circle"><Icon name="telegram-plane" /></a>
                   <a href="https://wa.me/201101076000" target="_blank" rel="noopener noreferrer" className="social-icon-circle"><Icon name="whatsapp" /></a>
@@ -255,7 +255,7 @@ export default function Contact() {
                       <div className="form-group"><label htmlFor="visitDate">تاريخ المقابلة المفضل</label><input type="date" id="visitDate" required /></div>
                     </div>
                     <div className="form-group"><label htmlFor="visitLocation">موقع المقابلة المفضل</label>
-                      <select id="visitLocation"><option value="أسوان">مقر المؤسسة - أسوان</option></select>
+                      <select id="visitLocation"><option value="أسوان">مقر المكتب - أسوان</option></select>
                     </div>
                     <div className="form-group"><label htmlFor="visitReason">سبب الزيارة</label><textarea id="visitReason" rows="3" placeholder="استشارة بخصوص قضية..." required></textarea></div>
                     <ReferralSourceField id="visitReferralSource" />
