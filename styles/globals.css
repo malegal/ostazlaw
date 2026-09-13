@@ -918,16 +918,18 @@ button {
 }
 .client-segments-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.2rem;
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
     align-items: stretch;
+    max-width: 1120px;
+    margin-inline: auto;
 }
 .client-segment-card {
     position: relative;
     min-width: 0;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: minmax(260px, 34%) 1fr;
     background: #fff;
     border: 1px solid rgba(176, 141, 87, 0.2);
     border-radius: 12px;
@@ -940,7 +942,7 @@ button {
     box-shadow: 0 20px 45px rgba(11, 17, 27, 0.14);
 }
 .client-segment-image {
-    min-height: 150px;
+    min-height: 330px;
     background-position: center;
     background-size: cover;
     position: relative;
@@ -952,22 +954,22 @@ button {
     background: linear-gradient(180deg, rgba(11, 17, 27, 0.12), rgba(11, 17, 27, 0.72));
 }
 .client-segment-business .client-segment-image {
-    background-image: url('/hero-legal-aswan.jpg');
-    background-position: 62% center;
+    background-image: url('/audience-business.jpg');
+    background-position: center;
 }
 .client-segment-entrepreneurs .client-segment-image {
-    background-image: url('/og-image.jpg');
+    background-image: url('/audience-investors.jpg');
     background-position: center;
 }
 .client-segment-individuals .client-segment-image {
-    background-image: url('/mahmoud-abdel-hamid-lawyer-portrait.webp');
-    background-position: center 22%;
+    background-image: url('/audience-individuals.jpg');
+    background-position: center;
 }
 .client-segment-body {
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 1.35rem 1.25rem 1.3rem;
+    padding: 1.6rem 1.8rem 1.5rem;
     text-align: right;
 }
 .client-segment-kicker {
@@ -2112,14 +2114,8 @@ button {
     .hero-actions {
         gap: 1.5rem;
     }
-    .client-segments-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-    .client-segment-individuals {
-        grid-column: 1 / -1;
-        max-width: 520px;
-        width: 100%;
-        justify-self: center;
+    .client-segment-card {
+        grid-template-columns: minmax(220px, 32%) 1fr;
     }
 }
 
@@ -2245,12 +2241,17 @@ button {
     }
     .client-segments-grid {
         grid-template-columns: 1fr;
-        max-width: 520px;
+        max-width: 100%;
         margin-inline: auto;
     }
-    .client-segment-individuals {
-        grid-column: auto;
-        max-width: none;
+    .client-segment-card {
+        grid-template-columns: 1fr;
+    }
+    .client-segment-image {
+        min-height: 190px;
+    }
+    .client-segment-body {
+        padding: 1.3rem 1.15rem 1.25rem;
     }
 }
 

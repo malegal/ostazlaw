@@ -74,7 +74,7 @@ export default function Home({ articles, news }) {
       <section className="section client-segments-section" aria-label="الخدمات بحسب فئة العميل">
         <div className="section-inner">
           <div className="section-head reveal">
-            <span className="eyebrow">● لمن نخدم</span>
+            <span className="eyebrow">● قطاعات نخدمها</span>
             <h2>لكل مسألة قانونية طريقها المناسب</h2>
             <p>سواء كنت تدير شركة، أو تبدأ مشروعًا، أو تتخذ قرارًا يمس حقًا أو عقارًا أو عقدًا، يبدأ التعامل القانوني الصحيح بفهم المسألة قبل اتخاذ الخطوة التالية.</p>
           </div>
