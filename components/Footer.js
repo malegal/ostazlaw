@@ -44,7 +44,6 @@ export default function Footer() {
       </div>
       <div className="footer-bottom">
         <p>جميع الحقوق محفوظة © {new Date().getFullYear()} – مؤسسة جاد الرب للمحاماة والاستشارات القانونية</p>
-        <p>JAD ELRAB – هوية مؤسسية فاخرة</p>
       </div>
     </footer>
   );
