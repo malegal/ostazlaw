@@ -70,68 +70,7 @@ export default function Home({ articles, news }) {
         </div>
       </section>
 
-      {/* يوجه هذا القسم كل فئة إلى الرسالة والخطوة المناسبة دون ادعاء حجم أكبر من المكتب الحالي. */}
-      <section className="section client-segments-section" aria-label="الخدمات بحسب فئة العميل">
-        <div className="section-inner">
-          <div className="section-head reveal">
-            <span className="eyebrow">● قطاعات نخدمها</span>
-            <h2>لكل مسألة قانونية طريقها المناسب</h2>
-            <p>سواء كنت تدير شركة، أو تبدأ مشروعًا، أو تتخذ قرارًا يمس حقًا أو عقارًا أو عقدًا، يبدأ التعامل القانوني الصحيح بفهم المسألة قبل اتخاذ الخطوة التالية.</p>
-          </div>
-          <div className="client-segments-grid">
-            <article className="client-segment-card client-segment-business reveal">
-              <div className="client-segment-image" role="img" aria-label="مبنى يرمز إلى الشركات والأعمال"></div>
-              <div className="client-segment-body">
-                <span className="client-segment-kicker">للشركات والمنشآت</span>
-                <h3>دعم قانوني يواكب قرارات الأعمال</h3>
-                <p>مراجعة وصياغة العقود، تنظيم العلاقات بين الشركاء، تقديم الرأي القانوني، ومتابعة المنازعات والمسائل المؤثرة في نشاط المنشأة.</p>
-                <ul>
-                  <li>دعم قانوني مستمر حسب احتياج المنشأة</li>
-                  <li>صياغة ومراجعة العقود والمعاملات</li>
-                  <li>وضوح في الرأي وسرية في التعامل</li>
-                </ul>
-                <p className="client-segment-why"><strong>لماذا تختارنا الشركات؟</strong> لأن القرار التجاري يحتاج إلى رؤية قانونية تسبق الالتزام أو التوقيع أو النزاع.</p>
-                <div className="client-segment-note paid"><Icon name="briefcase" /> الاجتماعات والاستشارات القانونية للشركات تكون بمقابل يحدد وفق طبيعة المسألة ونطاق العمل.</div>
-                <Link href="/contact?tab=consult&audience=business#service-form" className="btn-outline-gold">ناقش احتياج شركتك القانوني <span aria-hidden="true">←</span></Link>
-              </div>
-            </article>
 
-            <article className="client-segment-card client-segment-entrepreneurs reveal">
-              <div className="client-segment-image" role="img" aria-label="أدوات ترمز إلى الاستثمار وريادة الأعمال"></div>
-              <div className="client-segment-body">
-                <span className="client-segment-kicker">للمستثمرين ورواد الأعمال</span>
-                <h3>وضوح قانوني قبل الصفقة أو الشراكة</h3>
-                <p>مساندة قانونية في العقود والاتفاقيات وتنظيم الشراكات وتقييم الالتزامات والمخاطر المرتبطة بالمشروع أو الاستثمار.</p>
-                <ul>
-                  <li>مراجعة الاتفاقيات والعقود</li>
-                  <li>تنظيم العلاقة بين الشركاء</li>
-                  <li>رأي قانوني قبل القرار المؤثر</li>
-                </ul>
-                <p className="client-segment-why"><strong>لماذا يختارنا المستثمرون؟</strong> لأن جدوى المشروع لا تكتمل دون فهم مركزه القانوني والتزاماته ومخاطره.</p>
-                <div className="client-segment-note paid"><Icon name="briefcase" /> الاستشارات والاجتماعات القانونية بمقابل يحدد وفق طبيعة الاستثمار أو المشروع.</div>
-                <Link href="/contact?tab=consult&audience=investor#service-form" className="btn-outline-gold">اطلب مراجعة قانونية <span aria-hidden="true">←</span></Link>
-              </div>
-            </article>
-
-            <article className="client-segment-card client-segment-individuals reveal">
-              <div className="client-segment-image" role="img" aria-label="صورة تعبر عن الحقوق والمصالح الشخصية"></div>
-              <div className="client-segment-body">
-                <span className="client-segment-kicker">للأفراد وملاك العقارات</span>
-                <h3>فهم واضح قبل أن تتحول المسألة إلى نزاع</h3>
-                <p>مساعدة في العقود والمستندات والمنازعات المدنية والعقارية، مع توضيح المركز القانوني والخطوة المناسبة لكل مسألة.</p>
-                <ul>
-                  <li>مراجعة عقود البيع والشراء</li>
-                  <li>فحص المستندات والمراكز القانونية</li>
-                  <li>منازعات مدنية وعقارية ومطالبات</li>
-                </ul>
-                <p className="client-segment-why"><strong>لماذا يختارنا العملاء؟</strong> لأن المسألة القانونية قد تبدأ بعقد أو مستند يحتاج إلى فهم دقيق قبل أن تصبح مشكلة.</p>
-                <div className="client-segment-note"><Icon name="comment-dots" /> المكالمة الأولية المختصرة مجانية للأفراد، ولا تشمل دراسة تفصيلية أو رأيًا مكتوبًا.</div>
-                <Link href="/contact?tab=consult&audience=individual#service-form" className="btn-outline-gold">اعرض مسألتك القانونية <span aria-hidden="true">←</span></Link>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
 
       <section className="section section-light" aria-label="عن المكتب">
         <div className="section-inner">
@@ -196,13 +135,65 @@ export default function Home({ articles, news }) {
         </div>
       </section>
 
-      <section className="section section-gray" aria-label="القطاعات التي نخدمها">
+      {/* يوجه هذا القسم كل فئة إلى الرسالة والخطوة المناسبة دون ادعاء حجم أكبر من المكتب الحالي. */}
+      <section className="section client-segments-section" aria-label="الخدمات بحسب فئة العميل">
         <div className="section-inner">
-          <div className="section-head reveal"><span className="eyebrow">● القطاعات</span><h2>القطاعات التي نخدمها</h2><p>ندرك أن لكل قطاع تحدياته القانونية الخاصة، لذلك نقدم حلولاً قانونية تتوافق مع طبيعة النشاط وتدعم أهدافه التجارية والاستثمارية.</p></div>
-          <div className="experience-grid">
-            <Link href="/sectors" className="sector-link"><div className="experience-card reveal"><span className="icon"><Icon name="building" /></span><h4>قطاع الشركات</h4><p>هيكلة الشركات، الحوكمة، وصياغة العقود التجارية.</p></div></Link>
-            <Link href="/sectors" className="sector-link"><div className="experience-card reveal"><span className="icon"><Icon name="handshake" /></span><h4>القطاع التجاري</h4><p>صياغة ومراجعة العقود التجارية والمدنية.</p></div></Link>
-            <Link href="/sectors" className="sector-link"><div className="experience-card reveal"><span className="icon"><Icon name="gavel" /></span><h4>قطاع التعويضات</h4><p>المطالبة بالتعويضات المادية والأدبية عن الأضرار.</p></div></Link>
+          <div className="section-head reveal">
+            <span className="eyebrow">● قطاعات نخدمها</span>
+            <h2>لكل مسألة قانونية طريقها المناسب</h2>
+            <p>سواء كنت تدير شركة، أو تبدأ مشروعًا، أو تتخذ قرارًا يمس حقًا أو عقارًا أو عقدًا، يبدأ التعامل القانوني الصحيح بفهم المسألة قبل اتخاذ الخطوة التالية.</p>
+          </div>
+          <div className="client-segments-grid">
+            <article className="client-segment-card client-segment-business reveal">
+              <div className="client-segment-image" role="img" aria-label="مبنى يرمز إلى الشركات والأعمال"></div>
+              <div className="client-segment-body">
+                <span className="client-segment-kicker">للشركات والمنشآت</span>
+                <h3>دعم قانوني يواكب قرارات الأعمال</h3>
+                <p>مراجعة وصياغة العقود، تنظيم العلاقات بين الشركاء، تقديم الرأي القانوني، ومتابعة المنازعات والمسائل المؤثرة في نشاط المنشأة.</p>
+                <ul>
+                  <li>دعم قانوني مستمر حسب احتياج المنشأة</li>
+                  <li>صياغة ومراجعة العقود والمعاملات</li>
+                  <li>وضوح في الرأي وسرية في التعامل</li>
+                </ul>
+                <p className="client-segment-why"><strong>لماذا تختارنا الشركات؟</strong> لأن القرار التجاري يحتاج إلى رؤية قانونية تسبق الالتزام أو التوقيع أو النزاع.</p>
+                <div className="client-segment-note paid"><Icon name="briefcase" /> الاجتماعات والاستشارات القانونية للشركات تكون بمقابل يحدد وفق طبيعة المسألة ونطاق العمل.</div>
+                <Link href="/contact?tab=consult&audience=business#service-form" className="btn-outline-gold">ناقش احتياج شركتك القانوني <span aria-hidden="true">←</span></Link>
+              </div>
+            </article>
+
+            <article className="client-segment-card client-segment-entrepreneurs reveal">
+              <div className="client-segment-image" role="img" aria-label="أدوات ترمز إلى الاستثمار وريادة الأعمال"></div>
+              <div className="client-segment-body">
+                <span className="client-segment-kicker">للمستثمرين ورواد الأعمال</span>
+                <h3>وضوح قانوني قبل الصفقة أو الشراكة</h3>
+                <p>مساندة قانونية في العقود والاتفاقيات وتنظيم الشراكات وتقييم الالتزامات والمخاطر المرتبطة بالمشروع أو الاستثمار.</p>
+                <ul>
+                  <li>مراجعة الاتفاقيات والعقود</li>
+                  <li>تنظيم العلاقة بين الشركاء</li>
+                  <li>رأي قانوني قبل القرار المؤثر</li>
+                </ul>
+                <p className="client-segment-why"><strong>لماذا يختارنا المستثمرون؟</strong> لأن جدوى المشروع لا تكتمل دون فهم مركزه القانوني والتزاماته ومخاطره.</p>
+                <div className="client-segment-note paid"><Icon name="briefcase" /> الاستشارات والاجتماعات القانونية بمقابل يحدد وفق طبيعة الاستثمار أو المشروع.</div>
+                <Link href="/contact?tab=consult&audience=investor#service-form" className="btn-outline-gold">اطلب مراجعة قانونية <span aria-hidden="true">←</span></Link>
+              </div>
+            </article>
+
+            <article className="client-segment-card client-segment-individuals reveal">
+              <div className="client-segment-image" role="img" aria-label="صورة تعبر عن الحقوق والمصالح الشخصية"></div>
+              <div className="client-segment-body">
+                <span className="client-segment-kicker">للأفراد وملاك العقارات</span>
+                <h3>فهم واضح قبل أن تتحول المسألة إلى نزاع</h3>
+                <p>مساعدة في العقود والمستندات والمنازعات المدنية والعقارية، مع توضيح المركز القانوني والخطوة المناسبة لكل مسألة.</p>
+                <ul>
+                  <li>مراجعة عقود البيع والشراء</li>
+                  <li>فحص المستندات والمراكز القانونية</li>
+                  <li>منازعات مدنية وعقارية ومطالبات</li>
+                </ul>
+                <p className="client-segment-why"><strong>لماذا يختارنا العملاء؟</strong> لأن المسألة القانونية قد تبدأ بعقد أو مستند يحتاج إلى فهم دقيق قبل أن تصبح مشكلة.</p>
+                <div className="client-segment-note"><Icon name="comment-dots" /> المكالمة الأولية المختصرة مجانية للأفراد، ولا تشمل دراسة تفصيلية أو رأيًا مكتوبًا.</div>
+                <Link href="/contact?tab=consult&audience=individual#service-form" className="btn-outline-gold">اعرض مسألتك القانونية <span aria-hidden="true">←</span></Link>
+              </div>
+            </article>
           </div>
         </div>
       </section>
