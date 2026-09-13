@@ -138,7 +138,6 @@ export default function Home({ articles, news }) {
               <div className="about-why-points">
                 <span className="point"><Icon name="check-circle" /> مشورة قانونية وقائية قبل بدء النزاع أو انتقاله إلى المحكمة.</span>
                 <span className="point"><Icon name="check-circle" /> قراءة دقيقة للوقائع والمستندات ودعم اتخاذ القرار.</span>
-                <span className="point"><Icon name="check-circle" /> نظام Qayd طوّرناه داخليًا لإدارة أعمال المكتب.</span>
                 <span className="point"><Icon name="check-circle" /> حماية بيانات العملاء وعدم الاعتماد على برامج عامة من السوق.</span>
                 <span className="point"><Icon name="check-circle" /> خبرة في التمثيل القضائي أمام أعلى درجات المحاكم.</span>
                 <span className="point"><Icon name="check-circle" /> سرية مهنية ومتابعة عملية تناسب كل مسألة.</span>
