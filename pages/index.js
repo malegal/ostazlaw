@@ -70,7 +70,70 @@ export default function Home({ articles, news }) {
         </div>
       </section>
 
-      <section className="section section-light" aria-label="عن المؤسسة">
+      {/* يوجه هذا القسم كل فئة إلى الرسالة والخطوة المناسبة دون ادعاء حجم أكبر من المكتب الحالي. */}
+      <section className="section client-segments-section" aria-label="الخدمات بحسب فئة العميل">
+        <div className="section-inner">
+          <div className="section-head reveal">
+            <span className="eyebrow">● لمن نخدم</span>
+            <h2>لكل مسألة قانونية طريقها المناسب</h2>
+            <p>سواء كنت تدير شركة، أو تبدأ مشروعًا، أو تتخذ قرارًا يمس حقًا أو عقارًا أو عقدًا، يبدأ التعامل القانوني الصحيح بفهم المسألة قبل اتخاذ الخطوة التالية.</p>
+          </div>
+          <div className="client-segments-grid">
+            <article className="client-segment-card client-segment-business reveal">
+              <div className="client-segment-image" role="img" aria-label="مبنى يرمز إلى الشركات والأعمال"></div>
+              <div className="client-segment-body">
+                <span className="client-segment-kicker">للشركات والمنشآت</span>
+                <h3>دعم قانوني يواكب قرارات الأعمال</h3>
+                <p>مراجعة وصياغة العقود، تنظيم العلاقات بين الشركاء، تقديم الرأي القانوني، ومتابعة المنازعات والمسائل المؤثرة في نشاط المنشأة.</p>
+                <ul>
+                  <li>دعم قانوني مستمر حسب احتياج المنشأة</li>
+                  <li>صياغة ومراجعة العقود والمعاملات</li>
+                  <li>وضوح في الرأي وسرية في التعامل</li>
+                </ul>
+                <p className="client-segment-why"><strong>لماذا تختارنا الشركات؟</strong> لأن القرار التجاري يحتاج إلى رؤية قانونية تسبق الالتزام أو التوقيع أو النزاع.</p>
+                <div className="client-segment-note paid"><Icon name="briefcase" /> الاجتماعات والاستشارات القانونية للشركات تكون بمقابل يحدد وفق طبيعة المسألة ونطاق العمل.</div>
+                <Link href="/contact?tab=consult&audience=business#service-form" className="btn-outline-gold">ناقش احتياج شركتك القانوني <span aria-hidden="true">←</span></Link>
+              </div>
+            </article>
+
+            <article className="client-segment-card client-segment-entrepreneurs reveal">
+              <div className="client-segment-image" role="img" aria-label="أدوات ترمز إلى الاستثمار وريادة الأعمال"></div>
+              <div className="client-segment-body">
+                <span className="client-segment-kicker">للمستثمرين ورواد الأعمال</span>
+                <h3>وضوح قانوني قبل الصفقة أو الشراكة</h3>
+                <p>مساندة قانونية في العقود والاتفاقيات وتنظيم الشراكات وتقييم الالتزامات والمخاطر المرتبطة بالمشروع أو الاستثمار.</p>
+                <ul>
+                  <li>مراجعة الاتفاقيات والعقود</li>
+                  <li>تنظيم العلاقة بين الشركاء</li>
+                  <li>رأي قانوني قبل القرار المؤثر</li>
+                </ul>
+                <p className="client-segment-why"><strong>لماذا يختارنا المستثمرون؟</strong> لأن جدوى المشروع لا تكتمل دون فهم مركزه القانوني والتزاماته ومخاطره.</p>
+                <div className="client-segment-note paid"><Icon name="briefcase" /> الاستشارات والاجتماعات القانونية بمقابل يحدد وفق طبيعة الاستثمار أو المشروع.</div>
+                <Link href="/contact?tab=consult&audience=investor#service-form" className="btn-outline-gold">اطلب مراجعة قانونية <span aria-hidden="true">←</span></Link>
+              </div>
+            </article>
+
+            <article className="client-segment-card client-segment-individuals reveal">
+              <div className="client-segment-image" role="img" aria-label="صورة تعبر عن الحقوق والمصالح الشخصية"></div>
+              <div className="client-segment-body">
+                <span className="client-segment-kicker">للأفراد وملاك العقارات</span>
+                <h3>فهم واضح قبل أن تتحول المسألة إلى نزاع</h3>
+                <p>مساعدة في العقود والمستندات والمنازعات المدنية والعقارية، مع توضيح المركز القانوني والخطوة المناسبة لكل مسألة.</p>
+                <ul>
+                  <li>مراجعة عقود البيع والشراء</li>
+                  <li>فحص المستندات والمراكز القانونية</li>
+                  <li>منازعات مدنية وعقارية ومطالبات</li>
+                </ul>
+                <p className="client-segment-why"><strong>لماذا يختارنا العملاء؟</strong> لأن المسألة القانونية قد تبدأ بعقد أو مستند يحتاج إلى فهم دقيق قبل أن تصبح مشكلة.</p>
+                <div className="client-segment-note"><Icon name="comment-dots" /> المكالمة الأولية المختصرة مجانية للأفراد، ولا تشمل دراسة تفصيلية أو رأيًا مكتوبًا.</div>
+                <Link href="/contact?tab=consult&audience=individual#service-form" className="btn-outline-gold">اعرض مسألتك القانونية <span aria-hidden="true">←</span></Link>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-light" aria-label="عن المكتب">
         <div className="section-inner">
           <div className="about-why-grid">
             <div className="about-image reveal">
@@ -82,7 +145,7 @@ export default function Home({ articles, news }) {
               {/* العنوان يبرز الثقة والمنهج العملي بدل الاكتفاء بعبارة ترويجية عامة. */}
               <h2>خبرة قانونية تُبنى عليها الثقة،<br /><span className="gold-text">وحلولٌ تحمي المصالح والاستثمارات</span></h2>
               <p>نؤمن بأن العمل القانوني المتميز يبدأ بفهمٍ عميق للوقائع، وصياغة استراتيجية قانونية دقيقة، ثم تقديم تمثيل قانوني مهني ونزيه يهدف إلى حماية الحقوق والمصالح وتحقيق أفضل النتائج الممكنة. ونؤمن كذلك بأن الثقة لا تُبني باستعراض ملفات العملاء و اعلان نتائج قضاياهم بل تُبنى على الكفاءة والالتزام، وعلي ما نقدمه للعملاء لا ما نعلنه عنهم ؛ لذلك نلتزم بعدم الإفصاح عن أسماء عملائنا أو أرقام قضاياهم أو تفاصيلها أو استخدامها في اغراض تسويقية احترامًا لواجب السرية المهنية وآداب مهنة المحاماة، ونحرص بدلاً من ذلك على أن نقدم ما يمكن التحقق منه من خبراتنا ومؤهلاتنا ومحتوانا العلمي، بما يعكس قيمنا المهنية دون الإخلال بحقوق عملائنا أو التزاماتنا القانونية</p>
-              <p>تأسست مؤسسة جاد الرب للمحاماة عام <strong>2005</strong>، وتقوم خبرتها العملية على الفهم الدقيق، والتخطيط القانوني، والمتابعة المهنية.</p>
+              <p>يعمل مكتب جاد الرب للمحاماة والاستشارات القانونية منذ عام <strong>2005</strong>، وتقوم خبرته العملية على الفهم الدقيق، والتخطيط القانوني، والمتابعة المهنية.</p>
               <div style={{ background: "rgba(176,141,87,0.05)", padding: "1.2rem 1.5rem", borderRight: "4px solid var(--matte-gold)", borderRadius: "8px", margin: "1.2rem 0" }}>
                 <p style={{ margin: 0, fontSize: "1.05rem", lineHeight: "1.9", color: "var(--charcoal)", fontWeight: "700" }}>نركز على القضايا القانونية ذات الأهمية والتعقيد، والتي تتطلب خبرة قانونية متخصصة ورؤية استراتيجية. ونقدم خدماتنا للأفراد والشركات والمستثمرين الباحثين عن تمثيل قانوني احترافي وحلول قانونية فعالة.</p>
               </div>
@@ -96,7 +159,7 @@ export default function Home({ articles, news }) {
               </div>
               <div className="signature">
                 <div><div className="name">الأستاذ محمود عبد الحميد جاد الرب</div><div className="title">المؤسس – المحامي بالنقض والدستورية والإدارية العليا</div></div>
-                <Link href="/about" className="btn-outline-gold">تعرف على المؤسسة</Link>
+                <Link href="/about" className="btn-outline-gold">تعرف على المكتب</Link>
               </div>
             </div>
           </div>

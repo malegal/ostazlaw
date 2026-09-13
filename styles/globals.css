@@ -911,6 +911,175 @@ button {
     width: 100%;
 }
 
+/* بطاقات الفئات: حركة دخول هادئة تعكس اختلاف المسارات دون تشتيت الزائر. */
+.client-segments-section {
+    background: linear-gradient(145deg, #f7f3ec 0%, #eee8dd 100%);
+    overflow: hidden;
+}
+.client-segments-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    align-items: stretch;
+}
+.client-segment-card {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid rgba(176, 141, 87, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 12px 35px rgba(11, 17, 27, 0.08);
+    transition: transform 0.28s var(--ease-out), box-shadow 0.28s var(--ease-out), border-color 0.28s ease;
+}
+.client-segment-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(176, 141, 87, 0.65);
+    box-shadow: 0 20px 45px rgba(11, 17, 27, 0.14);
+}
+.client-segment-image {
+    min-height: 150px;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+.client-segment-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(11, 17, 27, 0.12), rgba(11, 17, 27, 0.72));
+}
+.client-segment-business .client-segment-image {
+    background-image: url('/hero-legal-aswan.jpg');
+    background-position: 62% center;
+}
+.client-segment-entrepreneurs .client-segment-image {
+    background-image: url('/og-image.jpg');
+    background-position: center;
+}
+.client-segment-individuals .client-segment-image {
+    background-image: url('/mahmoud-abdel-hamid-lawyer-portrait.webp');
+    background-position: center 22%;
+}
+.client-segment-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.35rem 1.25rem 1.3rem;
+    text-align: right;
+}
+.client-segment-kicker {
+    color: var(--matte-gold);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    font-family: var(--font-body-ar);
+}
+.client-segment-body h3 {
+    color: var(--charcoal);
+    font-family: var(--font-serif);
+    font-size: 1.42rem;
+    line-height: 1.35;
+    margin: 0.35rem 0 0.65rem;
+}
+.client-segment-body p,
+.client-segment-body li {
+    color: var(--charcoal);
+    font-family: var(--font-body-ar);
+    font-size: 0.92rem;
+    font-weight: 600;
+    line-height: 1.85;
+}
+.client-segment-body p {
+    margin: 0;
+}
+.client-segment-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.8rem 0;
+}
+.client-segment-body li {
+    position: relative;
+    padding-right: 1.15rem;
+    margin-bottom: 0.18rem;
+}
+.client-segment-body li::before {
+    content: '•';
+    position: absolute;
+    right: 0;
+    color: var(--matte-gold);
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+.client-segment-why {
+    padding-top: 0.75rem;
+    margin-top: auto !important;
+    border-top: 1px solid rgba(176, 141, 87, 0.2);
+}
+.client-segment-why strong {
+    color: var(--deep-navy);
+}
+.client-segment-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.45rem;
+    margin: 0.8rem 0;
+    padding: 0.7rem 0.75rem;
+    color: var(--deep-navy);
+    background: rgba(176, 141, 87, 0.1);
+    border-right: 3px solid var(--matte-gold);
+    border-radius: 4px;
+    font-family: var(--font-body-ar);
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.7;
+}
+.client-segment-note .icon-svg {
+    color: var(--matte-gold);
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+}
+.client-segment-body .btn-outline-gold {
+    align-self: flex-start;
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    padding: 0.62rem 0.8rem;
+}
+.client-segment-body .btn-outline-gold span {
+    display: inline-block;
+    margin-right: 0.25rem;
+    transition: transform 0.2s ease;
+}
+.client-segment-body .btn-outline-gold:hover span {
+    transform: translateX(-3px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .client-segment-business {
+        animation: clientSegmentFromRight 0.65s var(--ease-out) both;
+    }
+    .client-segment-entrepreneurs {
+        animation: clientSegmentRise 0.7s 0.12s var(--ease-out) both;
+    }
+    .client-segment-individuals {
+        animation: clientSegmentFromLeft 0.65s 0.22s var(--ease-out) both;
+    }
+}
+@keyframes clientSegmentFromRight {
+    from { opacity: 0; transform: translateX(34px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes clientSegmentRise {
+    from { opacity: 0; transform: translateY(28px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes clientSegmentFromLeft {
+    from { opacity: 0; transform: translateX(-34px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
 /* ==========================================================
    SECTIONS – الأقسام العامة
    ========================================================== */
@@ -1943,6 +2112,15 @@ button {
     .hero-actions {
         gap: 1.5rem;
     }
+    .client-segments-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .client-segment-individuals {
+        grid-column: 1 / -1;
+        max-width: 520px;
+        width: 100%;
+        justify-self: center;
+    }
 }
 
 @media (max-width: 820px) {
@@ -2064,6 +2242,15 @@ button {
         width: 42px;
         height: 42px;
         font-size: 17px;
+    }
+    .client-segments-grid {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+        margin-inline: auto;
+    }
+    .client-segment-individuals {
+        grid-column: auto;
+        max-width: none;
     }
 }
 
