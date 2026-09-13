@@ -14,12 +14,13 @@ export default function Home({ articles, news }) {
   return (
     <Layout>
       <Head>
+        {/* الاسم الرسمي الكامل "مكتب جاد الرب للمحاماة والاستشارات القانونية" يُستخدم في العناصر الرسمية (title, schema)
+            بينما يبقى شعار الهيرو "جاد الرب للمحاماة" أخف بصريًا كاسم برانديد ظاهر للزائر */}
         <title>مكتب جاد الرب للمحاماة والاستشارات القانونية | JAD ELRAB</title>
-        <meta name="description" content="مكتب جاد الرب للمحاماة والاستشارات القانونية بأسوان. نقرأ موقفك القانوني قبل أن تتخذ القرار، ونمثلك أمام القضاء إذا استلزم الأمر ذلك، في مختلف محافظات مصر." />
-        {/* SEO: الاسم موحّد الآن كـ"مكتب" اتساقًا مع القرار النهائي بشأن التسمية، بدل "مؤسسة" التي كانت في نسخة سابقة. */}
+        <meta name="description" content="مكتب جاد الرب للمحاماة والاستشارات القانونية. نحمي استثماراتك وموقفك القانوني بالعلم والخبرة، ونقدم الاستشارات والتمثيل القضائي للأفراد والشركات في جميع أنحاء مصر." />
         <link rel="canonical" href="https://ostazlaw.vercel.app" />
         <meta property="og:title" content="مكتب جاد الرب للمحاماة والاستشارات القانونية | JAD ELRAB" />
-        <meta property="og:description" content="نقرأ موقفك القانوني قبل أن تتخذ القرار، ونمثلك أمام القضاء إذا استلزم الأمر ذلك، في مختلف محافظات مصر." />
+        <meta property="og:description" content="نحمي استثماراتك وموقفك القانوني بالعلم والخبرة، ونقدم الاستشارات والتمثيل القضائي للأفراد والشركات في جميع أنحاء مصر." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/" />
         <meta property="og:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
@@ -43,48 +44,46 @@ export default function Home({ articles, news }) {
         }} />
       </Head>
 
-      {/* الهيرو: البراند أولاً، ثم الاسم والصفة، ثم جملة تزرع الحاجة دون طلبها صراحة، ثم CTA واحد فقط. */}
+      {/* الهيرو: اسم البراند أولاً، ثم اسم المحامي وصفته، ثم جملة واحدة تُلمّح للمخاطرة دون تهويل أو وعد بنتيجة */}
       <section className="hero" aria-label="الرسالة الرئيسية">
         <div className="hero-bg"><div className="glow"></div><div className="glow-2"></div></div>
         <div className="hero-content">
           <div className="hero-brand-signature">JAD ELRAB</div>
-          <h1 className="hero-title"><span>مكتب جاد الرب</span><span>للمحاماة والاستشارات القانونية</span></h1>
+          <h1 className="hero-title"><span>جاد الرب</span><span>للمحاماة والاستشارات القانونية</span></h1>
           <p className="hero-subtitle">محمود عبد الحميد جاد الرب<br />المحامي بالنقض والدستورية والإدارية العليا</p>
-          {/* جملة القيمة: لا تصف المكتب، بل تصف الفرق بين قرار مدروس وقرار متسرّع - القارئ هو من يستنتج أنه يحتاج هذه القراءة. */}
-          <p className="hero-value">ليست كل مسألة تحتاج إلى محكمة، لكنها جميعًا تستحق قراءة قانونية دقيقة قبل أن يُتخذ القرار.</p>
-          <p className="hero-protection-message">نقرأ التفاصيل التي قد تفوت غيرنا، ونوضح لك ما يترتب على كل خيار قبل أن تلتزم به<br /><span>فالفارق بين موقف قانوني قوي وآخر هشّ غالبًا ما يُحسم في هذه الخطوة الأولى.</span></p>
+          {/* جملة القيمة: بيع دون بيع — تلميح لتكلفة القرار غير المفهوم، لا دعوة مباشرة ولا تفوق مُدّعى */}
+          <p className="hero-value">أغلب النزاعات القانونية لا تبدأ في قاعة المحكمة، بل تبدأ بقرارٍ اتُخذ دون فهمٍ كامل لأبعاده. مكتب محاماة مقره أسوان، يقدم الاستشارات والتمثيل القضائي للأفراد والشركات في جميع أنحاء مصر.</p>
+          <p className="hero-protection-message">نحمي استثماراتك وموقفك القانوني بكل ما نملك من علمٍ وخبرة<br /><span>ونساعدك على تفادي النزاع قبل أن يبدأ، وتعزيز مركزك القانوني منذ الخطوة الأولى.</span></p>
           <div className="hero-actions">
-            <Link href="/contact?tab=consult#service-form" className="btn-gold hero-consultation-cta">تحدث معنا عن مسألتك</Link>
+            <Link href="/contact?tab=consult#service-form" className="btn-gold hero-consultation-cta">اطلب استشارة قانونية</Link>
           </div>
           <div className="section-cta"><Link href="/client-inquiry" className="btn-outline-gold case-tracking-cta">عميل للمكتب؟ تابع ملفك لدينا</Link></div>
         </div>
       </section>
 
-      {/* شريط الثقة: وقائع لا صفات - تواريخ وممارسات، بلا كلمة "الأفضل" أو ما يشبهها. */}
       <section className="trust-bar" aria-label="مرتكزات العمل">
         <div className="trust-bar-inner">
           <div className="trust-item"><Icon name="gavel" /><span>خبرة عملية منذ 2005</span></div>
-          <div className="trust-item"><Icon name="briefcase" /><span>قراءة المخاطر قبل الالتزام لا بعده</span></div>
-          <div className="trust-item"><Icon name="scale-balanced" /><span>سرية تامة، ولا نُفصح عن ملف عميل لأي غرض</span></div>
+          <div className="trust-item"><Icon name="briefcase" /><span>فهم للمخاطر قبل الالتزام</span></div>
+          <div className="trust-item"><Icon name="scale-balanced" /><span>سرية مهنية ووضوح في التعامل</span></div>
         </div>
       </section>
 
-      {/* قسم الفئات: كل بطاقة تصف موقفًا يعيشه القارئ فعلاً، فيرى نفسه فيها قبل أن يُطلب منه أي شيء. */}
       <section className="section client-segments-section" aria-label="خدماتنا بحسب فئة العميل">
         <div className="section-inner">
           <div className="section-head reveal">
-            <span className="eyebrow">● أين موقعك؟</span>
-            <h2>الأسئلة القانونية نادرًا ما تُطرح في الوقت المناسب</h2>
-            <p>غالبًا ما يُكتشف الخطأ بعد وقوعه، لا قبله. هذه هي اللحظات التي يصنع فيها الاستشعار المبكر فارقًا حقيقيًا.</p>
+            <span className="eyebrow">● خدماتنا</span>
+            <h2>حلول قانونية تبدأ من فهم احتياجك</h2>
+            <p>لكل قرار أو مسألة طريقها القانوني. اختر الفئة الأقرب إليك، واتخذ الخطوة الأولى بثقة.</p>
           </div>
           <div className="client-segments-grid">
             <article className="client-segment-card client-segment-business reveal">
               <div className="client-segment-image" role="img" aria-label="مبنى يرمز إلى الشركات والأعمال"></div>
               <div className="client-segment-body">
                 <span className="client-segment-kicker">للشركات والمؤسسات</span>
-                <h3>القرار الذي تتخذه الآن يقيّد شركتك لاحقًا</h3>
-                <p>عقد يُوقَّع دون مراجعة، أو قرار إداري يُتخذ دون سند قانوني، غالبًا ما يظهر أثره بعد فوات وقت التصحيح. نساعد الشركات على رؤية ما لا يظهر في المستند.</p>
-                <ul><li>مراجعة العقود قبل التوقيع لا بعده</li><li>دعم اتخاذ القرار بمعرفة الأثر القانوني</li><li>تأسيس الشركات وهيكلتها</li></ul>
+                <h3>نفهم احتياجات الشركات وقراراتها</h3>
+                <p>نقدم للشركات والمؤسسات دعمًا قانونيًا يواكب أعمالها، ويساعدها على اتخاذ قرارات أكثر وضوحًا وحماية مصالحها قبل الالتزام.</p>
+                <ul><li>استشارات قانونية مستمرة</li><li>دعم اتخاذ القرار القانوني</li><li>مراجعة العقود وتأسيس الشركات</li><li>حماية الاستثمارات والمصالح</li></ul>
                 <Link href="/contact?tab=consult&audience=business#service-form" className="btn-outline-gold">ناقش احتياج شركتك <span aria-hidden="true">←</span></Link>
               </div>
             </article>
@@ -93,9 +92,9 @@ export default function Home({ articles, news }) {
               <div className="client-segment-image" role="img" aria-label="أدوات ترمز إلى الاستثمار وريادة الأعمال"></div>
               <div className="client-segment-body">
                 <span className="client-segment-kicker">للمستثمرين ورجال الأعمال</span>
-                <h3>الفرصة والالتزام كثيرًا ما يتشابهان في البداية</h3>
-                <p>قبل أن توقّع على شراكة أو تضع رأس مالك في اتفاق، يستحق الأمر قراءة تفصل بين ما هو مكتوب وما هو ملزم فعلاً.</p>
-                <ul><li>قراءة الاتفاقيات قبل الالتزام بها</li><li>تنظيم الشراكات وتحديد الحقوق فيها</li><li>تقدير المخاطر بلغة واضحة لا قانونية معقدة</li></ul>
+                <h3>وضوح قانوني قبل الاستثمار أو الشراكة</h3>
+                <p>نساعد المستثمرين ورجال الأعمال على قراءة الاتفاقات، فهم الالتزامات، وتقدير المخاطر قبل أن تتحول الفرصة إلى التزام.</p>
+                <ul><li>مراجعة الاتفاقيات والعقود</li><li>تنظيم الشراكات والعلاقات</li><li>تقييم المخاطر قبل القرار</li></ul>
                 <Link href="/contact?tab=consult&audience=investor#service-form" className="btn-outline-gold">تحدث عن مشروعك <span aria-hidden="true">←</span></Link>
               </div>
             </article>
@@ -104,9 +103,9 @@ export default function Home({ articles, news }) {
               <div className="client-segment-image" role="img" aria-label="صورة تعبر عن الحقوق والمصالح الشخصية"></div>
               <div className="client-segment-body">
                 <span className="client-segment-kicker">للأفراد</span>
-                <h3>حقك لا يضيع دفعة واحدة، بل خطوة تلو الأخرى</h3>
-                <p>عقد إيجار، ميراث، أو نزاع بدأ صغيرًا وكبُر بمرور الوقت - في كل هذه المواقف، معرفة موقفك القانوني أول خطوة نحو حمايته.</p>
-                <ul><li>العقود والمستندات الشخصية</li><li>العقارات والملكية والإيجارات</li><li>المطالبات والمنازعات المدنية</li></ul>
+                <h3>نوضح لك موقفك قبل خطوتك التالية</h3>
+                <p>من عقد أو مستند إلى عقار أو مطالبة أو نزاع، نبدأ من الوقائع كما هي ونساعدك على فهم ما يمكنك فعله.</p>
+                <ul><li>العقود والمستندات</li><li>العقارات والملكية والإيجارات</li><li>المطالبات والمنازعات المدنية</li></ul>
                 <Link href="/contact?tab=consult&audience=individual#service-form" className="btn-outline-gold">اعرض مسألتك القانونية <span aria-hidden="true">←</span></Link>
               </div>
             </article>
@@ -114,7 +113,6 @@ export default function Home({ articles, news }) {
         </div>
       </section>
 
-      {/* قسم "عن المكتب": يبني الثقة بالسرد لا بالادعاء - القارئ يصل بنفسه إلى استنتاج الكفاءة. */}
       <section className="section section-light" aria-label="عن المكتب">
         <div className="section-inner">
           <div className="about-why-grid">
@@ -125,19 +123,19 @@ export default function Home({ articles, news }) {
             <div className="about-content reveal">
               <span className="eyebrow">● عن المكتب</span>
               <h2>لا تبدأ كل المسائل القانونية من المحكمة،<br /><span className="gold-text">بل تبدأ أحيانًا من فهم ما لديك</span></h2>
-              <p>مكتب جاد الرب للمحاماة والاستشارات القانونية مقره أسوان، وتمتد خدماته إلى عملاء في مختلف محافظات مصر. نرى أن دور المحامي الحقيقي يبدأ قبل النزاع لا بعده - في اللحظة التي يُفهم فيها الموقف بدقة، وتُحمى فيها المصلحة قبل أن تتعقد المسألة.</p>
-              <p>نبدأ من الوقائع والمستندات كما هي، ونقرأ ما قد يترتب على كل قرار قبل اتخاذه، ثم نوضح الخيارات المتاحة وأثر كل واحد منها. هذا ما يفرّق بين استشارة عامة وبين رؤية قانونية مبنية على واقع القضية بالفعل.</p>
-              <p>ومنذ عام <strong>2005</strong>، نعمل وفق هذا النهج، مستندين إلى خبرة عملية في التمثيل القضائي أمام مختلف درجات المحاكم، وصولًا إلى محكمتي النقض والدستورية العليا.</p>
+              <p>مكتب جاد الرب للمحاماة والاستشارات القانونية مقره أسوان، وتمتد خدماته إلى العملاء في جميع محافظات مصر. نؤمن بأن دور المحامي لا يبدأ عند وقوع النزاع فقط؛ بل يبدأ قبل ذلك، بمساعدة العميل على فهم موقفه وحماية حقوقه ومصالحه قبل أن تتعقد المسألة أو تنتقل إلى المحكمة.</p>
+              <p>ولهذا نبدأ من الوقائع والمستندات، ونقرأ ما قد يترتب على القرار قبل اتخاذه، ثم نوضح الخيارات والخطوة المناسبة. هدفنا أن يحصل العميل على رؤية قانونية عملية تساعده على حماية استثماره وموقفه القانوني، لا على مشورة عامة منفصلة عن واقعه.</p>
+              <p>ومنذ عام <strong>2005</strong>، نعمل وفق هذا النهج، مستندين إلى خبرة عملية وكفاءة في التمثيل القضائي أمام مختلف درجات المحاكم، وصولًا إلى محكمتي النقض والدستورية العليا.</p>
               <div className="about-why-points">
-                <span className="point"><Icon name="check-circle" /> مشورة وقائية قبل أن يتحول الخلاف إلى نزاع قضائي.</span>
-                <span className="point"><Icon name="check-circle" /> قراءة دقيقة للمستندات قبل، لا بعد، اتخاذ القرار.</span>
-                <span className="point"><Icon name="check-circle" /> سرية تامة لبيانات العملاء دون استثناء.</span>
-                <span className="point"><Icon name="check-circle" /> تمثيل قضائي أمام أعلى درجات المحاكم.</span>
-                <span className="point"><Icon name="check-circle" /> متابعة شخصية لكل ملف حتى نهايته.</span>
+                <span className="point"><Icon name="check-circle" /> مشورة قانونية وقائية قبل بدء النزاع أو انتقاله إلى المحكمة.</span>
+                <span className="point"><Icon name="check-circle" /> قراءة دقيقة للوقائع والمستندات ودعم اتخاذ القرار.</span>
+                <span className="point"><Icon name="check-circle" /> حماية بيانات العملاء وعدم الاعتماد على برامج عامة من السوق.</span>
+                <span className="point"><Icon name="check-circle" /> خبرة في التمثيل القضائي أمام أعلى درجات المحاكم.</span>
+                <span className="point"><Icon name="check-circle" /> سرية مهنية ومتابعة عملية تناسب كل مسألة.</span>
               </div>
-              <p className="qayd-note"><Icon name="shield-alt" /> حماية بيانات عملائنا جزء لا يتجزأ من العمل القانوني نفسه، ولهذا طوّرنا نظام <strong>Qayd</strong> الداخلي لإدارة الملفات، بدل الاعتماد على برامج جاهزة لا نتحكم في بنيتها.</p>
+              <p className="qayd-note"><Icon name="shield-alt" /> لأن سرية البيانات جزء من العمل القانوني، طورنا نظام <strong>Qayd</strong> لإدارة أعمال المكتب داخليًا، بدل الاعتماد على برامج جاهزة لا نتحكم في بنيتها أو طريقة تعاملها مع البيانات.</p>
               <div className="signature">
-                <div><div className="name">الأستاذ محمود عبد الحميد جاد الرب</div><div className="title">المحامي بالنقض والدستورية والإدارية العليا</div></div>
+                <div><div className="name">الأستاذ محمود عبد الحميد جاد الرب</div><div className="title">المؤسس – المحامي بالنقض والدستورية والإدارية العليا</div></div>
                 <Link href="/about" className="btn-outline-gold">تعرف على المكتب</Link>
               </div>
             </div>
@@ -145,10 +143,10 @@ export default function Home({ articles, news }) {
         </div>
       </section>
 
-      {/* مجالات الممارسة: عرض محايد وواقعي، القارئ يتعرف على مسألته دون أن يُقال له "احجز الآن". */}
+      {/* الجملة التمهيدية أُعيدت صياغتها لتربط بالفئات الثلاث أعلاه بدل ما تبدو قسمًا مقطوعًا ومنفصلاً */}
       <section className="section section-gray" aria-label="مجالات الممارسة القانونية">
         <div className="section-inner">
-          <div className="section-head reveal"><span className="eyebrow">● مجالات الممارسة</span><h2>قد تبدأ المسألة من أحد هذه المواضع</h2><p>تختلف الخطوة القانونية المناسبة باختلاف الوقائع والمستندات، ولهذا نبدأ دائمًا بفهم المسألة قبل تحديد المسار.</p></div>
+          <div className="section-head reveal"><span className="eyebrow">● مجالات الممارسة</span><h2>أيًا كانت الفئة التي تنتمي إليها، فالمسألة غالبًا تقع هنا</h2><p>سواء كنت فردًا أو صاحب شركة أو مستثمرًا، تبدأ معظم المسائل من أحد هذه المواضع — ونبدأ نحن دائمًا بفهم وقائعها قبل تحديد المسار المناسب.</p></div>
           <div className="practice-grid">
             <Link href="/specialties" className="practice-link"><div className="practice-card reveal"><div className="icon-wrap"><Icon name="gavel" /></div><h3>المنازعات المدنية</h3><p>العقود، التعويضات، الملكية والإيجارات.</p></div></Link>
             <Link href="/specialties" className="practice-link"><div className="practice-card reveal"><div className="icon-wrap"><Icon name="chart-pie" /></div><h3>المعاملات التجارية</h3><p>الشركات، الشراكات والعقود التجارية.</p></div></Link>
@@ -160,20 +158,20 @@ export default function Home({ articles, news }) {
         </div>
       </section>
 
-      {/* البداية: تطمين صريح بأن لا حاجز أمام أول خطوة، وهذا بحد ذاته دافع خفي للتواصل. */}
       <section className="section section-light" aria-label="كيف نبدأ معك">
         <div className="section-inner">
-          <div className="section-head reveal"><span className="eyebrow">● البداية</span><h2>لا تحتاج إلى أن تعرف من أين تبدأ</h2><p>اشرح لنا ما حدث وما تريد الوصول إليه، ونتولى نحن تحديد طبيعة المسألة وما يلزم لفهمها.</p></div>
+          <div className="section-head reveal"><span className="eyebrow">● البداية</span><h2>لا تحتاج إلى أن تعرف من أين تبدأ</h2><p>اشرح لنا ما حدث وما الذي تريد الوصول إليه، وسنبدأ بتحديد طبيعة المسألة وما يلزم لفهمها.</p></div>
           <div className="process-timeline">
             <div className="process-step reveal"><span className="num">01</span><div className="step-content"><h4>تشرح ما لديك</h4><p>ترسل بياناتك الأساسية وملخصًا مختصرًا للمسألة، دون الحاجة إلى معرفة اسم الإجراء القانوني.</p></div></div>
-            <div className="process-step reveal"><span className="num">02</span><div className="step-content"><h4>نقرأ الصورة القانونية</h4><p>نراجع ما ورد في الطلب ونحدد ما قد يلزم من معلومات أو مستندات لفهمه بصورة أدق.</p></div></div>
-            <div className="process-step reveal"><span className="num">03</span><div className="step-content"><h4>تتضح الخطوة التالية</h4><p>نحدد سويًا وسيلة التواصل الأنسب - واتساب أو بريد إلكتروني أو موعد - بحسب طبيعة المسألة.</p></div></div>
+            <div className="process-step reveal"><span className="num">02</span><div className="step-content"><h4>نقرأ الصورة القانونية</h4><p>نراجع ما ورد في الطلب ونحدد المعلومات أو المستندات التي قد تساعد على فهمه بصورة أفضل.</p></div></div>
+            <div className="process-step reveal"><span className="num">03</span><div className="step-content"><h4>تتضح الخطوة التالية</h4><p>يُحدد مسار التواصل الأنسب: واتساب أو بريد إلكتروني أو اتصال أو طلب موعد بحسب طبيعة المسألة.</p></div></div>
           </div>
-          <p className="process-note"><Icon name="paperclip" /> يمكنك إرسال طلبك دون رفع أي مستند. وإن كان لديك عقد أو إنذار أو مستند ذو صلة، يمكنك إرفاقه اختياريًا ليساعدنا على فهم الصورة بشكل أسرع.</p>
+          <p className="process-note"><Icon name="paperclip" /> يمكنك إرسال الطلب دون رفع مستند. وإذا كان لديك عقد أو إنذار أو مستند ذو صلة، يمكنك إرفاقه اختياريًا ليساعد في فهم الصورة.</p>
+          {/* نقطة تحويل مبكرة: تمسك نية التواصل وهي في قمتها، بدل ما تنتظر الزائر لحد آخر الصفحة */}
+          <div className="section-cta"><Link href="/contact?tab=consult#service-form" className="btn-outline-gold">اعرض مسألتك الآن</Link></div>
         </div>
       </section>
 
-      {/* قسم العميل الحالي: لا يزاحم مسار العميل الجديد، بل يخدم فئة أخرى بهدوء. */}
       <section className="section section-gray client-portal-promo" aria-label="متابعة الملف">
         <div className="section-inner section-portal-inner">
           <div><span className="eyebrow">● للعميل الحالي</span><h2>هل لديك ملف لدى المكتب؟</h2><p>تابع آخر التحديثات المتعلقة بملفك باستخدام رقم الهاتف ورمز المتابعة.</p></div>
@@ -181,7 +179,6 @@ export default function Home({ articles, news }) {
         </div>
       </section>
 
-      {/* المكتبة القانونية: تثبت الكفاءة بالمحتوى نفسه لا بوصفه، وتخدم SEO في الوقت ذاته. */}
       <section className="section section-light" aria-label="المكتبة القانونية">
         <div className="section-inner">
           <div className="section-head reveal"><span className="eyebrow">● المكتبة القانونية</span><h2>المكتبة القانونية</h2><p>اطلع على أحدث المقالات القانونية.</p></div>
@@ -190,7 +187,6 @@ export default function Home({ articles, news }) {
         </div>
       </section>
 
-      {/* الأخبار: دليل نشاط هادئ، لا مسار تحويل رئيسي. */}
       <section className="section section-gray" aria-label="أخبار المكتب">
         <div className="section-inner">
           <div className="section-head reveal"><span className="eyebrow">● من أخبار المكتب</span><h2>مستجدات من الممارسة القانونية</h2><p>أخبار ومشاركات وتطورات من عمل المكتب ومجاله القانوني.</p></div>
@@ -200,16 +196,15 @@ export default function Home({ articles, news }) {
       </section>
 
       <section className="map-section" aria-label="موقع المكتب">
-        <div className="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1819.3414902100868!2d32.8988582!3d24.0886561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDA1JzE5LjIiTiAzMsKwNTMnNTUuOSJF!5e0!3m2!1sar!2seg!4v1700000000000!5m2!1sar!2seg" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-cross-origin" title="موقع جاد الرب للمحاماة في أسوان"></iframe></div>
+        <div className="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1819.3414902100868!2d32.8988582!3d24.0886561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDA1JzE5LjIiTiAzMsKwNTMnNTUuOSJF!5e0!3m2!1sar!2seg!4v1700000000000!5m2!1sar!2seg" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-cross-origin" title="موقع مكتب جاد الرب للمحاماة في أسوان"></iframe></div>
         <div className="map-address"><Icon name="map-marker-alt" /> شارع كسر الحجر، المتفرع من شارع كورنيش النيل، أمام مجمع المحاكم – أسوان، مصر</div>
       </section>
 
-      {/* CTA الختامي: سؤال يفتح الباب لا أمر يدفع للدخول، مع خيار واتساب لمن يفضل التواصل السريع. */}
       <section className="cta-section" aria-label="ابدأ الخطوة الأولى">
         <div className="section-inner reveal">
           <span className="eyebrow">● الخطوة الأولى</span>
-          <h2>هل هناك مسألة قانونية تحتاج إلى نظرة واضحة الآن؟</h2>
-          <p>أرسل ملخصًا مختصرًا لما تمر به، ونبدأ من الوقائع كما هي، ونوجّهك إلى الطريقة الأنسب للتواصل.</p>
+          <h2>هل لديك مسألة قانونية تحتاج إلى فهم واضح؟</h2>
+          <p>أرسل ملخصًا مختصرًا لاحتياجك، وسنبدأ من الوقائع ونوجّهك إلى طريقة التواصل المناسبة.</p>
           <div className="cta-actions">
             <Link href="/contact?tab=consult#service-form" className="btn-gold">اعرض مسألتك</Link>
             <a href="https://wa.me/201101076000" target="_blank" rel="noopener noreferrer" className="btn-outline-gold">تحدث معنا عبر واتساب</a>
