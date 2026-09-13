@@ -15,11 +15,11 @@ export default function Home({ articles, news }) {
     <Layout>
       <Head>
         <title>جاد الرب للمحاماة والاستشارات القانونية | JAD ELRAB</title>
-        <meta name="description" content="حين يكون القرار مهمًا، يبدأ الوضوح من موقفك القانوني. جاد الرب للمحاماة والاستشارات القانونية في أسوان، للأفراد والشركات والمستثمرين في مختلف محافظات مصر." />
+        <meta name="description" content="جاد الرب للمحاماة والاستشارات القانونية. نحمي استثماراتك وموقفك القانوني بالعلم والخبرة، ونقدم الاستشارات والتمثيل القضائي للأفراد والشركات في جميع أنحاء مصر." />
         {/* SEO: تبقى بيانات المؤسسة موحّدة مع النسخة السابقة، بينما تعكس الصفحة الجديدة رسالتها الهادئة القائمة على الوضوح. */}
         <link rel="canonical" href="https://ostazlaw.vercel.app" />
-        <meta property="og:title" content="حين يكون القرار مهمًا، يبدأ الوضوح من موقفك القانوني | جاد الرب" />
-        <meta property="og:description" content="نساعد الأفراد والشركات والمستثمرين على فهم مواقفهم القانونية وتحديد الخطوة المناسبة قبل أن يصبح القرار أكثر تعقيدًا." />
+        <meta property="og:title" content="جاد الرب للمحاماة والاستشارات القانونية | JAD ELRAB" />
+        <meta property="og:description" content="نحمي استثماراتك وموقفك القانوني بالعلم والخبرة، ونقدم الاستشارات والتمثيل القضائي للأفراد والشركات في جميع أنحاء مصر." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/" />
         <meta property="og:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
@@ -43,21 +43,22 @@ export default function Home({ articles, news }) {
         }} />
       </Head>
 
-      {/* القسم الأول: رسالة تسويقية هادئة تبيع الوضوح والاطمئنان بدل ادعاء التفوق. */}
+      {/* القسم الأول: نعيد ترتيب هوية المكتب كما طلب صاحب الموقع، ثم نضع الرسالة التسويقية بوضوح دون ادعاء التفوق. */}
       <section className="hero" aria-label="الرسالة الرئيسية">
         <div className="hero-bg"><div className="glow"></div><div className="glow-2"></div></div>
         <div className="hero-content">
           <div className="hero-brand-signature">JAD ELRAB</div>
-          <h1 className="hero-title"><span>حين يكون القرار مهمًا،</span><span>يبدأ الوضوح من موقفك القانوني</span></h1>
-          <p className="hero-subtitle">جاد الرب للمحاماة والاستشارات القانونية — من أسوان إلى مختلف محافظات مصر</p>
-          <p className="hero-value">عقد، شراكة، عقار، مطالبة أو نزاع؛ نساعدك على فهم الوقائع والمستندات، تقدير ما يترتب عليها، وتحديد الخطوة المناسبة قبل أن يصبح القرار أكثر تعقيدًا.</p>
-          {/* CTA رئيسي واحد يقلل التردد؛ لا نطلب من الزائر معرفة اسم الخدمة القانونية قبل شرح مسألته. */}
+          <h1 className="hero-title"><span>جاد الرب</span><span>للمحاماة والاستشارات القانونية</span></h1>
+          <p className="hero-subtitle">محمود عبد الحميد جاد الرب<br />المحامي بالنقض والدستورية والإدارية العليا</p>
+          <p className="hero-value">مكتب محاماة نقدم خدمات الاستشارات القانونية والتمثيل القضائي للأفراد والشركات في جميع أنحاء مصر.</p>
+          {/* الرسالة التسويقية الأساسية: حماية مصالح العميل بصياغة وجدانية ومهنية، دون وعود بنتيجة أو ادعاء أننا الأفضل. */}
+          <p className="hero-protection-message">نحمي استثماراتك وموقفك القانوني<br /><span>بكل ما أوتينا من علمٍ وقوة</span></p>
+          {/* الإجراء الرئيسي واضح، بينما متابعة الملف تبقى مسارًا منفصلًا للعميل الحالي. */}
           <div className="hero-actions">
-            <Link href="/contact?tab=consult#service-form" className="hero-action-item gold-underline"><span className="icon-wrap"><Icon name="file-signature" /></span><span className="label">اعرض مسألتك</span></Link>
-            <a href="https://wa.me/201101076000" target="_blank" rel="noopener noreferrer" className="hero-action-item gold-underline"><span className="icon-wrap"><Icon name="whatsapp" /></span><span className="label">تحدث معنا عبر واتساب</span></a>
+            <Link href="/contact?tab=consult#service-form" className="hero-action-item gold-underline"><span className="icon-wrap"><Icon name="file-signature" /></span><span className="label">اطلب استشارة قانونية</span></Link>
           </div>
-          {/* متابعة الملف مسار منفصل للعميل الحالي، لذلك تظهر كرابط هادئ لا ينافس اكتساب العميل الجديد. */}
-          <div className="section-cta"><Link href="/client-inquiry" className="btn-outline-gold case-tracking-cta">لديك ملف قائم؟ تابع مستجداته</Link></div>
+          {/* متابعة الملف لا تختلط بطلب الاستشارة، لكنها تبقى ظاهرة لمن لديه علاقة قائمة بالمكتب. */}
+          <div className="section-cta"><Link href="/client-inquiry" className="btn-outline-gold case-tracking-cta">عميل للمكتب؟ تابع ملفك لدينا</Link></div>
         </div>
       </section>
 
@@ -70,13 +71,13 @@ export default function Home({ articles, news }) {
         </div>
       </section>
 
-      {/* هذا هو أهم قسم تحويل في الصفحة: ثلاث فئات، وثلاثة مسارات، وثلاثة نماذج مختلفة لاحقًا. */}
-      <section className="section client-segments-section" aria-label="اختر المسار الأقرب إلى احتياجك">
+      {/* هذا هو قسم الخدمات بحسب الفئة: كل بطاقة تتحدث بلغة الاحتياج وتوجه إلى النموذج المناسب. */}
+      <section className="section client-segments-section" aria-label="خدماتنا بحسب فئة العميل">
         <div className="section-inner">
           <div className="section-head reveal">
-            <span className="eyebrow">● ابدأ من احتياجك</span>
-            <h2>كيف يمكننا مساعدتك؟</h2>
-            <p>لا تحتاج إلى معرفة اسم الإجراء القانوني. اختر المسار الأقرب إلى وضعك، واشرح ما تريد الوصول إليه.</p>
+            <span className="eyebrow">● خدماتنا</span>
+            <h2>حلول قانونية تبدأ من فهم احتياجك</h2>
+            <p>لكل قرار أو مسألة طريقها القانوني. اختر الفئة الأقرب إليك، واتخذ الخطوة الأولى بثقة.</p>
           </div>
           <div className="client-segments-grid">
             {/* الشركات: المسار التجاري، مع إحالة لاحقة إلى نموذج يجمع البريد وواتساب. */}
@@ -84,10 +85,10 @@ export default function Home({ articles, news }) {
               <div className="client-segment-image" role="img" aria-label="مبنى يرمز إلى الشركات والأعمال"></div>
               <div className="client-segment-body">
                 <span className="client-segment-kicker">للشركات والمؤسسات</span>
-                <h3>حين يكبر العمل، يحتاج القرار إلى قراءة قانونية</h3>
-                <p>من العقود والمعاملات إلى الشراكات والمنازعات، نساعد على فهم الالتزامات قبل أن تتحول إلى مشكلة.</p>
-                <ul><li>عقود ومعاملات الأعمال</li><li>تنظيم العلاقات والالتزامات</li><li>دعم قانوني للمسائل المؤثرة</li></ul>
-                <Link href="/contact?tab=consult&audience=business#service-form" className="btn-outline-gold">ناقش احتياج منشأتك <span aria-hidden="true">←</span></Link>
+                <h3>نفهم احتياجات الشركات وقراراتها</h3>
+                <p>نقدم للشركات والمؤسسات دعمًا قانونيًا يواكب أعمالها، ويساعدها على اتخاذ قرارات أكثر وضوحًا وحماية مصالحها قبل الالتزام.</p>
+                <ul><li>استشارات قانونية مستمرة</li><li>دعم اتخاذ القرار القانوني</li><li>مراجعة العقود وتأسيس الشركات</li><li>حماية الاستثمارات والمصالح</li></ul>
+                <Link href="/contact?tab=consult&audience=business#service-form" className="btn-outline-gold">ناقش احتياج شركتك <span aria-hidden="true">←</span></Link>
               </div>
             </article>
 
@@ -96,9 +97,9 @@ export default function Home({ articles, news }) {
               <div className="client-segment-image" role="img" aria-label="أدوات ترمز إلى الاستثمار وريادة الأعمال"></div>
               <div className="client-segment-body">
                 <span className="client-segment-kicker">للمستثمرين ورجال الأعمال</span>
-                <h3>الفكرة الجيدة تحتاج إلى أساس قانوني يحميها</h3>
-                <p>قبل الشراكة أو الاستثمار أو توقيع الاتفاق، تتضح الصورة عندما تعرف ما لك وما عليك وما قد يتغير.</p>
-                <ul><li>شراكات واتفاقيات</li><li>مراجعة قبل التعاقد</li><li>حماية القرار الاستثماري</li></ul>
+                <h3>وضوح قانوني قبل الاستثمار أو الشراكة</h3>
+                <p>نساعد المستثمرين ورجال الأعمال على قراءة الاتفاقات، فهم الالتزامات، وتقدير المخاطر قبل أن تتحول الفرصة إلى التزام.</p>
+                <ul><li>مراجعة الاتفاقيات والعقود</li><li>تنظيم الشراكات والعلاقات</li><li>تقييم المخاطر قبل القرار</li></ul>
                 <Link href="/contact?tab=consult&audience=investor#service-form" className="btn-outline-gold">تحدث عن مشروعك <span aria-hidden="true">←</span></Link>
               </div>
             </article>
@@ -108,10 +109,10 @@ export default function Home({ articles, news }) {
               <div className="client-segment-image" role="img" aria-label="صورة تعبر عن الحقوق والمصالح الشخصية"></div>
               <div className="client-segment-body">
                 <span className="client-segment-kicker">للأفراد</span>
-                <h3>أحيانًا تحتاج فقط إلى أن تعرف أين تقف</h3>
-                <p>عقد، عقار، مطالبة أو مشكلة بدأت ولا تعرف كيف تتعامل معها؛ اشرح ما حدث، ونبدأ من الوقائع كما هي.</p>
+                <h3>نوضح لك موقفك قبل خطوتك التالية</h3>
+                <p>من عقد أو مستند إلى عقار أو مطالبة أو نزاع، نبدأ من الوقائع كما هي ونساعدك على فهم ما يمكنك فعله.</p>
                 <ul><li>العقود والمستندات</li><li>العقارات والملكية والإيجارات</li><li>المطالبات والمنازعات المدنية</li></ul>
-                <Link href="/contact?tab=consult&audience=individual#service-form" className="btn-outline-gold">اشرح ما يحدث <span aria-hidden="true">←</span></Link>
+                <Link href="/contact?tab=consult&audience=individual#service-form" className="btn-outline-gold">اعرض مسألتك القانونية <span aria-hidden="true">←</span></Link>
               </div>
             </article>
           </div>

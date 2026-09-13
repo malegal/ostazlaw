@@ -775,6 +775,22 @@ button {
     line-height: 1.9;
     font-family: var(--font-body-ar);
 }
+.hero-protection-message {
+    max-width: 800px;
+    margin: 1.35rem auto 0;
+    color: var(--matte-gold);
+    font-family: var(--font-serif);
+    font-size: clamp(1.7rem, 3.4vw, 2.65rem);
+    font-weight: 900;
+    line-height: 1.45;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.28);
+}
+.hero-protection-message span {
+    display: inline-block;
+    font-size: 0.72em;
+    font-weight: 700;
+    letter-spacing: 0.015em;
+}
 
 .hero-actions {
     display: flex;
