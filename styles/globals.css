@@ -480,24 +480,29 @@ button {
     display: flex;
     flex-direction: column;
     line-height: 1.15;
+    width: clamp(160px, 42vw, 248px);
+    flex-shrink: 1;
 }
 
 .header-brand-text .name {
-    font-size: 1.7rem;
+    font-size: 1.38rem;
     font-weight: 900;
     color: #fff;
     font-family: var(--font-serif);
     letter-spacing: 0.02em;
+    white-space: nowrap;
+    text-align: center;
 }
 
 .header-brand-text .sub {
-    font-size: 0.66rem;
+    font-size: 0.64rem;
     font-weight: 400;
     color: #F0F0F0;
     letter-spacing: 0;
     white-space: nowrap;
     font-family: var(--font-body-ar), Arial, sans-serif;
     text-align: center;
+    width: 100%;
 }
 
 .header-nav {
@@ -746,12 +751,15 @@ button {
     max-width: 950px;
     margin-inline: auto;
 }
+.hero-title span {
+    display: block;
+}
 
 .hero-subtitle {
     font-family: var(--font-body-ar);
     font-size: clamp(1.1rem, 1.4vw, 1.4rem);
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--matte-gold);
     margin: 0.65rem auto 0;
     max-width: 850px;
     line-height: 1.8;
@@ -2069,10 +2077,12 @@ button {
     }
     .header-brand-text .name {
         font-size: 1.2rem;
+        width: 100%;
     }
     .header-brand-text .sub {
         font-size: 0.55rem;
         letter-spacing: 0.02em;
+        width: 100%;
     }
     .brand-primary {
         font-size: 16px;

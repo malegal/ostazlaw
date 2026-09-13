@@ -47,8 +47,8 @@ export default function Home({ articles, news }) {
         <div className="hero-bg"><div className="glow"></div><div className="glow-2"></div></div>
         <div className="hero-content">
           <div className="hero-brand-signature">JAD ELRAB</div>
-          <h1 className="hero-title">جاد الرب للمحاماة والاستشارات القانونية</h1>
-          <p className="hero-subtitle">مؤسسة قانونية بقيادة الأستاذ محمود عبد الحميد جاد الرب، المحامي بالنقض والدستورية والإدارية العليا</p>
+          <h1 className="hero-title"><span>جاد الرب</span><span>للمحاماة والاستشارات القانونية</span></h1>
+          <p className="hero-subtitle">بقيادة الأستاذ محمود عبد الحميد جاد الرب، المحامي بالنقض والدستورية والإدارية العليا</p>
           {/* صياغة ترويجية تركز على المنهج القانوني وحماية المصالح دون وعود بنتيجة قضائية مضمونة. */}
           <p className="hero-value">عندما يصبح القرار القانوني مؤثرًا في حقك أو عملك أو استثمارك، تبدأ الخطوة الصحيحة بفهم موقفك بدقة. من مقرنا في أسوان، نساعدك على تحليل الوقائع، وتقدير المخاطر، وبناء مسار قانوني واضح قبل اتخاذ الخطوة التالية.</p>
           <div className="hero-actions">

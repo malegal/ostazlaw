@@ -45,12 +45,12 @@ export default function Header() {
       <header className="site-header" id="siteHeader">
         <div className="header-brand">
           <Link href="/" className="brand-wordmark">
-            {/* اسم العلامة التجارية الجديد، مع بقاء اسم المحامي المؤسس في النص المجاور دون تغيير. */}
+            {/* العلامة الإنجليزية تبقى كعنصر بصري، بينما يظهر اسم المحامي كاملًا بالعربية في السطرين التاليين. */}
             <span className="brand-primary">JAD ELRAB</span>
             <span className="brand-secondary">LAW FIRM</span>
           </Link>
           <div className="header-brand-text">
-            <span className="name">الأستاذ محمود عبد الحميد جاد الرب</span>
+            <span className="name">محمود عبد الحميد جاد الرب</span>
             <span className="sub">المحامي بالنقض والدستورية والإدارية العليا</span>
           </div>
         </div>
