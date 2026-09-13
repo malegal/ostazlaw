@@ -72,7 +72,7 @@ export default function Home({ articles, news }) {
       <section className="section client-segments-section" aria-label="قطاعات نخدمها">
         <div className="section-inner">
           <div className="section-head reveal">
-            <span className="eyebrow">● خدماتنا</span>
+            <span className="eyebrow">● قطاعات نخدمها</span>
             <h2>حلول قانونية تبدأ من فهم احتياجك</h2>
             <p>لكل قرار أو مسألة طريقها القانوني. اختر الفئة الأقرب إليك، واتخذ الخطوة الأولى بثقة.</p>
           </div>

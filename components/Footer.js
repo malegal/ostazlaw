@@ -18,7 +18,7 @@ export default function Footer() {
         <div className="footer-col">
           <h4>روابط</h4>
           <Link href="/">الرئيسية</Link>
-          <Link href="/about">عنا</Link>
+          <Link href="/about">عن المكتب</Link>
           <Link href="/specialties">التخصصات</Link>
           <Link href="/sectors">قطاعات نخدمها</Link>
           {/* رابط واحد للمحتوى التحريري بعد دمج صفحتي الأخبار والمكتبة. */}

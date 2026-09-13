@@ -56,7 +56,7 @@ export default function Header() {
         </div>
         <nav className="header-nav">
           <Link href="/">الرئيسية</Link>
-          <Link href="/about">عنا</Link>
+          <Link href="/about">عن المكتب</Link>
           <Link href="/specialties">التخصصات</Link>
           <Link href="/sectors">قطاعات نخدمها</Link>
           {/* تم دمج الأخبار والمكتبة في صفحة واحدة لتقليل تشتت المحتوى مع الحفاظ على مساري المحتوى التفصيليين. */}
@@ -83,7 +83,7 @@ export default function Header() {
         </button>
         <nav>
           <Link href="/" onClick={closeMenu}>الرئيسية</Link>
-          <Link href="/about" onClick={closeMenu}>عنا</Link>
+          <Link href="/about" onClick={closeMenu}>عن المكتب</Link>
           <Link href="/specialties" onClick={closeMenu}>التخصصات</Link>
           <Link href="/sectors" onClick={closeMenu}>قطاعات نخدمها</Link>
           {/* توحيد قائمة الهاتف مع الترويسة الرئيسية بعد دمج الأخبار والمكتبة. */}
