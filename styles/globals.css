@@ -325,6 +325,12 @@ button {
     font-size: 0.95rem;
     letter-spacing: 0.02em;
 }
+.hero-consultation-cta {
+    min-width: 265px;
+    padding: 16px 40px;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+}
 /* لا نعيد تعريف hover هنا؛ لذلك تظل ألوان وتأثيرات btn-outline-gold الحالية محفوظة بالكامل. */
 
 .btn-outline-white {
@@ -1219,6 +1225,19 @@ button {
     line-height: 1.9;
     margin-bottom: 0.8rem;
     font-family: var(--font-body-ar);
+}
+.about-content .qayd-note {
+    margin-top: 1rem;
+    padding: 0.9rem 1rem;
+    border-right: 3px solid var(--matte-gold);
+    border-radius: 6px;
+    background: rgba(176, 141, 87, 0.08);
+    font-size: 0.9rem;
+    line-height: 1.85;
+}
+.about-content .qayd-note .icon-svg {
+    color: var(--matte-gold);
+    margin-left: 0.35rem;
 }
 
 .about-why-points {

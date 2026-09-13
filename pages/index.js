@@ -55,7 +55,8 @@ export default function Home({ articles, news }) {
           <p className="hero-protection-message">نحمي استثماراتك وموقفك القانوني<br /><span>بكل ما أوتينا من علمٍ وقوة</span></p>
           {/* الإجراء الرئيسي واضح، بينما متابعة الملف تبقى مسارًا منفصلًا للعميل الحالي. */}
           <div className="hero-actions">
-            <Link href="/contact?tab=consult#service-form" className="hero-action-item gold-underline"><span className="icon-wrap"><Icon name="file-signature" /></span><span className="label">اطلب استشارة قانونية</span></Link>
+            {/* الزر الرئيسي بحجم زر متابعة الملف نفسه حتى تكون الدعوة إلى الإجراء واضحة على الهاتف وسطح المكتب. */}
+            <Link href="/contact?tab=consult#service-form" className="btn-gold hero-consultation-cta">اطلب استشارة قانونية</Link>
           </div>
           {/* متابعة الملف لا تختلط بطلب الاستشارة، لكنها تبقى ظاهرة لمن لديه علاقة قائمة بالمكتب. */}
           <div className="section-cta"><Link href="/client-inquiry" className="btn-outline-gold case-tracking-cta">عميل للمكتب؟ تابع ملفك لدينا</Link></div>
@@ -130,14 +131,19 @@ export default function Home({ articles, news }) {
             <div className="about-content reveal">
               <span className="eyebrow">● عن المكتب</span>
               <h2>لا تبدأ كل المسائل القانونية من المحكمة،<br /><span className="gold-text">بل تبدأ أحيانًا من فهم ما لديك</span></h2>
-              <p>قد تبدأ المسألة من عقد يحتاج إلى قراءة، أو قرار يحتاج إلى تقدير، أو مستند يكشف ما لم يكن واضحًا من البداية. نعمل على فهم الصورة كاملة قبل تحديد الطريق.</p>
-              <p>منذ عام <strong>2005</strong>، يقوم عمل المكتب على قراءة الوقائع بدقة، وتوضيح الموقف، ومساعدة العميل على اتخاذ خطوة محسوبة تحمي حقوقه ومصالحه.</p>
+              {/* نوضح هنا التميز من خلال طريقة العمل والقيمة المقدمة، لا من خلال ادعاء أننا الأفضل. */}
+              <p>مكتب جاد الرب للمحاماة والاستشارات القانونية مقره أسوان، وتمتد خدماته إلى العملاء في جميع محافظات مصر. نؤمن بأن دور المحامي لا يبدأ عند وقوع النزاع فقط؛ بل يبدأ قبل ذلك، بمساعدة العميل على فهم موقفه وحماية حقوقه ومصالحه قبل أن تتعقد المسألة أو تنتقل إلى المحكمة.</p>
+              <p>ولهذا نبدأ من الوقائع والمستندات، ونقرأ ما قد يترتب على القرار قبل اتخاذه، ثم نوضح الخيارات والخطوة المناسبة. هدفنا أن يحصل العميل على رؤية قانونية عملية تساعده على حماية استثماره وموقفه القانوني، لا على مشورة عامة منفصلة عن واقعه.</p>
+              <p>ومنذ عام <strong>2005</strong>، نعمل وفق هذا النهج، مستندين إلى خبرة عملية وكفاءة في التمثيل القضائي أمام مختلف درجات المحاكم، وصولًا إلى محكمتي النقض والدستورية العليا.</p>
               <div className="about-why-points">
-                <span className="point"><Icon name="check-circle" /> فهم دقيق للوقائع والمستندات.</span>
-                <span className="point"><Icon name="check-circle" /> رؤية قانونية تسبق الالتزام أو النزاع.</span>
-                <span className="point"><Icon name="check-circle" /> سرية مهنية ووضوح في التعامل.</span>
-                <span className="point"><Icon name="check-circle" /> متابعة عملية تناسب طبيعة كل مسألة.</span>
+                <span className="point"><Icon name="check-circle" /> مشورة قانونية وقائية قبل بدء النزاع أو انتقاله إلى المحكمة.</span>
+                <span className="point"><Icon name="check-circle" /> قراءة دقيقة للوقائع والمستندات ودعم اتخاذ القرار.</span>
+                <span className="point"><Icon name="check-circle" /> نظام Qayd طوّرناه داخليًا لإدارة أعمال المكتب.</span>
+                <span className="point"><Icon name="check-circle" /> حماية بيانات العملاء وعدم الاعتماد على برامج عامة من السوق.</span>
+                <span className="point"><Icon name="check-circle" /> خبرة في التمثيل القضائي أمام أعلى درجات المحاكم.</span>
+                <span className="point"><Icon name="check-circle" /> سرية مهنية ومتابعة عملية تناسب كل مسألة.</span>
               </div>
+              <p className="qayd-note"><Icon name="shield-alt" /> لأن سرية البيانات جزء من العمل القانوني، طورنا نظام <strong>Qayd</strong> لإدارة أعمال المكتب داخليًا، بدل الاعتماد على برامج جاهزة لا نتحكم في بنيتها أو طريقة تعاملها مع البيانات.</p>
               <div className="signature">
                 <div><div className="name">الأستاذ محمود عبد الحميد جاد الرب</div><div className="title">المؤسس – المحامي بالنقض والدستورية والإدارية العليا</div></div>
                 <Link href="/about" className="btn-outline-gold">تعرف على المكتب</Link>
