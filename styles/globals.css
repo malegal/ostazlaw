@@ -1404,6 +1404,61 @@ button {
     line-height: 1.7;
     font-family: var(--font-body-ar);
 }
+.process-note {
+    max-width: 780px;
+    margin: 1.5rem auto 0;
+    padding: 0.9rem 1rem;
+    border-right: 3px solid var(--matte-gold);
+    border-radius: 6px;
+    background: rgba(176, 141, 87, 0.08);
+    color: var(--charcoal);
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.8;
+    font-family: var(--font-body-ar);
+}
+.process-note .icon-svg {
+    color: var(--matte-gold);
+    margin-left: 0.4rem;
+}
+.client-portal-promo {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+}
+.section-portal-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 1000px;
+}
+.section-portal-inner h2 {
+    margin-top: 0.35rem;
+    color: var(--charcoal);
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+}
+.section-portal-inner p {
+    margin-top: 0.4rem;
+    color: var(--charcoal);
+    font-weight: 700;
+    font-family: var(--font-body-ar);
+}
+.cta-secondary-link {
+    display: inline-block;
+    margin-top: 1.2rem;
+    color: var(--charcoal);
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: var(--font-body-ar);
+    text-decoration: underline;
+    text-decoration-color: rgba(176, 141, 87, 0.65);
+    text-underline-offset: 4px;
+}
+.cta-secondary-link:hover,
+.cta-secondary-link:focus-visible {
+    color: var(--matte-gold);
+}
 
 /* ==========================================================
    EXPERIENCE / SECTORS – القطاعات والأخبار
@@ -2253,6 +2308,10 @@ button {
     .client-segment-body {
         padding: 1.3rem 1.15rem 1.25rem;
     }
+    .section-portal-inner {
+        align-items: flex-start;
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 640px) {
@@ -2323,6 +2382,13 @@ button {
     }
     .hero-action-item .label {
         font-size: 0.75rem;
+    }
+    .section-portal-inner .btn-outline-gold {
+        width: 100%;
+        text-align: center;
+    }
+    .process-note {
+        font-size: 0.82rem;
     }
     .map-section .map-container {
         height: 200px;
