@@ -66,6 +66,7 @@ export default function Header() {
           <Link href="/contact">تواصل معنا</Link>
         </nav>
         <div className="header-actions">
+          <Link href="/client-inquiry" className="header-track-link">تابع ملفك</Link>
           {/* الهاتف ظاهر في سطح المكتب كإجراء مباشر؛ على الهاتف ينتقل إلى زر عائم لتجنب ازدحام الهيدر. */}
           <a href="tel:+201101076000" className="header-phone" aria-label="اتصل بجاد الرب على الرقم +20 110 107 6000">
             <Icon name="phone" />
@@ -91,6 +92,7 @@ export default function Header() {
           {/* توحيد قائمة الهاتف مع قائمة سطح المكتب وإتاحة صفحة FAQ. */}
           <Link href="/faq" onClick={closeMenu}>الأسئلة الشائعة</Link>
           <Link href="/contact" onClick={closeMenu}>تواصل معنا</Link>
+          <Link href="/client-inquiry" className="mobile-track-link" onClick={closeMenu}><Icon name="folder-open" /> تابع ملفك</Link>
         </nav>
       </div>
     </>

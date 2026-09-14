@@ -577,6 +577,24 @@ button {
 .header-phone .icon-svg {
     font-size: 0.9rem;
 }
+.header-track-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.8rem;
+    border: 1px solid rgba(176, 141, 87, 0.55);
+    border-radius: 5px;
+    color: var(--matte-gold);
+    font-size: 0.76rem;
+    font-weight: 800;
+    white-space: nowrap;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+.header-track-link:hover,
+.header-track-link:focus-visible {
+    background: var(--matte-gold);
+    border-color: var(--matte-gold);
+    color: var(--very-dark-navy);
+}
 .float-phone {
     /* مخفي افتراضيًا؛ يُفعّل فقط داخل media query للهاتف أسفل الملف. */
     display: none;
@@ -650,6 +668,19 @@ button {
 }
 .mobile-menu nav a:hover {
     color: #fff;
+}
+.mobile-menu nav a.mobile-track-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.7rem 1.5rem;
+    border: 1px solid var(--matte-gold);
+    border-radius: 5px;
+    color: var(--matte-gold);
+    font-weight: 800;
+}
+.mobile-menu nav a.mobile-track-link .icon-svg {
+    font-size: 0.95rem;
 }
 .mobile-menu .divider {
     width: 50px;
@@ -2217,6 +2248,9 @@ button {
 }
 
 @media (max-width: 820px) {
+    .header-track-link {
+        display: none;
+    }
     .header-phone {
         display: none;
     }
