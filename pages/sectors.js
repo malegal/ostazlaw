@@ -147,9 +147,9 @@ export default function Sectors() {
                   <span className="path-label">{path.label}</span>
                   <h3>{path.title}</h3>
                   <p>{path.description}</p>
-                  <div className="topic-links">
-                    {path.topics.map(([label, specialty]) => <Link href={contactHref(path.id, specialty)} key={specialty}>{label}</Link>)}
-                  </div>
+                  <ul className="topic-links">
+                    {path.topics.map(([label, specialty]) => <li key={specialty}><Link href={contactHref(path.id, specialty)}><Icon name="check-circle" /> <span>{label}</span></Link></li>)}
+                  </ul>
                   <Link href={contactHref(path.id, path.label)} className="path-cta">اعرض مسألتك <Icon name="arrow-left" /></Link>
                 </div>
               </article>
@@ -207,9 +207,11 @@ export default function Sectors() {
         .path-label { color: var(--matte-gold); font-weight: 900; font-size: .72rem; }
         .path-card h3 { font-size: 1.35rem; margin: .35rem 0 .6rem; line-height: 1.4; }
         .path-card-body > p { color: var(--charcoal); font-weight: 700; line-height: 1.8; font-size: .86rem; margin-bottom: .9rem; }
-        .topic-links { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: auto; }
-        .topic-links a { color: var(--charcoal); background: var(--light-gray); border-radius: 20px; padding: .35rem .6rem; font-size: .68rem; font-weight: 800; transition: all .25s ease; }
-        .topic-links a:hover { background: var(--matte-gold); color: #111; }
+        .topic-links { list-style: none; padding: 0; margin: auto 0 0; display: grid; gap: .45rem; }
+        .topic-links li { margin: 0; }
+        .topic-links a { display: flex; align-items: center; gap: .45rem; color: var(--charcoal); padding: .2rem 0; font-size: .76rem; font-weight: 800; transition: color .25s ease, transform .25s ease; }
+        .topic-links a .icon-svg { color: var(--matte-gold); font-size: .7rem; flex: 0 0 auto; }
+        .topic-links a:hover { color: var(--matte-gold); transform: translateX(-3px); }
         .path-cta { display: flex; align-items: center; justify-content: center; gap: .4rem; border-top: 1px solid rgba(8,20,38,.08); margin-top: 1.1rem; padding-top: .9rem; color: var(--matte-gold); font-weight: 900; font-size: .8rem; }
         .path-cta .icon-svg { font-size: .7rem; }
         .approach-timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
