@@ -105,9 +105,9 @@ export default function About() {
           <div className="hero-title-wrap reveal">
             <span className="en-tag">About Our Firm</span>
             {/* العنوان يعرّف المكتب باسمه الرسمي، بينما يبقى اسم المحامي المؤسس محفوظًا في بياناته داخل الصفحة. */}
-            <h1><span className="gold-text">جاد الرب</span></h1>
+            <h1><span className="gold-text">مكتب جاد الرب</span></h1>
             <p className="sub">للمحاماة والاستشارات القانونية</p>
-            <p className="sub sub-gold">نبني الثقة بالخبرة، ونحمي المصالح باستراتيجية قانونية مدروسة.</p>
+            <p className="sub sub-gold">خبرة قانونية تبدأ من فهم الوقائع، وتمتد إلى حماية المصالح وتمثيل العملاء.</p>
           </div>
           <div className="hero-grid">
             <div className="hero-image reveal">
@@ -120,7 +120,7 @@ export default function About() {
               />
             </div>
             <div className="hero-text reveal" style={{ transitionDelay: '0.15s' }}>
-              <p><strong>مكتب محاماة مقره أسوان، يخدم الأفراد والشركات في مختلف محافظات مصر، وتؤمن بأن العمل القانوني المتميز يبدأ بالفهم العميق، ويُبنى على التخطيط، ويُقاس بحماية مصالح العميل.</strong></p>
+              <p><strong>مكتب محاماة مقره أسوان، تأسس عام 2005، ويخدم الأفراد والشركات والمستثمرين في مختلف محافظات مصر. نؤمن بأن العمل القانوني المتميز يبدأ بالفهم العميق، ويُبنى على التخطيط، ويُقاس بحماية مصالح العميل.</strong></p>
               <p>تُعد جاد الرب للمحاماة والاستشارات القانونية <strong>(JAD ELRAB)</strong> مكتب محاماة يقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات، مستندة إلى منهج مهني يقوم على التحليل الدقيق، والتخطيط القانوني، والتمثيل الاحترافي أمام جهات القضاء.</p>
               <p>نؤمن بأن القضايا لا تُدار بردود الأفعال، بل بفهمٍ عميق للوقائع، وتحليلٍ صحيح للمراكز القانونية، ثم بناء استراتيجية تحقق أفضل حماية ممكنة لمصالح عملائنا.</p>
               <div className="cta-wrap">
@@ -138,7 +138,7 @@ export default function About() {
               <span className="eyebrow">● من نحن</span>
               <h2>مكتب محاماة<br /><span className="gold-text">تُبنى على الفهم والتخطيط</span></h2>
               <p>تأسست جاد الرب للمحاماة والاستشارات القانونية عام <strong>2005</strong>، لتقديم خدمات قانونية واستشارات متخصصة للأفراد والشركات، بخبرة قضائية راسخة أمام محكمة النقض والمحكمة الدستورية العليا.</p>
-              <p>نؤمن بأن العمل القانوني المتميز يبدأ بفهم عميق للوقائع، ويُبنى على تخطيط دقيق، ويُقاس بحماية مصالح العميل. ولذلك نتعامل مع كل قضية كمسؤولية مستقلة، ندرسها من جميع جوانبها القانونية والواقعية.</p>
+            <p>نؤمن بأن العمل القانوني المتميز يبدأ بفهم عميق للوقائع، ويُبنى على تخطيط دقيق، ويُقاس بحماية مصالح العميل. ولذلك نتعامل مع كل قضية كمسؤولية مستقلة، ندرسها من جميع جوانبها القانونية والواقعية.</p>
               <p>نخدم الشركات والأفراد على حد سواء، مع التزامنا بالشفافية، والسرية، والدقة، باعتبارها المبادئ التي تقوم عليها علاقتنا مع عملائنا في جمهورية مصر العربية.</p>
               <div className="def-cards">
                 <div className="def-card gold-underline-card"><span className="icon"><Icon name="scale-balanced" /></span><h4>مكتب محاماة</h4></div>
@@ -298,14 +298,34 @@ export default function About() {
             </div>
             <div className="process-step gold-underline-card reveal reveal-d4">
               <span className="num">٤</span>
-              <div className="step-content"><h4>التمثيل</h4><p>نمثل عملاءنا أمام المحاكم باحترافية ومتابعة دقيقة.</p></div>
+              <div className="step-content"><h4>التنفيذ</h4><p>ننقل الخطة إلى الإجراء القانوني المتفق عليه باحترافية.</p></div>
             </div>
             <div className="process-step gold-underline-card reveal reveal-d1">
               <span className="num">٥</span>
-              <div className="step-content"><h4>المتابعة</h4><p>نواصل متابعة القضية حتى الحكم النهائي، ونقدم الاستشارة اللازمة.</p></div>
+              <div className="step-content"><h4>المتابعة</h4><p>نوضح المستجدات والخطوات التالية وفق نطاق العمل المتفق عليه.</p></div>
             </div>
           </div>
-          <div className="process-footer">لكل قضية ظروفها الخاصة، لذلك لا نعتمد حلولًا جاهزة، بل نبني استراتيجية تتناسب مع طبيعة كل ملف قانوني.</div>
+              <div className="process-footer">لكل قضية ظروفها الخاصة، لذلك لا نعتمد حلولًا جاهزة، بل نبني استراتيجية تتناسب مع طبيعة كل ملف قانوني.</div>
+        </div>
+      </section>
+
+      <section className="section section-white qayd-section" aria-label="التقنية وتنظيم العمل القانوني">
+        <div className="section-inner">
+          <div className="qayd-grid">
+            <div className="qayd-copy reveal">
+              <span className="eyebrow">● التقنية في خدمة العمل القانوني</span>
+              <h2>نطور أدواتنا بما يحفظ <span className="gold-text">خصوصية ملفاتنا</span></h2>
+              <p>حرصًا على تنظيم أعمال المكتب وحماية بيانات العملاء، طورنا نظام <strong>Qayd</strong> لإدارة الملفات والإجراءات الداخلية، بدل الاعتماد على برامج عامة لا تتناسب بالضرورة مع طبيعة العمل القانوني واحتياجاته.</p>
+              <p>يأتي ذلك ضمن توجهنا إلى الجمع بين الخبرة القانونية والتنظيم الدقيق، مع تطوير أدوات تساعد العملاء على متابعة مستجدات ملفاتهم بوضوح وسهولة.</p>
+              <div className="qayd-points"><span><Icon name="lock" /> حماية وخصوصية</span><span><Icon name="folder-open" /> تنظيم الملفات</span><span><Icon name="chart-line" /> متابعة أوضح</span></div>
+            </div>
+            <div className="qayd-note reveal" style={{ transitionDelay: '0.15s' }}>
+              <span className="qayd-mark">Q</span>
+              <h3>خطوة تالية لعملائنا</h3>
+              <p>تتم متابعة مستجدات الملفات حاليًا عن طريق موقع المكتب، ونعمل على تطوير تطبيق مخصص لعملاء المكتب يساعدهم على متابعة قضاياهم بصورة أكثر سهولة وتنظيمًا.</p>
+              <Link href="/client-inquiry" className="text-link">تابع ملفك عبر الموقع <Icon name="arrow-left" /></Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -327,24 +347,6 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section section-light" aria-label="داخل المكتب">
-        <div className="section-inner">
-          <div className="section-head reveal">
-            <span className="eyebrow">● داخل المكتب</span>
-            <h2>معرض الصور</h2>
-            <p>لمحة عن بيئة العمل التي تعكس منهجنا المهني.</p>
-          </div>
-          <div className="gallery-grid">
-            <div className="gallery-item gold-underline-card reveal reveal-d1" style={{ background: '#e8e4dd', color: 'rgba(34,34,34,0.2)', fontSize: '0.8rem' }}><span>المكتب</span></div>
-            <div className="gallery-item gold-underline-card reveal reveal-d2" style={{ background: '#ddd8cf', color: 'rgba(34,34,34,0.2)', fontSize: '0.8rem' }}><span>غرفة الاجتماعات</span></div>
-            <div className="gallery-item gold-underline-card reveal reveal-d3" style={{ background: '#d5d0c7', color: 'rgba(34,34,34,0.2)', fontSize: '0.8rem' }}><span>المكتبة القانونية</span></div>
-            <div className="gallery-item gold-underline-card reveal reveal-d1" style={{ background: '#e0dbd2', color: 'rgba(34,34,34,0.2)', fontSize: '0.8rem' }}><span>استقبال العملاء</span></div>
-            <div className="gallery-item gold-underline-card reveal reveal-d2" style={{ background: '#d8d3ca', color: 'rgba(34,34,34,0.2)', fontSize: '0.8rem' }}><span>بيئة العمل</span></div>
-            <div className="gallery-item gold-underline-card reveal reveal-d3" style={{ background: '#e5e0d7', color: 'rgba(34,34,34,0.2)', fontSize: '0.8rem' }}><span>تفاصيل معمارية</span></div>
-          </div>
-        </div>
-      </section>
-
       <section className="founder-message" aria-label="كلمة المؤسس">
         <div className="inner reveal">
           <span className="quote-icon">"</span>
@@ -359,8 +361,8 @@ export default function About() {
           <h2>هل تبحث عن شريك قانوني يمكنك الاعتماد عليه؟</h2>
           <p>يسعدنا مناقشة احتياجاتك القانونية وتقديم المشورة المناسبة بما يتوافق مع ظروف كل حالة وأهدافها.</p>
           <div className="cta-actions">
-            <Link href="/contact?tab=consult#service-form" className="btn-gold">طلب استشارة</Link>
-            <Link href="/contact" className="btn-outline-white">تواصل معنا</Link>
+            <Link href="/contact?tab=consult#service-form" className="btn-gold">اعرض مسألتك</Link>
+            <Link href="/specialties" className="btn-outline-white">استكشف مجالات الممارسة</Link>
           </div>
         </div>
       </section>
@@ -431,6 +433,18 @@ export default function About() {
         .leadership-side .side-tags span { background: var(--pure-white); padding: 0.2rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 300; color: rgba(34,34,34,0.6); border: 1px solid rgba(0,0,0,0.04); }
         .leadership-quote { margin-top: 1.5rem; padding: 1.5rem 2rem; border-right: 3px solid var(--matte-gold); background: rgba(176,141,87,0.03); border-radius: 8px; font-size: 1.1rem; font-weight: 700; color: var(--charcoal); line-height: 1.8; font-style: italic; }
         .process-footer { max-width: 800px; margin: 1.5rem auto 0; text-align: center; font-size: 0.95rem; color: var(--charcoal); font-weight: 700; line-height: 1.8; padding: 1.2rem 2rem; border-right: 2px solid var(--matte-gold); background: rgba(176,141,87,0.03); border-radius: 8px; }
+        .qayd-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 2rem; align-items: stretch; }
+        .qayd-copy h2 { font-size: clamp(1.8rem, 3vw, 2.7rem); line-height: 1.35; margin: .45rem 0 1rem; }
+        .qayd-copy p { color: var(--charcoal); font-weight: 700; line-height: 1.9; font-size: .95rem; max-width: 720px; }
+        .qayd-points { display: flex; flex-wrap: wrap; gap: .6rem 1rem; margin-top: 1.1rem; }
+        .qayd-points span { display: inline-flex; align-items: center; gap: .35rem; color: var(--charcoal); font-size: .76rem; font-weight: 800; }
+        .qayd-points .icon-svg { color: var(--matte-gold); }
+        .qayd-note { background: var(--very-dark-navy); color: #fff; border-radius: 14px; padding: 2rem 1.6rem; position: relative; overflow: hidden; }
+        .qayd-note::after { content: ''; position: absolute; width: 180px; height: 180px; border-radius: 50%; border: 1px solid rgba(176,141,87,.25); left: -80px; bottom: -80px; }
+        .qayd-mark { color: var(--matte-gold); font-size: 3.5rem; font-weight: 900; line-height: 1; opacity: .7; }
+        .qayd-note h3 { color: #fff; font-size: 1.2rem; margin: .8rem 0 .5rem; }
+        .qayd-note p { color: rgba(255,255,255,.68); line-height: 1.9; font-size: .83rem; font-weight: 600; }
+        .qayd-note .text-link { display: inline-flex; align-items: center; gap: .45rem; color: var(--matte-gold); font-size: .78rem; font-weight: 900; margin-top: .8rem; }
         .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
         .trust-card { background: var(--pure-white); padding: 1.6rem 1.2rem; border-radius: 10px; border: 1px solid rgba(0,0,0,0.04); transition: all 0.4s var(--ease-out); box-shadow: 0 2px 10px rgba(0,0,0,0.02); text-align: center; cursor: default; position: relative; }
         .trust-card::after { content: ''; position: absolute; bottom: 0; right: 0; width: 0; height: 2px; background: var(--matte-gold); transition: width 0.6s var(--ease-out); }
@@ -452,7 +466,7 @@ export default function About() {
         .cta-final p { max-width: 640px; margin: 0.4rem auto 2rem; color: rgba(255,255,255,0.7); font-weight: 500; font-size: 1rem; line-height: 1.8; }
         .cta-final .cta-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
         @media (max-width: 1024px) { .philosophy-grid { grid-template-columns: repeat(2, 1fr); } .values-grid { grid-template-columns: repeat(2, 1fr); } .trust-grid { grid-template-columns: repeat(2, 1fr); } .gallery-grid { grid-template-columns: repeat(2, 1fr); } .leadership-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } .leadership-side { grid-column: span 2; } .about-definition .def-grid { gap: 2rem; } .hero-about .hero-grid { gap: 2rem; } }
-        @media (max-width: 820px) { .hero-about .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; } .hero-about .hero-title-wrap { text-align: center; } .hero-about .hero-title-wrap .sub { margin-left: auto; margin-right: auto; } .about-definition .def-grid { grid-template-columns: 1fr; gap: 2.5rem; } .about-definition .def-cards { grid-template-columns: 1fr 1fr; } .hero-about { padding: 100px 1rem 3rem; min-height: auto; } .philosophy-grid { grid-template-columns: 1fr 1fr; } .values-grid { grid-template-columns: 1fr 1fr; } .trust-grid { grid-template-columns: 1fr 1fr; } .gallery-grid { grid-template-columns: 1fr 1fr; } .leadership-grid { grid-template-columns: 1fr; gap: 1.5rem; } .leadership-side { grid-column: span 1; } .leadership-image :global(img) { max-width: 280px; margin: 0 auto; } }
+        @media (max-width: 820px) { .hero-about .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; } .hero-about .hero-title-wrap { text-align: center; } .hero-about .hero-title-wrap .sub { margin-left: auto; margin-right: auto; } .about-definition .def-grid { grid-template-columns: 1fr; gap: 2.5rem; } .about-definition .def-cards { grid-template-columns: 1fr 1fr; } .hero-about { padding: 100px 1rem 3rem; min-height: auto; } .philosophy-grid { grid-template-columns: 1fr 1fr; } .values-grid { grid-template-columns: 1fr 1fr; } .trust-grid { grid-template-columns: 1fr 1fr; } .qayd-grid { grid-template-columns: 1fr; } .leadership-grid { grid-template-columns: 1fr; gap: 1.5rem; } .leadership-side { grid-column: span 1; } .leadership-image :global(img) { max-width: 280px; margin: 0 auto; } }
         @media (max-width: 640px) { .philosophy-grid { grid-template-columns: 1fr; } .values-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; } .trust-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; } .gallery-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; } .about-definition .def-cards { grid-template-columns: 1fr; max-width: 280px; margin: 0 auto; } .hero-about .hero-title-wrap h1 { font-size: clamp(2rem, 8vw, 2.8rem); } .cta-final .cta-actions { flex-direction: column; align-items: center; } .cta-final .cta-actions .btn-gold, .cta-final .cta-actions .btn-outline-white { width: 100%; max-width: 300px; text-align: center; } .leadership-quote { padding: 1rem 1.2rem; font-size: 1rem; } .founder-message { padding: 3rem 1rem; } .founder-message blockquote { font-size: 1rem; } }
       `}</style>
     </Layout>
