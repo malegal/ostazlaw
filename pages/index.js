@@ -17,10 +17,10 @@ export default function Home({ articles, news }) {
         {/* الاسم الرسمي الكامل "مكتب جاد الرب للمحاماة والاستشارات القانونية" يُستخدم في العناصر الرسمية (title, schema)
             بينما يبقى شعار الهيرو "جاد الرب للمحاماة" أخف بصريًا كاسم برانديد ظاهر للزائر */}
         <title>مكتب جاد الرب للمحاماة والاستشارات القانونية | JAD ELRAB</title>
-        <meta name="description" content="مكتب جاد الرب للمحاماة والاستشارات القانونية. نحمي استثماراتك وموقفك القانوني بالعلم والخبرة، ونقدم الاستشارات والتمثيل القضائي للأفراد والشركات في جميع أنحاء مصر." />
+        <meta name="description" content="مكتب جاد الرب للمحاماة والاستشارات القانونية. نحمي استثماراتك وحقوقك بالعلم والخبرة، ونقدم الاستشارات والتمثيل القضائي للأفراد والشركات في جميع أنحاء مصر." />
         <link rel="canonical" href="https://ostazlaw.vercel.app" />
         <meta property="og:title" content="مكتب جاد الرب للمحاماة والاستشارات القانونية | JAD ELRAB" />
-        <meta property="og:description" content="نحمي استثماراتك وموقفك القانوني بالعلم والخبرة، ونقدم الاستشارات والتمثيل القضائي للأفراد والشركات في جميع أنحاء مصر." />
+        <meta property="og:description" content="نحمي استثماراتك وحقوقك بالعلم والخبرة، ونقدم الاستشارات والتمثيل القضائي للأفراد والشركات في جميع أنحاء مصر." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/" />
         <meta property="og:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
@@ -53,7 +53,7 @@ export default function Home({ articles, news }) {
           <p className="hero-subtitle">محمود عبد الحميد جاد الرب<br />المحامي بالنقض والدستورية والإدارية العليا</p>
           {/* جملة القيمة: بيع دون بيع — تلميح لتكلفة القرار غير المفهوم، لا دعوة مباشرة ولا تفوق مُدّعى */}
           <p className="hero-value">أغلب النزاعات القانونية لا تبدأ في قاعة المحكمة، بل تبدأ بقرارٍ اتُخذ دون فهمٍ كامل لأبعاده. مكتب محاماة مقره أسوان، يقدم الاستشارات والتمثيل القضائي للأفراد والشركات في جميع أنحاء مصر.</p>
-          <p className="hero-protection-message">نحمي استثماراتك وموقفك القانوني بكل ما نملك من علمٍ وخبرة<br /><span>ونساعدك على تفادي النزاع قبل أن يبدأ، وتعزيز مركزك القانوني منذ الخطوة الأولى.</span></p>
+          <p className="hero-protection-message">نحمي استثماراتك وحقوقك بعلمٍ وخبرة<br /><span>ونساعدك على تفادي النزاع قبل أن يبدأ، وتعزيز مركزك القانوني منذ الخطوة الأولى.</span></p>
           <div className="hero-actions">
             <Link href="/contact?tab=consult#service-form" className="btn-gold hero-consultation-cta">اطلب استشارة قانونية</Link>
           </div>
@@ -83,7 +83,7 @@ export default function Home({ articles, news }) {
                 <span className="client-segment-kicker">للشركات والمنشآت</span>
                 <h3>نفهم احتياجات الشركات وقراراتها</h3>
                 <p>نقدم للشركات والمنشآت دعمًا قانونيًا يواكب أعمالها، ويساعدها على اتخاذ قرارات أكثر وضوحًا وحماية مصالحها قبل الالتزام.</p>
-                <ul><li>استشارات قانونية مستمرة</li><li>دعم اتخاذ القرار القانوني</li><li>مراجعة العقود وتأسيس الشركات</li><li>حماية الاستثمارات والمصالح</li></ul>
+                <ul><li>استشارات قانونية مستمرة</li><li>دعم اتخاذ القرار القانوني</li><li>قراءة العقود وصياغتها باحتراف</li><li>حماية الاستثمارات والمصالح</li></ul>
                 <Link href="/contact?tab=consult&audience=business#service-form" className="btn-outline-gold">ناقش احتياج شركتك <span aria-hidden="true">←</span></Link>
               </div>
             </article>
@@ -152,7 +152,7 @@ export default function Home({ articles, news }) {
             <Link href="/specialties" className="practice-link"><div className="practice-card reveal"><div className="icon-wrap"><Icon name="chart-pie" /></div><h3>المعاملات التجارية</h3><p>الشركات، الشراكات والعقود التجارية.</p></div></Link>
             <Link href="/specialties" className="practice-link"><div className="practice-card reveal"><div className="icon-wrap"><Icon name="building" /></div><h3>الخدمات القانونية للأعمال</h3><p>الهيكلة، الحوكمة وصياغة العقود.</p></div></Link>
             <Link href="/specialties" className="practice-link"><div className="practice-card reveal"><div className="icon-wrap"><Icon name="landmark" /></div><h3>القضاء الإداري</h3><p>القرارات الإدارية والمنازعات الحكومية.</p></div></Link>
-            <Link href="/specialties" className="practice-link"><div className="practice-card reveal"><div className="icon-wrap"><Icon name="scale-balanced" /></div><h3>الطعن الدستوري</h3><p>المسائل الدستورية أمام المحكمة المختصة.</p></div></Link>
+            <Link href="/specialties" className="practice-link"><div className="practice-card reveal"><div className="icon-wrap"><Icon name="scale-balanced" /></div><h3>الطعون القانونية</h3><p>الاستئناف والنقض والطعون الدستورية والإدارية العليا.</p></div></Link>
           </div>
           <div className="section-cta"><Link href="/specialties" className="btn-outline-gold">استعراض مجالات الممارسة</Link></div>
         </div>
