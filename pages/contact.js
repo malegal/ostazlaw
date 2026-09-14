@@ -5,55 +5,53 @@ import { useState, useEffect } from 'react';
 import Icon from '../components/Icon';
 
 export default function Contact() {
-  const [activeTab, setActiveTab] = useState('consult');
-
-  const referralOptions = [
-    ['friend_referral', 'ترشيح من صديق أو عميل سابق'],
-    ['google', 'بحث Google'],
-    ['social_media', 'Facebook أو Instagram'],
-    ['whatsapp', 'WhatsApp'],
-    ['video', 'YouTube أو TikTok'],
-    ['ai', 'اقتراح من ChatGPT أو Google AI أو أداة ذكاء اصطناعي أخرى'],
-    ['directory', 'موقع أو دليل قانوني'],
-    ['advertising', 'إعلان أو رأيتنا في مكان'],
-    ['other', 'أخرى'],
-  ];
+  const [audience, setAudience] = useState('individual');
+  const [requestType, setRequestType] = useState('consultation');
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const tab = params.get('tab');
-    if (tab && ['consult', 'visit', 'representation'].includes(tab)) {
-      setActiveTab(tab);
-      const specialty = params.get('specialty');
-      if (specialty && tab === 'consult') {
-        const msgEl = document.getElementById('consultMessage');
-        if (msgEl) msgEl.value = `أرغب في الحصول على استشارة قانونية بخصوص: ${specialty}`;
-      }
+    const audienceParam = params.get('audience');
+    const audienceMap = { business: 'business', investor: 'investor', individual: 'individual' };
+    if (audienceParam && audienceMap[audienceParam]) setAudience(audienceMap[audienceParam]);
+    if (params.get('tab') === 'visit') setRequestType('meeting');
+    const specialty = params.get('specialty');
+    if (specialty) {
+      const subject = document.getElementById('subject');
+      if (subject) subject.value = `استشارة بخصوص: ${specialty}`;
     }
   }, []);
 
-  const handleSubmit = (e, type) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const form = e.target;
-    const name = form.querySelector('input[type="text"], input[placeholder*="الاسم"]')?.value || '';
-    const phone = form.querySelector('input[type="tel"]')?.value || '';
-    const message = form.querySelector('textarea')?.value || '';
-    const referralSelect = form.querySelector('[name="referralSource"]');
-    const referral = referralSelect?.selectedOptions?.[0]?.textContent || 'لم يحدد';
-    const referralOther = form.querySelector('[name="referralSourceOther"]')?.value || '';
-    const referralText = referral === 'أخرى' && referralOther ? `${referral} (${referralOther})` : referral;
-    const msg = `*طلب ${type === 'consult' ? 'استشارة قانونية' : type === 'visit' ? 'حجز موعد' : 'تمثيل قانوني'}*%0Aالاسم: ${encodeURIComponent(name)}%0Aالهاتف: ${encodeURIComponent(phone)}%0Aمصدر معرفة المكتب: ${encodeURIComponent(referralText)}%0Aالتفاصيل: ${encodeURIComponent(message)}`;
-    window.open(`https://wa.me/201101076000?text=${msg}`, '_blank');
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const get = (key) => String(data.get(key) || '').trim();
+    const audienceLabel = { business: 'شركة / مؤسسة / جهة', investor: 'رجل أعمال / مستثمر', individual: 'فرد' }[audience];
+    const requestLabel = requestType === 'meeting' ? 'طلب مقابلة في المكتب' : 'طلب استشارة قانونية';
+    const lines = [
+      `*${requestLabel}*`,
+      `الفئة: ${audienceLabel}`,
+      `الاسم: ${get('name')}`,
+      audience === 'business' ? `البريد الإلكتروني: ${get('email')}` : '',
+      audience === 'business' ? `اسم الشركة / المؤسسة / الجهة: ${get('entity')}` : '',
+      `المحافظة: ${get('governorate')}`,
+      `المدينة: ${get('city')}`,
+      `رقم الهاتف: ${get('phone')}`,
+      `الموضوع: ${get('subject')}`,
+      `طريقة التواصل المفضلة: ${audience === 'business' ? get('channel') : 'واتساب'}`,
+    ].filter(Boolean);
+    const body = `${lines.join('\n')}\n\nالتفاصيل:\n${get('details')}`;
+    if (audience === 'business' && get('channel') === 'email') {
+      window.location.href = `mailto:ma.law.firm@outlook.com?subject=${encodeURIComponent(requestLabel)}&body=${encodeURIComponent(body)}`;
+    } else {
+      window.open(`https://wa.me/201101076000?text=${encodeURIComponent(body)}`, '_blank', 'noopener,noreferrer');
+    }
   };
 
-  const ReferralSourceField = ({ id }) => (
+  const Field = ({ id, label, type = 'text', placeholder, required = true }) => (
     <div className="form-group">
-      <label htmlFor={id}>كيف عرفت بجاد الرب؟ <span style={{ fontWeight: '400' }}>(اختياري)</span></label>
-      <select id={id} name="referralSource" defaultValue="">
-        <option value="">اختر مصدر التعرف علينا</option>
-        {referralOptions.map(([value, label]) => <option key={value} value={value}>{label}</option>)}
-      </select>
-      <input name="referralSourceOther" type="text" placeholder="إذا اخترت أخرى، يرجى التوضيح (اختياري)" style={{ marginTop: '0.5rem' }} />
+      <label htmlFor={id}>{label}{!required && <span style={{ fontWeight: '400' }}> (اختياري)</span>}</label>
+      <input id={id} name={id} type={type} placeholder={placeholder} required={required} />
     </div>
   );
 
@@ -223,91 +221,66 @@ export default function Contact() {
 
             <div className="lg:col-span-7 reveal" style={{ transitionDelay: '0.2s' }}>
               <div id="service-form" className="tab-container" style={{ scrollMarginTop: '96px' }}>
-                <div className="tab-buttons">
-                  <button onClick={() => setActiveTab('consult')} className={`tab-btn ${activeTab === 'consult' ? 'active' : ''}`}><Icon name="comment-dots" /> استشارة سريعة</button>
-                  <button onClick={() => setActiveTab('visit')} className={`tab-btn ${activeTab === 'visit' ? 'active' : ''}`}><Icon name="calendar-check" /> حجز موعد</button>
-                  <button onClick={() => setActiveTab('representation')} className={`tab-btn ${activeTab === 'representation' ? 'active' : ''}`}><Icon name="gavel" /> طلب تمثيل</button>
+                <div className="text-center mb-6">
+                  <span className="eyebrow" style={{ display: 'block', fontSize: '0.65rem', fontWeight: '800', letterSpacing: '0.2em', color: 'var(--matte-gold)', opacity: '0.7', marginBottom: '0.4rem' }}>ابدأ من هنا</span>
+                  <h2 className="text-2xl font-bold serif gold-text">اعرض مسألتك القانونية</h2>
+                  <p className="text-sm" style={{ color: 'var(--charcoal)', fontWeight: '700' }}>اختر الفئة الأقرب إليك ونوع التواصل المناسب، ثم اترك لنا ملخصًا واضحًا عن احتياجك.</p>
                 </div>
 
-                <div className={`tab-pane ${activeTab === 'consult' ? '' : 'hidden'}`}>
-                  <div className="text-center mb-4">
-                    <h3 className="text-xl font-bold" style={{ color: 'var(--charcoal)' }}>طلب استشارة قانونية</h3>
-                    <p className="text-sm" style={{ color: 'var(--charcoal)', fontWeight: '700' }}>املأ النموذج وسيتم تحويلك مباشرة للواتساب للرد الفوري</p>
+                <form id="serviceForm" onSubmit={handleSubmit} className="space-y-4">
+                  <div className="form-group">
+                    <label htmlFor="audience">أنت تتواصل بصفتك</label>
+                    <select id="audience" value={audience} onChange={(e) => setAudience(e.target.value)}>
+                      <option value="business">شركة / مؤسسة / جهة</option>
+                      <option value="investor">رجل أعمال / مستثمر</option>
+                      <option value="individual">فرد</option>
+                    </select>
                   </div>
-                  <form id="consultForm" onSubmit={(e) => handleSubmit(e, 'consult')} className="space-y-4">
-                    <div className="form-group"><label htmlFor="consultName">الاسم بالكامل</label><input type="text" id="consultName" placeholder="الاسم ثلاثي..." required /></div>
-                    <div className="form-group"><label htmlFor="consultPhone">رقم الهاتف / الواتساب</label><input type="tel" id="consultPhone" placeholder="01xxxxxxxxx" required /></div>
-                    <div className="form-group"><label htmlFor="consultMessage">تفاصيل الاستشارة</label><textarea id="consultMessage" rows="4" placeholder="يرجى كتابة ملخص للقضية أو الاستفسار..." required></textarea></div>
-                    <ReferralSourceField id="consultReferralSource" />
-                    <button type="submit" className="btn-gold w-full py-3 rounded-lg flex items-center justify-center gap-3"><span>إرسال الاستشارة</span><Icon name="whatsapp" style={{ fontSize: '1.5rem' }} /></button>
-                  </form>
-                </div>
 
-                <div className={`tab-pane ${activeTab === 'visit' ? '' : 'hidden'}`}>
-                  <div className="text-center mb-4">
-                    <h3 className="text-xl font-bold" style={{ color: 'var(--charcoal)' }}>حجز موعد في المكتب</h3>
-                    <p className="text-sm" style={{ color: 'var(--charcoal)', fontWeight: '700' }}>ناقش قضيتك وجهاً لوجه مع الأستاذ محمود عبد الحميد جاد الرب</p>
+                  <div className="form-group">
+                    <label htmlFor="requestType">نوع الطلب</label>
+                    <select id="requestType" value={requestType} onChange={(e) => setRequestType(e.target.value)}>
+                      <option value="consultation">استشارة قانونية</option>
+                      <option value="meeting">مقابلة في المكتب</option>
+                    </select>
                   </div>
-                  <form id="visitForm" onSubmit={(e) => handleSubmit(e, 'visit')} className="space-y-4">
-                    <div className="form-group"><label htmlFor="visitName">الاسم بالكامل</label><input type="text" id="visitName" placeholder="الاسم ثلاثي..." required /></div>
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div className="form-group"><label htmlFor="visitPhone">رقم الهاتف</label><input type="tel" id="visitPhone" placeholder="01xxxxxxxxx" required /></div>
-                      <div className="form-group"><label htmlFor="visitDate">تاريخ المقابلة المفضل</label><input type="date" id="visitDate" required /></div>
-                    </div>
-                    <div className="form-group"><label htmlFor="visitLocation">موقع المقابلة المفضل</label>
-                      <select id="visitLocation"><option value="أسوان">مقر المكتب - أسوان</option></select>
-                    </div>
-                    <div className="form-group"><label htmlFor="visitReason">سبب الزيارة</label><textarea id="visitReason" rows="3" placeholder="استشارة بخصوص قضية..." required></textarea></div>
-                    <ReferralSourceField id="visitReferralSource" />
-                    <button type="submit" className="btn-gold w-full py-3 rounded-lg flex items-center justify-center gap-3"><span>تأكيد طلب الحجز</span><Icon name="calendar-check" /></button>
-                  </form>
-                </div>
 
-                <div className={`tab-pane ${activeTab === 'representation' ? '' : 'hidden'}`}>
-                  <div className="text-center mb-4">
-                    <h3 className="text-xl font-bold" style={{ color: 'var(--charcoal)' }}>طلب تمثيل قانوني</h3>
-                    <p className="text-sm" style={{ color: 'var(--charcoal)', fontWeight: '700' }}>قدم طلباً لتولي قضيتك بالكامل من قبل الأستاذ محمود عبد الحميد جاد الرب</p>
+                  <Field id="name" label="الاسم بالكامل" placeholder="الاسم ثلاثي..." />
+
+                  {audience === 'business' && <>
+                    <Field id="email" label="البريد الإلكتروني" type="email" placeholder="name@company.com" />
+                    <Field id="entity" label="اسم الشركة أو المؤسسة أو الجهة" placeholder="اسم الجهة" />
+                  </>}
+
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <Field id="governorate" label="المحافظة" placeholder="مثال: أسوان" />
+                    <Field id="city" label="المدينة" placeholder="مثال: مدينة أسوان" />
                   </div>
-                  <form id="representationForm" onSubmit={(e) => handleSubmit(e, 'representation')} className="space-y-4">
-                    <div className="form-group"><label htmlFor="repName">الاسم بالكامل</label><input type="text" id="repName" placeholder="الاسم ثلاثي..." required /></div>
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div className="form-group"><label htmlFor="repPhone">رقم الهاتف / الواتساب</label><input type="tel" id="repPhone" placeholder="01xxxxxxxxx" required /></div>
-                      <div className="form-group"><label htmlFor="repEmail">البريد الإلكتروني</label><input type="email" id="repEmail" placeholder="example@mail.com" required /></div>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div className="form-group"><label htmlFor="repCaseType">نوع القضية</label>
-                        <select id="repCaseType" required><option value="">اختر نوع القضية</option>
-                          <option value="مدني">مدني</option><option value="تجاري">تجاري</option><option value="أسرة">أسرة / أحوال شخصية</option>
-                          <option value="جنائي">جنائي</option><option value="إداري">إداري</option><option value="عقاري">عقاري</option>
-                          <option value="عمالي">عمالي</option><option value="دستوري">دستوري</option><option value="تحكيم">تحكيم</option>
-                          <option value="أخرى">أخرى</option>
-                        </select>
-                      </div>
-                      <div className="form-group"><label htmlFor="repStage">المرحلة القضائية</label>
-                        <select id="repStage" required><option value="">اختر المرحلة</option>
-                          <option value="ابتدائي">ابتدائي</option><option value="استئناف">استئناف</option><option value="نقض">نقض</option>
-                          <option value="تنفيذ">تنفيذ</option><option value="دستورية">دستورية</option><option value="إدارية عليا">إدارية عليا</option>
-                          <option value="أخرى">أخرى</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="form-group"><label htmlFor="repCourt">الجهة القضائية (المحكمة)</label><input type="text" id="repCourt" placeholder="مثال: محكمة النقض، المحكمة الإدارية العليا، محكمة استئناف القاهرة..." required /></div>
-                    <div className="form-group"><label htmlFor="repCaseNumber">رقم القضية (إن وجد)</label><input type="text" id="repCaseNumber" placeholder="رقم القضية والسنة" /></div>
-                    <div className="form-group"><label htmlFor="repDescription">وصف القضية</label><textarea id="repDescription" rows="5" placeholder="يرجى كتابة وصف تفصيلي للقضية، والجهات المعنية، وأي معلومات أخرى تراها مهمة..." required></textarea></div>
-                    <ReferralSourceField id="repReferralSource" />
-                    <div className="form-group"><label htmlFor="repContract">إرفاق عقد الخدمة (PDF) <span style={{ color: 'var(--charcoal)', fontWeight: '400' }}>(اختياري)</span></label><input type="file" id="repContract" accept=".pdf" />
-                      <p style={{ fontSize: '0.65rem', color: 'var(--charcoal)', fontWeight: '700', marginTop: '0.2rem' }}>يمكنك إرفاق عقد الخدمة الموقع بصيغة PDF</p>
-                    </div>
-                    <div className="form-group">
-                      <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: '400', color: 'var(--charcoal)', fontSize: '0.85rem' }}>
-                        <input type="checkbox" id="repSendDocs" defaultChecked />
-                        <span>سأقوم بإرسال صور المستندات عبر <strong>واتساب</strong> أو <strong>البريد الإلكتروني</strong> بعد إرسال الطلب</span>
-                      </label>
-                      <p style={{ fontSize: '0.65rem', color: 'var(--charcoal)', fontWeight: '700', marginTop: '0.2rem' }}>سيتم توفير رابط لإرسال المستندات بعد إرسال الطلب</p>
-                    </div>
-                    <button type="submit" className="btn-gold w-full py-3 rounded-lg flex items-center justify-center gap-3"><span>إرسال طلب التمثيل</span><Icon name="gavel" /></button>
-                  </form>
-                </div>
+
+                  <Field id="phone" label="رقم الهاتف / الواتساب" type="tel" placeholder="01xxxxxxxxx" />
+                  <Field id="subject" label="موضوع الطلب" placeholder="اذكر موضوع المسألة باختصار" />
+
+                  {audience === 'business' && <div className="form-group">
+                    <label htmlFor="channel">طريقة التواصل المفضلة</label>
+                    <select id="channel" name="channel" defaultValue="whatsapp">
+                      <option value="whatsapp">واتساب</option>
+                      <option value="email">البريد الإلكتروني</option>
+                    </select>
+                  </div>}
+
+                  <div className="form-group">
+                    <label htmlFor="details">تفاصيل الموضوع</label>
+                    <textarea id="details" name="details" rows="5" placeholder="اكتب ملخصًا للوقائع أو السؤال أو الموعد المناسب للمقابلة..." required></textarea>
+                  </div>
+
+                  <p className="text-xs" style={{ color: 'var(--charcoal)', fontWeight: '700' }}>
+                    {audience === 'business' ? 'يمكن للشركات والمؤسسات اختيار إرسال الطلب عبر واتساب أو البريد الإلكتروني.' : 'سيتم تحويل الطلب إلى واتساب لمتابعة التواصل.'}
+                  </p>
+                  <button type="submit" className="btn-gold w-full py-3 rounded-lg flex items-center justify-center gap-3">
+                    <span>{requestType === 'meeting' ? 'طلب مقابلة في المكتب' : 'إرسال طلب الاستشارة'}</span>
+                    <Icon name={requestType === 'meeting' ? 'calendar-check' : 'whatsapp'} />
+                  </button>
+                </form>
               </div>
             </div>
           </div>
