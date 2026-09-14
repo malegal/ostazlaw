@@ -77,38 +77,38 @@ export default function Home({ articles, news }) {
             <p>لكل قرار أو مسألة طريقها القانوني. اختر الفئة الأقرب إليك، واتخذ الخطوة الأولى بثقة.</p>
           </div>
           <div className="client-segments-grid">
-            <article className="client-segment-card client-segment-business reveal">
+            <Link href="/contact?tab=consult&audience=business#service-form" className="client-segment-card client-segment-business reveal">
               <div className="client-segment-image" role="img" aria-label="مبنى يرمز إلى الشركات والأعمال"></div>
               <div className="client-segment-body">
                 <span className="client-segment-kicker">للشركات والمنشآت</span>
                 <h3>نفهم احتياجات الشركات وقراراتها</h3>
                 <p>نقدم للشركات والمنشآت دعمًا قانونيًا يواكب أعمالها، ويساعدها على اتخاذ قرارات أكثر وضوحًا وحماية مصالحها قبل الالتزام.</p>
                 <ul><li>استشارات قانونية مستمرة</li><li>دعم اتخاذ القرار القانوني</li><li>قراءة العقود وصياغتها باحتراف</li><li>حماية الاستثمارات والمصالح</li></ul>
-                <Link href="/contact?tab=consult&audience=business#service-form" className="btn-outline-gold">ناقش احتياج شركتك <span aria-hidden="true">←</span></Link>
+                <span className="btn-outline-gold">ناقش احتياج شركتك <span aria-hidden="true">←</span></span>
               </div>
-            </article>
+            </Link>
 
-            <article className="client-segment-card client-segment-entrepreneurs reveal">
+            <Link href="/contact?tab=consult&audience=investor#service-form" className="client-segment-card client-segment-entrepreneurs reveal">
               <div className="client-segment-image" role="img" aria-label="أدوات ترمز إلى الاستثمار وريادة الأعمال"></div>
               <div className="client-segment-body">
                 <span className="client-segment-kicker">للمستثمرين ورجال الأعمال</span>
                 <h3>وضوح قانوني قبل الاستثمار أو الشراكة</h3>
                 <p>نساعد المستثمرين ورجال الأعمال على قراءة الاتفاقات، فهم الالتزامات، وتقدير المخاطر قبل أن تتحول الفرصة إلى التزام.</p>
                 <ul><li>مراجعة الاتفاقيات والعقود</li><li>تنظيم الشراكات والعلاقات</li><li>تقييم المخاطر قبل القرار</li></ul>
-                <Link href="/contact?tab=consult&audience=investor#service-form" className="btn-outline-gold">تحدث عن مشروعك <span aria-hidden="true">←</span></Link>
+                <span className="btn-outline-gold">تحدث عن مشروعك <span aria-hidden="true">←</span></span>
               </div>
-            </article>
+            </Link>
 
-            <article className="client-segment-card client-segment-individuals reveal">
+            <Link href="/contact?tab=consult&audience=individual#service-form" className="client-segment-card client-segment-individuals reveal">
               <div className="client-segment-image" role="img" aria-label="صورة تعبر عن الحقوق والمصالح الشخصية"></div>
               <div className="client-segment-body">
                 <span className="client-segment-kicker">للأفراد</span>
                 <h3>نوضح لك موقفك قبل خطوتك التالية</h3>
                 <p>من عقد أو مستند إلى عقار أو مطالبة أو نزاع، نبدأ من الوقائع كما هي ونساعدك على فهم ما يمكنك فعله.</p>
                 <ul><li>العقود والمستندات</li><li>العقارات والملكية والإيجارات</li><li>المطالبات والمنازعات المدنية</li></ul>
-                <Link href="/contact?tab=consult&audience=individual#service-form" className="btn-outline-gold">اعرض مسألتك القانونية <span aria-hidden="true">←</span></Link>
+                <span className="btn-outline-gold">اعرض مسألتك القانونية <span aria-hidden="true">←</span></span>
               </div>
-            </article>
+            </Link>
           </div>
         </div>
       </section>

@@ -7,12 +7,15 @@ import Icon from '../components/Icon';
 export default function Contact() {
   const [audience, setAudience] = useState('individual');
   const [requestType, setRequestType] = useState('consultation');
+  const [channel, setChannel] = useState('whatsapp');
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const audienceParam = params.get('audience');
     const audienceMap = { business: 'business', investor: 'investor', individual: 'individual' };
-    if (audienceParam && audienceMap[audienceParam]) setAudience(audienceMap[audienceParam]);
+    const initialAudience = audienceParam && audienceMap[audienceParam] ? audienceMap[audienceParam] : 'individual';
+    setAudience(initialAudience);
+    setChannel(initialAudience === 'business' ? 'email' : 'whatsapp');
     if (params.get('tab') === 'visit') setRequestType('meeting');
     const specialty = params.get('specialty');
     if (specialty) {
@@ -20,6 +23,11 @@ export default function Contact() {
       if (subject) subject.value = `استشارة بخصوص: ${specialty}`;
     }
   }, []);
+
+  const changeAudience = (nextAudience) => {
+    setAudience(nextAudience);
+    setChannel(nextAudience === 'business' ? 'email' : 'whatsapp');
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,10 +46,12 @@ export default function Contact() {
       `المدينة: ${get('city')}`,
       `رقم الهاتف: ${get('phone')}`,
       `الموضوع: ${get('subject')}`,
-      `طريقة التواصل المفضلة: ${audience === 'business' ? get('channel') : 'واتساب'}`,
+      requestType === 'meeting' ? `التاريخ المقترح: ${get('meetingDate')}` : '',
+      requestType === 'meeting' ? `الوقت المقترح: ${get('meetingTime')}` : '',
+      `طريقة التواصل المفضلة: ${audience === 'business' ? (channel === 'email' ? 'البريد الإلكتروني' : 'واتساب') : 'واتساب'}`,
     ].filter(Boolean);
     const body = `${lines.join('\n')}\n\nالتفاصيل:\n${get('details')}`;
-    if (audience === 'business' && get('channel') === 'email') {
+    if (audience === 'business' && channel === 'email') {
       window.location.href = `mailto:ma.law.firm@outlook.com?subject=${encodeURIComponent(requestLabel)}&body=${encodeURIComponent(body)}`;
     } else {
       window.open(`https://wa.me/201101076000?text=${encodeURIComponent(body)}`, '_blank', 'noopener,noreferrer');
@@ -50,7 +60,7 @@ export default function Contact() {
 
   const Field = ({ id, label, type = 'text', placeholder, required = true }) => (
     <div className="form-group">
-      <label htmlFor={id}>{label}{!required && <span style={{ fontWeight: '400' }}> (اختياري)</span>}</label>
+      <label htmlFor={id}>{label}{!required && <span className="optional-label"> (اختياري)</span>}</label>
       <input id={id} name={id} type={type} placeholder={placeholder} required={required} />
     </div>
   );
@@ -220,66 +230,62 @@ export default function Contact() {
             </div>
 
             <div className="lg:col-span-7 reveal" style={{ transitionDelay: '0.2s' }}>
-              <div id="service-form" className="tab-container" style={{ scrollMarginTop: '96px' }}>
-                <div className="text-center mb-6">
-                  <span className="eyebrow" style={{ display: 'block', fontSize: '0.65rem', fontWeight: '800', letterSpacing: '0.2em', color: 'var(--matte-gold)', opacity: '0.7', marginBottom: '0.4rem' }}>ابدأ من هنا</span>
-                  <h2 className="text-2xl font-bold serif gold-text">اعرض مسألتك القانونية</h2>
-                  <p className="text-sm" style={{ color: 'var(--charcoal)', fontWeight: '700' }}>اختر الفئة الأقرب إليك ونوع التواصل المناسب، ثم اترك لنا ملخصًا واضحًا عن احتياجك.</p>
+              <div id="service-form" className="contact-form-shell" style={{ scrollMarginTop: '96px' }}>
+                <div className="form-intro">
+                  <span className="form-kicker">الخطوة الأولى</span>
+                  <h2>لنبدأ من فهم احتياجك</h2>
+                  <p>اختر الفئة الأقرب إليك، وسنوجّهك إلى البيانات المناسبة وطريقة التواصل الأسرع.</p>
                 </div>
 
-                <form id="serviceForm" onSubmit={handleSubmit} className="space-y-4">
-                  <div className="form-group">
-                    <label htmlFor="audience">أنت تتواصل بصفتك</label>
-                    <select id="audience" value={audience} onChange={(e) => setAudience(e.target.value)}>
-                      <option value="business">شركة / مؤسسة / جهة</option>
-                      <option value="investor">رجل أعمال / مستثمر</option>
-                      <option value="individual">فرد</option>
-                    </select>
-                  </div>
+                <form id="serviceForm" onSubmit={handleSubmit} className="contact-form">
+                  <fieldset className="form-step">
+                    <legend><span className="step-number">01</span><span><strong>من أنت؟</strong><small>يساعدنا ذلك على فهم طبيعة طلبك</small></span></legend>
+                    <div className="audience-cards">
+                      <button type="button" className={`audience-card ${audience === 'business' ? 'selected' : ''}`} onClick={() => changeAudience('business')} aria-pressed={audience === 'business'}>
+                        <span className="audience-icon"><Icon name="building" /></span><span><strong>شركة أو مؤسسة</strong><small>للشركات والجهات والمنشآت</small></span><Icon name="check-circle" />
+                      </button>
+                      <button type="button" className={`audience-card ${audience === 'investor' ? 'selected' : ''}`} onClick={() => changeAudience('investor')} aria-pressed={audience === 'investor'}>
+                        <span className="audience-icon"><Icon name="chart-pie" /></span><span><strong>رجل أعمال أو مستثمر</strong><small>للاستثمار والشراكات والمشروعات</small></span><Icon name="check-circle" />
+                      </button>
+                      <button type="button" className={`audience-card ${audience === 'individual' ? 'selected' : ''}`} onClick={() => changeAudience('individual')} aria-pressed={audience === 'individual'}>
+                        <span className="audience-icon"><Icon name="user" /></span><span><strong>فرد</strong><small>للمسائل والحقوق الشخصية</small></span><Icon name="check-circle" />
+                      </button>
+                    </div>
+                  </fieldset>
 
-                  <div className="form-group">
-                    <label htmlFor="requestType">نوع الطلب</label>
-                    <select id="requestType" value={requestType} onChange={(e) => setRequestType(e.target.value)}>
-                      <option value="consultation">استشارة قانونية</option>
-                      <option value="meeting">مقابلة في المكتب</option>
-                    </select>
-                  </div>
+                  <fieldset className="form-step">
+                    <legend><span className="step-number">02</span><span><strong>كيف نساعدك؟</strong><small>اختر طريقة بدء التواصل</small></span></legend>
+                    <div className="request-options">
+                      <label className={`request-option ${requestType === 'consultation' ? 'selected' : ''}`}><input type="radio" name="requestType" value="consultation" checked={requestType === 'consultation'} onChange={() => setRequestType('consultation')} /><span><strong>استشارة قانونية</strong><small>فهم المسألة وتحديد الخطوة التالية</small></span></label>
+                      <label className={`request-option ${requestType === 'meeting' ? 'selected' : ''}`}><input type="radio" name="requestType" value="meeting" checked={requestType === 'meeting'} onChange={() => setRequestType('meeting')} /><span><strong>مقابلة في المكتب</strong><small>تحديد موعد لمناقشة المسألة في أسوان</small></span></label>
+                    </div>
+                  </fieldset>
 
-                  <Field id="name" label="الاسم بالكامل" placeholder="الاسم ثلاثي..." />
+                  <fieldset className="form-step">
+                    <legend><span className="step-number">03</span><span><strong>بيانات التواصل</strong><small>{audience === 'business' ? 'بيانات الشركة أو الجهة' : 'بياناتك الأساسية'}</small></span></legend>
+                    <div className="form-grid">
+                      <Field id="name" label="الاسم بالكامل" placeholder="الاسم ثلاثي..." />
+                      {audience === 'business' && <Field id="entity" label="اسم الشركة أو المؤسسة أو الجهة" placeholder="اسم الجهة" />}
+                      {audience === 'business' && <Field id="email" label="البريد الإلكتروني" type="email" placeholder="name@company.com" />}
+                      <Field id="phone" label="رقم الهاتف / الواتساب" type="tel" placeholder="01xxxxxxxxx" />
+                      <Field id="governorate" label="المحافظة" placeholder="مثال: أسوان" />
+                      <Field id="city" label="المدينة" placeholder="مثال: مدينة أسوان" />
+                    </div>
+                    <Field id="subject" label="موضوع الطلب" placeholder="اذكر موضوع المسألة باختصار" />
+                    {requestType === 'meeting' && <div className="meeting-box">
+                      <div className="meeting-heading"><Icon name="calendar-check" /><span><strong>الموعد المقترح للمقابلة</strong><small>سنؤكد معك الموعد المناسب بعد مراجعة الطلب</small></span></div>
+                      <div className="form-grid">
+                        <Field id="meetingDate" label="التاريخ المقترح" type="date" />
+                        <Field id="meetingTime" label="الوقت المقترح" type="time" />
+                      </div>
+                    </div>}
+                    {audience === 'business' && <div className="channel-box"><div><strong>طريقة الإرسال المفضلة</strong><small>يمكنك تغييرها قبل الإرسال</small></div><div className="channel-toggle"><button type="button" className={channel === 'email' ? 'active' : ''} onClick={() => setChannel('email')}><Icon name="envelope" /> البريد الإلكتروني</button><button type="button" className={channel === 'whatsapp' ? 'active' : ''} onClick={() => setChannel('whatsapp')}><Icon name="whatsapp" /> واتساب</button></div></div>}
+                    {audience !== 'business' && <div className="whatsapp-note"><Icon name="whatsapp" /><span><strong>الإرسال عبر واتساب</strong><small>سيتم تحويل طلبك إلى واتساب لمتابعة التواصل.</small></span></div>}
+                    <div className="form-group"><label htmlFor="details">تفاصيل الموضوع</label><textarea id="details" name="details" rows="5" placeholder="اكتب ملخصًا للوقائع أو السؤال أو ما تود مناقشته..." required></textarea></div>
+                  </fieldset>
 
-                  {audience === 'business' && <>
-                    <Field id="email" label="البريد الإلكتروني" type="email" placeholder="name@company.com" />
-                    <Field id="entity" label="اسم الشركة أو المؤسسة أو الجهة" placeholder="اسم الجهة" />
-                  </>}
-
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <Field id="governorate" label="المحافظة" placeholder="مثال: أسوان" />
-                    <Field id="city" label="المدينة" placeholder="مثال: مدينة أسوان" />
-                  </div>
-
-                  <Field id="phone" label="رقم الهاتف / الواتساب" type="tel" placeholder="01xxxxxxxxx" />
-                  <Field id="subject" label="موضوع الطلب" placeholder="اذكر موضوع المسألة باختصار" />
-
-                  {audience === 'business' && <div className="form-group">
-                    <label htmlFor="channel">طريقة التواصل المفضلة</label>
-                    <select id="channel" name="channel" defaultValue="whatsapp">
-                      <option value="whatsapp">واتساب</option>
-                      <option value="email">البريد الإلكتروني</option>
-                    </select>
-                  </div>}
-
-                  <div className="form-group">
-                    <label htmlFor="details">تفاصيل الموضوع</label>
-                    <textarea id="details" name="details" rows="5" placeholder="اكتب ملخصًا للوقائع أو السؤال أو الموعد المناسب للمقابلة..." required></textarea>
-                  </div>
-
-                  <p className="text-xs" style={{ color: 'var(--charcoal)', fontWeight: '700' }}>
-                    {audience === 'business' ? 'يمكن للشركات والمؤسسات اختيار إرسال الطلب عبر واتساب أو البريد الإلكتروني.' : 'سيتم تحويل الطلب إلى واتساب لمتابعة التواصل.'}
-                  </p>
-                  <button type="submit" className="btn-gold w-full py-3 rounded-lg flex items-center justify-center gap-3">
-                    <span>{requestType === 'meeting' ? 'طلب مقابلة في المكتب' : 'إرسال طلب الاستشارة'}</span>
-                    <Icon name={requestType === 'meeting' ? 'calendar-check' : 'whatsapp'} />
-                  </button>
+                  <button type="submit" className="premium-submit"><span>{requestType === 'meeting' ? 'إرسال طلب المقابلة' : 'إرسال الطلب'}</span><Icon name={audience === 'business' && channel === 'email' ? 'envelope' : 'whatsapp'} /></button>
+                  <p className="form-privacy"><Icon name="shield-alt" /> نحافظ على سرية بياناتك، وسيتم استخدام المعلومات للتواصل بشأن طلبك فقط.</p>
                 </form>
               </div>
             </div>
@@ -329,7 +335,55 @@ export default function Contact() {
         .map-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 1; transition: opacity 0.4s ease; pointer-events: none; }
         .map-container:hover .map-overlay { opacity: 0; }
         .map-overlay span { background: var(--matte-gold); color: #000; padding: 0.5rem 1.2rem; border-radius: 8px; font-weight: 700; font-size: 0.8rem; }
-        .tab-container { background: var(--pure-white); border-radius: 16px; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 10px rgba(0,0,0,0.02); padding: 2rem; transition: all 0.4s var(--ease-out); position: relative; overflow: hidden; }
+        .contact-form-shell { background: linear-gradient(145deg, #fff 0%, #fbfaf7 100%); border-radius: 22px; border: 1px solid rgba(176,141,87,0.18); box-shadow: 0 18px 55px rgba(8,20,38,0.08); padding: clamp(1.25rem, 3vw, 2.5rem); position: relative; overflow: hidden; }
+        .contact-form-shell::before { content: ''; position: absolute; top: 0; right: 0; width: 38%; height: 4px; background: linear-gradient(90deg, transparent, var(--matte-gold)); }
+        .form-intro { margin-bottom: 2rem; }
+        .form-kicker { color: var(--matte-gold); font-size: 0.7rem; font-weight: 900; letter-spacing: 0.18em; text-transform: uppercase; }
+        .form-intro h2 { color: var(--charcoal); font-size: clamp(1.6rem, 3vw, 2.25rem); margin: 0.35rem 0 0.45rem; font-family: var(--font-serif, Georgia, serif); }
+        .form-intro p { color: var(--charcoal); font-size: 0.85rem; font-weight: 700; line-height: 1.8; max-width: 560px; margin: 0; }
+        .form-step { border: 0; padding: 0; margin: 0 0 1.8rem; min-width: 0; }
+        .form-step legend { width: 100%; display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.9rem; color: var(--charcoal); }
+        .form-step legend strong, .form-step legend small { display: block; }
+        .form-step legend strong { font-size: 0.95rem; }
+        .form-step legend small { color: var(--charcoal); opacity: 0.6; font-size: 0.68rem; font-weight: 700; margin-top: 0.12rem; }
+        .step-number { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: var(--very-dark-navy); color: var(--matte-gold); font-size: 0.68rem; font-weight: 900; letter-spacing: 0.04em; }
+        .audience-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem; }
+        .audience-card { border: 1px solid rgba(8,20,38,0.1); background: rgba(255,255,255,0.7); border-radius: 13px; padding: 0.9rem; min-height: 112px; text-align: right; display: flex; align-items: center; gap: 0.55rem; position: relative; cursor: pointer; transition: all 0.25s ease; color: var(--charcoal); }
+        .audience-card:hover, .audience-card.selected { border-color: var(--matte-gold); background: #fff; box-shadow: 0 8px 22px rgba(176,141,87,0.12); transform: translateY(-2px); }
+        .audience-card > span:nth-child(2) { flex: 1; }
+        .audience-card strong, .audience-card small { display: block; }
+        .audience-card strong { font-size: 0.78rem; line-height: 1.45; }
+        .audience-card small { color: var(--charcoal); opacity: 0.62; font-size: 0.62rem; line-height: 1.45; margin-top: 0.18rem; }
+        .audience-card > .icon-svg:last-child { color: transparent; font-size: 0.85rem; }
+        .audience-card.selected > .icon-svg:last-child { color: var(--matte-gold); }
+        .audience-icon { flex: 0 0 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; border-radius: 10px; background: rgba(176,141,87,0.12); color: var(--matte-gold); }
+        .request-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.7rem; }
+        .request-option { display: flex; align-items: center; gap: 0.65rem; border: 1px solid rgba(8,20,38,0.1); border-radius: 12px; padding: 0.8rem 0.9rem; cursor: pointer; transition: all 0.25s ease; }
+        .request-option.selected { border-color: var(--matte-gold); background: rgba(176,141,87,0.07); }
+        .request-option input { accent-color: var(--matte-gold); }
+        .request-option strong, .request-option small { display: block; }
+        .request-option strong { font-size: 0.78rem; }
+        .request-option small { color: var(--charcoal); opacity: 0.62; font-size: 0.62rem; margin-top: 0.15rem; }
+        .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 0.8rem; }
+        .meeting-box, .channel-box, .whatsapp-note { border: 1px solid rgba(176,141,87,0.24); border-radius: 12px; padding: 0.85rem; margin: 0.4rem 0 1rem; background: rgba(176,141,87,0.055); }
+        .meeting-heading, .whatsapp-note { display: flex; align-items: center; gap: 0.65rem; color: var(--charcoal); }
+        .meeting-heading > .icon-svg, .whatsapp-note > .icon-svg { color: var(--matte-gold); font-size: 1.1rem; }
+        .meeting-heading strong, .meeting-heading small, .whatsapp-note strong, .whatsapp-note small { display: block; }
+        .meeting-heading strong, .whatsapp-note strong { font-size: 0.75rem; }
+        .meeting-heading small, .whatsapp-note small { font-size: 0.62rem; opacity: 0.65; font-weight: 700; margin-top: 0.12rem; }
+        .meeting-box .form-grid { margin-top: 0.75rem; }
+        .channel-box { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; }
+        .channel-box strong, .channel-box small { display: block; }
+        .channel-box strong { font-size: 0.72rem; color: var(--charcoal); }
+        .channel-box small { font-size: 0.6rem; color: var(--charcoal); opacity: 0.6; font-weight: 700; margin-top: 0.1rem; }
+        .channel-toggle { display: flex; gap: 0.35rem; }
+        .channel-toggle button { border: 1px solid rgba(8,20,38,0.12); background: #fff; color: var(--charcoal); border-radius: 8px; padding: 0.45rem 0.55rem; font-size: 0.65rem; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; gap: 0.3rem; }
+        .channel-toggle button.active { background: var(--very-dark-navy); border-color: var(--very-dark-navy); color: var(--matte-gold); }
+        .premium-submit { width: 100%; border: 0; border-radius: 11px; padding: 0.95rem 1.2rem; display: flex; align-items: center; justify-content: center; gap: 0.6rem; background: linear-gradient(110deg, var(--matte-gold), #d1ad6b); color: #111; font-size: 0.9rem; font-weight: 900; cursor: pointer; box-shadow: 0 9px 22px rgba(176,141,87,0.22); transition: all 0.25s ease; }
+        .premium-submit:hover { transform: translateY(-2px); box-shadow: 0 13px 28px rgba(176,141,87,0.3); }
+        .form-privacy { display: flex; align-items: center; justify-content: center; gap: 0.35rem; color: var(--charcoal); opacity: 0.58; font-size: 0.62rem; font-weight: 700; margin: 0.8rem 0 0; }
+        .form-privacy .icon-svg { color: var(--matte-gold); }
+        .tab-container { display: none;  background: var(--pure-white); border-radius: 16px; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 10px rgba(0,0,0,0.02); padding: 2rem; transition: all 0.4s var(--ease-out); position: relative; overflow: hidden; }
         .tab-container::after { content: ''; position: absolute; bottom: 0; right: 0; width: 0; height: 3px; background: var(--matte-gold); transition: width 0.6s var(--ease-out); }
         .tab-container:hover::after { width: 100%; }
         .tab-buttons { display: flex; gap: 0.5rem; background: var(--light-gray); padding: 0.4rem; border-radius: 12px; margin-bottom: 2rem; flex-wrap: wrap; }
