@@ -46,12 +46,13 @@ export default function Contact() {
       `المدينة: ${get('city')}`,
       `رقم الهاتف: ${get('phone')}`,
       `الموضوع: ${get('subject')}`,
-      requestType === 'meeting' ? `التاريخ المقترح: ${get('meetingDate')}` : '',
-      requestType === 'meeting' ? `الوقت المقترح: ${get('meetingTime')}` : '',
+      requestType === 'meeting' ? `التاريخ المقترح للمقابلة: ${get('meetingDate')}` : '',
+      requestType === 'meeting' ? `الوقت المقترح للمقابلة: ${get('meetingTime')}` : '',
+      requestType === 'consultation' ? `الوقت الأنسب للتواصل: ${get('contactTime')}` : '',
       `طريقة التواصل المفضلة: ${audience === 'business' ? (channel === 'email' ? 'البريد الإلكتروني' : 'واتساب') : 'واتساب'}`,
     ].filter(Boolean);
     const body = `${lines.join('\n')}\n\nالتفاصيل:\n${get('details')}`;
-    if (audience === 'business' && channel === 'email') {
+    if (requestType === 'consultation' && audience === 'business' && channel === 'email') {
       window.location.href = `mailto:ma.law.firm@outlook.com?subject=${encodeURIComponent(requestLabel)}&body=${encodeURIComponent(body)}`;
     } else {
       window.open(`https://wa.me/201101076000?text=${encodeURIComponent(body)}`, '_blank', 'noopener,noreferrer');
@@ -223,8 +224,6 @@ export default function Contact() {
                   <a href="https://www.facebook.com/malegal" target="_blank" rel="noopener noreferrer" className="social-icon-circle"><Icon name="facebook-f" /></a>
                   <a href="https://x.com/mahmoud_a_hamyd" target="_blank" rel="noopener noreferrer" className="social-icon-circle" aria-label="صفحة المكتب على إكس"><Icon name="x" /></a>
                   <a href="https://www.linkedin.com/in/mahmoud-abdel-hamid-0a4664374" target="_blank" rel="noopener noreferrer" className="social-icon-circle"><Icon name="linkedin-in" /></a>
-                  <a href="https://t.me/mahmoud_a_hamyd" target="_blank" rel="noopener noreferrer" className="social-icon-circle"><Icon name="telegram-plane" /></a>
-                  <a href="https://wa.me/201101076000" target="_blank" rel="noopener noreferrer" className="social-icon-circle"><Icon name="whatsapp" /></a>
                 </div>
               </div>
             </div>
@@ -254,15 +253,7 @@ export default function Contact() {
                   </fieldset>
 
                   <fieldset className="form-step">
-                    <legend><span className="step-number">02</span><span><strong>كيف نساعدك؟</strong><small>اختر طريقة بدء التواصل</small></span></legend>
-                    <div className="request-options">
-                      <label className={`request-option ${requestType === 'consultation' ? 'selected' : ''}`}><input type="radio" name="requestType" value="consultation" checked={requestType === 'consultation'} onChange={() => setRequestType('consultation')} /><span><strong>استشارة قانونية</strong><small>فهم المسألة وتحديد الخطوة التالية</small></span></label>
-                      <label className={`request-option ${requestType === 'meeting' ? 'selected' : ''}`}><input type="radio" name="requestType" value="meeting" checked={requestType === 'meeting'} onChange={() => setRequestType('meeting')} /><span><strong>مقابلة في المكتب</strong><small>تحديد موعد لمناقشة المسألة في أسوان</small></span></label>
-                    </div>
-                  </fieldset>
-
-                  <fieldset className="form-step">
-                    <legend><span className="step-number">03</span><span><strong>بيانات التواصل</strong><small>{audience === 'business' ? 'بيانات الشركة أو الجهة' : 'بياناتك الأساسية'}</small></span></legend>
+                    <legend><span className="step-number">02</span><span><strong>بيانات التواصل</strong><small>{audience === 'business' ? 'بيانات الشركة أو الجهة' : 'بياناتك الأساسية'}</small></span></legend>
                     <div className="form-grid">
                       <Field id="name" label="الاسم بالكامل" placeholder="الاسم ثلاثي..." />
                       {audience === 'business' && <Field id="entity" label="اسم الشركة أو المؤسسة أو الجهة" placeholder="اسم الجهة" />}
@@ -272,19 +263,28 @@ export default function Contact() {
                       <Field id="city" label="المدينة" placeholder="مثال: مدينة أسوان" />
                     </div>
                     <Field id="subject" label="موضوع الطلب" placeholder="اذكر موضوع المسألة باختصار" />
-                    {requestType === 'meeting' && <div className="meeting-box">
-                      <div className="meeting-heading"><Icon name="calendar-check" /><span><strong>الموعد المقترح للمقابلة</strong><small>سنؤكد معك الموعد المناسب بعد مراجعة الطلب</small></span></div>
-                      <div className="form-grid">
-                        <Field id="meetingDate" label="التاريخ المقترح" type="date" />
-                        <Field id="meetingTime" label="الوقت المقترح" type="time" />
-                      </div>
-                    </div>}
                     {audience === 'business' && <div className="channel-box"><div><strong>طريقة الإرسال المفضلة</strong><small>يمكنك تغييرها قبل الإرسال</small></div><div className="channel-toggle"><button type="button" className={channel === 'email' ? 'active' : ''} onClick={() => setChannel('email')}><Icon name="envelope" /> البريد الإلكتروني</button><button type="button" className={channel === 'whatsapp' ? 'active' : ''} onClick={() => setChannel('whatsapp')}><Icon name="whatsapp" /> واتساب</button></div></div>}
-                    {audience !== 'business' && <div className="whatsapp-note"><Icon name="whatsapp" /><span><strong>الإرسال عبر واتساب</strong><small>سيتم تحويل طلبك إلى واتساب لمتابعة التواصل.</small></span></div>}
                     <div className="form-group"><label htmlFor="details">تفاصيل الموضوع</label><textarea id="details" name="details" rows="5" placeholder="اكتب ملخصًا للوقائع أو السؤال أو ما تود مناقشته..." required></textarea></div>
                   </fieldset>
 
-                  <button type="submit" className="premium-submit"><span>{requestType === 'meeting' ? 'إرسال طلب المقابلة' : 'إرسال الطلب'}</span><Icon name={audience === 'business' && channel === 'email' ? 'envelope' : 'whatsapp'} /></button>
+                  <fieldset className="form-step">
+                    <legend><span className="step-number">03</span><span><strong>كيف نساعدك؟</strong><small>اختر الإجراء المناسب بعد إدخال بياناتك</small></span></legend>
+                    <div className="request-options">
+                      <label className={`request-option ${requestType === 'consultation' ? 'selected' : ''}`}><input type="radio" name="requestType" value="consultation" checked={requestType === 'consultation'} onChange={() => setRequestType('consultation')} /><span><strong>استشارة قانونية</strong><small>تحديد الخطوة التالية، ثم إرسال الطلب عبر واتساب</small></span></label>
+                      <label className={`request-option ${requestType === 'meeting' ? 'selected' : ''}`}><input type="radio" name="requestType" value="meeting" checked={requestType === 'meeting'} onChange={() => setRequestType('meeting')} /><span><strong>مقابلة في المكتب</strong><small>اقتراح موعد في مقر المكتب بأسوان</small></span></label>
+                    </div>
+                    {requestType === 'consultation' && <div className="meeting-box">
+                      <div className="meeting-heading"><Icon name="clock" /><span><strong>الوقت الأنسب للتواصل</strong><small>سنرسل طلبك عبر واتساب ونتواصل معك في الوقت المقترح قدر الإمكان.</small></span></div>
+                      <div className="form-grid"><Field id="contactTime" label="الوقت الأنسب للتواصل" type="time" /></div>
+                    </div>}
+                    {requestType === 'meeting' && <div className="meeting-box">
+                      <div className="meeting-heading"><Icon name="calendar-check" /><span><strong>الموعد الأنسب للمقابلة</strong><small>سيتم تأكيد الموعد برسالة عبر واتساب، وإرسال الطلب لا يعني تأكيده تلقائيًا.</small></span></div>
+                      <div className="form-grid"><Field id="meetingDate" label="التاريخ المقترح" type="date" /><Field id="meetingTime" label="الوقت المقترح" type="time" /></div>
+                    </div>}
+                    {requestType === 'consultation' && <div className="whatsapp-note"><Icon name="whatsapp" /><span><strong>الإرسال عبر واتساب</strong><small>اضغط إرسال الطلب لفتح واتساب برسالة جاهزة بالبيانات التي أدخلتها.</small></span></div>}
+                  </fieldset>
+
+                  <button type="submit" className="premium-submit"><span>{requestType === 'meeting' ? 'إرسال طلب المقابلة عبر واتساب' : (audience === 'business' && channel === 'email' ? 'إرسال عبر البريد الإلكتروني' : 'إرسال عبر واتساب')}</span><Icon name={requestType === 'meeting' || (audience === 'business' && channel === 'email' && requestType === 'consultation') ? (requestType === 'meeting' ? 'calendar-check' : 'envelope') : 'whatsapp'} /></button>
                   <p className="form-privacy"><Icon name="shield-alt" /> نحافظ على سرية بياناتك، وسيتم استخدام المعلومات للتواصل بشأن طلبك فقط.</p>
                 </form>
               </div>
@@ -400,7 +400,7 @@ export default function Contact() {
         .form-group input[type="file"]:hover { border-color: var(--matte-gold); }
         @media (max-width: 1024px) { .branches-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 820px) { .hero-contact { padding: 100px 1rem 3rem; min-height: auto; } .section-content { padding: 2.5rem 1rem; } .tab-container { padding: 1.2rem; } .tab-btn { font-size: 0.75rem; padding: 0.4rem 0.6rem; min-width: 80px; } .branches-grid { grid-template-columns: 1fr; max-width: 360px; margin-left: auto; margin-right: auto; } .hero-contact .hero-title-wrap h1 { font-size: clamp(2rem, 8vw, 2.8rem); } .contact-card { padding: 1rem; gap: 0.8rem; } .contact-card .icon-wrap { width: 40px; height: 40px; } .contact-card .icon-wrap .icon-svg { font-size: 1rem; } .map-container { height: 200px; } }
-        @media (max-width: 640px) { .branches-grid { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; } .tab-buttons { flex-direction: column; gap: 0.3rem; } .tab-btn { width: 100%; justify-content: center; min-width: unset; } .tab-container { padding: 1rem; } .form-group input, .form-group textarea, .form-group select { font-size: 0.85rem; padding: 0.5rem 0.6rem; } }
+        @media (max-width: 640px) { .branches-grid { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; } .tab-buttons { flex-direction: column; gap: 0.3rem; } .tab-btn { width: 100%; justify-content: center; min-width: unset; } .tab-container { padding: 1rem; } .form-group input, .form-group textarea, .form-group select { font-size: 0.85rem; padding: 0.5rem 0.6rem; } .audience-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.35rem; } .audience-card { min-width: 0; min-height: 104px; padding: 0.55rem 0.25rem; flex-direction: column; justify-content: center; text-align: center; gap: 0.35rem; } .audience-card > span:nth-child(2) { min-width: 0; width: 100%; } .audience-card strong { font-size: 0.63rem; line-height: 1.35; word-break: normal; } .audience-card small { font-size: 0.52rem; line-height: 1.3; margin-top: 0.12rem; } .audience-icon { flex-basis: 32px; width: 32px; height: 32px; } .audience-card > .icon-svg:last-child { position: absolute; top: 0.35rem; left: 0.35rem; font-size: 0.65rem; } }
       `}</style>
     </Layout>
   );

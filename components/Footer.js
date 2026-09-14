@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="footer-inner">
         <div className="footer-brand">
-          <h3>جاد الرب</h3>
+          <h3><span>مكتب</span> جاد الرب</h3>
           <p>للمحاماة والاستشارات القانونية</p>
           {/* يقتصر هذا الصف على الشبكات الاجتماعية؛ الهاتف والبريد والخريطة في قسم الاتصال أدناه. */}
           <div className="social">
@@ -43,7 +43,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>جميع الحقوق محفوظة © {new Date().getFullYear()} – جاد الرب للمحاماة والاستشارات القانونية</p>
+        <p>جميع الحقوق محفوظة © {new Date().getFullYear()} – مكتب جاد الرب للمحاماة والاستشارات القانونية</p>
       </div>
     </footer>
   );
