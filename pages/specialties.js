@@ -191,6 +191,7 @@ export default function Specialties() {
 
       <style jsx>{`
         .hero-specialties { padding: 120px 2rem 4rem; background: var(--very-dark-navy); position: relative; overflow: hidden; min-height: 70vh; display: flex; align-items: center; }
+        .hero-specialties::before { content: ''; position: absolute; inset: 0; z-index: 0; background-image: linear-gradient(90deg, rgba(8,20,38,.78) 0%, rgba(8,20,38,.72) 48%, rgba(8,20,38,.48) 100%), url('/specialties-hero.webp'); background-size: cover; background-position: center; opacity: .9; }
         .hero-specialties .hero-pattern { position: absolute; inset: 0; opacity: 0.03; background-image: radial-gradient(circle at 20% 30%, var(--matte-gold) 1px, transparent 1px), radial-gradient(circle at 80% 70%, var(--matte-gold) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
         .hero-specialties .hero-glow { position: absolute; width: 60vw; height: 60vw; border-radius: 50%; background: radial-gradient(circle, rgba(176,141,87,0.04) 0%, transparent 70%); top: -20%; right: -20%; pointer-events: none; animation: orbFloat 20s ease-in-out infinite alternate; }
         .hero-specialties .hero-glow-2 { position: absolute; width: 40vw; height: 40vw; border-radius: 50%; background: radial-gradient(circle, rgba(176,141,87,0.02) 0%, transparent 70%); bottom: -20%; left: -10%; pointer-events: none; animation: orbFloat 25s ease-in-out infinite alternate-reverse; }
