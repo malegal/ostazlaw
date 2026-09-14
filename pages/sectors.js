@@ -8,7 +8,7 @@ export default function Sectors() {
     <Layout>
       <Head>
         <title>القطاعات التي نخدمها | جاد الرب للمحاماة والاستشارات القانونية</title>
-        <meta name="description" content="نقدم خدمات قانونية متخصصة للشركات، المستثمرين، المطورين العقاريين، الجمعيات الأهلية، الأفراد، والورثة. فهم عميق لطبيعة كل قطاع." />
+        <meta name="description" content="نقدم خدمات قانونية متخصصة للشركات، المستثمرين، المطورين العقاريين، الأفراد ومسائل الأحوال الشخصية، مع فهم لطبيعة كل مسألة واحتياج." />
         <link rel="canonical" href="https://ostazlaw.vercel.app/sectors" />
         <meta property="og:title" content="القطاعات التي نخدمها | جاد الرب للمحاماة والاستشارات القانونية" />
         <meta property="og:description" content="خدمات قانونية متخصصة تتناسب مع طبيعة كل قطاع: الشركات، المستثمرون، المطورون العقاريون، الأفراد، والورثة." />
@@ -175,10 +175,11 @@ export default function Sectors() {
             <div className="industry-card gold-underline-card reveal reveal-d3">
               <div className="icon-wrap"><Icon name="user" /></div>
               <h3>الأفراد</h3>
-              <p className="desc">نمثل الأفراد في القضايا المدنية ونقدم استشارات قانونية مخصصة تلبي احتياجاتهم الشخصية باحترافية، سرية، وتخطيط استراتيجي.</p>
+              <p className="desc">نقدم للأفراد استشارات وتمثيلًا قانونيًا في المسائل المدنية والعقارية والأحوال الشخصية، وفق فهم دقيق للوقائع والحقوق والإجراءات المناسبة لكل حالة.</p>
               <ul className="services-list">
                 <li>القضايا المدنية</li><li>مطالبات التعويض</li><li>منازعات العقود</li>
                 <li>منازعات الملكية</li><li>استرداد الديون</li><li>التنفيذ المدني</li>
+                <li>مسائل الأحوال الشخصية</li><li>الحقوق الأسرية</li><li>إجراءات الأسرة</li>
                 <li>الاستشارات القانونية</li><li>صياغة العقود</li><li>تسوية المنازعات</li>
               </ul>
               <Link href="/contact?tab=consult&sector=الأفراد#service-form" className="btn-sm">اطلب استشارة</Link>
