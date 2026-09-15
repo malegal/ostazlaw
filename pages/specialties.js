@@ -14,6 +14,7 @@ export default function Specialties() {
   return (
     <Layout>
       <Head>
+        {/* SEO/AEO: الصفحة بوابة تجميع للتخصصات؛ الصفحات المستقلة مستقبلًا يجب أن ترث نفس الاسم والوصف والروابط الداخلية. */}
         <title>تخصصات قانونية في أسوان | عقارات وعقود ومنازعات – جاد الرب</title>
         <meta name="description" content="تخصصات مكتب جاد الرب للمحاماة في أسوان: المنازعات المدنية والعقارية، العقود والملكية والتسجيل، خدمات الشركات والمستثمرين، والمنازعات الإدارية والعمالية والطعون." />
         <link rel="canonical" href="https://ostazlaw.vercel.app/specialties" />
@@ -122,6 +123,7 @@ export default function Specialties() {
             <p>استعرض الخدمات المرتبطة بكل تخصص، وإذا لم تكن متأكدًا من المجال المناسب، ابدأ باستشارة أولية واشرح لنا ما حدث كما هو.</p>
           </div>
 
+          {/* بيانات التخصصات مركزية هنا حتى تبقى البطاقة، وصفها، خدماتها، وروابط الاستشارة متزامنة. */}
           {[
             { id: 'civil', icon: 'gavel', title: 'المنازعات المدنية والعقارية', desc: 'العقود والملكية والتعويضات والإيجارات والمطالبات المالية', details: 'نساعد الأفراد والشركات في المنازعات المدنية والعقارية بعد دراسة الوقائع والمستندات، وتحديد المركز القانوني والمسار المناسب لكل حالة.', services: ['دعاوى التعويض بجميع أنواعها', 'نزاعات الملكية العقارية والأراضي', 'دعاوى صحة ونفاذ العقود', 'دعاوى الطرد والإيجارات', 'المطالبات المالية والمديونيات'], why: 'نبدأ بفهم الوقائع والأدلة، ثم نوضح الخيارات والإجراءات والمخاطر قبل تحديد الخطوة القانونية المناسبة.' },
             { id: 'commercial', icon: 'balance-scale', title: 'الخدمات القانونية للشركات والمنازعات التجارية', desc: 'العقود التجارية والشراكات والمطالبات والنزاعات', details: 'نساعد الشركات والمنشآت على مراجعة علاقاتها وعقودها، وفهم الالتزامات والمخاطر، والتعامل مع النزاعات التجارية بحسب طبيعة المسألة.', services: ['تأسيس الشركات بجميع أنواعها', 'قضايا الإفلاس والإعسار', 'منازعات الأوراق التجارية', 'قضايا العلامات التجارية', 'التمثيل القانوني للشركات'], why: 'نربط بين فهم النشاط التجاري وقراءة الالتزامات القانونية قبل التوقيع أو عند ظهور النزاع.' },
@@ -136,6 +138,7 @@ export default function Specialties() {
             const isActive = activeSpecialty === spec.id;
             return (
               <div key={spec.id} className={`specialty-card-wrap gold-underline-card ${isActive ? 'active' : ''}`}>
+                {/* رأس البطاقة قابل للوصول بلوحة المفاتيح؛ لا تستبدله بـ div قابل للنقر دون aria-expanded وaria-controls. */}
                 <div className="specialty-card-header" role="button" tabIndex="0" aria-expanded={isActive} aria-controls={`${spec.id}-details`} onClick={() => toggleSpecialty(spec.id)} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleSpecialty(spec.id); } }}>
                   <div className="icon-wrap"><Icon name={spec.icon} /></div>
                   <div className="info">
