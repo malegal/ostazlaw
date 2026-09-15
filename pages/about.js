@@ -23,8 +23,8 @@ export default function About() {
         <title>عن مكتب جاد الرب للمحاماة في أسوان | خبرة مهنية منذ 2005</title>
         <meta name="description" content="تعرّف على مكتب جاد الرب للمحاماة والاستشارات القانونية في أسوان، ونهجه في فهم الوقائع وتحليل المراكز القانونية وحماية مصالح الأفراد والشركات والمستثمرين في مصر." />
         <link rel="canonical" href="https://ostazlaw.vercel.app/about" />
-        <meta property="og:title" content="عنا | جاد الرب للمحاماة والاستشارات القانونية" />
-        <meta property="og:description" content="مكتب محاماة مصري يقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات." />
+        <meta property="og:title" content="عن مكتب جاد الرب للمحاماة في أسوان | خبرة مهنية منذ 2005" />
+        <meta property="og:description" content="تعرّف على مكتب جاد الرب للمحاماة والاستشارات القانونية في أسوان، ونهجه في فهم الوقائع وتحليل المراكز القانونية وحماية مصالح الأفراد والشركات والمستثمرين في مصر." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/about" />
         <meta property="og:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
@@ -64,7 +64,7 @@ export default function About() {
                 "name": "محمود عبد الحميد جاد الرب",
                 "jobTitle": "المحامي بالنقض والدستورية والإدارية العليا",
                 "worksFor": { "@id": "https://ostazlaw.vercel.app/#organization" },
-                "url": "/about",
+                "url": "https://ostazlaw.vercel.app/about",
                 "image": {
                   "@type": "ImageObject",
                   "url": "/mahmoud-abdel-hamid-lawyer-portrait.webp",
@@ -75,7 +75,7 @@ export default function About() {
                 "@type": "AboutPage",
                 "@id": "https://ostazlaw.vercel.app/about#webpage",
                 "url": "https://ostazlaw.vercel.app/about",
-                "name": "عنا",
+                "name": "عن مكتب جاد الرب للمحاماة والاستشارات القانونية",
                 "isPartOf": { "@id": "https://ostazlaw.vercel.app/#website" },
                 "about": { "@id": "https://ostazlaw.vercel.app/#organization" },
                 "primaryImageOfPage": {
@@ -147,7 +147,7 @@ export default function About() {
               </div>
             </div>
             <div className="def-image reveal" style={{ transitionDelay: '0.15s' }}>
-              {/* صورة مكتبة قانونية محلية بدل تكرار صورة المكتب، مع بقاء المصدر داخل المشروع. */}
+              {/* صورة مقر المكتب ضمن قسم الحقائق الأساسية. */}
               <Image
                 src="/about.webp"
                 alt="مقر مكتب جاد الرب للمحاماة في أسوان"
@@ -204,9 +204,9 @@ export default function About() {
               <h3>الأستاذ محمود عبد الحميد جاد الرب</h3>
               <div className="title">المحامي بالنقض والدستورية والإدارية العليا</div>
               <div className="en-title">Founder &amp; Managing Attorney</div>
-              <p>يقود المكتب الأستاذ محمود عبد الحميد جاد الرب، المحامي بالنقض، مستندًا إلى رؤية تؤمن بأن النجاح في العمل القانوني يبدأ قبل قاعة المحكمة؛ من خلال الفهم العميق للوقائع، والتحليل القانوني الدقيق، وبناء استراتيجية مدروسة لكل قضية.</p>
-              <p>ويشرف على أعمال المكتب لضمان الالتزام بأعلى المعايير المهنية، وتقديم خدمات قانونية تتسم بالدقة والشفافية والاحتراف، مع الحرص على بناء علاقة قائمة على الثقة مع كل عميل.</p>
-              <div className="leadership-quote">"نؤمن بأن القرار القانوني الصحيح يبدأ بفهم صحيح للوقائع، وأن أفضل المرافعات هي التي يسبقها أفضل إعداد."</div>
+              <p>يقود المكتب الأستاذ محمود عبد الحميد جاد الرب، المحامي بالنقض والدستورية والإدارية العليا، برؤية مهنية ترى أن العمل القانوني الجيد يبدأ قبل قاعة المحكمة؛ بفهم الوقائع، ودراسة المستندات، وتحليل المركز القانوني، ثم بناء المسار المناسب لكل مسألة.</p>
+              <p>ويشرف على أعمال المكتب بما يضمن وضوح نطاق العمل، ودقة دراسة الملفات، وانتظام متابعة الإجراءات، وحماية سرية معلومات العملاء، مع الحرص على أن يكون التواصل واضحًا وأن يعرف العميل الخطوة التالية في كل مرحلة.</p>
+              <div className="leadership-quote">"لا نبدأ من الإجراء، بل من فهم المسألة؛ فكل قرار قانوني دقيق يحتاج إلى وقائع واضحة، ومستندات مقروءة، وتقدير واعٍ للخيارات."</div>
             </div>
             <div className="leadership-side reveal" style={{ transitionDelay: '0.3s' }}>
               <div className="side-label">لماذا يطمئن عملاؤنا إلى العمل معنا؟</div>
