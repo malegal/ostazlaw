@@ -94,7 +94,6 @@ export default function Contact() {
                 "url": "https://ostazlaw.vercel.app/",
                 "email": "ma.law.firm@outlook.com",
                 "telephone": "+201101076000",
-                "foundingDate": "2005",
                 "areaServed": [
                   { "@type": "City", "name": "أسوان" },
                   { "@type": "Country", "name": "مصر" }

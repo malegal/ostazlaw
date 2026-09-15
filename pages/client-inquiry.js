@@ -66,7 +66,6 @@ export default function ClientInquiry() {
                 "url": "https://ostazlaw.vercel.app/",
                 "email": "ma.law.firm@outlook.com",
                 "telephone": "+201101076000",
-                "foundingDate": "2005",
                 "areaServed": { "@type": "Country", "name": "مصر" },
                 "availableLanguage": ["Arabic", "English"],
                 "sameAs": [

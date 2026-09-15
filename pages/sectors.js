@@ -88,7 +88,6 @@ export default function Sectors() {
               url: 'https://ostazlaw.vercel.app/',
               email: 'ma.law.firm@outlook.com',
               telephone: '+201101076000',
-              foundingDate: '2005',
               areaServed: [{ '@type': 'City', name: 'أسوان' }, { '@type': 'Country', name: 'مصر' }],
               address: { '@type': 'PostalAddress', addressLocality: 'أسوان', addressCountry: 'مصر' },
               sameAs: ['https://www.facebook.com/malegal', 'https://x.com/mahmoud_a_hamyd', 'https://www.linkedin.com/in/mahmoud-abdel-hamid-0a4664374'],

@@ -35,7 +35,7 @@ export default function Home({ articles, news }) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@graph": [
-              { "@type": "LegalService", "@id": "https://ostazlaw.vercel.app/#organization", "name": "مكتب جاد الرب للمحاماة والاستشارات القانونية", "alternateName": "JAD ELRAB", "description": "مكتب محاماة مصري مقره أسوان، يقدم الاستشارات والتمثيل القانوني وصياغة العقود للأفراد والشركات والمستثمرين في مختلف محافظات مصر.", "url": "https://ostazlaw.vercel.app/", "email": "ma.law.firm@outlook.com", "telephone": "+201101076000", "foundingDate": "2005", "areaServed": [{ "@type": "City", "name": "أسوان" }, { "@type": "Country", "name": "مصر" }], "availableLanguage": ["Arabic", "English"], "sameAs": ["https://www.facebook.com/malegal", "https://x.com/mahmoud_a_hamyd", "https://www.linkedin.com/in/mahmoud-abdel-hamid-0a4664374"], "address": { "@type": "PostalAddress", "addressLocality": "أسوان", "addressCountry": "EG" }, "priceRange": "$$" },
+              { "@type": "LegalService", "@id": "https://ostazlaw.vercel.app/#organization", "name": "مكتب جاد الرب للمحاماة والاستشارات القانونية", "alternateName": "JAD ELRAB", "description": "مكتب محاماة مصري مقره أسوان، يقدم الاستشارات والتمثيل القانوني وصياغة العقود للأفراد والشركات والمستثمرين في مختلف محافظات مصر.", "url": "https://ostazlaw.vercel.app/", "email": "ma.law.firm@outlook.com", "telephone": "+201101076000", "areaServed": [{ "@type": "City", "name": "أسوان" }, { "@type": "Country", "name": "مصر" }], "availableLanguage": ["Arabic", "English"], "sameAs": ["https://www.facebook.com/malegal", "https://x.com/mahmoud_a_hamyd", "https://www.linkedin.com/in/mahmoud-abdel-hamid-0a4664374"], "address": { "@type": "PostalAddress", "addressLocality": "أسوان", "addressCountry": "EG" }, "priceRange": "$$" },
               { "@type": "Person", "@id": "https://ostazlaw.vercel.app/#founder", "name": "محمود عبد الحميد جاد الرب", "jobTitle": "المحامي بالنقض والدستورية والإدارية العليا", "worksFor": { "@id": "https://ostazlaw.vercel.app/#organization" }, "url": "/about", "image": { "@type": "ImageObject", "url": "/mahmoud-abdel-hamid-lawyer-portrait.webp", "caption": "الأستاذ محمود عبد الحميد جاد الرب – المحامي بالنقض والدستورية والإدارية العليا" } },
               { "@type": "WebPage", "@id": "https://ostazlaw.vercel.app/#webpage", "url": "https://ostazlaw.vercel.app/", "name": "مكتب محاماة في أسوان – جاد الرب للمحاماة", "description": "خدمات قانونية للأفراد والشركات والمستثمرين في أسوان ومختلف محافظات مصر.", "isPartOf": { "@id": "https://ostazlaw.vercel.app/#website" }, "about": { "@id": "https://ostazlaw.vercel.app/#organization" }, "primaryImageOfPage": { "@type": "ImageObject", "url": "/mahmoud-abdel-hamid-lawyer-portrait.webp", "caption": "الأستاذ محمود عبد الحميد جاد الرب – المحامي بالنقض والدستورية والإدارية العليا" } },
               { "@type": "BreadcrumbList", "@id": "https://ostazlaw.vercel.app/#breadcrumb", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://ostazlaw.vercel.app/" }] },
@@ -120,14 +120,14 @@ export default function Home({ articles, news }) {
           <div className="about-why-grid">
             <div className="about-image reveal">
               <div className="frame"><Image src="/mahmoud-abdel-hamid-lawyer-portrait.webp" alt="الأستاذ محمود عبد الحميد جاد الرب" width={400} height={533} priority className="about-image-inner" /></div>
-              <div className="badge">خبرة قانونية منذ 2005</div>
+              <div className="badge">خبرة مهنية منذ 2005</div>
             </div>
             <div className="about-content reveal">
               <span className="eyebrow">● عن المكتب</span>
               <h2>لا تبدأ كل المسائل القانونية من المحكمة،<br /><span className="gold-text">بل تبدأ أحيانًا من فهم ما لديك</span></h2>
               <p>مكتب جاد الرب للمحاماة والاستشارات القانونية مقره أسوان، وتمتد خدماته إلى العملاء في جميع محافظات مصر. نؤمن بأن دور المحامي لا يبدأ عند وقوع النزاع فقط؛ بل يبدأ قبل ذلك، بمساعدة العميل على فهم موقفه وحماية حقوقه ومصالحه قبل أن تتعقد المسألة أو تنتقل إلى المحكمة.</p>
               <p>ولهذا نبدأ من الوقائع والمستندات، ونقرأ ما قد يترتب على القرار قبل اتخاذه، ثم نوضح الخيارات والخطوة المناسبة. هدفنا أن يحصل العميل على رؤية قانونية عملية تساعده على حماية استثماره وموقفه القانوني، لا على مشورة عامة منفصلة عن واقعه.</p>
-              <p>ومنذ عام <strong>2005</strong>، نعمل وفق هذا النهج، مستندين إلى خبرة عملية وكفاءة في التمثيل القضائي أمام مختلف درجات المحاكم، وصولًا إلى محكمتي النقض والدستورية العليا.</p>
+              <p>وتستند خبرة المكتب منذ عام <strong>2005</strong> إلى ممارسة عملية وكفاءة في التمثيل القضائي أمام مختلف درجات المحاكم، وصولًا إلى محكمة النقض والمحكمة الدستورية العليا.</p>
               <div className="about-why-points">
                 <span className="point"><Icon name="check-circle" /> مشورة قانونية وقائية قبل بدء النزاع أو انتقاله إلى المحكمة.</span>
                 <span className="point"><Icon name="check-circle" /> قراءة دقيقة للوقائع والمستندات ودعم اتخاذ القرار.</span>
