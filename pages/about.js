@@ -130,27 +130,27 @@ export default function About() {
         </div>
       </section>
 
-      <section className="about-definition" aria-label="من نحن">
+      <section className="about-definition" aria-label="حقائق عن المكتب">
         <div className="inner">
           <div className="def-grid">
             <div className="def-text reveal">
-              <span className="eyebrow">● من نحن</span>
-              <h2>مكتب محاماة<br /><span className="gold-text">تُبنى على الفهم والتخطيط</span></h2>
-              <p>وتستند خبرة المكتب منذ عام <strong>2005</strong> إلى تقديم خدمات قانونية واستشارات متخصصة للأفراد والشركات، مع ممارسة قضائية أمام محكمة النقض والمحكمة الدستورية العليا.</p>
-            <p>نؤمن بأن العمل القانوني المتميز يبدأ بفهم عميق للوقائع، ويُبنى على تخطيط دقيق، ويُقاس بحماية مصالح العميل. ولذلك نتعامل مع كل قضية كمسؤولية مستقلة، ندرسها من جميع جوانبها القانونية والواقعية.</p>
-              <p>نخدم الشركات والأفراد على حد سواء، مع التزامنا بالشفافية، والسرية، والدقة، باعتبارها المبادئ التي تقوم عليها علاقتنا مع عملائنا في جمهورية مصر العربية.</p>
+              <span className="eyebrow">● حقائق عن المكتب</span>
+              <h2>مكتب جاد الرب<br /><span className="gold-text">في أسوان ومختلف محافظات مصر</span></h2>
+              <p>مكتب جاد الرب للمحاماة والاستشارات القانونية مقره أسوان، ويقدم خدماته للأفراد والشركات والمستثمرين في مختلف محافظات مصر بحسب طبيعة المسألة والجهة المختصة.</p>
+              <p>تستند خبرة المكتب منذ عام <strong>2005</strong> إلى ممارسة عملية في الاستشارات والتمثيل القضائي، مع اهتمام خاص بالقانون المدني والمنازعات العقارية والعقود والملكية، إلى جانب الخدمات القانونية للشركات والمستثمرين.</p>
+              <p>يقود المكتب الأستاذ محمود عبد الحميد جاد الرب، المحامي بالنقض والدستورية والإدارية العليا، ويعمل المكتب من خلاله على تقديم خدمة قانونية واضحة ومنظمة تبدأ بفهم المسألة قبل تحديد الإجراء المناسب.</p>
               <div className="def-cards">
-                <div className="def-card gold-underline-card"><span className="icon"><Icon name="scale-balanced" /></span><h4>مكتب محاماة</h4></div>
-                <div className="def-card gold-underline-card"><span className="icon"><Icon name="building" /></span><h4>خدمات للشركات والأفراد</h4></div>
-                <div className="def-card gold-underline-card"><span className="icon"><Icon name="shield-alt" /></span><h4>حلول قانونية متخصصة</h4></div>
-                <div className="def-card gold-underline-card"><span className="icon"><Icon name="map-marker-alt" /></span><h4>جمهورية مصر العربية</h4></div>
+                <div className="def-card gold-underline-card"><span className="icon"><Icon name="map-marker-alt" /></span><h4>المقر: أسوان</h4></div>
+                <div className="def-card gold-underline-card"><span className="icon"><Icon name="briefcase" /></span><h4>أفراد وشركات ومستثمرون</h4></div>
+                <div className="def-card gold-underline-card"><span className="icon"><Icon name="gavel" /></span><h4>استشارات وتمثيل قانوني</h4></div>
+                <div className="def-card gold-underline-card"><span className="icon"><Icon name="clock" /></span><h4>خبرة مهنية منذ 2005</h4></div>
               </div>
             </div>
             <div className="def-image reveal" style={{ transitionDelay: '0.15s' }}>
               {/* صورة مكتبة قانونية محلية بدل تكرار صورة المكتب، مع بقاء المصدر داخل المشروع. */}
               <Image
-                src="/image/legal-library.jpg"
-                alt="مكتبة قانونية ورفوف كتب متخصصة"
+                src="/about.webp"
+                alt="مقر مكتب جاد الرب للمحاماة في أسوان"
                 width={800}
                 height={533}
                 className="def-image-inner"
@@ -160,79 +160,27 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section section-gray" aria-label="فلسفتنا">
-        <div className="section-inner">
-          <div className="section-head reveal">
-            <span className="eyebrow">● كيف نفكر؟</span>
-            <h2>فلسفتنا في العمل القانوني</h2>
-            <p>مبادئ توجه منهجنا في التعامل مع كل قضية واستشارة.</p>
-          </div>
-          <div className="philosophy-grid">
-            <div className="philosophy-card gold-underline-card reveal reveal-d1">
-              <span className="icon"><Icon name="search" /></span>
-              <h4>نفهم أولاً</h4>
-              <p>لا نقدم رأيًا قانونيًا قبل دراسة الوقائع وتحليلها بعمق.</p>
+      <section className="section section-gray" aria-label="فلسفة المكتب وتقنية Qayd">
+        <div className="section-inner philosophy-layout">
+          <div className="philosophy-image reveal"><Image src="/image/legal-library.jpg" alt="مكتبة قانونية ورفوف كتب متخصصة" width={800} height={533} className="philosophy-image-inner" /></div>
+          <div className="philosophy-copy">
+            <div className="section-head reveal">
+              <span className="eyebrow">● كيف نفكر؟</span>
+              <h2>فلسفة تقوم على الفهم والتخطيط</h2>
+              <p>نؤمن بأن العمل القانوني الجيد لا يبدأ بالحلول الجاهزة، بل بفهم الوقائع ودراسة المستندات وتقدير الخيارات.</p>
             </div>
-            <div className="philosophy-card gold-underline-card reveal reveal-d2">
-              <span className="icon"><Icon name="microscope" /></span>
-              <h4>نحلل بدقة</h4>
-              <p>كل ملف قانوني يخضع لتحليل مستقل وشامل.</p>
+            <div className="philosophy-grid">
+              <div className="philosophy-card gold-underline-card reveal reveal-d1"><span className="icon"><Icon name="search" /></span><h4>نفهم أولاً</h4><p>نبدأ بالوقائع والمستندات قبل تحديد الرأي أو الإجراء.</p></div>
+              <div className="philosophy-card gold-underline-card reveal reveal-d2"><span className="icon"><Icon name="microscope" /></span><h4>نحلل بدقة</h4><p>ندرس كل ملف باعتباره مسألة مستقلة لها ظروفها وأدلتها.</p></div>
+              <div className="philosophy-card gold-underline-card reveal reveal-d3"><span className="icon"><Icon name="map" /></span><h4>نخطط بوضوح</h4><p>نوضح الخيارات والمخاطر والخطوة المناسبة قبل التنفيذ.</p></div>
+              <div className="philosophy-card gold-underline-card reveal reveal-d4"><span className="icon"><Icon name="gavel" /></span><h4>ننفذ باحتراف</h4><p>نحوّل المسار المتفق عليه إلى إجراء قانوني منظم ومتابعة واضحة.</p></div>
             </div>
-            <div className="philosophy-card gold-underline-card reveal reveal-d3">
-              <span className="icon"><Icon name="map" /></span>
-              <h4>نخطط باستراتيجية</h4>
-              <p>لكل قضية مسار قانوني يناسب طبيعتها وأهدافها.</p>
-            </div>
-            <div className="philosophy-card gold-underline-card reveal reveal-d4">
-              <span className="icon"><Icon name="gavel" /></span>
-              <h4>ننفذ باحتراف</h4>
-              <p>نمثل عملاءنا بأعلى درجات الالتزام والمسؤولية.</p>
-            </div>
+            <div className="beliefs-note reveal"><h3>قيم نلتزم بها</h3><p>الوضوح، والسرية، والدقة، والمسؤولية معايير نحرص على حضورها في الرأي والإجراء والمتابعة.</p><div className="beliefs-list"><span><Icon name="scale-balanced" /> النزاهة والوضوح</span><span><Icon name="lock" /> السرية</span><span><Icon name="crosshairs" /> الدقة</span><span><Icon name="handshake" /> المسؤولية</span></div></div>
+            <div className="qayd-inline reveal"><span className="eyebrow">● التقنية في خدمة العمل القانوني</span><h3>نطور أدواتنا بما يحفظ <span className="gold-text">خصوصية الملفات</span></h3><p>حرصًا على تنظيم أعمال المكتب وحماية بيانات العملاء، طورنا نظام <strong>Qayd</strong> لإدارة الملفات والإجراءات الداخلية، بدل الاعتماد على برامج عامة لا تتناسب بالضرورة مع طبيعة العمل القانوني واحتياجاته.</p><p>يساعد هذا التوجه على تنظيم العمل ومتابعة المستجدات بوضوح، مع بقاء القرار القانوني قائمًا على الفهم المهني للوقائع والمستندات.</p><Link href="/client-inquiry" className="text-link">تابع ملفك عبر الموقع <Icon name="arrow-left" /></Link></div>
           </div>
         </div>
       </section>
 
-      <section className="section section-white" aria-label="قيم المكتب">
-        <div className="section-inner">
-          <div className="section-head reveal">
-            <span className="eyebrow">● قيمنا</span>
-            <h2>القيم التي نرتكز عليها</h2>
-            <p>مبادئ راسخة توجه تعاملنا مع العملاء والقضايا.</p>
-          </div>
-          <div className="values-grid">
-            <div className="value-card gold-underline-card reveal reveal-d1">
-              <span className="icon"><Icon name="scale-balanced" /></span>
-              <h4>النزاهة</h4>
-              <p>الأمانة والوضوح في كل رأي وإجراء.</p>
-            </div>
-            <div className="value-card gold-underline-card reveal reveal-d2">
-              <span className="icon"><Icon name="lock" /></span>
-              <h4>السرية</h4>
-              <p>حماية خصوصية معلومات ووثائق العملاء.</p>
-            </div>
-            <div className="value-card gold-underline-card reveal reveal-d3">
-              <span className="icon"><Icon name="briefcase" /></span>
-              <h4>الاحتراف</h4>
-              <p>أعلى معايير المهنة في كل خدمة نقدمها.</p>
-            </div>
-            <div className="value-card gold-underline-card reveal reveal-d1">
-              <span className="icon"><Icon name="crosshairs" /></span>
-              <h4>الدقة</h4>
-              <p>التحليل والصياغة والمتابعة بدقة متناهية.</p>
-            </div>
-            <div className="value-card gold-underline-card reveal reveal-d2">
-              <span className="icon"><Icon name="handshake" /></span>
-              <h4>المسؤولية</h4>
-              <p>الالتزام تجاه عملائنا وقضاياهم.</p>
-            </div>
-            <div className="value-card gold-underline-card reveal reveal-d3">
-              <span className="icon"><Icon name="book" /></span>
-              <h4>التعلم المستمر</h4>
-              <p>تحديث معرفتنا القانونية باستمرار.</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section className="section section-gray" aria-label="القيادة">
         <div className="section-inner">
@@ -261,15 +209,14 @@ export default function About() {
               <div className="leadership-quote">"نؤمن بأن القرار القانوني الصحيح يبدأ بفهم صحيح للوقائع، وأن أفضل المرافعات هي التي يسبقها أفضل إعداد."</div>
             </div>
             <div className="leadership-side reveal" style={{ transitionDelay: '0.3s' }}>
-              <div className="side-label">الصفة</div>
-              <div className="side-value">النقض والدستورية والإدارية العليا</div>
-              <div className="side-label">مجالات التركيز</div>
-              <div className="side-tags">
-                <span>القانون المدني</span>
-                <span>الشركات</span>
-                <span>العقود</span>
-                <span>التعويضات</span>
-              </div>
+              <div className="side-label">لماذا يطمئن عملاؤنا إلى العمل معنا؟</div>
+              <ul className="leadership-trust-list">
+                <li><Icon name="check-circle" /> فهم الوقائع قبل اقتراح الإجراء.</li>
+                <li><Icon name="check-circle" /> وضوح في الخيارات ونطاق العمل.</li>
+                <li><Icon name="check-circle" /> خبرة مهنية وممارسة قضائية.</li>
+                <li><Icon name="check-circle" /> سرية في التعامل مع المعلومات والوثائق.</li>
+                <li><Icon name="check-circle" /> متابعة منظمة للمستجدات والخطوات التالية.</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -308,25 +255,6 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section section-white qayd-section" aria-label="التقنية وتنظيم العمل القانوني">
-        <div className="section-inner">
-          <div className="qayd-grid">
-            <div className="qayd-copy reveal">
-              <span className="eyebrow">● التقنية في خدمة العمل القانوني</span>
-              <h2>نطور أدواتنا بما يحفظ <span className="gold-text">خصوصية ملفاتنا</span></h2>
-              <p>حرصًا على تنظيم أعمال المكتب وحماية بيانات العملاء، طورنا نظام <strong>Qayd</strong> لإدارة الملفات والإجراءات الداخلية، بدل الاعتماد على برامج عامة لا تتناسب بالضرورة مع طبيعة العمل القانوني واحتياجاته.</p>
-              <p>يأتي ذلك ضمن توجهنا إلى الجمع بين الخبرة القانونية والتنظيم الدقيق، مع تطوير أدوات تساعد العملاء على متابعة مستجدات ملفاتهم بوضوح وسهولة.</p>
-              <div className="qayd-points"><span><Icon name="lock" /> حماية وخصوصية</span><span><Icon name="folder-open" /> تنظيم الملفات</span><span><Icon name="chart-line" /> متابعة أوضح</span></div>
-            </div>
-            <div className="qayd-note reveal" style={{ transitionDelay: '0.15s' }}>
-              <span className="qayd-mark">Q</span>
-              <h3>خطوة تالية لعملائنا</h3>
-              <p>تتم متابعة مستجدات الملفات حاليًا عن طريق موقع المكتب، ونعمل على تطوير تطبيق مخصص لعملاء المكتب يساعدهم على متابعة قضاياهم بصورة أكثر سهولة وتنظيمًا.</p>
-              <Link href="/client-inquiry" className="text-link">تابع ملفك عبر الموقع <Icon name="arrow-left" /></Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section className="section section-gray" aria-label="لماذا يثق بنا عملاؤنا">
         <div className="section-inner">
@@ -401,7 +329,18 @@ export default function About() {
         .about-definition .def-card h4 { font-size: 0.85rem; font-weight: 700; color: var(--charcoal); }
         .about-definition .def-image { border-radius: 12px; overflow: hidden; border: 1px solid rgba(176,141,87,0.1); box-shadow: 0 8px 40px rgba(0,0,0,0.04); }
         .about-definition .def-image :global(img) { width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; display: block; }
-        .philosophy-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .philosophy-layout { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 3rem; align-items: start; }
+        .philosophy-image { border-radius: 12px; overflow: hidden; border: 1px solid rgba(176,141,87,0.1); box-shadow: 0 8px 40px rgba(0,0,0,0.04); position: sticky; top: 100px; }
+        .philosophy-image-inner { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+        .philosophy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        .beliefs-note, .qayd-inline { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(176,141,87,0.18); }
+        .beliefs-note h3, .qayd-inline h3 { color: var(--charcoal); font-size: 1.25rem; font-weight: 900; margin-bottom: 0.4rem; }
+        .beliefs-note p, .qayd-inline p { color: var(--charcoal); font-weight: 700; line-height: 1.8; font-size: 0.9rem; }
+        .beliefs-list { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 0.8rem; }
+        .beliefs-list span { display: inline-flex; align-items: center; gap: 0.35rem; background: var(--pure-white); border: 1px solid rgba(0,0,0,0.05); border-radius: 20px; padding: 0.35rem 0.7rem; color: var(--charcoal); font-size: 0.75rem; font-weight: 700; }
+        .beliefs-list .icon-svg { color: var(--matte-gold); }
+        .qayd-inline .eyebrow { display: block; margin-bottom: 0.35rem; }
+        .qayd-inline .text-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.4rem; }
         .philosophy-card { background: var(--pure-white); padding: 1.8rem 1.4rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.04); transition: all 0.4s var(--ease-out); box-shadow: 0 2px 10px rgba(0,0,0,0.02); text-align: center; cursor: default; position: relative; }
         .philosophy-card::after { content: ''; position: absolute; bottom: 0; right: 0; width: 0; height: 2px; background: var(--matte-gold); transition: width 0.6s var(--ease-out); }
         .philosophy-card:hover::after { width: 100%; }
@@ -426,7 +365,10 @@ export default function About() {
         .leadership-content .en-title { font-size: 0.7rem; font-weight: 300; color: rgba(34,34,34,0.4); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.8rem; }
         .leadership-content p { color: var(--charcoal); font-weight: 700; line-height: 1.8; font-size: 0.95rem; margin-bottom: 0.6rem; }
         .leadership-side { background: var(--light-gray); padding: 1.8rem 1.4rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.04); }
-        .leadership-side .side-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(34,34,34,0.3); margin-bottom: 0.3rem; }
+        .leadership-side .side-label { font-size: 0.8rem; font-weight: 800; color: var(--charcoal); margin-bottom: 0.8rem; }
+        .leadership-trust-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
+        .leadership-trust-list li { display: flex; align-items: flex-start; gap: 0.5rem; color: var(--charcoal); font-size: 0.82rem; font-weight: 700; line-height: 1.55; }
+        .leadership-trust-list .icon-svg { color: var(--matte-gold); flex-shrink: 0; margin-top: 0.15rem; }
         .leadership-side .side-value { font-size: 1rem; font-weight: 700; color: var(--charcoal); margin-bottom: 1rem; }
         .leadership-side .side-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
         .leadership-side .side-tags span { background: var(--pure-white); padding: 0.2rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 300; color: rgba(34,34,34,0.6); border: 1px solid rgba(0,0,0,0.04); }
@@ -464,8 +406,8 @@ export default function About() {
         .cta-final h2 { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 900; color: #fff; margin-bottom: 0.5rem; }
         .cta-final p { max-width: 640px; margin: 0.4rem auto 2rem; color: rgba(255,255,255,0.7); font-weight: 500; font-size: 1rem; line-height: 1.8; }
         .cta-final .cta-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
-        @media (max-width: 1024px) { .philosophy-grid { grid-template-columns: repeat(2, 1fr); } .values-grid { grid-template-columns: repeat(2, 1fr); } .trust-grid { grid-template-columns: repeat(2, 1fr); } .gallery-grid { grid-template-columns: repeat(2, 1fr); } .leadership-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } .leadership-side { grid-column: span 2; } .about-definition .def-grid { gap: 2rem; } .hero-about .hero-grid { gap: 2rem; } }
-        @media (max-width: 820px) { .hero-about .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; } .hero-about .hero-title-wrap { text-align: center; } .hero-about .hero-title-wrap .sub { margin-left: auto; margin-right: auto; } .about-definition .def-grid { grid-template-columns: 1fr; gap: 2.5rem; } .about-definition .def-cards { grid-template-columns: 1fr 1fr; } .hero-about { padding: 100px 1rem 3rem; min-height: auto; } .philosophy-grid { grid-template-columns: 1fr 1fr; } .values-grid { grid-template-columns: 1fr 1fr; } .trust-grid { grid-template-columns: 1fr 1fr; } .qayd-grid { grid-template-columns: 1fr; } .leadership-grid { grid-template-columns: 1fr; gap: 1.5rem; } .leadership-side { grid-column: span 1; } .leadership-image :global(img) { max-width: 280px; margin: 0 auto; } }
+        @media (max-width: 1024px) { .philosophy-layout { gap: 2rem; } .philosophy-grid { grid-template-columns: repeat(2, 1fr); } .values-grid { grid-template-columns: repeat(2, 1fr); } .trust-grid { grid-template-columns: repeat(2, 1fr); } .gallery-grid { grid-template-columns: repeat(2, 1fr); } .leadership-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } .leadership-side { grid-column: span 2; } .about-definition .def-grid { gap: 2rem; } .hero-about .hero-grid { gap: 2rem; } }
+        @media (max-width: 820px) { .hero-about .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; } .hero-about .hero-title-wrap { text-align: center; } .hero-about .hero-title-wrap .sub { margin-left: auto; margin-right: auto; } .about-definition .def-grid { grid-template-columns: 1fr; gap: 2.5rem; } .about-definition .def-cards { grid-template-columns: 1fr 1fr; } .hero-about { padding: 100px 1rem 3rem; min-height: auto; } .philosophy-layout { grid-template-columns: 1fr; } .philosophy-image { position: static; max-width: 680px; margin: 0 auto; } .philosophy-grid { grid-template-columns: 1fr 1fr; } .values-grid { grid-template-columns: 1fr 1fr; } .trust-grid { grid-template-columns: 1fr 1fr; } .qayd-grid { grid-template-columns: 1fr; } .leadership-grid { grid-template-columns: 1fr; gap: 1.5rem; } .leadership-side { grid-column: span 1; } .leadership-image :global(img) { max-width: 280px; margin: 0 auto; } }
         @media (max-width: 640px) { .philosophy-grid { grid-template-columns: 1fr; } .values-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; } .trust-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; } .gallery-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; } .about-definition .def-cards { grid-template-columns: 1fr; max-width: 280px; margin: 0 auto; } .hero-about .hero-title-wrap h1 { font-size: clamp(2rem, 8vw, 2.8rem); } .cta-final .cta-actions { flex-direction: column; align-items: center; } .cta-final .cta-actions .btn-gold, .cta-final .cta-actions .btn-outline-white { width: 100%; max-width: 300px; text-align: center; } .leadership-quote { padding: 1rem 1.2rem; font-size: 1rem; } .founder-message { padding: 3rem 1rem; } .founder-message blockquote { font-size: 1rem; } }
       `}</style>
     </Layout>
