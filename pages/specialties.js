@@ -14,11 +14,11 @@ export default function Specialties() {
   return (
     <Layout>
       <Head>
-        <title>التخصصات القانونية | جاد الرب للمحاماة والاستشارات القانونية</title>
-        <meta name="description" content="خبرة قانونية منذ 2005 في المنازعات المدنية، التجارية، العمالية، الإدارية، قضايا الأسرة، الدفاع الجنائي، والطعن الدستوري، والنقض، والطعون الإدارية." />
+        <title>تخصصات قانونية في أسوان | عقارات وعقود ومنازعات – جاد الرب</title>
+        <meta name="description" content="تخصصات مكتب جاد الرب للمحاماة في أسوان: المنازعات المدنية والعقارية، العقود والملكية والتسجيل، خدمات الشركات والمستثمرين، والمنازعات الإدارية والعمالية والطعون." />
         <link rel="canonical" href="https://ostazlaw.vercel.app/specialties" />
-        <meta property="og:title" content="التخصصات القانونية | جاد الرب للمحاماة والاستشارات القانونية" />
-        <meta property="og:description" content="خدمات قانونية متكاملة في المنازعات المدنية، التجارية، العمالية، الإدارية، قضايا الأسرة، والدفاع الجنائي، والطعن الدستوري، والنقض، والطعون الإدارية." />
+        <meta property="og:title" content="تخصصات قانونية في أسوان | عقارات وعقود ومنازعات – جاد الرب" />
+        <meta property="og:description" content="تعرف على تخصصات جاد الرب في المنازعات المدنية والعقارية، العقود، الملكية والتسجيل، خدمات الشركات والمستثمرين والطعون." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/specialties" />
         <meta property="og:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
@@ -35,12 +35,12 @@ export default function Specialties() {
                 "@id": "https://ostazlaw.vercel.app/#organization",
                 "name": "جاد الرب للمحاماة والاستشارات القانونية",
                 "alternateName": "JAD ELRAB",
-                "description": "مكتب محاماة مصرية تقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات.",
+                "description": "مكتب محاماة مصري يقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات والمستثمرين.",
                 "url": "https://ostazlaw.vercel.app/",
                 "email": "ma.law.firm@outlook.com",
                 "telephone": "+201101076000",
                 "foundingDate": "2005",
-                "areaServed": { "@type": "Country", "name": "مصر" },
+                "areaServed": [{ "@type": "City", "name": "أسوان" }, { "@type": "Country", "name": "مصر" }],
                 "availableLanguage": ["Arabic", "English"],
                 "sameAs": [
                   "https://www.facebook.com/malegal",
@@ -80,7 +80,7 @@ export default function Specialties() {
                 "@id": "https://ostazlaw.vercel.app/#website",
                 "name": "جاد الرب للمحاماة والاستشارات القانونية",
                 "url": "https://ostazlaw.vercel.app/",
-                "description": "مكتب محاماة مصرية تقدم خدمات المحاماة والاستشارات القانونية."
+                "description": "مكتب محاماة مصري يقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات والمستثمرين."
               }
             ]
           })
@@ -93,9 +93,9 @@ export default function Specialties() {
         <div className="hero-glow-2"></div>
         <div className="hero-inner">
           <div className="hero-title-wrap reveal">
-            <span className="en-tag">Our Legal Specialties</span>
-            <h1>التخصصات <span className="gold-text">القانونية</span></h1>
-            <p className="sub">خبرة قانونية تمتد منذ 2005 في حل المنازعات المدنية والتجارية والعمالية والإدارية، وقضايا الأسرة، والدفاع الجنائي، والطعن الدستوري، والنقض، والطعون الإدارية العليا.</p>
+            <span className="en-tag">مجالات العمل القانوني</span>
+            <h1>تخصصات قانونية <span className="gold-text">تبدأ من فهم المسألة</span></h1>
+            <p className="sub">نساعد الأفراد والشركات والمستثمرين على فهم مواقفهم القانونية في العقود والعقارات والمنازعات والاستثمارات. اختر المجال الأقرب إلى مسألتك، أو أرسل لنا ملخصًا عنها إذا لم تكن متأكدًا من التصنيف المناسب.</p>
           </div>
           <div className="hero-badges">
             <span className="hero-badge">المنازعات المدنية</span>
@@ -119,32 +119,32 @@ export default function Specialties() {
           <div className="section-head reveal">
             <span className="eyebrow">● تخصصاتنا</span>
             <h2>مجالات الممارسة والخبرة القانونية</h2>
-            <p>تعرف على مجالاتنا، واختر التخصص الأقرب إلى طبيعة مسألتك واحتياجك القانوني.</p>
+            <p>استعرض الخدمات المرتبطة بكل تخصص، وإذا لم تكن متأكدًا من المجال المناسب، ابدأ باستشارة أولية واشرح لنا ما حدث كما هو.</p>
           </div>
 
           {[
-            { id: 'civil', icon: 'gavel', title: 'المنازعات المدنية', desc: 'حلول قانونية للنزاعات المالية والعقارية', details: 'نحن نتفهم أن المنازعات المدنية قد تستنزف وقتك وجهدك ومالك. لهذا نضع خبرتنا التي تمتد منذ 2005 بين يديك، لنقدم دفاعاً قانونياً قوياً وحلولاً مبتكرة.', services: ['دعاوى التعويض بجميع أنواعها', 'نزاعات الملكية العقارية والأراضي', 'دعاوى صحة ونفاذ العقود', 'دعاوى الطرد والإيجارات', 'المطالبات المالية والمديونيات'], why: 'نضع استراتيجيات تقاضي مدروسة، ونمتلك خبرة واسعة في إدارة الأدلة وتقديم المرافعات القوية.' },
-            { id: 'commercial', icon: 'balance-scale', title: 'المنازعات التجارية', desc: 'حماية مصالحك التجارية والشركات', details: 'العالم التجاري مليء بالفرص، لكنه أيضاً مليء بالتحديات القانونية. نحن هنا لحماية عملك واستثماراتك من أي نزاعات.', services: ['تأسيس الشركات بجميع أنواعها', 'قضايا الإفلاس والإعسار', 'منازعات الأوراق التجارية', 'قضايا العلامات التجارية', 'التمثيل القانوني للشركات'], why: 'نفهم تعقيدات القوانين التجارية ونمتلك شبكة علاقات واسعة تمكننا من حل النزاعات بسرعة وحكمة.' },
-            { id: 'family', icon: 'users', title: 'قضايا الأسرة والأحوال الشخصية', desc: 'حلول رحيمة وخصوصية تامة', details: 'قضايا الأسرة هي الأكثر حساسية في حياتنا. نتعامل معها بكل رحمة وحكمة، ونقدم لك الدعم القانوني والنفسي الذي تحتاجه.', services: ['دعاوى الطلاق والخلع والفسخ', 'قضايا النفقة بأنواعها', 'دعاوى الرؤية والحضانة', 'إعلام الوراثة وتقسيم التركات', 'تصحيح أسماء ووثائق الزواج'], why: 'نهجنا حساس ويحترم خصوصيتك. لدينا خبرة عميقة في قضايا الأسرة وفقاً للشريعة والقانون المصري.' },
-            { id: 'criminal', icon: 'shield-alt', title: 'الدفاع الجنائي', desc: 'نحمي حقوقك وكرامتك', details: 'الاتهام الجنائي هو من أصعب اللحظات التي قد تمر بها. نحن هنا للدفاع عنك بكل قوة، نستمع لك، ندرس أدلة الاتهام بدقة، ونضع استراتيجية دفاع قوية.', services: ['الدفاع في قضايا الجنايات الكبرى', 'الدفاع في الجنح والمخالفات', 'إعداد مذكرات الطعن بالنقض الجنائي', 'قضايا الأموال العامة والرشوة', 'حضور التحقيقات أمام النيابة العامة'], why: 'لدينا فهم دقيق لآليات النظام الجنائي المصري، ونعرف كيف نفنّد الأدلة ونكشف نقاط الضعف في الاتهام.' },
-            { id: 'admin', icon: 'building', title: 'المنازعات الإدارية', desc: 'نواجه الحكومة نيابة عنك', details: 'عندما تواجه قراراً إدارياً جائراً أو تتعرض لظلم من جهة حكومية، فإننا نضع خبرتنا في القانون الإداري بين يديك.', services: ['الطعن بإلغاء القرارات الإدارية', 'دعاوى التعويض ضد الجهات الحكومية', 'قضايا الموظفين العموميين', 'منازعات العقود الإدارية', 'تنفيذ الأحكام الصادرة ضد الدولة'], why: 'خبرة طويلة في التعامل مع الأجهزة الحكومية ومجلس الدولة، ونعرف خبايا القانون الإداري المصري.' },
-            { id: 'contracts', icon: 'file-contract', title: 'صياغة العقود', desc: 'نحميك قبل وقوع النزاع', details: 'العقد الجيد هو خط الدفاع الأول عن حقوقك. نحن نصيغ عقودك بدقة قانونية متناهية، نغلق كل الثغرات التي قد يستغلها الطرف الآخر.', services: ['صياغة عقود البيع والشراء', 'صياغة عقود الشراكة والاستثمار', 'مراجعة العقود وتعديلها', 'صياغة مذكرات التفاهم واتفاقيات عدم الإفصاح', 'التفاوض نيابة عنك قبل التوقيع'], why: 'دقتنا في الصياغة وخبرتنا في توقع الثغرات القانونية تجعل عقودك درعاً حصيناً يحمي حقوقك ومصالحك.' },
+            { id: 'civil', icon: 'gavel', title: 'المنازعات المدنية والعقارية', desc: 'العقود والملكية والتعويضات والإيجارات والمطالبات المالية', details: 'نساعد الأفراد والشركات في المنازعات المدنية والعقارية بعد دراسة الوقائع والمستندات، وتحديد المركز القانوني والمسار المناسب لكل حالة.', services: ['دعاوى التعويض بجميع أنواعها', 'نزاعات الملكية العقارية والأراضي', 'دعاوى صحة ونفاذ العقود', 'دعاوى الطرد والإيجارات', 'المطالبات المالية والمديونيات'], why: 'نبدأ بفهم الوقائع والأدلة، ثم نوضح الخيارات والإجراءات والمخاطر قبل تحديد الخطوة القانونية المناسبة.' },
+            { id: 'commercial', icon: 'balance-scale', title: 'الخدمات القانونية للشركات والمنازعات التجارية', desc: 'العقود التجارية والشراكات والمطالبات والنزاعات', details: 'نساعد الشركات والمنشآت على مراجعة علاقاتها وعقودها، وفهم الالتزامات والمخاطر، والتعامل مع النزاعات التجارية بحسب طبيعة المسألة.', services: ['تأسيس الشركات بجميع أنواعها', 'قضايا الإفلاس والإعسار', 'منازعات الأوراق التجارية', 'قضايا العلامات التجارية', 'التمثيل القانوني للشركات'], why: 'نربط بين فهم النشاط التجاري وقراءة الالتزامات القانونية قبل التوقيع أو عند ظهور النزاع.' },
+            { id: 'family', icon: 'users', title: 'قضايا الأسرة والأحوال الشخصية', desc: 'إجراءات وحقوق أسرية مع احترام الخصوصية', details: 'نتعامل مع مسائل الأحوال الشخصية بحساسية واحترام للخصوصية، ونوضح الإجراءات والحقوق والخيارات القانونية وفق وقائع كل حالة.', services: ['دعاوى الطلاق والخلع والفسخ', 'قضايا النفقة بأنواعها', 'دعاوى الرؤية والحضانة', 'إعلام الوراثة وتقسيم التركات', 'تصحيح أسماء ووثائق الزواج'], why: 'نشرح المسألة القانونية والإجراءات المرتبطة بها بوضوح، مع مراعاة خصوصية كل حالة.' },
+            { id: 'criminal', icon: 'shield-alt', title: 'الدفاع الجنائي', desc: 'دراسة الاتهام والأدلة والإجراءات وسبل الدفاع', details: 'ندرس ملف الاتهام والأدلة والإجراءات، ونوضح الموقف القانوني وسبل الدفاع المتاحة وفق طبيعة القضية ومرحلتها.', services: ['الدفاع في قضايا الجنايات الكبرى', 'الدفاع في الجنح والمخالفات', 'إعداد مذكرات الطعن بالنقض الجنائي', 'قضايا الأموال العامة والرشوة', 'حضور التحقيقات أمام النيابة العامة'], why: 'نعتمد على دراسة ملف القضية وتقييم الأدلة والإجراءات قبل تحديد نطاق العمل والدفاع المناسب.' },
+            { id: 'admin', icon: 'building', title: 'المنازعات الإدارية', desc: 'حماية الحقوق في مواجهة القرارات والإجراءات الإدارية', details: 'ندرس القرارات والإجراءات الإدارية، ونوضح مدى مشروعيتها وطرق التظلم والطعن والتعويض بحسب طبيعة المسألة والجهة المختصة.', services: ['الطعن بإلغاء القرارات الإدارية', 'دعاوى التعويض ضد الجهات الحكومية', 'قضايا الموظفين العموميين', 'منازعات العقود الإدارية', 'تنفيذ الأحكام الصادرة ضد الدولة'], why: 'نراجع القرار والمستندات والمواعيد والإجراءات قبل تحديد الطريق القانوني الأنسب.' },
+            { id: 'contracts', icon: 'file-contract', title: 'صياغة ومراجعة العقود', desc: 'فهم الالتزامات والمخاطر قبل التوقيع', details: 'نراجع العقد ونوضح الالتزامات والمخاطر والنقاط التي تحتاج إلى تعديل قبل التوقيع، أو نصوغ الاتفاق بما يناسب طبيعة العلاقة والهدف منها.', services: ['صياغة عقود البيع والشراء', 'صياغة عقود الشراكة والاستثمار', 'مراجعة العقود وتعديلها', 'صياغة مذكرات التفاهم واتفاقيات عدم الإفصاح', 'التفاوض نيابة عنك قبل التوقيع'], why: 'نركز على وضوح الالتزامات وآليات التنفيذ والجزاءات والإنهاء وتسوية النزاع، وفق طبيعة كل عقد.' },
             { id: 'labor', icon: 'briefcase', title: 'المنازعات العمالية', desc: 'نحمي حقوقك في العمل', details: 'العلاقة بين العامل وصاحب العمل قد تشهد توترات ونزاعات. نحن هنا لضمان حقوقك العمالية الكاملة.', services: ['دعاوى الفصل التعسفي', 'المطالبة بالمستحقات العمالية', 'صياغة لوائح العمل الداخلية', 'التحقيق الإداري مع الموظفين', 'إصابات العمل والتأمين الاجتماعي'], why: 'نفهم قانون العمل المصري جيداً، ونمتلك خبرة في قضايا العمال والموظفين، مما يضمن لك دفاعاً قوياً وعادلاً.' },
             { id: 'arbitration', icon: 'hand-holding-usd', title: 'التحكيم والوساطة', desc: 'حلول سريعة وودية', details: 'ليس كل نزاع يحتاج إلى معركة قضائية طويلة. نقدم لك بدائل فعالة لحل النزاعات بسرعة وسرية، من خلال التحكيم والوساطة.', services: ['صياغة شرط التحكيم في العقود', 'التمثيل في هيئات التحكيم', 'تنفيذ أحكام المحكمين', 'الوساطة الودية لتسوية النزاعات', 'دعاوى بطلان حكم التحكيم'], why: 'خبرة واسعة في إجراءات التحكيم المحلي والدولي، نضمن لك سير العملية بسلاسة ووصولاً إلى حل عادل وسريع.' },
             { id: 'appeals', icon: 'university', title: 'الطعون ودرجات التقاضي العليا', desc: 'خبرة في النقض والطعون الإدارية والمسائل الدستورية', details: 'تتطلب الطعون أمام محكمة النقض والمحكمة الإدارية العليا، وكذلك المسائل الدستورية، قراءة دقيقة للحكم وأسبابه والنصوص والإجراءات والمواعيد. ندرس المسألة قبل تحديد مدى ملاءمة الطعن وأسبابه وشروطه.', services: ['إعداد ومراجعة الطعون بالنقض المدنية والجنائية', 'تمثيل العملاء أمام محكمة النقض', 'إعداد الطعون أمام المحكمة الإدارية العليا', 'التمثيل والمتابعة أمام الإدارية العليا', 'إقامة الدعاوى والمسائل الدستورية', 'منازعات التنفيذ أمام المحكمة الدستورية', 'تفسير النصوص وفحص مدى دستوريتها'], why: 'يجمع هذا المجال بين الفهم الدقيق لأحكام النقض والقضاء الإداري والمبادئ الدستورية، مع عناية خاصة بالشروط الشكلية والموضوعية لكل طريق من طرق الطعن.' }
           ].map(spec => {
             const isActive = activeSpecialty === spec.id;
             return (
-              <div key={spec.id} className={`specialty-card-wrap gold-underline-card ${isActive ? 'active' : ''}`} onClick={() => toggleSpecialty(spec.id)}>
-                <div className="specialty-card-header">
+              <div key={spec.id} className={`specialty-card-wrap gold-underline-card ${isActive ? 'active' : ''}`}>
+                <div className="specialty-card-header" role="button" tabIndex="0" aria-expanded={isActive} aria-controls={`${spec.id}-details`} onClick={() => toggleSpecialty(spec.id)} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleSpecialty(spec.id); } }}>
                   <div className="icon-wrap"><Icon name={spec.icon} /></div>
                   <div className="info">
                     <h3>{spec.title}</h3>
                     <p>{spec.desc}</p>
                   </div>
-                  <span className="toggle-icon"><Icon name="chevron-down" /></span>
+                  <span className="toggle-label">{isActive ? 'إخفاء التفاصيل' : 'استعرض الخدمات'}</span><span className="toggle-icon"><Icon name="chevron-down" /></span>
                 </div>
-                <div className="specialty-details" aria-hidden={!isActive}>
+                <div id={`${spec.id}-details`} className="specialty-details" aria-hidden={!isActive}>
                   <p className="desc">{spec.details}</p>
                   <div className="detail-grid">
                     <div className="detail-col">
@@ -179,9 +179,9 @@ export default function Specialties() {
       <section className="cta-section" aria-label="طلب استشارة">
         <div className="section-inner reveal">
           <span className="eyebrow" style={{ display: 'block', fontSize: '0.65rem', fontWeight: '800', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--matte-gold)', opacity: '0.5', marginBottom: '0.3rem' }}>● تواصل معنا</span>
-          <h2>لم تجد مسألتك القانونية؟</h2>
-          <p>فريقنا القانوني المتخصص يقدم استشارات دقيقة في كافة التخصصات. تواصل معنا الآن.</p>
-          <Link href="/contact?tab=consult#service-form" className="btn-gold">طلب استشارة قانونية <Icon name="arrow-left" style={{ marginRight: '8px' }} /></Link>
+          <h2>لست متأكدًا من التخصص المناسب؟</h2>
+          <p>أرسل ملخصًا لما حدث، وسنبدأ بفهم المسألة وتحديد المجال القانوني الأقرب والخطوة التالية المناسبة، دون التزام.</p>
+          <Link href="/contact?tab=consult#service-form" className="btn-gold">ابدأ استشارتك المجانية <Icon name="arrow-left" style={{ marginRight: '8px' }} /></Link>
         </div>
       </section>
 
@@ -201,13 +201,14 @@ export default function Specialties() {
         .hero-specialties .hero-title-wrap h1 .gold-text { color: var(--matte-gold); }
         .hero-specialties .hero-title-wrap .sub { font-size: clamp(1rem, 1.3vw, 1.2rem); font-weight: 400; color: rgba(255,255,255,0.5); max-width: 700px; margin: 0.8rem auto 0; line-height: 1.7; }
         .hero-specialties .hero-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 1.8rem; }
-        .hero-specialties .hero-badge { border: 1px solid rgba(176,141,87,0.06); background: rgba(176,141,87,0.015); padding: 4px 16px; border-radius: 50px; font-size: 0.55rem; font-weight: 600; color: rgba(255,255,255,0.25); letter-spacing: 0.04em; transition: all 0.4s var(--ease-out); cursor: default; }
+        .hero-specialties .hero-badge { border: 1px solid rgba(176,141,87,0.28); background: rgba(176,141,87,0.06); padding: 0.4rem 0.85rem; border-radius: 50px; font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.78); letter-spacing: 0; transition: all 0.4s var(--ease-out); cursor: default; }
         .hero-specialties .hero-badge:hover { border-color: rgba(176,141,87,0.2); color: var(--matte-gold); }
         .hero-specialties .hero-cta { text-align: center; margin-top: 2rem; }
         .specialty-card-wrap { margin-bottom: 1.2rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.04); background: var(--pure-white); box-shadow: 0 2px 10px rgba(0,0,0,0.02); overflow: hidden; transition: all 0.4s var(--ease-out); cursor: pointer; }
         .specialty-card-wrap:hover { border-color: var(--matte-gold); box-shadow: 0 8px 30px rgba(0,0,0,0.04); }
         .specialty-card-wrap.active { border-color: var(--matte-gold); box-shadow: 0 8px 30px rgba(176,141,87,0.04); }
-        .specialty-card-header { display: flex; align-items: center; gap: 1.2rem; padding: 1.2rem 1.6rem; transition: background 0.3s ease; background: var(--pure-white); position: relative; }
+        .specialty-card-header { display: flex; align-items: center; gap: 1.2rem; padding: 1.2rem 1.6rem; transition: background 0.3s ease; background: var(--pure-white); position: relative; outline: none; }
+        .specialty-card-header:focus-visible { box-shadow: inset 0 0 0 3px rgba(176,141,87,0.55); }
         .specialty-card-header::after { content: ''; position: absolute; bottom: 0; right: 0; width: 0; height: 2px; background: var(--matte-gold); transition: width 0.6s var(--ease-out); }
         .specialty-card-wrap:hover .specialty-card-header::after, .specialty-card-wrap.active .specialty-card-header::after { width: 100%; }
         .specialty-card-wrap.active .specialty-card-header { background: rgba(176,141,87,0.02); }
@@ -218,7 +219,8 @@ export default function Specialties() {
         .specialty-card-header .info { flex: 1; }
         .specialty-card-header .info h3 { font-size: 1.05rem; font-weight: 700; color: var(--charcoal); margin-bottom: 0.1rem; }
         .specialty-card-header .info p { font-size: 0.8rem; color: var(--charcoal); font-weight: 700; margin: 0; }
-        .specialty-card-header .toggle-icon { font-size: 0.8rem; color: var(--matte-gold); opacity: 0.3; transition: transform 0.4s var(--ease-out); flex-shrink: 0; }
+        .specialty-card-header .toggle-label { font-size: 0.72rem; color: var(--matte-gold); opacity: 0.75; white-space: nowrap; }
+        .specialty-card-header .toggle-icon { font-size: 0.8rem; color: var(--matte-gold); opacity: 0.5; transition: transform 0.4s var(--ease-out); flex-shrink: 0; }
         .specialty-card-wrap.active .specialty-card-header .toggle-icon { transform: rotate(180deg); opacity: 0.8; }
         .specialty-details { display: none; padding: 0 1.6rem; }
         .specialty-card-wrap.active .specialty-details { display: block; padding: 0 1.6rem 1.8rem; animation: specialtyReveal .35s ease-out both; }
@@ -238,8 +240,8 @@ export default function Specialties() {
         .cta-section h2 { font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 900; color: var(--charcoal); }
         .cta-section p { max-width: 640px; margin: 0.4rem auto 1.8rem; color: var(--charcoal); font-weight: 700; font-size: 0.95rem; line-height: 1.8; }
         @media (max-width: 820px) { .hero-specialties { padding: 100px 1rem 3rem; min-height: auto; } .specialty-details .detail-grid { grid-template-columns: 1fr; } .specialty-card-header { padding: 1rem 1.2rem; gap: 0.8rem; } .specialty-card-wrap.active .specialty-details { padding: 0 1.2rem 1.2rem; } .specialty-details .detail-cta { flex-direction: column; align-items: stretch; } }
-        @media (max-width: 640px) { .hero-specialties .hero-title-wrap h1 { font-size: clamp(2rem, 8vw, 2.8rem); } .hero-specialties .hero-badges { gap: 0.3rem; } .hero-specialties .hero-badge { font-size: 0.45rem; padding: 3px 10px; } .specialty-card-header .info h3 { font-size: 0.9rem; } .specialty-card-header .info p { font-size: 0.7rem; } .specialty-card-header .icon-wrap { width: 40px; height: 40px; } .specialty-card-header .icon-wrap .icon-svg { font-size: 1rem; } .cta-section { padding: 2.5rem 1rem; } }
-        @media (max-width: 400px) { .hero-specialties .hero-badges { gap: 0.2rem; } .hero-specialties .hero-badge { font-size: 0.4rem; padding: 2px 8px; } }
+        @media (max-width: 640px) { .hero-specialties .hero-title-wrap h1 { font-size: clamp(2rem, 8vw, 2.8rem); } .hero-specialties .hero-badges { gap: 0.35rem; } .hero-specialties .hero-badge { font-size: 0.7rem; padding: 0.35rem 0.7rem; } .specialty-card-header .info h3 { font-size: 0.9rem; } .specialty-card-header .info p { font-size: 0.7rem; } .specialty-card-header .icon-wrap { width: 40px; height: 40px; } .specialty-card-header .icon-wrap .icon-svg { font-size: 1rem; } .specialty-card-header .toggle-label { font-size: 0.62rem; } .cta-section { padding: 2.5rem 1rem; } }
+        @media (max-width: 400px) { .hero-specialties .hero-badges { gap: 0.25rem; } .hero-specialties .hero-badge { font-size: 0.68rem; padding: 0.3rem 0.6rem; } }
       `}</style>
     </Layout>
   );

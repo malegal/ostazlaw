@@ -58,7 +58,7 @@ export default function Header() {
           <Link href="/">الرئيسية</Link>
           <Link href="/about">عن المكتب</Link>
           <Link href="/specialties">التخصصات</Link>
-          <Link href="/sectors">قطاعات نخدمها</Link>
+          <Link href="/sectors">خدماتنا</Link>
           {/* تم دمج الأخبار والمكتبة في صفحة واحدة لتقليل تشتت المحتوى مع الحفاظ على مساري المحتوى التفصيليين. */}
           <Link href="/news-archive">الأخبار والمكتبة</Link>
           {/* رابط واضح لصفحة الأسئلة الشائعة الجديدة ضمن التنقل الرئيسي. */}
@@ -66,6 +66,7 @@ export default function Header() {
           <Link href="/contact">تواصل معنا</Link>
         </nav>
         <div className="header-actions">
+          <Link href="/contact?tab=consult#service-form" className="header-consult-link">استشارة مجانية</Link>
           <Link href="/client-inquiry" className="header-track-link">تابع ملفك</Link>
           {/* الهاتف ظاهر في سطح المكتب كإجراء مباشر؛ على الهاتف ينتقل إلى زر عائم لتجنب ازدحام الهيدر. */}
           <a href="tel:+201101076000" className="header-phone" aria-label="اتصل بجاد الرب على الرقم +20 110 107 6000">
@@ -86,12 +87,13 @@ export default function Header() {
           <Link href="/" onClick={closeMenu}>الرئيسية</Link>
           <Link href="/about" onClick={closeMenu}>عن المكتب</Link>
           <Link href="/specialties" onClick={closeMenu}>التخصصات</Link>
-          <Link href="/sectors" onClick={closeMenu}>قطاعات نخدمها</Link>
+          <Link href="/sectors" onClick={closeMenu}>خدماتنا</Link>
           {/* توحيد قائمة الهاتف مع الترويسة الرئيسية بعد دمج الأخبار والمكتبة. */}
           <Link href="/news-archive" onClick={closeMenu}>الأخبار والمكتبة</Link>
           {/* توحيد قائمة الهاتف مع قائمة سطح المكتب وإتاحة صفحة FAQ. */}
           <Link href="/faq" onClick={closeMenu}>الأسئلة الشائعة</Link>
           <Link href="/contact" onClick={closeMenu}>تواصل معنا</Link>
+          <Link href="/contact?tab=consult#service-form" className="mobile-consult-link" onClick={closeMenu}>ابدأ استشارتك المجانية</Link>
           <Link href="/client-inquiry" className="mobile-track-link" onClick={closeMenu}><Icon name="folder-open" /> تابع ملفك</Link>
         </nav>
       </div>

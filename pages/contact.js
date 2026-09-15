@@ -152,8 +152,8 @@ export default function Contact() {
         <div className="hero-inner">
           <div className="hero-title-wrap reveal">
             <span className="en-tag">Contact Us</span>
-            <h1>تواصل <span className="gold-text">معنا</span></h1>
-            <p className="sub">نحن هنا للاستماع إليك والدفاع عن حقوقك. اختر الطريقة الأنسب للتواصل معنا.</p>
+            <h1>ابدأ بخطوة <span className="gold-text">واضحة</span></h1>
+            <p className="sub">استشارة أولية مجانية لفهم مسألتك وتحديد الخطوة التالية — للأفراد والشركات والمستثمرين في أسوان ومختلف محافظات مصر.</p>
           </div>
         </div>
       </section>
@@ -232,8 +232,9 @@ export default function Contact() {
               <div id="service-form" className="contact-form-shell" style={{ scrollMarginTop: '96px' }}>
                 <div className="form-intro">
                   <span className="form-kicker">الخطوة الأولى</span>
-                  <h2>لنبدأ من فهم احتياجك</h2>
-                  <p>اختر الفئة الأقرب إليك، وسنوجّهك إلى البيانات المناسبة وطريقة التواصل الأسرع.</p>
+                  <h2>اعرض مسألتك في استشارة أولية مجانية</h2>
+                  <p>اختر الفئة الأقرب إليك، واكتب ما حدث بكلماتك. سنبدأ من الوقائع ونوجّهك إلى البيانات وطريقة التواصل الأنسب.</p>
+                  <div className="consultation-scope-note"><Icon name="shield-alt" /><span><strong>ما الذي يشمله العرض؟</strong> فهم أولي للوقائع وتحديد المسار المناسب. لا تشمل الاستشارة المجانية إعداد مذكرات أو مراجعة ملفات مطولة أو التمثيل القضائي.</span></div>
                 </div>
 
                 <form id="serviceForm" onSubmit={handleSubmit} className="contact-form">
@@ -341,6 +342,9 @@ export default function Contact() {
         .form-kicker { color: var(--matte-gold); font-size: 0.7rem; font-weight: 900; letter-spacing: 0.18em; text-transform: uppercase; }
         .form-intro h2 { color: var(--charcoal); font-size: clamp(1.6rem, 3vw, 2.25rem); margin: 0.35rem 0 0.45rem; font-family: var(--font-serif, Georgia, serif); }
         .form-intro p { color: var(--charcoal); font-size: 0.85rem; font-weight: 700; line-height: 1.8; max-width: 560px; margin: 0; }
+        .consultation-scope-note { display: flex; align-items: flex-start; gap: 0.55rem; margin-top: 1rem; padding: 0.75rem 0.9rem; border-right: 3px solid var(--matte-gold); border-radius: 7px; background: rgba(176,141,87,0.07); color: var(--charcoal); font-size: 0.76rem; font-weight: 700; line-height: 1.8; }
+        .consultation-scope-note .icon-svg { flex: 0 0 auto; margin-top: 0.25rem; color: var(--matte-gold); }
+        .consultation-scope-note strong { color: var(--very-dark-navy); }
         .form-step { border: 0; padding: 0; margin: 0 0 1.8rem; min-width: 0; }
         .form-step legend { width: 100%; display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.9rem; color: var(--charcoal); }
         .form-step legend strong, .form-step legend small { display: block; }

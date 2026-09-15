@@ -1,3 +1,18 @@
+@font-face {
+    font-family: 'IBM Plex Sans Arabic';
+    src: url('/fonts/ibm-plex-sans-arabic-regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'IBM Plex Sans Arabic';
+    src: url('/fonts/ibm-plex-sans-arabic-bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700 900;
+    font-display: swap;
+}
+
 /* ==========================================================
    ROOT – الهوية المؤسسية (المتغيرات العامة)
    ========================================================== */
@@ -331,6 +346,23 @@ button {
     font-size: 0.95rem;
     letter-spacing: 0.02em;
 }
+.hero-offer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    width: min(100%, 560px);
+    margin: 1.15rem auto 0;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(176, 141, 87, 0.45);
+    border-radius: 8px;
+    background: rgba(8, 20, 38, 0.45);
+    color: rgba(255, 255, 255, 0.76);
+    font-family: var(--font-body-ar);
+    font-size: 0.78rem;
+    line-height: 1.7;
+}
+.hero-offer strong { color: var(--matte-gold); font-size: 0.95rem; }
+.hero-offer span { color: rgba(255, 255, 255, 0.64); }
 /* لا نعيد تعريف hover هنا؛ لذلك تظل ألوان وتأثيرات btn-outline-gold الحالية محفوظة بالكامل. */
 
 .btn-outline-white {
@@ -552,6 +584,24 @@ button {
     display: flex;
     align-items: center;
     gap: 0.6rem;
+}
+.header-consult-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.48rem 0.85rem;
+    border-radius: 5px;
+    background: var(--matte-gold);
+    color: var(--very-dark-navy);
+    font-size: 0.76rem;
+    font-weight: 900;
+    white-space: nowrap;
+    transition: transform 0.25s ease, background-color 0.25s ease;
+}
+.header-consult-link:hover,
+.header-consult-link:focus-visible {
+    background: #d1ad70;
+    color: var(--very-dark-navy);
+    transform: translateY(-1px);
 }
 .header-phone {
     /* رقم الهاتف إجراء مباشر على سطح المكتب، ويُستبدل بزر اتصال عائم على الهاتف. */
@@ -804,20 +854,27 @@ button {
 }
 
 .hero-value {
-    max-width: 720px;
-    margin: 1.5rem auto 0;
-    font-size: clamp(1rem, 1.1vw, 1.15rem);
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.9;
+    max-width: 800px;
+    margin: 1rem auto 0;
+    font-size: clamp(1.7rem, 3.2vw, 2.55rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.35;
     font-family: var(--font-body-ar);
+}
+.hero-consultation-note {
+    margin: 0.65rem auto 0;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+    font-weight: 700;
+    line-height: 1.7;
 }
 .hero-protection-message {
     max-width: 800px;
     margin: 1.35rem auto 0;
     color: var(--matte-gold);
     font-family: var(--font-serif);
-    font-size: clamp(1.7rem, 3.4vw, 2.65rem);
+    font-size: clamp(1.55rem, 3vw, 2.35rem);
     font-weight: 900;
     line-height: 1.45;
     text-shadow: 0 2px 18px rgba(0, 0, 0, 0.28);
@@ -2226,6 +2283,9 @@ button {
    RESPONSIVE – التجاوب مع جميع أحجام الشاشات
    ========================================================== */
 @media (max-width: 1024px) {
+    .header-consult-link {
+        display: none;
+    }
     .practice-grid {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -2587,4 +2647,15 @@ button {
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
+}
+.mobile-consult-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    background: var(--matte-gold);
+    color: var(--very-dark-navy) !important;
+    font-weight: 900;
 }
