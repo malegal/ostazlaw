@@ -20,7 +20,7 @@ export default function Footer() {
           <Link href="/">الرئيسية</Link>
           <Link href="/about">عن المكتب</Link>
           <Link href="/specialties">التخصصات</Link>
-          <Link href="/sectors">قطاعات نخدمها</Link>
+          <Link href="/sectors">خدماتنا</Link>
           {/* رابط واحد للمحتوى التحريري بعد دمج صفحتي الأخبار والمكتبة. */}
           <Link href="/news-archive">الأخبار والمكتبة</Link>
           {/* رابط مباشر لصفحة الأسئلة الشائعة المستقلة. */}

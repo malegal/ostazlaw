@@ -44,8 +44,8 @@ const paths = [
     alt: 'مكتب هادئ يحتوي على ملف قانوني ومفتاح عقار ومستندات',
     icon: 'user',
     label: 'فرد',
-    title: 'مسائل شخصية تحتاج إلى فهم قانوني واضح',
-    description: 'نبدأ مع الأفراد من فهم الوقائع والحقوق، سواء تعلقت المسألة بعقار أو عقد أو مطالبة أو مسألة من مسائل الأحوال الشخصية.',
+    title: 'كل نزاع أو خلاف يبدأ بفهم قانوني واضح',
+    description: 'نبدأ مع الأفراد من فهم الوقائع والحقوق، سواء تعلقت المسألة بعقار أو عقد أو مطالبة أو نزاع أو مسألة من مسائل الأحوال الشخصية.',
     topics: [
       ['العقارات والملكية', 'العقارات والملكية'],
       ['العقود والاتفاقات', 'عقد أو اتفاق'],
@@ -66,11 +66,11 @@ export default function Sectors() {
   return (
     <Layout>
       <Head>
-        <title>قطاعات ومسائل نخدمها | مكتب جاد الرب للمحاماة في أسوان</title>
-        <meta name="description" content="مكتب جاد الرب للمحاماة والاستشارات القانونية في أسوان يقدم خدماته للشركات والمؤسسات، والمستثمرين ورجال الأعمال، والأفراد، بما في ذلك العقارات والعقود والأحوال الشخصية في مختلف محافظات مصر." />
+        <title>خدمات قانونية للأفراد والشركات والمستثمرين في أسوان | جاد الرب</title>
+        <meta name="description" content="خدمات مكتب جاد الرب للمحاماة في أسوان للأفراد والشركات ورجال الأعمال، وتشمل العقود والعقارات والمنازعات المدنية والاستثمار والشراكات والخدمات القانونية للأعمال في مختلف محافظات مصر." />
         <link rel="canonical" href="https://ostazlaw.vercel.app/sectors" />
-        <meta property="og:title" content="قطاعات ومسائل نخدمها | مكتب جاد الرب للمحاماة في أسوان" />
-        <meta property="og:description" content="تعرف على المسار القانوني الأقرب إلى احتياجك: شركة أو مؤسسة، رجل أعمال أو مستثمر، أو فرد." />
+        <meta property="og:title" content="خدمات قانونية للأفراد والشركات والمستثمرين في أسوان | جاد الرب" />
+        <meta property="og:description" content="تعرف على خدمات جاد الرب في العقود والعقارات والمنازعات المدنية والاستثمار والشراكات والخدمات القانونية للأعمال." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/sectors" />
         <meta property="og:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
@@ -88,7 +88,7 @@ export default function Sectors() {
               email: 'ma.law.firm@outlook.com',
               telephone: '+201101076000',
               foundingDate: '2005',
-              areaServed: { '@type': 'Country', name: 'مصر' },
+              areaServed: [{ '@type': 'City', name: 'أسوان' }, { '@type': 'Country', name: 'مصر' }],
               address: { '@type': 'PostalAddress', addressLocality: 'أسوان', addressCountry: 'مصر' },
               sameAs: ['https://www.facebook.com/malegal', 'https://x.com/mahmoud_a_hamyd', 'https://www.linkedin.com/in/mahmoud-abdel-hamid-0a4664374'],
             },
@@ -96,14 +96,15 @@ export default function Sectors() {
               '@type': 'CollectionPage',
               '@id': 'https://ostazlaw.vercel.app/sectors#webpage',
               url: 'https://ostazlaw.vercel.app/sectors',
-              name: 'قطاعات ومسائل نخدمها',
-              description: 'المسارات القانونية التي يقدمها مكتب جاد الرب للشركات والمستثمرين والأفراد.',
+              name: 'خدمات قانونية للأفراد والشركات والمستثمرين',
+              description: 'خدمات جاد الرب للمحاماة في العقود والعقارات والمنازعات المدنية والاستثمار والشراكات والخدمات القانونية للأعمال.',
               isPartOf: { '@id': 'https://ostazlaw.vercel.app/#website' },
               about: { '@id': 'https://ostazlaw.vercel.app/#organization' },
             },
             {
               '@type': 'FAQPage',
               mainEntity: [
+                { '@type': 'Question', name: 'ما الخدمات القانونية التي يقدمها مكتب جاد الرب؟', acceptedAnswer: { '@type': 'Answer', text: 'يقدم المكتب خدمات قانونية للأفراد والشركات ورجال الأعمال في العقود والعقارات والمنازعات المدنية والاستثمار والشراكات والخدمات القانونية للأعمال، بحسب طبيعة كل مسألة.' } },
                 { '@type': 'Question', name: 'هل يقدم مكتب جاد الرب خدمات قانونية في مسائل الأحوال الشخصية؟', acceptedAnswer: { '@type': 'Answer', text: 'نعم، يدرس المكتب مسائل الأحوال الشخصية والحقوق الأسرية والإجراءات المرتبطة بها وفق طبيعة كل حالة ووقائعها ومستنداتها.' } },
                 { '@type': 'Question', name: 'هل تقتصر خدمات مكتب جاد الرب على أسوان؟', acceptedAnswer: { '@type': 'Answer', text: 'مقر المكتب في أسوان، وتمتد خدماته إلى العملاء في مختلف محافظات مصر بحسب طبيعة المسألة والجهة المختصة.' } },
                 { '@type': 'Question', name: 'هل يمكن طلب استشارة قبل بدء النزاع؟', acceptedAnswer: { '@type': 'Answer', text: 'نعم، يبدأ المكتب بفهم المسألة وتقدير المخاطر وتحديد الخطوة القانونية المناسبة قبل أن يتحول الخلاف إلى نزاع متكامل متى كان ذلك ممكنًا.' } },
@@ -119,28 +120,28 @@ export default function Sectors() {
         <div className="hero-inner">
           <div className="hero-title-wrap reveal">
             <span className="en-tag">LEGAL PATHS</span>
-            <h1>أينما تبدأ مسألتك، <span className="gold-text">نبدأ بفهمها</span></h1>
-            <p className="sub">يقدم مكتب جاد الرب للمحاماة والاستشارات القانونية خدماته من مقره في أسوان إلى مختلف محافظات مصر، عبر مسار واضح للشركات والمؤسسات، والمستثمرين ورجال الأعمال، والأفراد.</p>
+            <h1>مهما كانت قضيتك أو مشكلتك القانونية، <span className="gold-text">فنحن معك</span></h1>
+            <p className="sub">من مقرنا في أسوان، نقدم خدمات قانونية للأفراد والشركات ورجال الأعمال في مختلف محافظات مصر، ونساعدك على فهم المسألة واختيار الخطوة المناسبة.</p>
           </div>
-          <div className="hero-cta reveal"><Link href="/contact#service-form" className="btn-gold">اختر المسار الأقرب إليك <Icon name="arrow-left" style={{ marginRight: '8px' }} /></Link></div>
+          <div className="hero-cta reveal"><Link href="/contact?tab=consult#service-form" className="btn-gold">ابدأ باستشارة أولية مجانية <Icon name="arrow-left" style={{ marginRight: '8px' }} /></Link></div>
         </div>
       </section>
 
       <section className="section section-light sectors-intro">
         <div className="section-inner">
           <div className="intro-layout reveal">
-            <div><span className="eyebrow">● كيف نبدأ</span><h2>لا تحتاج إلى معرفة المصطلح القانوني المناسب</h2></div>
-            <p>يكفي أن تشرح ما حدث وما تريد الوصول إليه. نساعدك على تحديد المسار القانوني الأقرب، ثم نوجهك إلى نموذج تواصل مهيأ للفئة والموضوع الذي اخترته.</p>
+            <div><span className="eyebrow">● كيف نساعدك</span><h2>لا تحتاج إلى معرفة المصطلح القانوني المناسب</h2></div>
+            <p>يكفي أن تشرح ما حدث وما تريد الوصول إليه. نعرّفك بالخدمات الأقرب إلى احتياجك، ثم نوجهك إلى طريقة التواصل المناسبة دون تعقيد.</p>
           </div>
         </div>
       </section>
 
-      <section className="section section-gray" aria-label="المسارات القانونية">
+      <section className="section section-gray" aria-label="الخدمات القانونية للأفراد والشركات والمستثمرين">
         <div className="section-inner">
-          <div className="section-head reveal"><span className="eyebrow">● اختر مسارك</span><h2>ثلاثة مسارات، وكل مسألة لها بداية</h2><p>اختر الفئة الأقرب إلى وضعك، أو ابدأ مباشرة من الموضوع الذي تريد مناقشته.</p></div>
+          <div className="section-head reveal"><span className="eyebrow">● خدماتنا</span><h2>تعرّف على خدماتنا للأفراد والشركات ورجال الأعمال</h2><p>نساعد الأفراد والشركات ورجال الأعمال على فهم مواقفهم القانونية، وحماية حقوقهم ومصالحهم، واتخاذ خطوات أكثر وضوحًا في العقود والعقارات والاستثمارات والمنازعات.</p></div>
           <div className="path-grid">
             {paths.map((path, index) => (
-              <article className={`path-card reveal reveal-d${(index % 3) + 1}`} key={path.id}>
+              <article id={path.id} className={`path-card reveal reveal-d${(index % 3) + 1}`} key={path.id}>
                 <div className="path-image-wrap"><img src={path.image} alt={path.alt} loading="lazy" /><div className="path-image-overlay" /></div>
                 <div className="path-card-body">
                   <div className="path-icon"><Icon name={path.icon} /></div>
@@ -150,7 +151,7 @@ export default function Sectors() {
                   <ul className="topic-links">
                     {path.topics.map(([label, specialty]) => <li key={specialty}><Link href={contactHref(path.id, specialty)}><Icon name="check-circle" /> <span>{label}</span></Link></li>)}
                   </ul>
-                  <Link href={contactHref(path.id, path.label)} className="path-cta">اعرض مسألتك <Icon name="arrow-left" /></Link>
+                  <Link href={contactHref(path.id, path.label)} className="path-cta">تواصل معنا بشأن هذه المسألة <Icon name="arrow-left" /></Link>
                 </div>
               </article>
             ))}
@@ -171,6 +172,7 @@ export default function Sectors() {
         <div className="section-inner">
           <div className="section-head reveal"><span className="eyebrow">● أسئلة شائعة</span><h2>إجابات قبل أن تبدأ</h2></div>
           <div className="faq-grid">
+            <div className="faq-card reveal"><h3>ما الخدمات القانونية التي يقدمها المكتب؟</h3><p>يقدم المكتب خدمات للأفراد والشركات ورجال الأعمال في العقود والعقارات والمنازعات المدنية والاستثمار والشراكات والخدمات القانونية للأعمال، بحسب طبيعة كل مسألة.</p></div>
             <div className="faq-card reveal"><h3>هل يقدم المكتب خدمات في الأحوال الشخصية؟</h3><p>نعم، يدرس المكتب مسائل الأحوال الشخصية والحقوق الأسرية والإجراءات المرتبطة بها وفق طبيعة كل حالة.</p></div>
             <div className="faq-card reveal reveal-d1"><h3>هل تقتصر الخدمات على أسوان؟</h3><p>مقر المكتب في أسوان، وتمتد خدماته إلى مختلف محافظات مصر بحسب طبيعة المسألة والجهة المختصة.</p></div>
             <div className="faq-card reveal reveal-d2"><h3>هل يمكن طلب استشارة قبل النزاع؟</h3><p>نعم، يبدأ العمل بفهم المخاطر وتحديد الخطوة المناسبة قبل تحول الخلاف إلى نزاع متكامل متى كان ذلك ممكنًا.</p></div>
