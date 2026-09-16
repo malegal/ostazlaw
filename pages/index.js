@@ -77,14 +77,19 @@ export default function Home({ articles, news }) {
           <p className="hero-subtitle">محمود عبد الحميد جاد الرب<br />المحامي بالنقض والدستورية والإدارية العليا</p>
           <p className="hero-protection-message">نحمي حقوقك ومصالحك، ونساعدك على تفادي النزاع قبل أن يبدأ.</p>
 
+          {/* جملة دعم قرار قصيرة، ملاصقة للزر مباشرة بدل أن تكون سطرًا مستقلًا في وسط الهيرو. */}
+          <p className="hero-value" style={{ color: '#FFFFFF', fontSize: '15px', fontWeight: 500, margin: '0 0 10px' }}>
+            لا تتخذ قرارك القانوني وحدك
+          </p>
+
           <div className="hero-actions">
             <Link href="/contact?tab=consult#service-form" className="btn-gold hero-consultation-cta">ابدأ استشارتك المجانية</Link>
           </div>
           <div className="section-cta"><Link href="/client-inquiry" className="btn-outline-gold case-tracking-cta">عميل حالي؟ تابع ملفك</Link></div>
 
-          {/* شريط الثقة الثلاثي مدمج في سطر واحد أسفل الهيرو مباشرة بدل قسم منفصل بثلاث كتل،
-              بخط واضح (لا تعتيم قوي) حتى يبقى مقروءًا بسهولة. */}
-          <p className="hero-trust-line" style={{ fontSize: '14px', color: 'inherit', opacity: 0.85, marginTop: '18px' }}>
+          {/* شريط الثقة الثلاثي مدمج في سطر واحد أسفل الهيرو مباشرة بدل قسم منفصل بثلاث كتل.
+              لون أبيض صريح (لا "inherit") لضمان ظهوره فوق خلفية الهيرو الغامقة. */}
+          <p className="hero-trust-line" style={{ fontSize: '14px', color: '#FFFFFF', opacity: 0.85, marginTop: '18px' }}>
             <span>خبرة عملية منذ 2005</span>
             <span aria-hidden="true"> · </span>
             <span>فهم للمخاطر قبل الالتزام</span>
