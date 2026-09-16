@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Layout from '../components/Layout';
 import Link from 'next/link';
 import Head from 'next/head';
@@ -7,106 +6,6 @@ import { getAllArticles, getAllNews } from '../lib/github';
 import ArticleCard from '../components/ArticleCard';
 import NewsCard from '../components/NewsCard';
 import Icon from '../components/Icon';
-
-// أداة تصنيف تفاعلية في الهيرو: تحل محل الشرح النصي بفعل يقوم به الزائر.
-// الفئات ومعانيها الافتراضية مطابقة حرفيًا لنصوص قسم "خدماتنا" (client-segments-grid)
-// أسفل هذه الصفحة، ولروابط /sectors#business و /sectors#investor و /sectors#individual
-// الموجودة أصلاً، حتى لا يتكرر محتوى مختلف الصياغة عن نفس الفئات.
-const TRIAGE_OPTIONS = [
-  {
-    key: 'individual',
-    label: 'فرد',
-    icon: 'user',
-    result: 'مسألتك الأقرب: العقود، الملكية، الإيجارات، والمطالبات المدنية.',
-  },
-  {
-    key: 'business',
-    label: 'شركة',
-    icon: 'building',
-    result: 'مسألتك الأقرب: العقود التجارية، الحوكمة، والشراكات.',
-  },
-  {
-    key: 'investor',
-    label: 'مستثمر',
-    icon: 'chart-pie',
-    result: 'مسألتك الأقرب: مراجعة الاتفاقيات وتقييم المخاطر قبل الاستثمار.',
-  },
-];
-
-function HeroTriage() {
-  const [selected, setSelected] = useState(null);
-  const active = TRIAGE_OPTIONS.find((o) => o.key === selected) || null;
-
-  return (
-    <div className="hero-triage" role="group" aria-label="تصنيف مسألتك القانونية">
-      <p className="hero-triage-title">ما مسألتك القانونية؟</p>
-      <p className="hero-triage-hint">اختر الأقرب، واحصل فورًا على الخطوة المناسبة</p>
-
-      <div
-        className="hero-triage-options"
-        style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', margin: '12px 0' }}
-      >
-        {TRIAGE_OPTIONS.map((option) => {
-          const isActive = option.key === selected;
-          return (
-            <button
-              key={option.key}
-              type="button"
-              onClick={() => setSelected(option.key)}
-              aria-pressed={isActive}
-              aria-label={`عرض المسائل الأقرب لفئة ${option.label}`}
-              style={{
-                flex: '1 1 90px',
-                minWidth: '90px',
-                minHeight: '44px',
-                padding: '10px 8px',
-                borderRadius: '8px',
-                border: isActive ? '2px solid #B08D57' : '1px solid rgba(11,27,43,0.2)',
-                background: isActive ? 'rgba(176,141,87,0.12)' : 'transparent',
-                color: isActive ? '#8a6a3a' : 'inherit',
-                fontSize: '13px',
-                fontWeight: 500,
-                cursor: 'pointer',
-              }}
-            >
-              <Icon name={option.icon} />
-              <span style={{ display: 'block', marginTop: '4px' }}>{option.label}</span>
-            </button>
-          );
-        })}
-      </div>
-
-      {active && (
-        <div
-          className="hero-triage-result"
-          style={{
-            background: 'rgba(176,141,87,0.1)',
-            borderRadius: '8px',
-            padding: '10px 12px',
-            fontSize: '13px',
-            marginBottom: '12px',
-          }}
-        >
-          <p style={{ margin: 0, marginBottom: '8px' }}>{active.result}</p>
-          <Link
-            href={`/contact?tab=consult&category=${active.key}#service-form`}
-            className="btn-gold hero-consultation-cta"
-          >
-            استشارة مجانية
-          </Link>
-        </div>
-      )}
-
-      {!active && (
-        <div className="hero-actions">
-          <Link href="/contact?tab=consult#service-form" className="btn-gold hero-consultation-cta">
-            ابدأ استشارتك المجانية
-          </Link>
-        </div>
-      )}
-    </div>
-  );
-}
 
 export default function Home({ articles, news }) {
   const latestArticles = articles && articles.length > 0 ? articles.slice(0, 3) : [];
@@ -167,9 +66,9 @@ export default function Home({ articles, news }) {
         }} />
       </Head>
 
-      {/* الهيرو: عنوان واحد + سطر قيمة مدمج + أداة تصنيف تفاعلية تحل محل الشرح النصي المطوّل.
-          النصوص المحذوفة من هنا ("لا تتخذ قرارك القانوني وحدك" و"لفهم المسألة...") انتقل معناها
-          إلى عنوان/سطر مساعد أداة HeroTriage أعلاه، ولم تُحذف من الموقع بل أعيدت صياغتها هناك. */}
+      {/* الهيرو: عنوان واحد + سطر قيمة مدمج + زر إجراء واحد. بلا أي عناصر تفاعلية إضافية،
+          وبلا أي أنماط inline على النص الرئيسي حتى يبقى الخط بنفس وضوح النسخة الأصلية
+          (نفس الكلاسات hero-title / hero-subtitle / hero-protection-message كما كانت). */}
       <section className="hero" aria-label="الرسالة الرئيسية">
         <div className="hero-bg"><div className="glow"></div><div className="glow-2"></div></div>
         <div className="hero-content">
@@ -178,15 +77,14 @@ export default function Home({ articles, news }) {
           <p className="hero-subtitle">محمود عبد الحميد جاد الرب<br />المحامي بالنقض والدستورية والإدارية العليا</p>
           <p className="hero-protection-message">نحمي حقوقك ومصالحك، ونساعدك على تفادي النزاع قبل أن يبدأ.</p>
 
-          <HeroTriage />
-
+          <div className="hero-actions">
+            <Link href="/contact?tab=consult#service-form" className="btn-gold hero-consultation-cta">ابدأ استشارتك المجانية</Link>
+          </div>
           <div className="section-cta"><Link href="/client-inquiry" className="btn-outline-gold case-tracking-cta">عميل حالي؟ تابع ملفك</Link></div>
 
-          {/* شريط الثقة الثلاثي دُمج في سطر واحد أسفل الهيرو مباشرة بدل قسم منفصل بثلاث كتل. */}
-          <p
-            className="hero-trust-line"
-            style={{ fontSize: '13px', opacity: 0.75, marginTop: '16px' }}
-          >
+          {/* شريط الثقة الثلاثي مدمج في سطر واحد أسفل الهيرو مباشرة بدل قسم منفصل بثلاث كتل،
+              بخط واضح (لا تعتيم قوي) حتى يبقى مقروءًا بسهولة. */}
+          <p className="hero-trust-line" style={{ fontSize: '14px', color: 'inherit', opacity: 0.85, marginTop: '18px' }}>
             <span>خبرة عملية منذ 2005</span>
             <span aria-hidden="true"> · </span>
             <span>فهم للمخاطر قبل الالتزام</span>
