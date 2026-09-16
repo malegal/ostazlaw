@@ -60,24 +60,31 @@ export default function Header() {
           <Link href="/specialties">التخصصات</Link>
           <Link href="/sectors">خدماتنا</Link>
           {/* تم دمج الأخبار والمكتبة في صفحة واحدة لتقليل تشتت المحتوى مع الحفاظ على مساري المحتوى التفصيليين. */}
-          <Link href="/news-archive">الأخبار والمكتبة</Link>
+          <Link href="/news-archive"><span className="desktop-nav-label-full">الأخبار والمكتبة</span><span className="desktop-nav-label-short">المكتبة</span></Link>
           {/* رابط واضح لصفحة الأسئلة الشائعة الجديدة ضمن التنقل الرئيسي. */}
           <Link href="/faq">الأسئلة الشائعة</Link>
-          <Link href="/contact">تواصل معنا</Link>
+          <Link href="/contact"><span className="desktop-nav-label-full">تواصل معنا</span><span className="desktop-nav-label-short">تواصل</span></Link>
         </nav>
         <div className="header-actions">
           <Link href="/contact?tab=consult#service-form" className="header-consult-link">استشارة مجانية</Link>
-          <Link href="/client-inquiry" className="header-track-link">تابع ملفك</Link>
-          {/* الهاتف ظاهر في سطح المكتب كإجراء مباشر؛ على الهاتف ينتقل إلى زر عائم لتجنب ازدحام الهيدر. */}
-          <a href="tel:+201101076000" className="header-phone" aria-label="اتصل بجاد الرب على الرقم +20 110 107 6000">
+          <Link href="/client-inquiry" className="header-track-link"><Icon name="user" /> تابع ملفك</Link>
+          {/* الهاتف يصبح أيقونة مساعدة بجوار الاستشارة على سطح المكتب، وتظهر نسخة مختصرة منه على الهاتف. */}
+          <a href="tel:+201101076000" className="header-phone" aria-label="اتصال هاتفي" title="اتصال هاتفي">
             <Icon name="phone" />
             <span dir="ltr">+20 110 107 6000</span>
           </a>
+          <a href="tel:+201101076000" className="header-mobile-phone" aria-label="اتصال هاتفي" title="اتصال هاتفي"><Icon name="phone" /></a>
           <button ref={menuToggleRef} className="menu-toggle" onClick={toggleMenu} aria-label="فتح القائمة" aria-expanded={menuOpen} aria-controls="mobile-navigation">
             <Icon name="bars-staggered" />
           </button>
         </div>
       </header>
+
+      {/* إجراءان ثابتان للهاتف فقط؛ يحافظان على الوصول إلى الاستشارة والملف أثناء التصفح. */}
+      <nav className="mobile-action-bar" aria-label="إجراءات سريعة">
+        <Link href="/contact?tab=consult#service-form" className="mobile-action-primary">استشارة مجانية</Link>
+        <Link href="/client-inquiry" className="mobile-action-secondary"><Icon name="user" /> تابع ملفك</Link>
+      </nav>
 
       <div id="mobile-navigation" className={`mobile-menu ${menuOpen ? 'open' : ''}`} ref={menuRef} role="dialog" aria-modal="true" aria-label="قائمة التنقل">
         <button className="mobile-menu-close" onClick={closeMenu} aria-label="إغلاق القائمة">

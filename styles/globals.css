@@ -97,6 +97,10 @@ body {
     direction: rtl;
 }
 
+@media (max-width: 767px) {
+    body { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
+}
+
 .app-shell {
     font-family: var(--font-body-ar);
 }
@@ -547,7 +551,7 @@ button {
 .header-nav {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.35rem;
 }
 .header-nav a {
     font-size: 0.8rem;
@@ -581,6 +585,8 @@ button {
     color: #fff;
 }
 
+.desktop-nav-label-short { display: none; }
+
 .header-actions {
     display: flex;
     align-items: center;
@@ -605,13 +611,16 @@ button {
     transform: translateY(-1px);
 }
 .header-phone {
-    /* رقم الهاتف إجراء مباشر على سطح المكتب، ويُستبدل بزر اتصال عائم على الهاتف. */
+    /* رقم الهاتف يظهر كأيقونة مساعدة بجوار الاستشارة على سطح المكتب. */
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
-    padding: 0.45rem 0.75rem;
-    border: 1px solid rgba(176, 141, 87, 0.65);
-    border-radius: 0.35rem;
+    width: 44px;
+    height: 44px;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
     color: var(--matte-gold);
     font-size: 0.72rem;
     font-weight: 700;
@@ -626,15 +635,17 @@ button {
     color: var(--very-dark-navy);
 }
 .header-phone .icon-svg {
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
+.header-phone span { display: none; }
+.header-mobile-phone { display: none; }
 .header-track-link {
     display: inline-flex;
     align-items: center;
-    padding: 0.45rem 0.8rem;
-    border: 1px solid rgba(176, 141, 87, 0.55);
-    border-radius: 5px;
-    color: var(--matte-gold);
+    gap: 0.35rem;
+    padding: 0.35rem 0.2rem;
+    border: 0;
+    color: rgba(255, 255, 255, 0.68);
     font-size: 0.76rem;
     font-weight: 800;
     white-space: nowrap;
@@ -642,13 +653,22 @@ button {
 }
 .header-track-link:hover,
 .header-track-link:focus-visible {
-    background: var(--matte-gold);
-    border-color: var(--matte-gold);
-    color: var(--very-dark-navy);
+    background: transparent;
+    border-color: transparent;
+    color: #fff;
 }
+.header-track-link .icon-svg { font-size: 0.9rem; }
 .float-phone {
-    /* مخفي افتراضيًا؛ يُفعّل فقط داخل media query للهاتف أسفل الملف. */
+    /* أُزيل زر الاتصال العائم لصالح أيقونة الهاتف في الترويسة. */
     display: none;
+}
+
+.mobile-action-bar { display: none; }
+
+@media (min-width: 1024px) {
+    .desktop-nav-label-full { display: none; }
+    .desktop-nav-label-short { display: inline; }
+    .header-phone { flex-shrink: 0; }
 }
 
 .menu-toggle {
@@ -1842,19 +1862,20 @@ button {
     bottom: 2rem;
     left: 2rem;
     z-index: 9999;
-    width: 56px;
-    height: 56px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
-    transition: all 0.5s var(--ease-out);
+    opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(8px); transition: opacity 0.35s ease, transform 0.35s var(--ease-out), visibility 0.35s ease;
     border: 1px solid rgba(255, 255, 255, 0.15);
     background: var(--whatsapp-green);
     text-decoration: none;
     color: #fff;
 }
+.float-whatsapp.is-visible { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
 .float-whatsapp .icon-svg {
     font-size: 2rem;
     color: #fff;
@@ -2283,7 +2304,7 @@ button {
 /* ==========================================================
    RESPONSIVE – التجاوب مع جميع أحجام الشاشات
    ========================================================== */
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
     .header-consult-link {
         display: none;
     }
@@ -2312,40 +2333,7 @@ button {
     .header-track-link {
         display: none;
     }
-    .header-phone {
-        display: none;
-    }
-    .float-phone {
-        /* زر عام بلون الهوية، مع رمز الهاتف في المنتصف بدل مظهر الأيقونة المنفردة. */
-        display: flex;
-        position: fixed;
-        left: 2rem;
-        bottom: calc(2rem + 56px + 0.8rem);
-        z-index: 1001;
-        width: 56px;
-        height: 56px;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        /* الهاتف إجراء مباشر؛ الأزرق يميّزه بوضوح عن واتساب والهوية الذهبية. */
-        background: #1769aa;
-        color: #fff;
-        border: 2px solid #0d4775;
-        box-shadow: 0 8px 25px rgba(23, 105, 170, 0.4);
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-    .float-phone:hover,
-    .float-phone:focus-visible {
-        transform: translateY(-3px) scale(1.05);
-        background: #0d5b96;
-        box-shadow: 0 12px 30px rgba(23, 105, 170, 0.5);
-    }
-    .float-phone .icon-svg {
-        width: 30px;
-        height: 30px;
-        font-size: 1.7rem;
-        stroke-width: 2.4;
-    }
+    .header-phone { display: none; }
     .hero {
         padding-top: 150px;
     }
@@ -2455,6 +2443,15 @@ button {
     .hero {
         padding-top: 130px;
     }
+    .header-mobile-phone { display: inline-flex; width: 44px; height: 44px; align-items: center; justify-content: center; color: #fff; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; }
+    .header-mobile-phone .icon-svg { font-size: 1rem; }
+    .header-actions { gap: 0.25rem; }
+    .header-actions .header-consult-link, .header-actions .header-track-link, .header-actions .header-phone { display: none; }
+    .mobile-action-bar { position: fixed; right: 0; bottom: 0; left: 0; z-index: 2000; display: grid; grid-template-columns: 1fr 1fr; height: calc(56px + env(safe-area-inset-bottom)); padding-bottom: env(safe-area-inset-bottom); background: var(--warm-off-white); border-top: 1px solid rgba(8,20,38,0.14); box-shadow: 0 -4px 18px rgba(8,20,38,0.08); direction: rtl; }
+    .mobile-action-bar a { min-height: 56px; display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; padding: 0 0.65rem; font-family: var(--font-body-ar); font-size: 0.78rem; font-weight: 800; text-align: center; }
+    .mobile-action-primary { background: var(--very-dark-navy); color: #fff; }
+    .mobile-action-secondary { background: var(--warm-off-white); color: var(--charcoal); border-right: 1px solid rgba(8,20,38,0.1); }
+    .mobile-action-secondary .icon-svg { font-size: 0.95rem; }
     .header-brand {
         gap: 0.5rem;
         flex-wrap: nowrap;
@@ -2660,4 +2657,21 @@ button {
     background: var(--matte-gold);
     color: var(--very-dark-navy) !important;
     font-weight: 900;
+}
+
+/* الترويسة الهاتفية وشريط الإجراء يعملان حتى عرض 767px فقط. */
+@media (max-width: 767px) {
+    .header-mobile-phone { display: inline-flex; width: 44px; height: 44px; align-items: center; justify-content: center; color: #fff; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; }
+    .header-mobile-phone .icon-svg { font-size: 1rem; }
+    .header-actions { gap: 0.25rem; }
+    .header-actions .header-consult-link, .header-actions .header-track-link, .header-actions .header-phone { display: none; }
+    .mobile-action-bar { position: fixed; right: 0; bottom: 0; left: 0; z-index: 2000; display: grid; grid-template-columns: 1fr 1fr; height: calc(56px + env(safe-area-inset-bottom)); padding-bottom: env(safe-area-inset-bottom); background: var(--warm-off-white); border-top: 1px solid rgba(8,20,38,0.14); box-shadow: 0 -4px 18px rgba(8,20,38,0.08); direction: rtl; }
+    .mobile-action-bar a { min-height: 56px; display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; padding: 0 0.65rem; font-family: var(--font-body-ar); font-size: 0.78rem; font-weight: 800; text-align: center; }
+    .mobile-action-primary { background: var(--very-dark-navy); color: #fff; }
+    .mobile-action-secondary { background: var(--warm-off-white); color: var(--charcoal); border-right: 1px solid rgba(8,20,38,0.1); }
+    .mobile-action-secondary .icon-svg { font-size: 0.95rem; }
+}
+
+@media (max-width: 767px) {
+    .float-whatsapp { left: 1rem; bottom: calc(56px + env(safe-area-inset-bottom) + 12px); }
 }
