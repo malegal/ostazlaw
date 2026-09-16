@@ -36,6 +36,11 @@ export default function Contact() {
     const get = (key) => String(data.get(key) || '').trim();
     const audienceLabel = { business: 'شركة / مؤسسة / جهة', investor: 'رجل أعمال / مستثمر', individual: 'فرد' }[audience];
     const requestLabel = requestType === 'meeting' ? 'طلب مقابلة في المكتب' : 'طلب استشارة قانونية';
+    /* طلب المقابلة يُرسل دائمًا عبر واتساب لأنه يحتاج تأكيد سريع للموعد؛ اختيار قناة البريد/واتساب
+       يظهر فقط لعميل الشركة عند طلب استشارة، ونص التفضيل في الرسالة بقى يطابق القناة الفعلية دايمًا. */
+    const channelLabel = requestType === 'consultation'
+      ? (audience === 'business' ? (channel === 'email' ? 'البريد الإلكتروني' : 'واتساب') : 'واتساب')
+      : 'واتساب (لتأكيد الموعد)';
     const lines = [
       `*${requestLabel}*`,
       `الفئة: ${audienceLabel}`,
@@ -49,7 +54,7 @@ export default function Contact() {
       requestType === 'meeting' ? `التاريخ المقترح للمقابلة: ${get('meetingDate')}` : '',
       requestType === 'meeting' ? `الوقت المقترح للمقابلة: ${get('meetingTime')}` : '',
       requestType === 'consultation' ? `الوقت الأنسب للتواصل: ${get('contactTime')}` : '',
-      `طريقة التواصل المفضلة: ${audience === 'business' ? (channel === 'email' ? 'البريد الإلكتروني' : 'واتساب') : 'واتساب'}`,
+      `طريقة التواصل المفضلة: ${channelLabel}`,
     ].filter(Boolean);
     const body = `${lines.join('\n')}\n\nالتفاصيل:\n${get('details')}`;
     if (requestType === 'consultation' && audience === 'business' && channel === 'email') {
@@ -69,11 +74,11 @@ export default function Contact() {
   return (
     <Layout>
       <Head>
-        <title>تواصل معنا | جاد الرب للمحاماة والاستشارات القانونية</title>
-        <meta name="description" content="تواصل مع جاد الرب للمحاماة والاستشارات القانونية، مقرها أسوان وتقدم خدماتها للعملاء في مختلف محافظات مصر. احجز موعداً أو اطلب استشارة أو تمثيلاً قانونياً." />
+        <title>تواصل معنا | مكتب جاد الرب للمحاماة والاستشارات القانونية</title>
+        <meta name="description" content="تواصل مع مكتب جاد الرب للمحاماة والاستشارات القانونية، مقره أسوان ويقدم خدماته للعملاء في مختلف محافظات مصر. احجز موعداً أو اطلب استشارة أو تمثيلاً قانونياً." />
         <link rel="canonical" href="https://ostazlaw.vercel.app/contact" />
-        <meta property="og:title" content="تواصل معنا | جاد الرب للمحاماة والاستشارات القانونية" />
-        <meta property="og:description" content="تواصل مع جاد الرب للمحاماة والاستشارات القانونية، مقرها أسوان وتقدم خدماتها للعملاء في مختلف محافظات مصر." />
+        <meta property="og:title" content="تواصل معنا | مكتب جاد الرب للمحاماة والاستشارات القانونية" />
+        <meta property="og:description" content="تواصل مع مكتب جاد الرب للمحاماة والاستشارات القانونية، مقره أسوان ويقدم خدماته للعملاء في مختلف محافظات مصر." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ostazlaw.vercel.app/contact" />
         <meta property="og:image" content="https://ostazlaw.vercel.app/og-image.jpg" />
@@ -88,9 +93,9 @@ export default function Contact() {
               {
                 "@type": "LegalService",
                 "@id": "https://ostazlaw.vercel.app/#organization",
-                "name": "جاد الرب للمحاماة والاستشارات القانونية",
+                "name": "مكتب جاد الرب للمحاماة والاستشارات القانونية",
                 "alternateName": "JAD ELRAB",
-                "description": "مكتب محاماة مصرية مقرها أسوان وتقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات في مختلف محافظات مصر.",
+                "description": "مكتب محاماة مصري مقره أسوان ويقدم خدمات المحاماة والاستشارات القانونية للأفراد والشركات في مختلف محافظات مصر.",
                 "url": "https://ostazlaw.vercel.app/",
                 "email": "ma.law.firm@outlook.com",
                 "telephone": "+201101076000",
@@ -128,16 +133,16 @@ export default function Contact() {
                 "@id": "https://ostazlaw.vercel.app/contact#webpage",
                 "url": "https://ostazlaw.vercel.app/contact",
                 "name": "تواصل معنا",
-                "description": "تواصل مع جاد الرب للمحاماة والاستشارات القانونية.",
+                "description": "تواصل مع مكتب جاد الرب للمحاماة والاستشارات القانونية.",
                 "isPartOf": { "@id": "https://ostazlaw.vercel.app/#website" },
                 "about": { "@id": "https://ostazlaw.vercel.app/#organization" }
               },
               {
                 "@type": "WebSite",
                 "@id": "https://ostazlaw.vercel.app/#website",
-                "name": "جاد الرب للمحاماة والاستشارات القانونية",
+                "name": "مكتب جاد الرب للمحاماة والاستشارات القانونية",
                 "url": "https://ostazlaw.vercel.app/",
-                "description": "مكتب محاماة مصرية تقدم خدمات المحاماة والاستشارات القانونية."
+                "description": "مكتب محاماة مصري يقدم خدمات المحاماة والاستشارات القانونية."
               }
             ]
           })
@@ -160,11 +165,12 @@ export default function Contact() {
       <section className="section-content" aria-label="معلومات التواصل">
         <div className="inner">
           <div className="reveal text-center mb-8">
-            <span className="eyebrow" style={{ display: 'block', fontSize: '0.65rem', fontWeight: '800', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--matte-gold)', opacity: '0.5', marginBottom: '0.3rem' }}>● مواقعنا</span>
+            <span className="eyebrow" style={{ display: 'block', fontSize: '0.65rem', fontWeight: '800', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--matte-gold)', opacity: '0.5', marginBottom: '0.3rem' }}>● مقرنا</span>
             <h2 className="text-2xl md:text-3xl font-bold serif gold-text">مقر المكتب في أسوان وخدماتنا في مختلف محافظات مصر</h2>
             <p className="text-sm max-w-2xl mx-auto" style={{ color: 'var(--charcoal)', fontWeight: '700' }}>يقع مقر المكتب في أسوان، ونقدم خدماتنا للعملاء في مختلف محافظات مصر بحسب طبيعة الخدمة والقضية والجهة المختصة.</p>
           </div>
 
+          {/* فرع واحد فعليًا، فبقى كارت مفرد بعرض مناسب في المنتصف بدل شبكة ثلاثية فاضية */}
           <div className="branches-grid mb-8">
             <div className="branch-card reveal">
               <div className="branch-icon"><Icon name="flag" /></div>
@@ -263,7 +269,8 @@ export default function Contact() {
                       <Field id="city" label="المدينة" placeholder="مثال: مدينة أسوان" />
                     </div>
                     <Field id="subject" label="موضوع الطلب" placeholder="اذكر موضوع المسألة باختصار" />
-                    {audience === 'business' && <div className="channel-box"><div><strong>طريقة الإرسال المفضلة</strong><small>يمكنك تغييرها قبل الإرسال</small></div><div className="channel-toggle"><button type="button" className={channel === 'email' ? 'active' : ''} onClick={() => setChannel('email')}><Icon name="envelope" /> البريد الإلكتروني</button><button type="button" className={channel === 'whatsapp' ? 'active' : ''} onClick={() => setChannel('whatsapp')}><Icon name="whatsapp" /> واتساب</button></div></div>}
+                    {/* اختيار القناة يظهر فقط لطلب الاستشارة (مش المقابلة)، لأن المقابلة بتتأكد دايمًا عبر واتساب لسرعة الرد */}
+                    {audience === 'business' && requestType === 'consultation' && <div className="channel-box"><div><strong>طريقة الإرسال المفضلة</strong><small>يمكنك تغييرها قبل الإرسال</small></div><div className="channel-toggle"><button type="button" className={channel === 'email' ? 'active' : ''} onClick={() => setChannel('email')}><Icon name="envelope" /> البريد الإلكتروني</button><button type="button" className={channel === 'whatsapp' ? 'active' : ''} onClick={() => setChannel('whatsapp')}><Icon name="whatsapp" /> واتساب</button></div></div>}
                     <div className="form-group"><label htmlFor="details">تفاصيل الموضوع</label><textarea id="details" name="details" rows="5" placeholder="اكتب ملخصًا للوقائع أو السؤال أو ما تود مناقشته..." required></textarea></div>
                   </fieldset>
 
@@ -271,10 +278,10 @@ export default function Contact() {
                     <legend><span className="step-number">03</span><span><strong>كيف نساعدك؟</strong><small>اختر الإجراء المناسب بعد إدخال بياناتك</small></span></legend>
                     <div className="request-options">
                       <label className={`request-option ${requestType === 'consultation' ? 'selected' : ''}`}><input type="radio" name="requestType" value="consultation" checked={requestType === 'consultation'} onChange={() => setRequestType('consultation')} /><span><strong>استشارة قانونية</strong><small>تحديد الخطوة التالية، ثم إرسال الطلب عبر واتساب</small></span></label>
-                      <label className={`request-option ${requestType === 'meeting' ? 'selected' : ''}`}><input type="radio" name="requestType" value="meeting" checked={requestType === 'meeting'} onChange={() => setRequestType('meeting')} /><span><strong>مقابلة في المكتب</strong><small>اقتراح موعد في مقر المكتب بأسوان</small></span></label>
+                      <label className={`request-option ${requestType === 'meeting' ? 'selected' : ''}`}><input type="radio" name="requestType" value="meeting" checked={requestType === 'meeting'} onChange={() => setRequestType('meeting')} /><span><strong>مقابلة في المكتب</strong><small>اقتراح موعد في مقر المكتب بأسوان، تأكيد عبر واتساب</small></span></label>
                     </div>
                     {requestType === 'consultation' && <div className="meeting-box">
-                      <div className="meeting-heading"><Icon name="clock" /><span><strong>الوقت الأنسب للتواصل</strong><small>سنرسل طلبك عبر واتساب ونتواصل معك في الوقت المقترح قدر الإمكان.</small></span></div>
+                      <div className="meeting-heading"><Icon name="clock" /><span><strong>الوقت الأنسب للتواصل</strong><small>سنرسل طلبك ونتواصل معك في الوقت المقترح قدر الإمكان.</small></span></div>
                       <div className="form-grid"><Field id="contactTime" label="الوقت الأنسب للتواصل" type="time" /></div>
                     </div>}
                     {requestType === 'meeting' && <div className="meeting-box">
@@ -282,9 +289,10 @@ export default function Contact() {
                       <div className="form-grid"><Field id="meetingDate" label="التاريخ المقترح" type="date" /><Field id="meetingTime" label="الوقت المقترح" type="time" /></div>
                     </div>}
                     {requestType === 'consultation' && <div className="whatsapp-note"><Icon name="whatsapp" /><span><strong>الإرسال عبر واتساب</strong><small>اضغط إرسال الطلب لفتح واتساب برسالة جاهزة بالبيانات التي أدخلتها.</small></span></div>}
+                    {requestType === 'meeting' && <div className="whatsapp-note"><Icon name="whatsapp" /><span><strong>الإرسال عبر واتساب</strong><small>طلبات المقابلة تُرسل عبر واتساب دائمًا لتأكيد الموعد بسرعة.</small></span></div>}
                   </fieldset>
 
-                  <button type="submit" className="premium-submit"><span>{requestType === 'meeting' ? 'إرسال طلب المقابلة عبر واتساب' : (audience === 'business' && channel === 'email' ? 'إرسال عبر البريد الإلكتروني' : 'إرسال عبر واتساب')}</span><Icon name={requestType === 'meeting' || (audience === 'business' && channel === 'email' && requestType === 'consultation') ? (requestType === 'meeting' ? 'calendar-check' : 'envelope') : 'whatsapp'} /></button>
+                  <button type="submit" className="premium-submit"><span>{requestType === 'meeting' ? 'إرسال طلب المقابلة عبر واتساب' : (audience === 'business' && channel === 'email' ? 'إرسال عبر البريد الإلكتروني' : 'إرسال عبر واتساب')}</span><Icon name={requestType === 'meeting' ? 'whatsapp' : (audience === 'business' && channel === 'email' ? 'envelope' : 'whatsapp')} /></button>
                   <p className="form-privacy"><Icon name="shield-alt" /> نحافظ على سرية بياناتك، وسيتم استخدام المعلومات للتواصل بشأن طلبك فقط.</p>
                 </form>
               </div>
@@ -307,8 +315,8 @@ export default function Contact() {
         .hero-contact .hero-title-wrap .sub { font-size: clamp(1rem, 1.3vw, 1.2rem); font-weight: 400; color: rgba(255,255,255,0.55); max-width: 700px; margin: 0.8rem auto 0; line-height: 1.7; }
         .section-content { flex: 1; padding: 5rem 2rem; background: var(--warm-off-white); }
         .section-content .inner { max-width: 1200px; margin: 0 auto; }
-        .branches-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
-        .branch-card { background: var(--pure-white); border-radius: 12px; padding: 1.5rem 1.2rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 10px rgba(0,0,0,0.02); transition: all 0.4s var(--ease-out); text-align: center; position: relative; overflow: hidden; }
+        .branches-grid { display: flex; justify-content: center; }
+        .branch-card { background: var(--pure-white); border-radius: 12px; padding: 1.5rem 1.2rem; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 10px rgba(0,0,0,0.02); transition: all 0.4s var(--ease-out); text-align: center; position: relative; overflow: hidden; max-width: 420px; width: 100%; }
         .branch-card::after { content: ''; position: absolute; bottom: 0; right: 0; width: 0; height: 3px; background: var(--matte-gold); transition: width 0.6s var(--ease-out); }
         .branch-card:hover::after { width: 100%; }
         .branch-card:hover { border-color: var(--matte-gold); transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.04); }
@@ -367,7 +375,8 @@ export default function Contact() {
         .request-option strong, .request-option small { display: block; }
         .request-option strong { font-size: 0.78rem; }
         .request-option small { color: var(--charcoal); opacity: 0.62; font-size: 0.62rem; margin-top: 0.15rem; }
-        .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 0.8rem; }
+        .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 1.5rem; column-gap: 1.1rem; }
+        .form-grid .form-group { margin-bottom: 0; }
         .meeting-box, .channel-box, .whatsapp-note { border: 1px solid rgba(176,141,87,0.24); border-radius: 12px; padding: 0.85rem; margin: 0.4rem 0 1rem; background: rgba(176,141,87,0.055); }
         .meeting-heading, .whatsapp-note { display: flex; align-items: center; gap: 0.65rem; color: var(--charcoal); }
         .meeting-heading > .icon-svg, .whatsapp-note > .icon-svg { color: var(--matte-gold); font-size: 1.1rem; }
@@ -386,24 +395,34 @@ export default function Contact() {
         .premium-submit:hover { transform: translateY(-2px); box-shadow: 0 13px 28px rgba(176,141,87,0.3); }
         .form-privacy { display: flex; align-items: center; justify-content: center; gap: 0.35rem; color: var(--charcoal); opacity: 0.58; font-size: 0.62rem; font-weight: 700; margin: 0.8rem 0 0; }
         .form-privacy .icon-svg { color: var(--matte-gold); }
-        .tab-container { display: none;  background: var(--pure-white); border-radius: 16px; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 10px rgba(0,0,0,0.02); padding: 2rem; transition: all 0.4s var(--ease-out); position: relative; overflow: hidden; }
-        .tab-container::after { content: ''; position: absolute; bottom: 0; right: 0; width: 0; height: 3px; background: var(--matte-gold); transition: width 0.6s var(--ease-out); }
-        .tab-container:hover::after { width: 100%; }
-        .tab-buttons { display: flex; gap: 0.5rem; background: var(--light-gray); padding: 0.4rem; border-radius: 12px; margin-bottom: 2rem; flex-wrap: wrap; }
-        .tab-btn { flex: 1; padding: 0.6rem 1rem; border-radius: 10px; font-weight: 700; font-size: 0.85rem; color: var(--charcoal); transition: all 0.4s var(--ease-out); background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.4rem; min-width: 120px; opacity: 0.5; }
-        .tab-btn.active { background: var(--matte-gold); color: #000; box-shadow: 0 2px 15px rgba(176,141,87,0.15); opacity: 1; }
-        .tab-btn:hover:not(.active) { color: var(--charcoal); background: rgba(0,0,0,0.02); opacity: 0.8; }
-        .tab-pane.hidden { display: none; }
-        .form-group { margin-bottom: 1.2rem; }
-        .form-group label { display: block; font-size: 0.75rem; font-weight: 700; color: var(--charcoal); margin-bottom: 0.2rem; }
-        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.6rem 0.8rem; border: 1px solid rgba(0,0,0,0.06); border-radius: 8px; font-size: 0.9rem; background: var(--warm-off-white); color: var(--charcoal); transition: border-color 0.3s ease, box-shadow 0.3s ease; outline: none; font-weight: 700; }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--matte-gold); box-shadow: 0 0 0 3px rgba(176,141,87,0.05); }
-        .form-group textarea { resize: vertical; min-height: 100px; }
-        .form-group input[type="file"] { padding: 0.4rem; background: var(--pure-white); border: 1px dashed rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 1.75rem; }
+        .form-group label { display: flex; align-items: center; gap: 0.4rem; font-size: 0.76rem; font-weight: 800; color: var(--charcoal); margin-bottom: 0.55rem; letter-spacing: 0.01em; }
+        .optional-label { color: rgba(34,34,34,0.4); font-weight: 500; font-size: 0.68rem; }
+        .form-group input, .form-group textarea, .form-group select {
+          width: 100%;
+          height: 50px;
+          padding: 0 1.05rem;
+          border: 1px solid rgba(8,20,38,0.1);
+          border-radius: 12px;
+          font-size: 0.9rem;
+          background: #fff;
+          color: var(--charcoal);
+          transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+          outline: none;
+          font-weight: 600;
+          box-shadow: 0 1px 2px rgba(8,20,38,0.035), inset 0 1px 0 rgba(255,255,255,0.6);
+        }
+        .form-group textarea { height: auto; padding: 0.9rem 1.05rem; }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(34,34,34,0.32); font-weight: 500; }
+        .form-group input:hover, .form-group textarea:hover, .form-group select:hover { border-color: rgba(176,141,87,0.5); box-shadow: 0 2px 8px rgba(8,20,38,0.05); }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--matte-gold); box-shadow: 0 0 0 4px rgba(176,141,87,0.14); background: #fffdf9; }
+        .form-group textarea { resize: vertical; min-height: 130px; line-height: 1.75; }
+        .form-group input[type="file"] { height: auto; padding: 0.9rem 1rem; background: var(--pure-white); border: 1.5px dashed rgba(0,0,0,0.16); box-shadow: none; }
         .form-group input[type="file"]:hover { border-color: var(--matte-gold); }
-        @media (max-width: 1024px) { .branches-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 820px) { .hero-contact { padding: 100px 1rem 3rem; min-height: auto; } .section-content { padding: 2.5rem 1rem; } .tab-container { padding: 1.2rem; } .tab-btn { font-size: 0.75rem; padding: 0.4rem 0.6rem; min-width: 80px; } .branches-grid { grid-template-columns: 1fr; max-width: 360px; margin-left: auto; margin-right: auto; } .hero-contact .hero-title-wrap h1 { font-size: clamp(2rem, 8vw, 2.8rem); } .contact-card { padding: 1rem; gap: 0.8rem; } .contact-card .icon-wrap { width: 40px; height: 40px; } .contact-card .icon-wrap .icon-svg { font-size: 1rem; } .map-container { height: 200px; } }
-        @media (max-width: 640px) { .branches-grid { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; } .tab-buttons { flex-direction: column; gap: 0.3rem; } .tab-btn { width: 100%; justify-content: center; min-width: unset; } .tab-container { padding: 1rem; } .form-group input, .form-group textarea, .form-group select { font-size: 0.85rem; padding: 0.5rem 0.6rem; } .audience-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.35rem; } .audience-card { min-width: 0; min-height: 104px; padding: 0.55rem 0.25rem; flex-direction: column; justify-content: center; text-align: center; gap: 0.35rem; } .audience-card > span:nth-child(2) { min-width: 0; width: 100%; } .audience-card strong { font-size: 0.63rem; line-height: 1.35; word-break: normal; } .audience-card small { font-size: 0.52rem; line-height: 1.3; margin-top: 0.12rem; } .audience-icon { flex-basis: 32px; width: 32px; height: 32px; } .audience-card > .icon-svg:last-child { position: absolute; top: 0.35rem; left: 0.35rem; font-size: 0.65rem; } }
+        .form-group input[type="date"], .form-group input[type="time"] { cursor: pointer; }
+        .form-group input[type="date"]::-webkit-calendar-picker-indicator, .form-group input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(64%) sepia(23%) saturate(638%) hue-rotate(358deg) brightness(92%) contrast(88%); cursor: pointer; opacity: 0.75; }
+        @media (max-width: 820px) { .hero-contact { padding: 100px 1rem 3rem; min-height: auto; } .section-content { padding: 2.5rem 1rem; } .hero-contact .hero-title-wrap h1 { font-size: clamp(2rem, 8vw, 2.8rem); } .contact-card { padding: 1rem; gap: 0.8rem; } .contact-card .icon-wrap { width: 40px; height: 40px; } .contact-card .icon-wrap .icon-svg { font-size: 1rem; } .map-container { height: 200px; } }
+        @media (max-width: 640px) { .form-group input, .form-group select { font-size: 0.85rem; height: 46px; padding: 0 0.9rem; } .form-group textarea { font-size: 0.85rem; padding: 0.8rem 0.9rem; } .audience-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.35rem; } .audience-card { min-width: 0; min-height: 104px; padding: 0.55rem 0.25rem; flex-direction: column; justify-content: center; text-align: center; gap: 0.35rem; } .audience-card > span:nth-child(2) { min-width: 0; width: 100%; } .audience-card strong { font-size: 0.63rem; line-height: 1.35; word-break: normal; } .audience-card small { font-size: 0.52rem; line-height: 1.3; margin-top: 0.12rem; } .audience-icon { flex-basis: 32px; width: 32px; height: 32px; } .audience-card > .icon-svg:last-child { position: absolute; top: 0.35rem; left: 0.35rem; font-size: 0.65rem; } }
       `}</style>
     </Layout>
   );
