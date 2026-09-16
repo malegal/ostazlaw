@@ -67,9 +67,11 @@ export default function Contact() {
   const Field = ({ id, label, type = 'text', placeholder, required = true }) => (
     <div className="form-group">
       <div className="form-field">
-        <input id={id} name={id} type={type} placeholder=" " aria-label={label} required={required} />
         <label htmlFor={id}>{label}{!required && <span className="optional-label"> (اختياري)</span>}</label>
-        {placeholder && <span className="field-hint">{placeholder}</span>}
+        <div className="field-control">
+          <input id={id} name={id} type={type} placeholder={placeholder || ' '} aria-label={label} required={required} />
+          {placeholder && <span className="field-hint">{placeholder}</span>}
+        </div>
       </div>
     </div>
   );
@@ -274,7 +276,7 @@ export default function Contact() {
                       <Field id="subject" label="موضوع الطلب" placeholder="مثال: مراجعة عقد أو نزاع عقاري" />
                     {/* اختيار القناة يظهر فقط لطلب الاستشارة (مش المقابلة)، لأن المقابلة بتتأكد دايمًا عبر واتساب لسرعة الرد */}
                     {audience === 'business' && requestType === 'consultation' && <div className="channel-box"><div><strong>طريقة الإرسال المفضلة</strong><small>يمكنك تغييرها قبل الإرسال</small></div><div className="channel-toggle"><button type="button" className={channel === 'email' ? 'active' : ''} onClick={() => setChannel('email')}><Icon name="envelope" /> البريد الإلكتروني</button><button type="button" className={channel === 'whatsapp' ? 'active' : ''} onClick={() => setChannel('whatsapp')}><Icon name="whatsapp" /> واتساب</button></div></div>}
-                      <div className="form-group form-group-textarea"><div className="form-field"><textarea id="details" name="details" rows="5" placeholder=" " aria-label="تفاصيل الموضوع" required></textarea><label htmlFor="details">تفاصيل الموضوع</label><span className="field-hint">اكتب ملخصًا للوقائع أو السؤال أو ما تود مناقشته...</span></div></div>
+                      <div className="form-group form-group-textarea"><div className="form-field"><label htmlFor="details">تفاصيل الموضوع</label><div className="field-control"><textarea id="details" name="details" rows="5" placeholder="اكتب ملخصًا للوقائع أو السؤال أو ما تود مناقشته..." aria-label="تفاصيل الموضوع" required></textarea></div></div></div>
                   </fieldset>
 
                   <fieldset className="form-step">
@@ -399,8 +401,8 @@ export default function Contact() {
         .form-privacy { display: flex; align-items: center; justify-content: center; gap: 0.35rem; color: var(--charcoal); opacity: 0.58; font-size: 0.62rem; font-weight: 700; margin: 0.8rem 0 0; }
         .form-privacy .icon-svg { color: var(--matte-gold); }
         .form-group { margin-bottom: 1.2rem; }
-        .form-field { position: relative; }
-        .form-group label { position: absolute; right: 0.9rem; top: 50%; transform: translateY(-50%); z-index: 1; display: inline-flex; align-items: center; gap: 0.25rem; padding: 0 0.25rem; background: #fff; color: rgba(34,34,34,0.55); font-size: 0.82rem; font-weight: 600; pointer-events: none; transition: all 0.18s ease; }
+        .form-field { display: grid; grid-template-columns: minmax(145px, 0.38fr) minmax(0, 1fr); align-items: start; gap: 0.9rem; }
+        .form-group label { display: flex; align-items: center; min-height: 50px; padding: 0 0.15rem; color: var(--charcoal); font-size: 0.82rem; font-weight: 700; line-height: 1.4; text-align: right; }
         .optional-label { color: rgba(34,34,34,0.4); font-weight: 500; font-size: 0.68rem; }
         .form-group input, .form-group textarea, .form-group select {
           width: 100%;
@@ -416,18 +418,18 @@ export default function Contact() {
           font-weight: 600;
           box-shadow: none;
         }
+        .field-control { min-width: 0; }
         .form-group input:hover, .form-group textarea:hover, .form-group select:hover { border-color: rgba(176,141,87,0.85); box-shadow: 0 1px 5px rgba(176,141,87,0.12); }
         .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border: 2px solid var(--matte-gold); box-shadow: none; background: #fff; }
-        .form-group input:focus + label, .form-group input:not(:placeholder-shown) + label, .form-group textarea:focus + label, .form-group textarea:not(:placeholder-shown) + label { top: 0; transform: translateY(-50%); color: var(--matte-gold); font-size: 0.7rem; font-weight: 800; }
+        .form-field:focus-within > label { color: var(--matte-gold); }
         .form-group textarea { height: auto; padding: 1rem; resize: vertical; min-height: 142px; line-height: 1.75; }
-        .form-group-textarea label { top: 1.1rem; transform: none; }
         .field-hint { display: block; color: rgba(34,34,34,0.42); font-size: 0.66rem; font-weight: 600; margin: 0.35rem 0.2rem 0; }
         .form-group input[type="file"] { height: auto; padding: 0.9rem 1rem; background: var(--pure-white); border: 1.5px dashed rgba(0,0,0,0.16); box-shadow: none; }
         .form-group input[type="file"]:hover { border-color: var(--matte-gold); }
         .form-group input[type="date"], .form-group input[type="time"] { cursor: pointer; }
         .form-group input[type="date"]::-webkit-calendar-picker-indicator, .form-group input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(64%) sepia(23%) saturate(638%) hue-rotate(358deg) brightness(92%) contrast(88%); cursor: pointer; opacity: 0.75; }
         @media (max-width: 820px) { .hero-contact { padding: 100px 1rem 3rem; min-height: auto; } .section-content { padding: 2.5rem 1rem; } .hero-contact .hero-title-wrap h1 { font-size: clamp(2rem, 8vw, 2.8rem); } .contact-card { padding: 1rem; gap: 0.8rem; } .contact-card .icon-wrap { width: 40px; height: 40px; } .contact-card .icon-wrap .icon-svg { font-size: 1rem; } .map-container { height: 200px; } }
-        @media (max-width: 640px) { .form-group input, .form-group select { font-size: 0.85rem; height: 46px; padding: 0 0.85rem; } .form-group textarea { font-size: 0.85rem; padding: 0.8rem 0.85rem; } .form-group label { font-size: 0.76rem; right: 0.75rem; } .field-hint { font-size: 0.6rem; } .audience-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.35rem; } .audience-card { min-width: 0; min-height: 104px; padding: 0.55rem 0.25rem; flex-direction: column; justify-content: center; text-align: center; gap: 0.35rem; } .audience-card > span:nth-child(2) { min-width: 0; width: 100%; } .audience-card strong { font-size: 0.63rem; line-height: 1.35; word-break: normal; } .audience-card small { font-size: 0.52rem; line-height: 1.3; margin-top: 0.12rem; } .audience-icon { flex-basis: 32px; width: 32px; height: 32px; } .audience-card > .icon-svg:last-child { position: absolute; top: 0.35rem; left: 0.35rem; font-size: 0.65rem; } }
+        @media (max-width: 640px) { .form-field { grid-template-columns: 112px minmax(0, 1fr); gap: 0.55rem; } .form-group input, .form-group select { font-size: 0.85rem; height: 46px; padding: 0 0.75rem; } .form-group textarea { font-size: 0.85rem; padding: 0.8rem 0.75rem; } .form-group label { min-height: 46px; font-size: 0.76rem; } .field-hint { font-size: 0.6rem; } .audience-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.35rem; } .audience-card { min-width: 0; min-height: 104px; padding: 0.55rem 0.25rem; flex-direction: column; justify-content: center; text-align: center; gap: 0.35rem; } .audience-card > span:nth-child(2) { min-width: 0; width: 100%; } .audience-card strong { font-size: 0.63rem; line-height: 1.35; word-break: normal; } .audience-card small { font-size: 0.52rem; line-height: 1.3; margin-top: 0.12rem; } .audience-icon { flex-basis: 32px; width: 32px; height: 32px; } .audience-card > .icon-svg:last-child { position: absolute; top: 0.35rem; left: 0.35rem; font-size: 0.65rem; } }
       `}</style>
     </Layout>
   );
