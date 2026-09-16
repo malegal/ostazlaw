@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Layout from '../components/Layout';
 import Link from 'next/link';
 import Head from 'next/head';
@@ -6,6 +7,106 @@ import { getAllArticles, getAllNews } from '../lib/github';
 import ArticleCard from '../components/ArticleCard';
 import NewsCard from '../components/NewsCard';
 import Icon from '../components/Icon';
+
+// أداة تصنيف تفاعلية في الهيرو: تحل محل الشرح النصي بفعل يقوم به الزائر.
+// الفئات ومعانيها الافتراضية مطابقة حرفيًا لنصوص قسم "خدماتنا" (client-segments-grid)
+// أسفل هذه الصفحة، ولروابط /sectors#business و /sectors#investor و /sectors#individual
+// الموجودة أصلاً، حتى لا يتكرر محتوى مختلف الصياغة عن نفس الفئات.
+const TRIAGE_OPTIONS = [
+  {
+    key: 'individual',
+    label: 'فرد',
+    icon: 'user',
+    result: 'مسألتك الأقرب: العقود، الملكية، الإيجارات، والمطالبات المدنية.',
+  },
+  {
+    key: 'business',
+    label: 'شركة',
+    icon: 'building',
+    result: 'مسألتك الأقرب: العقود التجارية، الحوكمة، والشراكات.',
+  },
+  {
+    key: 'investor',
+    label: 'مستثمر',
+    icon: 'chart-pie',
+    result: 'مسألتك الأقرب: مراجعة الاتفاقيات وتقييم المخاطر قبل الاستثمار.',
+  },
+];
+
+function HeroTriage() {
+  const [selected, setSelected] = useState(null);
+  const active = TRIAGE_OPTIONS.find((o) => o.key === selected) || null;
+
+  return (
+    <div className="hero-triage" role="group" aria-label="تصنيف مسألتك القانونية">
+      <p className="hero-triage-title">ما مسألتك القانونية؟</p>
+      <p className="hero-triage-hint">اختر الأقرب، واحصل فورًا على الخطوة المناسبة</p>
+
+      <div
+        className="hero-triage-options"
+        style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', margin: '12px 0' }}
+      >
+        {TRIAGE_OPTIONS.map((option) => {
+          const isActive = option.key === selected;
+          return (
+            <button
+              key={option.key}
+              type="button"
+              onClick={() => setSelected(option.key)}
+              aria-pressed={isActive}
+              aria-label={`عرض المسائل الأقرب لفئة ${option.label}`}
+              style={{
+                flex: '1 1 90px',
+                minWidth: '90px',
+                minHeight: '44px',
+                padding: '10px 8px',
+                borderRadius: '8px',
+                border: isActive ? '2px solid #B08D57' : '1px solid rgba(11,27,43,0.2)',
+                background: isActive ? 'rgba(176,141,87,0.12)' : 'transparent',
+                color: isActive ? '#8a6a3a' : 'inherit',
+                fontSize: '13px',
+                fontWeight: 500,
+                cursor: 'pointer',
+              }}
+            >
+              <Icon name={option.icon} />
+              <span style={{ display: 'block', marginTop: '4px' }}>{option.label}</span>
+            </button>
+          );
+        })}
+      </div>
+
+      {active && (
+        <div
+          className="hero-triage-result"
+          style={{
+            background: 'rgba(176,141,87,0.1)',
+            borderRadius: '8px',
+            padding: '10px 12px',
+            fontSize: '13px',
+            marginBottom: '12px',
+          }}
+        >
+          <p style={{ margin: 0, marginBottom: '8px' }}>{active.result}</p>
+          <Link
+            href={`/contact?tab=consult&category=${active.key}#service-form`}
+            className="btn-gold hero-consultation-cta"
+          >
+            استشارة مجانية
+          </Link>
+        </div>
+      )}
+
+      {!active && (
+        <div className="hero-actions">
+          <Link href="/contact?tab=consult#service-form" className="btn-gold hero-consultation-cta">
+            ابدأ استشارتك المجانية
+          </Link>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Home({ articles, news }) {
   const latestArticles = articles && articles.length > 0 ? articles.slice(0, 3) : [];
@@ -39,35 +140,59 @@ export default function Home({ articles, news }) {
               { "@type": "Person", "@id": "https://ostazlaw.vercel.app/#founder", "name": "محمود عبد الحميد جاد الرب", "jobTitle": "المحامي بالنقض والدستورية والإدارية العليا", "worksFor": { "@id": "https://ostazlaw.vercel.app/#organization" }, "url": "/about", "image": { "@type": "ImageObject", "url": "/mahmoud-abdel-hamid-lawyer-portrait.webp", "caption": "الأستاذ محمود عبد الحميد جاد الرب – المحامي بالنقض والدستورية والإدارية العليا" } },
               { "@type": "WebPage", "@id": "https://ostazlaw.vercel.app/#webpage", "url": "https://ostazlaw.vercel.app/", "name": "مكتب محاماة في أسوان – جاد الرب للمحاماة", "description": "خدمات قانونية للأفراد والشركات والمستثمرين في أسوان ومختلف محافظات مصر.", "isPartOf": { "@id": "https://ostazlaw.vercel.app/#website" }, "about": { "@id": "https://ostazlaw.vercel.app/#organization" }, "primaryImageOfPage": { "@type": "ImageObject", "url": "/mahmoud-abdel-hamid-lawyer-portrait.webp", "caption": "الأستاذ محمود عبد الحميد جاد الرب – المحامي بالنقض والدستورية والإدارية العليا" } },
               { "@type": "BreadcrumbList", "@id": "https://ostazlaw.vercel.app/#breadcrumb", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://ostazlaw.vercel.app/" }] },
-              { "@type": "WebSite", "@id": "https://ostazlaw.vercel.app/#website", "name": "مكتب جاد الرب للمحاماة والاستشارات القانونية", "url": "https://ostazlaw.vercel.app/", "description": "مكتب محاماة مصري يقدم استشارات وتمثيلاً قضائياً وحلولاً قانونية." }
+              { "@type": "WebSite", "@id": "https://ostazlaw.vercel.app/#website", "name": "مكتب جاد الرب للمحاماة والاستشارات القانونية", "url": "https://ostazlaw.vercel.app/", "description": "مكتب محاماة مصري يقدم استشارات وتمثيلاً قضائياً وحلولاً قانونية." },
+              {
+                "@type": "FAQPage",
+                "@id": "https://ostazlaw.vercel.app/#faq-segments",
+                "mainEntity": [
+                  {
+                    "@type": "Question",
+                    "name": "هل يقدم مكتب جاد الرب استشارات قانونية للأفراد؟",
+                    "acceptedAnswer": { "@type": "Answer", "text": "نعم، نساعد الأفراد على فهم موقفهم في العقود، والملكية، والإيجارات، والمطالبات والمنازعات المدنية." }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "هل يقدم المكتب خدمات قانونية للشركات والمنشآت؟",
+                    "acceptedAnswer": { "@type": "Answer", "text": "نعم، نقدم دعمًا قانونيًا في العقود التجارية، الحوكمة، الشراكات، النزاعات التجارية والاستشارات المستمرة." }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "هل يقدم المكتب استشارات للمستثمرين ورجال الأعمال؟",
+                    "acceptedAnswer": { "@type": "Answer", "text": "نعم، نراجع الاتفاقات وعقود الشراكة، ونقوم بالفحص القانوني للمشروعات وتقييم المخاطر قبل الاستثمار." }
+                  }
+                ]
+              }
             ]
           })
         }} />
       </Head>
 
-      {/* الهيرو: رسالة مباشرة للعميل مع عرض الاستشارة الأولية المجانية دون وعود بنتيجة. */}
+      {/* الهيرو: عنوان واحد + سطر قيمة مدمج + أداة تصنيف تفاعلية تحل محل الشرح النصي المطوّل.
+          النصوص المحذوفة من هنا ("لا تتخذ قرارك القانوني وحدك" و"لفهم المسألة...") انتقل معناها
+          إلى عنوان/سطر مساعد أداة HeroTriage أعلاه، ولم تُحذف من الموقع بل أعيدت صياغتها هناك. */}
       <section className="hero" aria-label="الرسالة الرئيسية">
         <div className="hero-bg"><div className="glow"></div><div className="glow-2"></div></div>
         <div className="hero-content">
           <div className="hero-brand-signature">JAD ELRAB</div>
           <h1 className="hero-title"><span>جاد الرب</span><span>للمحاماة والاستشارات القانونية</span></h1>
           <p className="hero-subtitle">محمود عبد الحميد جاد الرب<br />المحامي بالنقض والدستورية والإدارية العليا</p>
-          <p className="hero-protection-message">نحمي حقوقك ومصالحك منذ الخطوة الأولى<br /><span>ونساعدك على تفادي النزاع قبل أن يبدأ، وتعزيز مركزك القانوني.</span></p>
-          <p className="hero-value">لا تتخذ قرارك القانوني وحدك</p>
-          <p className="hero-consultation-note">لفهم المسألة وتحديد الخطوة التالية — دون أي التزام</p>
-          <div className="hero-actions">
-            <Link href="/contact?tab=consult#service-form" className="btn-gold hero-consultation-cta">ابدأ استشارتك المجانية</Link>
-          </div>
-          <div className="section-cta"><Link href="/client-inquiry" className="btn-outline-gold case-tracking-cta">عميل حالي؟ تابع ملفك</Link></div>
-        </div>
-      </section>
+          <p className="hero-protection-message">نحمي حقوقك ومصالحك، ونساعدك على تفادي النزاع قبل أن يبدأ.</p>
 
-      {/* مسار التحويل: بعد الرسالة الرئيسية نعرض إشارات الثقة، ثم نوجه الزائر إلى فئته قبل دعوته لعرض المسألة. */}
-      <section className="trust-bar" aria-label="مرتكزات العمل">
-        <div className="trust-bar-inner">
-          <div className="trust-item"><Icon name="gavel" /><span>خبرة عملية منذ 2005</span></div>
-          <div className="trust-item"><Icon name="briefcase" /><span>فهم للمخاطر قبل الالتزام</span></div>
-          <div className="trust-item"><Icon name="scale-balanced" /><span>سرية مهنية ووضوح في التعامل</span></div>
+          <HeroTriage />
+
+          <div className="section-cta"><Link href="/client-inquiry" className="btn-outline-gold case-tracking-cta">عميل حالي؟ تابع ملفك</Link></div>
+
+          {/* شريط الثقة الثلاثي دُمج في سطر واحد أسفل الهيرو مباشرة بدل قسم منفصل بثلاث كتل. */}
+          <p
+            className="hero-trust-line"
+            style={{ fontSize: '13px', opacity: 0.75, marginTop: '16px' }}
+          >
+            <span>خبرة عملية منذ 2005</span>
+            <span aria-hidden="true"> · </span>
+            <span>فهم للمخاطر قبل الالتزام</span>
+            <span aria-hidden="true"> · </span>
+            <span>سرية مهنية ووضوح في التعامل</span>
+          </p>
         </div>
       </section>
 
