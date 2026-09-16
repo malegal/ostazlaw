@@ -403,7 +403,8 @@ export default function Contact() {
         .form-field { display: grid; grid-template-columns: minmax(145px, 0.38fr) minmax(0, 1fr); align-items: start; gap: 0.9rem; }
         .form-group label { display: flex; align-items: center; min-height: 50px; padding: 0 0.15rem; color: var(--charcoal); font-size: 0.82rem; font-weight: 700; line-height: 1.4; text-align: right; }
         .optional-label { color: rgba(34,34,34,0.4); font-weight: 500; font-size: 0.68rem; }
-        .form-group input, .form-group textarea, .form-group select {
+        /* كل الحقول النصية تستخدم نفس القاعدة البصرية؛ لا يختلف الاسم أو الهاتف عن الموضوع. */
+        .field-control input, .field-control textarea, .field-control select {
           width: 100%;
           height: 50px;
           padding: 0 1rem;
@@ -418,17 +419,17 @@ export default function Contact() {
           box-shadow: none;
         }
         .field-control { min-width: 0; }
-        .form-group input:hover, .form-group textarea:hover, .form-group select:hover { border-color: rgba(8,20,38,0.42); box-shadow: 0 1px 4px rgba(8,20,38,0.06); }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border: 2px solid rgba(8,20,38,0.72); box-shadow: none; background: #fff; }
+        .field-control input:hover, .field-control textarea:hover, .field-control select:hover { border-color: rgba(8,20,38,0.42); box-shadow: 0 1px 4px rgba(8,20,38,0.06); }
+        .field-control input:focus, .field-control textarea:focus, .field-control select:focus { border: 2px solid rgba(8,20,38,0.72); box-shadow: none; background: #fff; }
         .form-field:focus-within > label { color: var(--charcoal); }
-        .form-group textarea { height: auto; padding: 1rem; resize: vertical; min-height: 142px; line-height: 1.75; }
+        .field-control textarea { height: auto; padding: 1rem; resize: vertical; min-height: 142px; line-height: 1.75; }
         .field-hint { display: block; color: rgba(34,34,34,0.42); font-size: 0.66rem; font-weight: 600; margin: 0.35rem 0.2rem 0; }
-        .form-group input[type="file"] { height: auto; padding: 0.9rem 1rem; background: var(--pure-white); border: 1.5px dashed rgba(0,0,0,0.16); box-shadow: none; }
-        .form-group input[type="file"]:hover { border-color: var(--matte-gold); }
-        .form-group input[type="date"], .form-group input[type="time"] { cursor: pointer; }
-        .form-group input[type="date"]::-webkit-calendar-picker-indicator, .form-group input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(64%) sepia(23%) saturate(638%) hue-rotate(358deg) brightness(92%) contrast(88%); cursor: pointer; opacity: 0.75; }
+        .field-control input[type="file"] { height: auto; padding: 0.9rem 1rem; background: var(--pure-white); border: 1.5px dashed rgba(0,0,0,0.16); box-shadow: none; }
+        .field-control input[type="file"]:hover { border-color: var(--matte-gold); }
+        .field-control input[type="date"], .field-control input[type="time"] { cursor: pointer; }
+        .field-control input[type="date"]::-webkit-calendar-picker-indicator, .field-control input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(64%) sepia(23%) saturate(638%) hue-rotate(358deg) brightness(92%) contrast(88%); cursor: pointer; opacity: 0.75; }
         @media (max-width: 820px) { .hero-contact { padding: 100px 1rem 3rem; min-height: auto; } .section-content { padding: 2.5rem 1rem; } .hero-contact .hero-title-wrap h1 { font-size: clamp(2rem, 8vw, 2.8rem); } .contact-card { padding: 1rem; gap: 0.8rem; } .contact-card .icon-wrap { width: 40px; height: 40px; } .contact-card .icon-wrap .icon-svg { font-size: 1rem; } .map-container { height: 200px; } }
-        @media (max-width: 640px) { .form-field { grid-template-columns: 112px minmax(0, 1fr); gap: 0.55rem; } .form-group input, .form-group select { font-size: 0.85rem; height: 46px; padding: 0 0.75rem; } .form-group textarea { font-size: 0.85rem; padding: 0.8rem 0.75rem; } .form-group label { min-height: 46px; font-size: 0.76rem; } .field-hint { font-size: 0.6rem; } .audience-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.35rem; } .audience-card { min-width: 0; min-height: 104px; padding: 0.55rem 0.25rem; flex-direction: column; justify-content: center; text-align: center; gap: 0.35rem; } .audience-card > span:nth-child(2) { min-width: 0; width: 100%; } .audience-card strong { font-size: 0.63rem; line-height: 1.35; word-break: normal; } .audience-card small { font-size: 0.52rem; line-height: 1.3; margin-top: 0.12rem; } .audience-icon { flex-basis: 32px; width: 32px; height: 32px; } .audience-card > .icon-svg:last-child { position: absolute; top: 0.35rem; left: 0.35rem; font-size: 0.65rem; } }
+        @media (max-width: 640px) { .form-field { grid-template-columns: 112px minmax(0, 1fr); gap: 0.55rem; } .field-control input, .field-control select { font-size: 0.85rem; height: 46px; padding: 0 0.75rem; } .field-control textarea { font-size: 0.85rem; padding: 0.8rem 0.75rem; } .form-group label { min-height: 46px; font-size: 0.76rem; } .field-hint { font-size: 0.6rem; } .audience-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.35rem; } .audience-card { min-width: 0; min-height: 104px; padding: 0.55rem 0.25rem; flex-direction: column; justify-content: center; text-align: center; gap: 0.35rem; } .audience-card > span:nth-child(2) { min-width: 0; width: 100%; } .audience-card strong { font-size: 0.63rem; line-height: 1.35; word-break: normal; } .audience-card small { font-size: 0.52rem; line-height: 1.3; margin-top: 0.12rem; } .audience-icon { flex-basis: 32px; width: 32px; height: 32px; } .audience-card > .icon-svg:last-child { position: absolute; top: 0.35rem; left: 0.35rem; font-size: 0.65rem; } }
       `}</style>
     </Layout>
   );
