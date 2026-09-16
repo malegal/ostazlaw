@@ -77,8 +77,11 @@ export default function Home({ articles, news }) {
           <p className="hero-subtitle">محمود عبد الحميد جاد الرب<br />المحامي بالنقض والدستورية والإدارية العليا</p>
           <p className="hero-protection-message">نحمي حقوقك ومصالحك، ونساعدك على تفادي النزاع قبل أن يبدأ.</p>
 
-          {/* جملة دعم قرار قصيرة، ملاصقة للزر مباشرة بدل أن تكون سطرًا مستقلًا في وسط الهيرو. */}
-          <p className="hero-value" style={{ color: '#FFFFFF', fontSize: '15px', fontWeight: 500, margin: '0 0 10px' }}>
+          {/* جملة دعم قرار ملاصقة للزر بصريًا: أكبر قليلًا من نص الزر، بعيدة عن السطر
+              الذي فوقها وقريبة جدًا من الزر حتى تُقرأ كوحدة واحدة معه.
+              ملاحظة: حجم الزر الفعلي (btn-gold) غير معروف لي من ملف CSS، فقدّرته
+              بحوالي 16-17px وجعلت هذه الجملة 19px — راجعها بصريًا وأخبرني إن احتاجت ضبطًا. */}
+          <p className="hero-value" style={{ color: '#FFFFFF', fontSize: '19px', fontWeight: 500, margin: '28px 0 8px' }}>
             لا تتخذ قرارك القانوني وحدك
           </p>
 
@@ -87,15 +90,26 @@ export default function Home({ articles, news }) {
           </div>
           <div className="section-cta"><Link href="/client-inquiry" className="btn-outline-gold case-tracking-cta">عميل حالي؟ تابع ملفك</Link></div>
 
-          {/* شريط الثقة الثلاثي مدمج في سطر واحد أسفل الهيرو مباشرة بدل قسم منفصل بثلاث كتل.
-              لون أبيض صريح (لا "inherit") لضمان ظهوره فوق خلفية الهيرو الغامقة. */}
-          <p className="hero-trust-line" style={{ fontSize: '14px', color: '#FFFFFF', opacity: 0.85, marginTop: '18px' }}>
+          {/* شريط الثقة: بدّلت الفواصل النقطية داخل جملة واحدة بعناصر flex مستقلة مع
+              flexWrap. الفائدة: عند التفاف السطر على شاشة ضيقة (كما في الهاتف)، لا تُترك
+              نقطة "·" معلّقة في آخر أو أول سطر — كل عنصر يلتف كوحدة كاملة مستقلة. */}
+          <div
+            className="hero-trust-line"
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              gap: '6px 16px',
+              fontSize: '14px',
+              color: '#FFFFFF',
+              opacity: 0.85,
+              marginTop: '18px',
+            }}
+          >
             <span>خبرة عملية منذ 2005</span>
-            <span aria-hidden="true"> · </span>
             <span>فهم للمخاطر قبل الالتزام</span>
-            <span aria-hidden="true"> · </span>
             <span>سرية مهنية ووضوح في التعامل</span>
-          </p>
+          </div>
         </div>
       </section>
 
