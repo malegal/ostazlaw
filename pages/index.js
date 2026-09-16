@@ -85,10 +85,26 @@ export default function Home({ articles, news }) {
             لا تتخذ قرارك القانوني وحدك
           </p>
 
-          <div className="hero-actions">
+          <div className="hero-cta-group">
             <Link href="/contact?tab=consult#service-form" className="btn-gold hero-consultation-cta">ابدأ استشارتك المجانية</Link>
+            <Link href="/client-inquiry" className="btn-outline-gold case-tracking-cta">عميل حالي؟ تابع ملفك</Link>
           </div>
-          <div className="section-cta"><Link href="/client-inquiry" className="btn-outline-gold case-tracking-cta">عميل حالي؟ تابع ملفك</Link></div>
+          <style jsx>{`
+            .hero-cta-group {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: center;
+              gap: 16px;
+              flex-wrap: wrap;
+            }
+            @media (max-width: 640px) {
+              .hero-cta-group {
+                flex-direction: column;
+                align-items: stretch;
+              }
+            }
+          `}</style>
 
           {/* شريط الثقة: بدّلت الفواصل النقطية داخل جملة واحدة بعناصر flex مستقلة مع
               flexWrap. الفائدة: عند التفاف السطر على شاشة ضيقة (كما في الهاتف)، لا تُترك
