@@ -416,7 +416,7 @@ export default function Contact() {
           font-weight: 600;
           box-shadow: none;
         }
-        .form-group input:hover, .form-group textarea:hover, .form-group select:hover { border-color: rgba(8,20,38,0.55); }
+        .form-group input:hover, .form-group textarea:hover, .form-group select:hover { border-color: rgba(176,141,87,0.85); box-shadow: 0 1px 5px rgba(176,141,87,0.12); }
         .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border: 2px solid var(--matte-gold); box-shadow: none; background: #fff; }
         .form-group input:focus + label, .form-group input:not(:placeholder-shown) + label, .form-group textarea:focus + label, .form-group textarea:not(:placeholder-shown) + label { top: 0; transform: translateY(-50%); color: var(--matte-gold); font-size: 0.7rem; font-weight: 800; }
         .form-group textarea { height: auto; padding: 1rem; resize: vertical; min-height: 142px; line-height: 1.75; }
