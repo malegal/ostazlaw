@@ -64,13 +64,16 @@ export default function Contact() {
     }
   };
 
+  // حقل موحّد بمظهر بسيط ومتناسق: التسمية أعلى الحقل دائمًا (بدل التخطيط الأفقي
+  // القديم تسمية/حقل جنبًا إلى جنب)، بارتفاع وحدود وحالة تركيز واحدة لكل الحقول
+  // بلا استثناء (نص، بريد، هاتف، تاريخ، وقت) — هذا هو الفرق الجوهري عن التصميم
+  // السابق، وهو أقرب لما تعتمده نماذج Google وMicrosoft: تكديس رأسي بسيط بدل
+  // شبكة أفقية بعرض تسمية ثابت.
   const Field = ({ id, label, type = 'text', placeholder, required = true }) => (
-    <div className="form-group">
-      <div className="form-field">
-        <label htmlFor={id}>{label}{!required && <span className="optional-label"> (اختياري)</span>}</label>
-        <div className="field-control">
-          <input id={id} name={id} type={type} placeholder={placeholder || ' '} aria-label={label} required={required} />
-        </div>
+    <div className="form-field-modern">
+      <label htmlFor={id}>{label}{!required && <span className="optional-label"> (اختياري)</span>}</label>
+      <div className="field-control">
+        <input id={id} name={id} type={type} placeholder={placeholder || ''} aria-label={label} required={required} />
       </div>
     </div>
   );
@@ -275,7 +278,12 @@ export default function Contact() {
                       <Field id="subject" label="موضوع الطلب" placeholder="مثال: مراجعة عقد أو نزاع عقاري" />
                     {/* اختيار القناة يظهر فقط لطلب الاستشارة (مش المقابلة)، لأن المقابلة بتتأكد دايمًا عبر واتساب لسرعة الرد */}
                     {audience === 'business' && requestType === 'consultation' && <div className="channel-box"><div><strong>طريقة الإرسال المفضلة</strong><small>يمكنك تغييرها قبل الإرسال</small></div><div className="channel-toggle"><button type="button" className={channel === 'email' ? 'active' : ''} onClick={() => setChannel('email')}><Icon name="envelope" /> البريد الإلكتروني</button><button type="button" className={channel === 'whatsapp' ? 'active' : ''} onClick={() => setChannel('whatsapp')}><Icon name="whatsapp" /> واتساب</button></div></div>}
-                      <div className="form-group form-group-textarea"><div className="form-field"><label htmlFor="details">تفاصيل الموضوع</label><div className="field-control"><textarea id="details" name="details" rows="5" placeholder="اكتب ملخصًا للوقائع أو السؤال أو ما تود مناقشته..." aria-label="تفاصيل الموضوع" required></textarea></div></div></div>
+                      <div className="form-field-modern">
+                        <label htmlFor="details">تفاصيل الموضوع</label>
+                        <div className="field-control">
+                          <textarea id="details" name="details" rows="5" placeholder="اكتب ملخصًا للوقائع أو السؤال أو ما تود مناقشته..." aria-label="تفاصيل الموضوع" required></textarea>
+                        </div>
+                      </div>
                   </fieldset>
 
                   <fieldset className="form-step">
@@ -379,8 +387,7 @@ export default function Contact() {
         .request-option strong, .request-option small { display: block; }
         .request-option strong { font-size: 0.78rem; }
         .request-option small { color: var(--charcoal); opacity: 0.62; font-size: 0.62rem; margin-top: 0.15rem; }
-        .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 1.5rem; column-gap: 1.1rem; }
-        .form-grid .form-group { margin-bottom: 0; }
+        .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 1.4rem; column-gap: 1.1rem; }
         .meeting-box, .channel-box, .whatsapp-note { border: 1px solid rgba(176,141,87,0.24); border-radius: 12px; padding: 0.85rem; margin: 0.4rem 0 1rem; background: rgba(176,141,87,0.055); }
         .meeting-heading, .whatsapp-note { display: flex; align-items: center; gap: 0.65rem; color: var(--charcoal); }
         .meeting-heading > .icon-svg, .whatsapp-note > .icon-svg { color: var(--matte-gold); font-size: 1.1rem; }
@@ -399,37 +406,56 @@ export default function Contact() {
         .premium-submit:hover { transform: translateY(-2px); box-shadow: 0 13px 28px rgba(176,141,87,0.3); }
         .form-privacy { display: flex; align-items: center; justify-content: center; gap: 0.35rem; color: var(--charcoal); opacity: 0.58; font-size: 0.62rem; font-weight: 700; margin: 0.8rem 0 0; }
         .form-privacy .icon-svg { color: var(--matte-gold); }
-        .form-group { margin-bottom: 1.2rem; }
-        .form-field { display: grid; grid-template-columns: minmax(145px, 0.38fr) minmax(0, 1fr); align-items: start; gap: 0.9rem; }
-        .form-group label { display: flex; align-items: center; min-height: 50px; padding: 0 0.15rem; color: var(--charcoal); font-size: 0.82rem; font-weight: 700; line-height: 1.4; text-align: right; }
+
+        /* حقول موحّدة بمظهر مبسّط: تسمية صغيرة أعلى الحقل، ثم صندوق الإدخال كامل
+           العرض تحته مباشرة — بلا شبكة أفقية، بلا اختلاف بين نوع وآخر من الحقول.
+           هذا هو التغيير الجوهري المطلوب: بديل عن التخطيط القديم (تسمية يسار،
+           حقل يمين، عرض تسمية ثابت 145px) بنمط تكديس رأسي يشبه نماذج
+           Google وMicrosoft الحديثة. */
+        .form-field-modern { display: flex; flex-direction: column; gap: 6px; margin-bottom: 0; }
+        .form-field-modern label { color: var(--charcoal); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.01em; padding: 0 0.1rem; transition: color 0.15s ease; }
+        .form-field-modern:focus-within label { color: var(--matte-gold); }
         .optional-label { color: rgba(34,34,34,0.4); font-weight: 500; font-size: 0.68rem; }
-        /* كل الحقول النصية تستخدم نفس القاعدة البصرية؛ لا يختلف الاسم أو الهاتف عن الموضوع. */
+        .field-control { min-width: 0; }
         .field-control input, .field-control textarea, .field-control select {
           width: 100%;
-          height: 50px;
-          padding: 0 1rem;
-          border: 1px solid rgba(8,20,38,0.14);
-          border-radius: 7px;
+          height: 48px;
+          padding: 0 14px;
+          border: 1.5px solid rgba(8,20,38,0.14);
+          border-radius: 10px;
           font-size: 0.9rem;
           background: #fff;
           color: var(--charcoal);
-          transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+          transition: border-color 0.15s ease, box-shadow 0.15s ease;
           outline: none;
-          font-weight: 600;
+          font-weight: 500;
           box-shadow: none;
         }
-        .field-control { min-width: 0; }
-        .field-control input:hover, .field-control textarea:hover, .field-control select:hover { border-color: rgba(8,20,38,0.42); box-shadow: 0 1px 4px rgba(8,20,38,0.06); }
-        .field-control input:focus, .field-control textarea:focus, .field-control select:focus { border: 2px solid rgba(8,20,38,0.72); box-shadow: none; background: #fff; }
-        .form-field:focus-within > label { color: var(--charcoal); }
-        .field-control textarea { height: auto; padding: 1rem; resize: vertical; min-height: 142px; line-height: 1.75; }
+        .field-control input::placeholder, .field-control textarea::placeholder { color: rgba(34,34,34,0.38); font-weight: 400; }
+        .field-control input:hover, .field-control textarea:hover, .field-control select:hover { border-color: rgba(8,20,38,0.32); }
+        .field-control input:focus, .field-control textarea:focus, .field-control select:focus { border-color: var(--matte-gold); box-shadow: 0 0 0 3px rgba(176,141,87,0.16); }
+        .field-control textarea { height: auto; padding: 0.85rem 14px; resize: vertical; min-height: 140px; line-height: 1.75; }
         .field-hint { display: block; color: rgba(34,34,34,0.42); font-size: 0.66rem; font-weight: 600; margin: 0.35rem 0.2rem 0; }
         .field-control input[type="file"] { height: auto; padding: 0.9rem 1rem; background: var(--pure-white); border: 1.5px dashed rgba(0,0,0,0.16); box-shadow: none; }
         .field-control input[type="file"]:hover { border-color: var(--matte-gold); }
         .field-control input[type="date"], .field-control input[type="time"] { cursor: pointer; }
         .field-control input[type="date"]::-webkit-calendar-picker-indicator, .field-control input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(64%) sepia(23%) saturate(638%) hue-rotate(358deg) brightness(92%) contrast(88%); cursor: pointer; opacity: 0.75; }
+
         @media (max-width: 820px) { .hero-contact { padding: 100px 1rem 3rem; min-height: auto; } .section-content { padding: 2.5rem 1rem; } .hero-contact .hero-title-wrap h1 { font-size: clamp(2rem, 8vw, 2.8rem); } .contact-card { padding: 1rem; gap: 0.8rem; } .contact-card .icon-wrap { width: 40px; height: 40px; } .contact-card .icon-wrap .icon-svg { font-size: 1rem; } .map-container { height: 200px; } }
-        @media (max-width: 640px) { .form-field { grid-template-columns: 112px minmax(0, 1fr); gap: 0.55rem; } .field-control input, .field-control select { font-size: 0.85rem; height: 46px; padding: 0 0.75rem; } .field-control textarea { font-size: 0.85rem; padding: 0.8rem 0.75rem; } .form-group label { min-height: 46px; font-size: 0.76rem; } .field-hint { font-size: 0.6rem; } .audience-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.35rem; } .audience-card { min-width: 0; min-height: 104px; padding: 0.55rem 0.25rem; flex-direction: column; justify-content: center; text-align: center; gap: 0.35rem; } .audience-card > span:nth-child(2) { min-width: 0; width: 100%; } .audience-card strong { font-size: 0.63rem; line-height: 1.35; word-break: normal; } .audience-card small { font-size: 0.52rem; line-height: 1.3; margin-top: 0.12rem; } .audience-icon { flex-basis: 32px; width: 32px; height: 32px; } .audience-card > .icon-svg:last-child { position: absolute; top: 0.35rem; left: 0.35rem; font-size: 0.65rem; } }
+        @media (max-width: 640px) {
+          .form-grid { grid-template-columns: 1fr; row-gap: 1.1rem; }
+          .field-control input, .field-control select { font-size: 0.85rem; height: 46px; padding: 0 0.75rem; }
+          .field-control textarea { font-size: 0.85rem; padding: 0.75rem; }
+          .form-field-modern label { font-size: 0.74rem; }
+          .field-hint { font-size: 0.6rem; }
+          .audience-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.35rem; }
+          .audience-card { min-width: 0; min-height: 104px; padding: 0.55rem 0.25rem; flex-direction: column; justify-content: center; text-align: center; gap: 0.35rem; }
+          .audience-card > span:nth-child(2) { min-width: 0; width: 100%; }
+          .audience-card strong { font-size: 0.63rem; line-height: 1.35; word-break: normal; }
+          .audience-card small { font-size: 0.52rem; line-height: 1.3; margin-top: 0.12rem; }
+          .audience-icon { flex-basis: 32px; width: 32px; height: 32px; }
+          .audience-card > .icon-svg:last-child { position: absolute; top: 0.35rem; left: 0.35rem; font-size: 0.65rem; }
+        }
       `}</style>
     </Layout>
   );
