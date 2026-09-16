@@ -81,7 +81,7 @@ export default function Home({ articles, news }) {
               الذي فوقها وقريبة جدًا من الزر حتى تُقرأ كوحدة واحدة معه.
               ملاحظة: حجم الزر الفعلي (btn-gold) غير معروف لي من ملف CSS، فقدّرته
               بحوالي 16-17px وجعلت هذه الجملة 19px — راجعها بصريًا وأخبرني إن احتاجت ضبطًا. */}
-          <p className="hero-value" style={{ color: '#FFFFFF', fontSize: '19px', fontWeight: 500, margin: '28px 0 8px' }}>
+          <p className="hero-value" style={{ color: '#FFFFFF', fontSize: '24px', fontWeight: 500, margin: '28px 0 8px' }}>
             لا تتخذ قرارك القانوني وحدك
           </p>
 
