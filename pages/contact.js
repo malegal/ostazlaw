@@ -70,7 +70,6 @@ export default function Contact() {
         <label htmlFor={id}>{label}{!required && <span className="optional-label"> (اختياري)</span>}</label>
         <div className="field-control">
           <input id={id} name={id} type={type} placeholder={placeholder || ' '} aria-label={label} required={required} />
-          {placeholder && <span className="field-hint">{placeholder}</span>}
         </div>
       </div>
     </div>
@@ -408,7 +407,7 @@ export default function Contact() {
           width: 100%;
           height: 50px;
           padding: 0 1rem;
-          border: 1px solid rgba(8,20,38,0.22);
+          border: 1px solid rgba(8,20,38,0.14);
           border-radius: 7px;
           font-size: 0.9rem;
           background: #fff;
@@ -419,9 +418,9 @@ export default function Contact() {
           box-shadow: none;
         }
         .field-control { min-width: 0; }
-        .form-group input:hover, .form-group textarea:hover, .form-group select:hover { border-color: rgba(176,141,87,0.85); box-shadow: 0 1px 5px rgba(176,141,87,0.12); }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border: 2px solid var(--matte-gold); box-shadow: none; background: #fff; }
-        .form-field:focus-within > label { color: var(--matte-gold); }
+        .form-group input:hover, .form-group textarea:hover, .form-group select:hover { border-color: rgba(8,20,38,0.42); box-shadow: 0 1px 4px rgba(8,20,38,0.06); }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border: 2px solid rgba(8,20,38,0.72); box-shadow: none; background: #fff; }
+        .form-field:focus-within > label { color: var(--charcoal); }
         .form-group textarea { height: auto; padding: 1rem; resize: vertical; min-height: 142px; line-height: 1.75; }
         .field-hint { display: block; color: rgba(34,34,34,0.42); font-size: 0.66rem; font-weight: 600; margin: 0.35rem 0.2rem 0; }
         .form-group input[type="file"] { height: auto; padding: 0.9rem 1rem; background: var(--pure-white); border: 1.5px dashed rgba(0,0,0,0.16); box-shadow: none; }
