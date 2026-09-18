@@ -162,157 +162,110 @@ export default function Contact() {
         <div className="hero-glow-2"></div>
         <div className="hero-inner">
           <div className="hero-title-wrap reveal">
-            <span className="en-tag">Contact Us</span>
-            <h1>ابدأ بخطوة <span className="gold-text">واضحة</span></h1>
-            <p className="sub">استشارة أولية مجانية لفهم مسألتك وتحديد الخطوة التالية — للأفراد والشركات والمستثمرين في أسوان ومختلف محافظات مصر.</p>
+            <span className="en-tag">LEGAL CONSULTATION</span>
+            <h1>افهم موقفك القانوني <span className="gold-text">قبل خطوتك التالية</span></h1>
+            <p className="sub">ابدأ من الوقائع والمستندات، وسنساعدك على تحديد المسار الأنسب — استشارة، مراجعة مستند، موعد أو تمثيل قانوني.</p>
           </div>
         </div>
       </section>
 
-      <section className="section-content" aria-label="معلومات التواصل">
+      <section className="section-content" aria-label="طلب الاستشارة والتواصل">
         <div className="inner">
-          <div className="reveal text-center mb-8">
-            <span className="eyebrow" style={{ display: 'block', fontSize: '0.65rem', fontWeight: '800', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--matte-gold)', opacity: '0.5', marginBottom: '0.3rem' }}>● مقرنا</span>
-            <h2 className="text-2xl md:text-3xl font-bold serif gold-text">مقر المكتب في أسوان وخدماتنا في مختلف محافظات مصر</h2>
-            <p className="text-sm max-w-2xl mx-auto" style={{ color: 'var(--charcoal)', fontWeight: '700' }}>يقع مقر المكتب في أسوان، ونقدم خدماتنا للعملاء في مختلف محافظات مصر بحسب طبيعة الخدمة والقضية والجهة المختصة.</p>
-          </div>
-
-          {/* فرع واحد فعليًا، فبقى كارت مفرد بعرض مناسب في المنتصف بدل شبكة ثلاثية فاضية */}
-          <div className="branches-grid mb-8">
-            <div className="branch-card reveal">
-              <div className="branch-icon"><Icon name="flag" /></div>
-              <h4>مقر المكتب – أسوان <span className="badge-main">المقر الفعلي</span></h4>
-              <p>شارع كسر الحجر، المتفرع من شارع كورنيش النيل، أمام مجمع المحاكم، أسوان</p>
+          <div className="consultation-process reveal" aria-label="مراحل بدء الخدمة">
+            <div className="process-heading">
+              <span className="form-kicker">كيف نبدأ معك؟</span>
+              <h2>مسار واضح من أول رسالة</h2>
+              <p>لا تحتاج إلى معرفة اسم الدعوى أو تقديم ملف كامل في البداية. اكتب ما حدث بطريقتك، وسنوضح لك الخطوة التالية.</p>
+            </div>
+            <div className="process-steps">
+              <div className="process-step"><span>01</span><div><strong>تشرح ما حدث</strong><small>ملخص بسيط للمسألة وما تريد الوصول إليه.</small></div></div>
+              <div className="process-step"><span>02</span><div><strong>نقرأ الصورة الأولية</strong><small>نراجع البيانات ونحدد ما يلزم لفهم الموقف.</small></div></div>
+              <div className="process-step"><span>03</span><div><strong>نوضح المسار المناسب</strong><small>استشارة أو موعد أو مراجعة مستندات أو تمثيل قانوني.</small></div></div>
             </div>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-8">
-            <div className="lg:col-span-5 space-y-6">
-              <div className="reveal">
-                <h2 className="text-2xl font-bold serif gold-text mb-1">بيانات التواصل</h2>
-                <p className="text-sm" style={{ color: 'var(--charcoal)', fontWeight: '700' }}>تفضل بزيارة مقر المكتب في أسوان، أو ابدأ طلبك عبر الهاتف أو واتساب من أي محافظة في مصر.</p>
-              </div>
-              <div className="space-y-3">
-                <div className="contact-card reveal">
-                  <div className="icon-wrap"><Icon name="map-marker-alt" /></div>
-                  <div className="info">
-                    <h4>المقر الرئيسي (أسوان)</h4>
-                    <p>شارع كسر الحجر، أمام مجمع المحاكم، أسوان</p>
-                    <p style={{ fontSize: '0.7rem', color: 'var(--charcoal)', fontWeight: '700' }}>تُحدد وسيلة تقديم الخدمة بحسب طبيعة الطلب والجهة القضائية المختصة.</p>
-                  </div>
-                </div>
-                <div className="contact-card reveal" style={{ transitionDelay: '0.08s' }}>
-                  <div className="icon-wrap"><Icon name="phone-alt" /></div>
-                  <div className="info">
-                    <h4>الهاتف والواتساب</h4>
-                    <p dir="ltr">+20 110 107 6000</p>
-                  </div>
-                </div>
-                <div className="contact-card reveal" style={{ transitionDelay: '0.16s' }}>
-                  <div className="icon-wrap"><Icon name="envelope" /></div>
-                  <div className="info">
-                    <h4>البريد الإلكتروني</h4>
-                    <p dir="ltr">ma.law.firm@outlook.com</p>
-                  </div>
-                </div>
-                <div className="contact-card reveal" style={{ transitionDelay: '0.24s' }}>
-                  <div className="icon-wrap"><Icon name="clock" /></div>
-                  <div className="info">
-                    <h4>ساعات العمل</h4>
-                    <p>السبت - الخميس: ٩:٠٠ ص - ١٠:٠٠ م</p>
-                    <p style={{ fontSize: '0.7rem', color: 'var(--charcoal)', fontWeight: '700' }}>الجمعة: مغلق</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="map-container reveal">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3642.4!2d32.9!3d24.09!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDA1JzMxLjIiTiAzMsKwNTMnNDkuMiJF!5e0!3m2!1sen!2seg!4v1600000000000!5m2!1sen!2seg" allowFullScreen="" loading="lazy"></iframe>
-                <div className="map-overlay"><span><Icon name="map-pin" style={{ marginRight: '0.5rem' }} /> المقر الرئيسي في أسوان</span></div>
-              </div>
-
-              <div className="reveal text-center pt-2">
-                <p className="text-sm font-bold" style={{ color: 'var(--charcoal)', marginBottom: '0.75rem' }}>تابعنا على المنصات:</p>
-                <div className="flex gap-3 justify-center flex-wrap">
-                  <a href="https://www.facebook.com/malegal" target="_blank" rel="noopener noreferrer" className="social-icon-circle"><Icon name="facebook-f" /></a>
-                  <a href="https://x.com/mahmoud_a_hamyd" target="_blank" rel="noopener noreferrer" className="social-icon-circle" aria-label="صفحة المكتب على إكس"><Icon name="x" /></a>
-                  <a href="https://www.linkedin.com/in/mahmoud-abdel-hamid-0a4664374" target="_blank" rel="noopener noreferrer" className="social-icon-circle"><Icon name="linkedin-in" /></a>
-                </div>
-              </div>
+          <div id="service-form" className="contact-form-shell consultation-primary reveal" style={{ scrollMarginTop: '96px' }}>
+            <div className="form-intro">
+              <span className="form-kicker">الخطوة الأولى</span>
+              <h2>اعرض مسألتك على المكتب</h2>
+              <p>اكتب الوقائع بلغتك، وسنراجع الطلب الأولي ونحدد معك طريقة التواصل والخطوة المناسبة.</p>
+              <div className="consultation-scope-note"><Icon name="shield-alt" /><span><strong>قبل الإرسال</strong> هذه الخطوة لا تعني قبول القضية أو نشوء علاقة محاماة. الاستشارة الأولية مخصصة لفهم الوقائع وتحديد المسار، ولا تشمل إعداد مذكرات أو مراجعة ملفات مطولة أو التمثيل القضائي إلا باتفاق مستقل.</span></div>
             </div>
 
-            <div className="lg:col-span-7 reveal" style={{ transitionDelay: '0.2s' }}>
-              <div id="service-form" className="contact-form-shell" style={{ scrollMarginTop: '96px' }}>
-                <div className="form-intro">
-                  <span className="form-kicker">الخطوة الأولى</span>
-                  <h2>اعرض مسألتك في استشارة أولية مجانية</h2>
-                  <p>اختر الفئة الأقرب إليك، واكتب ما حدث بكلماتك. سنبدأ من الوقائع ونوجّهك إلى البيانات وطريقة التواصل الأنسب.</p>
-                  <div className="consultation-scope-note"><Icon name="shield-alt" /><span><strong>ما الذي يشمله العرض؟</strong> فهم أولي للوقائع وتحديد المسار المناسب. لا تشمل الاستشارة المجانية إعداد مذكرات أو مراجعة ملفات مطولة أو التمثيل القضائي.</span></div>
+            <form id="serviceForm" onSubmit={handleSubmit} className="contact-form">
+              <fieldset className="form-step">
+                <legend><span className="step-number">01</span><span><strong>ما نوع طلبك؟</strong><small>اختر الأقرب إلى احتياجك الآن</small></span></legend>
+                <div className="request-options request-options-first">
+                  <label className={`request-option ${requestType === 'consultation' ? 'selected' : ''}`}><input type="radio" name="requestType" value="consultation" checked={requestType === 'consultation'} onChange={() => setRequestType('consultation')} /><span><strong>استشارة أو تقييم أولي</strong><small>فهم الموقف وتحديد الخطوة التالية</small></span></label>
+                  <label className={`request-option ${requestType === 'meeting' ? 'selected' : ''}`}><input type="radio" name="requestType" value="meeting" checked={requestType === 'meeting'} onChange={() => setRequestType('meeting')} /><span><strong>مقابلة في المكتب</strong><small>اقتراح موعد في مقر المكتب بأسوان</small></span></label>
                 </div>
+              </fieldset>
 
-                <form id="serviceForm" onSubmit={handleSubmit} className="contact-form">
-                  <fieldset className="form-step">
-                    <legend><span className="step-number">01</span><span><strong>من أنت؟</strong><small>يساعدنا ذلك على فهم طبيعة طلبك</small></span></legend>
-                    <div className="audience-cards">
-                      <button type="button" className={`audience-card ${audience === 'business' ? 'selected' : ''}`} onClick={() => changeAudience('business')} aria-pressed={audience === 'business'}>
-                        <span className="audience-icon"><Icon name="building" /></span><span><strong>شركة أو مؤسسة</strong><small>للشركات والجهات والمنشآت</small></span><Icon name="check-circle" />
-                      </button>
-                      <button type="button" className={`audience-card ${audience === 'investor' ? 'selected' : ''}`} onClick={() => changeAudience('investor')} aria-pressed={audience === 'investor'}>
-                        <span className="audience-icon"><Icon name="chart-pie" /></span><span><strong>رجل أعمال أو مستثمر</strong><small>للاستثمار والشراكات والمشروعات</small></span><Icon name="check-circle" />
-                      </button>
-                      <button type="button" className={`audience-card ${audience === 'individual' ? 'selected' : ''}`} onClick={() => changeAudience('individual')} aria-pressed={audience === 'individual'}>
-                        <span className="audience-icon"><Icon name="user" /></span><span><strong>فرد</strong><small>للمسائل والحقوق الشخصية</small></span><Icon name="check-circle" />
-                      </button>
-                    </div>
-                  </fieldset>
+              <fieldset className="form-step">
+                <legend><span className="step-number">02</span><span><strong>من صاحب الطلب؟</strong><small>يساعدنا ذلك على فهم طبيعة المسألة</small></span></legend>
+                <div className="audience-cards">
+                  <button type="button" className={`audience-card ${audience === 'business' ? 'selected' : ''}`} onClick={() => changeAudience('business')} aria-pressed={audience === 'business'}><span className="audience-icon"><Icon name="building" /></span><span><strong>شركة أو مؤسسة</strong><small>للشركات والجهات والمنشآت</small></span><Icon name="check-circle" /></button>
+                  <button type="button" className={`audience-card ${audience === 'investor' ? 'selected' : ''}`} onClick={() => changeAudience('investor')} aria-pressed={audience === 'investor'}><span className="audience-icon"><Icon name="chart-pie" /></span><span><strong>مستثمر أو رجل أعمال</strong><small>للاستثمار والشراكات والمشروعات</small></span><Icon name="check-circle" /></button>
+                  <button type="button" className={`audience-card ${audience === 'individual' ? 'selected' : ''}`} onClick={() => changeAudience('individual')} aria-pressed={audience === 'individual'}><span className="audience-icon"><Icon name="user" /></span><span><strong>فرد</strong><small>للمسائل والحقوق الشخصية</small></span><Icon name="check-circle" /></button>
+                </div>
+              </fieldset>
 
-                  <fieldset className="form-step">
-                    <legend><span className="step-number">02</span><span><strong>بيانات التواصل</strong><small>{audience === 'business' ? 'بيانات الشركة أو الجهة' : 'بياناتك الأساسية'}</small></span></legend>
-                    <div className="form-grid">
-                      <Field id="name" label="الاسم بالكامل" placeholder="الاسم ثلاثي..." />
-                      {audience === 'business' && <Field id="entity" label="اسم الشركة أو المؤسسة أو الجهة" placeholder="اسم الجهة" />}
-                      {audience === 'business' && <Field id="email" label="البريد الإلكتروني" type="email" placeholder="name@company.com" />}
-                      <Field id="phone" label="رقم الهاتف / الواتساب" type="tel" placeholder="01xxxxxxxxx" />
-                      <Field id="governorate" label="المحافظة" placeholder="مثال: أسوان" />
-                      <Field id="city" label="المدينة" placeholder="مثال: مدينة أسوان" />
-                    </div>
-                      <Field id="subject" label="موضوع الطلب" placeholder="مثال: مراجعة عقد أو نزاع عقاري" />
-                    {/* اختيار القناة يظهر فقط لطلب الاستشارة (مش المقابلة)، لأن المقابلة بتتأكد دايمًا عبر واتساب لسرعة الرد */}
-                    {audience === 'business' && requestType === 'consultation' && <div className="channel-box"><div><strong>طريقة الإرسال المفضلة</strong><small>يمكنك تغييرها قبل الإرسال</small></div><div className="channel-toggle"><button type="button" className={channel === 'email' ? 'active' : ''} onClick={() => setChannel('email')}><Icon name="envelope" /> البريد الإلكتروني</button><button type="button" className={channel === 'whatsapp' ? 'active' : ''} onClick={() => setChannel('whatsapp')}><Icon name="whatsapp" /> واتساب</button></div></div>}
-                      <div className="form-field-modern">
-                        <label htmlFor="details">تفاصيل الموضوع</label>
-                        <div className="field-control">
-                          <textarea id="details" name="details" rows="5" placeholder="اكتب ملخصًا للوقائع أو السؤال أو ما تود مناقشته..." aria-label="تفاصيل الموضوع" required></textarea>
-                        </div>
-                      </div>
-                  </fieldset>
+              <fieldset className="form-step">
+                <legend><span className="step-number">03</span><span><strong>بيانات التواصل والوقائع</strong><small>الحقول الأساسية فقط في البداية</small></span></legend>
+                <div className="form-grid">
+                  <Field id="name" label="الاسم بالكامل" placeholder="اكتب اسمك بالكامل" />
+                  {audience === 'business' && <Field id="entity" label="اسم الشركة أو الجهة" placeholder="اسم الشركة أو المؤسسة" />}
+                  {audience === 'business' && <Field id="email" label="البريد الإلكتروني" type="email" placeholder="name@company.com" required={false} />}
+                  <Field id="phone" label="رقم الهاتف / الواتساب" type="tel" placeholder="01xxxxxxxxx" />
+                  <Field id="governorate" label="المحافظة" placeholder="مثال: أسوان" />
+                  <Field id="city" label="المدينة" placeholder="مثال: مدينة أسوان" />
+                </div>
+                <Field id="subject" label="موضوع الطلب" placeholder="مثال: مراجعة عقد أو نزاع عقاري" />
+                <div className="form-field-modern">
+                  <label htmlFor="details">ماذا حدث؟ <span className="optional-label">اكتب بطريقتك</span></label>
+                  <div className="field-control"><textarea id="details" name="details" rows="5" placeholder="اذكر الأطراف، ما حدث باختصار، وما الذي تريد الوصول إليه. لا تحتاج إلى استخدام مصطلحات قانونية." aria-label="تفاصيل الموضوع" required></textarea></div>
+                </div>
+              </fieldset>
 
-                  <fieldset className="form-step">
-                    <legend><span className="step-number">03</span><span><strong>كيف نساعدك؟</strong><small>اختر الإجراء المناسب بعد إدخال بياناتك</small></span></legend>
-                    <div className="request-options">
-                      <label className={`request-option ${requestType === 'consultation' ? 'selected' : ''}`}><input type="radio" name="requestType" value="consultation" checked={requestType === 'consultation'} onChange={() => setRequestType('consultation')} /><span><strong>استشارة قانونية</strong><small>تحديد الخطوة التالية، ثم إرسال الطلب عبر واتساب</small></span></label>
-                      <label className={`request-option ${requestType === 'meeting' ? 'selected' : ''}`}><input type="radio" name="requestType" value="meeting" checked={requestType === 'meeting'} onChange={() => setRequestType('meeting')} /><span><strong>مقابلة في المكتب</strong><small>اقتراح موعد في مقر المكتب بأسوان، تأكيد عبر واتساب</small></span></label>
-                    </div>
-                    {requestType === 'consultation' && <div className="meeting-box">
-                      <div className="meeting-heading"><Icon name="clock" /><span><strong>الوقت الأنسب للتواصل</strong><small>سنرسل طلبك ونتواصل معك في الوقت المقترح قدر الإمكان.</small></span></div>
-                      <div className="form-grid"><Field id="contactTime" label="الوقت الأنسب للتواصل" type="time" /></div>
-                    </div>}
-                    {requestType === 'meeting' && <div className="meeting-box">
-                      <div className="meeting-heading"><Icon name="calendar-check" /><span><strong>الموعد الأنسب للمقابلة</strong><small>سيتم تأكيد الموعد برسالة عبر واتساب، وإرسال الطلب لا يعني تأكيده تلقائيًا.</small></span></div>
-                      <div className="form-grid"><Field id="meetingDate" label="التاريخ المقترح" type="date" /><Field id="meetingTime" label="الوقت المقترح" type="time" /></div>
-                    </div>}
-                    {requestType === 'consultation' && <div className="whatsapp-note"><Icon name="whatsapp" /><span><strong>الإرسال عبر واتساب</strong><small>اضغط إرسال الطلب لفتح واتساب برسالة جاهزة بالبيانات التي أدخلتها.</small></span></div>}
-                    {requestType === 'meeting' && <div className="whatsapp-note"><Icon name="whatsapp" /><span><strong>الإرسال عبر واتساب</strong><small>طلبات المقابلة تُرسل عبر واتساب دائمًا لتأكيد الموعد بسرعة.</small></span></div>}
-                  </fieldset>
+              <fieldset className="form-step">
+                <legend><span className="step-number">04</span><span><strong>الخطوة العملية</strong><small>نحدد وسيلة التواصل أو الموعد المقترح</small></span></legend>
+                {requestType === 'consultation' && <div className="meeting-box">
+                  <div className="meeting-heading"><Icon name="clock" /><span><strong>الوقت الأنسب للتواصل</strong><small>سنحاول التواصل معك في الوقت المقترح قدر الإمكان.</small></span></div>
+                  <div className="form-grid"><Field id="contactTime" label="الوقت الأنسب للتواصل" type="time" /></div>
+                </div>}
+                {requestType === 'meeting' && <div className="meeting-box">
+                  <div className="meeting-heading"><Icon name="calendar-check" /><span><strong>الموعد الأنسب للمقابلة</strong><small>إرسال الطلب لا يعني تأكيد الموعد تلقائيًا؛ سيتم التأكيد عبر واتساب.</small></span></div>
+                  <div className="form-grid"><Field id="meetingDate" label="التاريخ المقترح" type="date" /><Field id="meetingTime" label="الوقت المقترح" type="time" /></div>
+                </div>}
+                {audience === 'business' && requestType === 'consultation' && <div className="channel-box"><div><strong>طريقة التواصل المفضلة</strong><small>يمكنك تغييرها قبل الإرسال</small></div><div className="channel-toggle"><button type="button" className={channel === 'email' ? 'active' : ''} onClick={() => setChannel('email')}><Icon name="envelope" /> البريد الإلكتروني</button><button type="button" className={channel === 'whatsapp' ? 'active' : ''} onClick={() => setChannel('whatsapp')}><Icon name="whatsapp" /> واتساب</button></div></div>}
+              </fieldset>
 
-                  <button type="submit" className="premium-submit"><span>{requestType === 'meeting' ? 'إرسال طلب المقابلة عبر واتساب' : (audience === 'business' && channel === 'email' ? 'إرسال عبر البريد الإلكتروني' : 'إرسال عبر واتساب')}</span><Icon name={requestType === 'meeting' ? 'whatsapp' : (audience === 'business' && channel === 'email' ? 'envelope' : 'whatsapp')} /></button>
-                  <p className="form-privacy"><Icon name="shield-alt" /> نحافظ على سرية بياناتك، وسيتم استخدام المعلومات للتواصل بشأن طلبك فقط.</p>
-                </form>
+              <button type="submit" className="premium-submit"><span>{requestType === 'meeting' ? 'إرسال طلب المقابلة عبر واتساب' : (audience === 'business' && channel === 'email' ? 'إرسال الطلب عبر البريد الإلكتروني' : 'إرسال المسألة عبر واتساب')}</span><Icon name={requestType === 'meeting' ? 'whatsapp' : (audience === 'business' && channel === 'email' ? 'envelope' : 'whatsapp')} /></button>
+              <p className="form-privacy"><Icon name="shield-alt" /> نستخدم بياناتك للتواصل بشأن طلبك فقط، ونحافظ على سريتها المهنية.</p>
+            </form>
+          </div>
+
+          <div className="contact-after-form">
+            <div className="contact-after-heading reveal">
+              <span className="eyebrow">● مقرنا ووسائل التواصل</span>
+              <h2>نلتقي بك في أسوان ونتواصل معك من أي محافظة</h2>
+              <p>مقر المكتب في أسوان، وتُحدد وسيلة تقديم الخدمة بحسب طبيعة الطلب والقضية والجهة المختصة.</p>
+            </div>
+            <div className="grid lg:grid-cols-12 gap-8">
+              <div className="lg:col-span-5 space-y-3">
+                <div className="contact-card reveal"><div className="icon-wrap"><Icon name="map-marker-alt" /></div><div className="info"><h4>المقر الرئيسي – أسوان</h4><p>شارع كسر الحجر، المتفرع من شارع كورنيش النيل، أمام مجمع المحاكم، أسوان</p></div></div>
+                <div className="contact-card reveal"><div className="icon-wrap"><Icon name="phone-alt" /></div><div className="info"><h4>الهاتف والواتساب</h4><p dir="ltr">+20 110 107 6000</p></div></div>
+                <div className="contact-card reveal"><div className="icon-wrap"><Icon name="envelope" /></div><div className="info"><h4>البريد الإلكتروني</h4><p dir="ltr">ma.law.firm@outlook.com</p></div></div>
+                <div className="contact-card reveal"><div className="icon-wrap"><Icon name="clock" /></div><div className="info"><h4>ساعات العمل</h4><p>السبت - الخميس: ٩:٠٠ ص - ١٠:٠٠ م</p><p className="contact-note">الجمعة: مغلق</p></div></div>
+              </div>
+              <div className="lg:col-span-7">
+                <div className="map-container reveal"><iframe title="خريطة مقر مكتب جاد الرب في أسوان" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3642.4!2d32.9!3d24.09!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDA1JzMxLjIiTiAzMsKwNTMnNDkuMiJF!5e0!3m2!1sen!2seg!4v1600000000000!5m2!1sen!2seg" allowFullScreen="" loading="lazy"></iframe><div className="map-overlay"><span><Icon name="map-pin" style={{ marginRight: '0.5rem' }} /> المقر الرئيسي في أسوان</span></div></div>
+                <div className="reveal text-center pt-5"><p className="text-sm font-bold" style={{ color: 'var(--charcoal)', marginBottom: '0.75rem' }}>تابع أخبار المكتب ومحتواه القانوني</p><div className="flex gap-3 justify-center flex-wrap"><a href="https://www.facebook.com/malegal" target="_blank" rel="noopener noreferrer" className="social-icon-circle" aria-label="صفحة المكتب على فيسبوك"><Icon name="facebook-f" /></a><a href="https://x.com/mahmoud_a_hamyd" target="_blank" rel="noopener noreferrer" className="social-icon-circle" aria-label="صفحة المكتب على إكس"><Icon name="x" /></a><a href="https://www.linkedin.com/in/mahmoud-abdel-hamid-0a4664374" target="_blank" rel="noopener noreferrer" className="social-icon-circle" aria-label="صفحة الأستاذ محمود عبد الحميد جاد الرب على لينكدإن"><Icon name="linkedin-in" /></a></div></div>
               </div>
             </div>
           </div>
         </div>
       </section>
-
       <style jsx>{`
         .hero-contact { padding: 120px 2rem 4rem; background: var(--very-dark-navy); position: relative; overflow: hidden; min-height: 45vh; display: flex; align-items: center; }
         .hero-contact .hero-pattern { position: absolute; inset: 0; opacity: 0.03; background-image: radial-gradient(circle at 20% 30%, var(--matte-gold) 1px, transparent 1px), radial-gradient(circle at 80% 70%, var(--matte-gold) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
@@ -355,6 +308,22 @@ export default function Contact() {
         .map-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 1; transition: opacity 0.4s ease; pointer-events: none; }
         .map-container:hover .map-overlay { opacity: 0; }
         .map-overlay span { background: var(--matte-gold); color: #000; padding: 0.5rem 1.2rem; border-radius: 8px; font-weight: 700; font-size: 0.8rem; }
+        .consultation-process { background: var(--very-dark-navy); color: #fff; border-radius: 18px; padding: clamp(1.25rem, 3vw, 2rem); margin-bottom: 1.25rem; display: grid; grid-template-columns: minmax(220px, 0.85fr) 1.6fr; gap: 1.5rem; align-items: center; }
+        .process-heading h2 { color: #fff; font-family: var(--serif-font); font-size: clamp(1.35rem, 2.4vw, 1.9rem); margin: 0.35rem 0 0.55rem; }
+        .process-heading p { color: rgba(255,255,255,0.72); font-size: 0.82rem; line-height: 1.85; margin: 0; }
+        .process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.65rem; }
+        .process-step { border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.055); border-radius: 12px; padding: 0.85rem; min-height: 122px; color: #fff; }
+        .process-step > span { display: block; color: var(--matte-gold); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; margin-bottom: 0.65rem; }
+        .process-step strong, .process-step small { display: block; }
+        .process-step strong { color: #fff; font-size: 0.82rem; margin-bottom: 0.28rem; }
+        .process-step small { color: rgba(255,255,255,0.62); font-size: 0.68rem; line-height: 1.65; }
+        .consultation-primary { max-width: 980px; margin: 0 auto; }
+        .request-options-first { grid-template-columns: repeat(2, 1fr); margin-bottom: 0; }
+        .contact-after-form { margin-top: clamp(3rem, 7vw, 5.5rem); border-top: 1px solid rgba(8,20,38,0.1); padding-top: clamp(2rem, 5vw, 3.5rem); }
+        .contact-after-heading { text-align: center; max-width: 720px; margin: 0 auto 2rem; }
+        .contact-after-heading h2 { color: var(--charcoal); font-family: var(--serif-font); font-size: clamp(1.5rem, 3vw, 2.25rem); margin: 0.35rem 0 0.5rem; }
+        .contact-after-heading p { color: var(--charcoal); font-weight: 700; font-size: 0.85rem; line-height: 1.8; margin: 0; }
+        .contact-note { font-size: 0.7rem !important; color: var(--charcoal); font-weight: 700; }
         .contact-form-shell { background: linear-gradient(145deg, #fff 0%, #fbfaf7 100%); border-radius: 22px; border: 1px solid rgba(176,141,87,0.18); box-shadow: 0 18px 55px rgba(8,20,38,0.08); padding: clamp(1.25rem, 3vw, 2.5rem); position: relative; overflow: hidden; }
         .contact-form-shell::before { content: ''; position: absolute; top: 0; right: 0; width: 38%; height: 4px; background: linear-gradient(90deg, transparent, var(--matte-gold)); }
         .form-intro { margin-bottom: 2rem; }
@@ -441,7 +410,8 @@ export default function Contact() {
         .field-control input[type="date"], .field-control input[type="time"] { cursor: pointer; }
         .field-control input[type="date"]::-webkit-calendar-picker-indicator, .field-control input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(64%) sepia(23%) saturate(638%) hue-rotate(358deg) brightness(92%) contrast(88%); cursor: pointer; opacity: 0.75; }
 
-        @media (max-width: 820px) { .hero-contact { padding: 100px 1rem 3rem; min-height: auto; } .section-content { padding: 2.5rem 1rem; } .hero-contact .hero-title-wrap h1 { font-size: clamp(2rem, 8vw, 2.8rem); } .contact-card { padding: 1rem; gap: 0.8rem; } .contact-card .icon-wrap { width: 40px; height: 40px; } .contact-card .icon-wrap .icon-svg { font-size: 1rem; } .map-container { height: 200px; } }
+        @media (max-width: 820px) { .consultation-process { grid-template-columns: 1fr; } .process-steps { grid-template-columns: 1fr; } .process-step { min-height: auto; } .request-options-first { grid-template-columns: 1fr; } .contact-after-form { margin-top: 3rem; }
+ .hero-contact { padding: 100px 1rem 3rem; min-height: auto; } .section-content { padding: 2.5rem 1rem; } .hero-contact .hero-title-wrap h1 { font-size: clamp(2rem, 8vw, 2.8rem); } .contact-card { padding: 1rem; gap: 0.8rem; } .contact-card .icon-wrap { width: 40px; height: 40px; } .contact-card .icon-wrap .icon-svg { font-size: 1rem; } .map-container { height: 200px; } }
         @media (max-width: 640px) {
           .form-grid { grid-template-columns: 1fr; row-gap: 1.1rem; }
           .field-control input, .field-control select { font-size: 0.85rem; height: 46px; padding: 0 0.75rem; }
