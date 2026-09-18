@@ -407,11 +407,10 @@ export default function Contact() {
         .form-privacy { display: flex; align-items: center; justify-content: center; gap: 0.35rem; color: var(--charcoal); opacity: 0.58; font-size: 0.62rem; font-weight: 700; margin: 0.8rem 0 0; }
         .form-privacy .icon-svg { color: var(--matte-gold); }
 
-        /* حقول موحّدة بمظهر مبسّط: تسمية صغيرة أعلى الحقل، ثم صندوق الإدخال كامل
-           العرض تحته مباشرة — بلا شبكة أفقية، بلا اختلاف بين نوع وآخر من الحقول.
-           هذا هو التغيير الجوهري المطلوب: بديل عن التخطيط القديم (تسمية يسار،
-           حقل يمين، عرض تسمية ثابت 145px) بنمط تكديس رأسي يشبه نماذج
-           Google وMicrosoft الحديثة. */
+        /* نمط Google الفعلي (Material underline): بلا صندوق يحيط بالحقل من كل
+           الجهات، فقط خط سفلي رفيع في وضع الراحة. عند النقر (focus) يتحول هذا
+           الخط إلى اللون الذهبي ويصبح أثخن قليلًا — هذا هو التمييز الوحيد بين
+           الحالتين، بلا أي حد جانبي أو علوي في أي وقت. */
         .form-field-modern { display: flex; flex-direction: column; gap: 6px; margin-bottom: 0; }
         .form-field-modern label { color: var(--charcoal); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.01em; padding: 0 0.1rem; transition: color 0.15s ease; }
         .form-field-modern:focus-within label { color: var(--matte-gold); }
@@ -419,24 +418,25 @@ export default function Contact() {
         .field-control { min-width: 0; }
         .field-control input, .field-control textarea, .field-control select {
           width: 100%;
-          height: 48px;
-          padding: 0 14px;
-          border: 1.5px solid rgba(8,20,38,0.14);
-          border-radius: 10px;
+          height: 44px;
+          padding: 0 2px 8px;
+          border: none;
+          border-bottom: 1.5px solid rgba(8,20,38,0.2);
+          border-radius: 0;
           font-size: 0.9rem;
-          background: #fff;
+          background: transparent;
           color: var(--charcoal);
-          transition: border-color 0.15s ease, box-shadow 0.15s ease;
+          transition: border-color 0.15s ease, border-width 0.15s ease;
           outline: none;
           font-weight: 500;
           box-shadow: none;
         }
         .field-control input::placeholder, .field-control textarea::placeholder { color: rgba(34,34,34,0.38); font-weight: 400; }
-        .field-control input:hover, .field-control textarea:hover, .field-control select:hover { border-color: rgba(8,20,38,0.32); }
-        .field-control input:focus, .field-control textarea:focus, .field-control select:focus { border-color: var(--matte-gold); box-shadow: 0 0 0 3px rgba(176,141,87,0.16); }
-        .field-control textarea { height: auto; padding: 0.85rem 14px; resize: vertical; min-height: 140px; line-height: 1.75; }
+        .field-control input:hover, .field-control textarea:hover, .field-control select:hover { border-bottom-color: rgba(8,20,38,0.4); }
+        .field-control input:focus, .field-control textarea:focus, .field-control select:focus { border-bottom-color: var(--matte-gold); border-bottom-width: 2px; }
+        .field-control textarea { height: auto; padding: 0.5rem 2px 8px; resize: vertical; min-height: 130px; line-height: 1.75; }
         .field-hint { display: block; color: rgba(34,34,34,0.42); font-size: 0.66rem; font-weight: 600; margin: 0.35rem 0.2rem 0; }
-        .field-control input[type="file"] { height: auto; padding: 0.9rem 1rem; background: var(--pure-white); border: 1.5px dashed rgba(0,0,0,0.16); box-shadow: none; }
+        .field-control input[type="file"] { height: auto; padding: 0.9rem 1rem; background: var(--pure-white); border: 1.5px dashed rgba(0,0,0,0.16); border-bottom: 1.5px dashed rgba(0,0,0,0.16); box-shadow: none; }
         .field-control input[type="file"]:hover { border-color: var(--matte-gold); }
         .field-control input[type="date"], .field-control input[type="time"] { cursor: pointer; }
         .field-control input[type="date"]::-webkit-calendar-picker-indicator, .field-control input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(64%) sepia(23%) saturate(638%) hue-rotate(358deg) brightness(92%) contrast(88%); cursor: pointer; opacity: 0.75; }
