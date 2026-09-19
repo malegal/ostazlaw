@@ -383,7 +383,8 @@ ${get('details')}`,
         .form-privacy { display: flex; align-items: center; justify-content: center; gap: 0.35rem; color: var(--charcoal); opacity: 0.58; font-size: 0.62rem; font-weight: 700; margin: 0.8rem 0 0; }
         .form-privacy .icon-svg { color: var(--matte-gold); }
 
-        /* حقول بيضاء واضحة بإطار كامل ومستدير، مع تركيز ذهبي خفيف يطابق هوية المكتب. */
+        /* نفس نمط الحقول المرجعي: حقل أبيض بإطار رمادي واضح، زوايا 7px،
+           وتركير ذهبي بسيط بلا خط سفلي أو ظل زائد. */
         .form-field-modern { display: flex; flex-direction: column; gap: 6px; margin-bottom: 0; }
         .form-field-modern label { color: var(--charcoal); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.01em; padding: 0 0.1rem; transition: color 0.15s ease; }
         .form-field-modern:focus-within label { color: var(--matte-gold); }
@@ -391,22 +392,22 @@ ${get('details')}`,
         .field-control { min-width: 0; }
         .field-control input, .field-control textarea, .field-control select {
           width: 100%;
-          height: 48px;
-          padding: 0 0.85rem;
-          border: 1px solid rgba(8,20,38,0.14);
-          border-radius: 9px;
+          height: 44px;
+          padding: 0.85rem 0.8rem;
+          border: 1px solid #B8B8B8;
+          border-radius: 7px;
           font-size: 0.9rem;
           background: #fff;
           color: var(--charcoal);
-          transition: border-color 0.15s ease, box-shadow 0.15s ease;
+          transition: border-color 0.18s ease, box-shadow 0.18s ease;
           outline: none;
           font-weight: 500;
-          box-shadow: 0 2px 8px rgba(8,20,38,0.025);
+          box-shadow: none;
         }
         .field-control input::placeholder, .field-control textarea::placeholder { color: rgba(34,34,34,0.38); font-weight: 400; }
-        .field-control input:hover, .field-control textarea:hover, .field-control select:hover { border-color: rgba(8,20,38,0.3); }
-        .field-control input:focus, .field-control textarea:focus, .field-control select:focus { border-color: var(--matte-gold); box-shadow: 0 0 0 3px rgba(176,141,87,0.11); }
-        .field-control textarea { height: auto; padding: 0.75rem 0.85rem; resize: vertical; min-height: 138px; line-height: 1.75; }
+        .field-control input:hover, .field-control textarea:hover, .field-control select:hover { border-color: #6F6F6F; }
+        .field-control input:focus, .field-control textarea:focus, .field-control select:focus { border: 2px solid var(--matte-gold); box-shadow: none; }
+        .field-control textarea { height: auto; padding: 0.85rem 0.8rem; resize: vertical; min-height: 138px; line-height: 1.75; }
         .field-hint { display: block; color: rgba(34,34,34,0.42); font-size: 0.66rem; font-weight: 600; margin: 0.35rem 0.2rem 0; }
         .field-control input[type="file"] { height: auto; padding: 0.9rem 1rem; background: var(--pure-white); border: 1.5px dashed rgba(0,0,0,0.16); box-shadow: none; }
         .field-control input[type="file"]:hover { border-color: var(--matte-gold); }
@@ -417,7 +418,7 @@ ${get('details')}`,
  .hero-contact { padding: 100px 1rem 3rem; min-height: auto; } .section-content { padding: 2.5rem 1rem; } .hero-contact .hero-title-wrap h1 { font-size: clamp(2rem, 8vw, 2.8rem); } .contact-card { padding: 1rem; gap: 0.8rem; } .contact-card .icon-wrap { width: 40px; height: 40px; } .contact-card .icon-wrap .icon-svg { font-size: 1rem; } .map-container { height: 200px; } }
         @media (max-width: 640px) {
           .form-grid { grid-template-columns: 1fr; row-gap: 1.1rem; }
-          .field-control input, .field-control select { font-size: 0.85rem; height: 48px; padding: 0 0.75rem; }
+          .field-control input, .field-control select { font-size: 0.85rem; height: 44px; padding: 0.85rem 0.6rem; }
           .field-control textarea { font-size: 0.85rem; padding: 0.75rem; }
           .form-field-modern label { font-size: 0.74rem; }
           .field-hint { font-size: 0.6rem; }
