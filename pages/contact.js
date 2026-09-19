@@ -23,21 +23,18 @@ const faqs = [
     a: 'نعم. مقر المكتب في أسوان، ويقدم خدماته للعملاء في مختلف محافظات مصر، وتُحدد وسيلة تقديم الخدمة بحسب طبيعة الطلب والقضية والجهة المختصة.',
   },
   {
-    q: 'ماذا أكتب في الطلب، وما المستندات المفيدة؟',
-    a: 'اكتب من هم الأطراف، وماذا حدث، وهل توجد جلسة أو ميعاد قريب، وما المطلوب من المكتب. ويفيد إرفاق ما يتوفر لديك من عقود أو إنذارات أو محاضر أو أحكام، ولا يلزم تقديم ملف كامل من البداية.',
+    q: 'لا أعرف نوع قضيتي، فماذا أكتب؟',
+    a: 'لا تحتاج إلى تحديد نوع القضية أو معرفة اسم الدعوى. اكتب من هم الأطراف، وماذا حدث، وهل توجد جلسة أو ميعاد قريب، وما المطلوب من المكتب، ويحدد المكتب التصنيف والمسار المناسب بعد المراجعة.',
   },
   {
-    q: 'كيف أرسل المستندات؟',
-    a: 'تُجهَّز رسالة الطلب أولًا، ثم يمكنك إرفاق المستندات من داخل رسالة البريد أو مباشرة في محادثة واتساب مع المكتب.',
+    q: 'هل يلزمني إرفاق مستندات؟',
+    a: 'لا. يمكنك إرسال الطلب دون أي مستند. ويفيد إرسال ما يتوفر لديك من عقود أو إنذارات أو محاضر أو أحكام، ويمكنك إرساله مع الرسالة أو لاحقًا عبر واتساب المكتب أو البريد.',
   },
   {
     q: 'هل بياناتي سرية؟',
     a: 'نحافظ على سرية بياناتك، ونستخدم المعلومات للتواصل بشأن طلبك فقط.',
   },
 ];
-
-// مجالات سريعة: القيم مطابقة تمامًا لخيارات قائمة «نوع المشكلة» في النموذج
-const specialties = ['مدني', 'عقاري', 'أسرة', 'ميراث', 'جنائي', 'شركات', 'تجاري', 'عمالي', 'تنفيذ أحكام'];
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -120,54 +117,32 @@ const structuredData = {
 };
 
 export default function Contact() {
-  const [audience, setAudience] = useState('individual');
   const [submitted, setSubmitted] = useState(false);
   const [deliveryChannel, setDeliveryChannel] = useState('email');
   const [sentChannel, setSentChannel] = useState('email');
-  const [pickedType, setPickedType] = useState('');
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const audienceParam = params.get('audience');
-    if (audienceParam === 'business') setAudience('business');
     const specialty = params.get('specialty');
     if (specialty) {
-      // النموذج لا يحتوي حقل «موضوع»؛ لذلك نختار نوع المشكلة إن طابق أحد الخيارات، وإلا نكتبه أول التفاصيل
-      const select = document.getElementById('problemType');
-      const match = select && Array.from(select.options).find((o) => o.value === specialty);
-      if (match) {
-        select.value = specialty;
-        setPickedType(specialty);
-      } else {
-        const details = document.getElementById('details');
-        if (details && !details.value) details.value = `بخصوص: ${specialty}\n`;
-      }
+      // النموذج لا يسأل عن نوع القضية؛ لذلك يُكتب الموضوع القادم من الرابط في أول التفاصيل
+      const details = document.getElementById('details');
+      if (details && !details.value) details.value = `بخصوص: ${specialty}\n`;
     }
   }, []);
-
-  const pickSpecialty = (value) => {
-    const select = document.getElementById('problemType');
-    if (select) select.value = value;
-    setPickedType(value);
-    const shell = document.getElementById('service-form');
-    if (shell) shell.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
     const get = (key) => String(data.get(key) || '').trim();
-    const audienceLabel = audience === 'business' ? 'شركة' : 'شخص طبيعي';
     const attachment = data.get('attachment');
     const attachmentName = attachment && attachment.name ? attachment.name : 'لا يوجد مرفق';
     const lines = [
       'طلب استشارة قانونية - مكتب جاد الرب',
-      `صفة مقدم الطلب: ${audienceLabel}`,
-      `${audience === 'business' ? 'اسم الشركة' : 'الاسم بالكامل'}: ${get('name')}`,
+      `الاسم / اسم الشركة: ${get('name')}`,
       `رقم الهاتف: ${get('phone')}`,
       `رقم الواتساب: ${get('whatsapp') || 'نفس رقم الهاتف'}`,
-      `نوع المشكلة: ${get('problemType')}`,
       `المحافظة / المدينة: ${get('location')}`,
       `طريقة التواصل المفضلة: ${get('preferredChannel')}`,
       `درجة الاستعجال: ${get('urgency')}`,
@@ -256,6 +231,7 @@ ${get('details')}`,
               <div className="process-step"><span>02</span><div><strong>نقرأ الصورة الأولية</strong><small>نراجع البيانات ونحدد ما يلزم لفهم الموقف.</small></div></div>
               <div className="process-step"><span>03</span><div><strong>نوضح المسار المناسب</strong><small>استشارة أو موعد أو مراجعة مستندات أو تمثيل قانوني.</small></div></div>
             </div>
+            <div className="process-outcome"><Icon name="check-circle" /><p><strong>ماذا يحدث بعد الإرسال؟</strong> سنفحص طلبك ونرد عليك بالوسيلة التي اخترتها، ونوضح لك الخطوة المناسبة. إرسال الطلب مجاني ولا يلزمك بشيء.</p></div>
           </div>
 
           {/* ٣) النموذج */}
@@ -265,50 +241,40 @@ ${get('details')}`,
             <div className="free-consultation-line"><Icon name="check-circle" /><strong>الاستشارة مجانية</strong><span>إرسال الطلب لا يتطلب دفع أي مبلغ.</span></div>
           </div>
 
-          <div className="specialty-picker" role="group" aria-label="اختيار مجال المسألة">
-            <p>اختر مجال مسألتك <span className="optional-label">(اختياري)</span></p>
-            <div className="specialty-chips">
-              {specialties.map((item) => (
-                <button type="button" key={item} className={pickedType === item ? 'selected' : ''} aria-pressed={pickedType === item} onClick={() => pickSpecialty(item)}>{item}</button>
-              ))}
-            </div>
-          </div>
-
           <div id="service-form" className="contact-form-shell consultation-primary reveal" style={{ scrollMarginTop: '96px' }}>
             <form id="serviceForm" onSubmit={handleSubmit} className="contact-form">
               <div className="consultation-payment-note"><Icon name="check-circle" /><span><strong>بداية سهلة وواضحة</strong> أرسل بياناتك وملخص المشكلة والمستندات المتاحة. يراجع المكتب الطلب أولًا، ثم يتواصل معك ويحدد الخطوة التالية.</span></div>
 
               <fieldset className="form-step reference-form-step">
-                <legend><span className="step-number">01</span><span><strong>بيانات مقدم الطلب</strong><small>الحقول الأساسية حتى يسهل عليك التواصل معنا</small></span></legend>
+                <legend><span className="step-number">01</span><span><strong>بيانات التواصل</strong><small>الاسم ووسيلة نصل بها إليك</small></span></legend>
                 <div className="form-grid">
-                  <div className="form-field-modern">
-                    <label htmlFor="audience">صفة مقدم الطلب *</label>
-                    <div className="field-control"><select id="audience" name="audience" value={audience} onChange={(e) => setAudience(e.target.value)} aria-label="صفة مقدم الطلب" required><option value="individual">شخص طبيعي</option><option value="business">شركة</option></select></div>
-                  </div>
-                  {renderField({ id: 'name', label: audience === 'business' ? 'اسم الشركة' : 'الاسم بالكامل', placeholder: audience === 'business' ? 'اسم الشركة' : 'الاسم بالكامل' })}
+                  {renderField({ id: 'name', label: 'الاسم بالكامل أو اسم الشركة', placeholder: 'الاسم بالكامل أو اسم الشركة' })}
                   {renderField({ id: 'phone', label: 'رقم الهاتف', type: 'tel', placeholder: '01xxxxxxxxx' })}
                   <div className="form-field-modern whatsapp-field">
                     <label htmlFor="whatsapp">رقم واتساب <span className="optional-label">اتركه فارغًا إن كان نفس الهاتف</span></label>
                     <div className="field-control"><input id="whatsapp" name="whatsapp" type="tel" placeholder="اتركه فارغًا إن كان نفس الهاتف" aria-label="رقم واتساب" /><label className="same-phone-label"><input type="checkbox" onChange={(e) => { const field = document.getElementById('whatsapp'); if (field) field.value = e.target.checked ? document.getElementById('phone').value : ''; }} /> نفس رقم الهاتف</label></div>
                   </div>
+                  {renderField({ id: 'email', label: 'البريد الإلكتروني', type: 'email', placeholder: 'اختياري', required: false })}
                 </div>
               </fieldset>
 
               <fieldset className="form-step reference-form-step">
-                <legend><span className="step-number">02</span><span><strong>تفاصيل الطلب</strong><small>اختر الأقرب واكتب ما حدث بطريقتك</small></span></legend>
+                <legend><span className="step-number">02</span><span><strong>مسألتك</strong><small>اكتب ما حدث بطريقتك، ولا تحتاج إلى تحديد نوع القضية</small></span></legend>
                 <div className="form-grid">
-                  <div className="form-field-modern"><label htmlFor="problemType">نوع المشكلة *</label><div className="field-control"><select id="problemType" name="problemType" required aria-label="نوع المشكلة" onChange={(e) => setPickedType(e.target.value)}><option value="">اختر النوع الأقرب</option><option>أسرة</option><option>جنائي</option><option>مدني</option><option>تجاري</option><option>شركات</option><option>عمالي</option><option>عقاري</option><option>ميراث</option><option>تنفيذ أحكام</option><option>أخرى</option></select></div></div>
                   {renderField({ id: 'location', label: 'المحافظة / المدينة', placeholder: 'مثال: أسوان - أسوان' })}
-                  <div className="form-field-modern"><label>طريقة التواصل المفضلة *</label><input type="hidden" name="preferredChannel" value={deliveryChannel === 'email' ? 'بريد إلكتروني' : 'واتساب'} /><div className="delivery-choice" role="group" aria-label="طريقة التواصل المفضلة"><button type="button" className={deliveryChannel === 'email' ? 'selected' : ''} onClick={() => setDeliveryChannel('email')} aria-pressed={deliveryChannel === 'email'}><Icon name="envelope" /><span>البريد الإلكتروني</span><small>مناسب للمستندات</small></button><button type="button" className={deliveryChannel === 'whatsapp' ? 'selected' : ''} onClick={() => setDeliveryChannel('whatsapp')} aria-pressed={deliveryChannel === 'whatsapp'}><Icon name="whatsapp" /><span>واتساب</span><small>أسرع للتواصل</small></button></div></div>
                   <div className="form-field-modern"><label htmlFor="urgency">درجة الاستعجال *</label><div className="field-control"><select id="urgency" name="urgency" required aria-label="درجة الاستعجال"><option>عادية</option><option>مهمة - يوجد موعد قريب</option><option>عاجلة جدًا</option></select></div></div>
-                  {renderField({ id: 'email', label: 'البريد الإلكتروني', type: 'email', placeholder: 'اختياري', required: false })}
+                  <div className="form-field-modern form-field-full"><label>طريقة التواصل المفضلة *</label><input type="hidden" name="preferredChannel" value={deliveryChannel === 'email' ? 'بريد إلكتروني' : 'واتساب'} /><div className="delivery-choice" role="group" aria-label="طريقة التواصل المفضلة"><button type="button" className={deliveryChannel === 'email' ? 'selected' : ''} onClick={() => setDeliveryChannel('email')} aria-pressed={deliveryChannel === 'email'}><Icon name="envelope" /><span>البريد الإلكتروني</span><small>مناسب للمستندات</small></button><button type="button" className={deliveryChannel === 'whatsapp' ? 'selected' : ''} onClick={() => setDeliveryChannel('whatsapp')} aria-pressed={deliveryChannel === 'whatsapp'}><Icon name="whatsapp" /><span>واتساب</span><small>أسرع للتواصل</small></button></div></div>
                 </div>
                 <div className="form-field-modern reference-full-field"><label htmlFor="details">ما المشكلة القانونية؟ *</label><div className="field-control"><textarea id="details" name="details" rows="6" placeholder="اكتب الوقائع باختصار: من الأطراف؟ ماذا حدث؟ هل توجد جلسة أو ميعاد قريب؟ وما المطلوب من المكتب؟" aria-label="ما المشكلة القانونية" required></textarea></div><small className="field-hint">لا يلزم استخدام مصطلحات قانونية؛ اكتب ما حدث بطريقتك.</small></div>
               </fieldset>
 
               <fieldset className="form-step reference-form-step">
-                <legend><span className="step-number">03</span><span><strong>المستندات والموافقة</strong><small>يمكنك إرفاق ما يساعد على فهم الحالة</small></span></legend>
-                <div className="form-field-modern attachment-field"><label htmlFor="attachment">مستندات تساعد على فهم الحالة <span className="optional-label">اختياري الآن</span></label><div className="field-control"><input id="attachment" name="attachment" type="file" aria-label="مستندات تساعد على فهم الحالة" /></div><small className="field-hint">يمكنك أيضًا رفع المستندات لاحقًا من رابط المتابعة أو إرسالها عبر واتساب.</small></div>
+                <legend><span className="step-number">03</span><span><strong>المستندات والموافقة</strong><small>المستندات اختيارية ولا يلزم إرفاق شيء</small></span></legend>
+                <div className="form-field-modern attachment-field">
+                  <label htmlFor="attachment">مستندات تساعدنا على فهم الحالة <span className="optional-badge">اختياري — يمكنك الإرسال بدونها</span></label>
+                  <div className="field-control"><input id="attachment" name="attachment" type="file" aria-label="مستندات اختيارية تساعد على فهم الحالة" /></div>
+                  <small className="field-hint">لا يلزم إرفاق أي شيء لإرسال طلبك. إن اخترت ملفًا فسيُذكر اسمه في الرسالة، ويمكنك إرساله مع الرسالة أو لاحقًا عبر واتساب المكتب.</small>
+                </div>
                 <label className="consent-wrapper"><input type="checkbox" name="consent" required /><span className="consent-label">أوافق أن إرسال الطلب لا يعني قبول القضية أو قيام علاقة محاماة، وأن المكتب سيحدد الخطوة التالية ونطاق الخدمة بعد المراجعة.</span></label>
               </fieldset>
 
@@ -400,7 +366,7 @@ ${get('details')}`,
         .action-btn.ghost { border: 1px solid rgba(255,255,255,0.28); color: #fff; background: transparent; }
         .action-btn.ghost:hover { border-color: var(--matte-gold); background: rgba(176,141,87,0.12); }
         .action-btn :global(.icon-svg) { font-size: 1rem; }
-        .action-btn:focus-visible, .specialty-chips button:focus-visible, .delivery-choice button:focus-visible, .faq-list summary:focus-visible, .map-link:focus-visible, .contact-card-link:focus-visible { outline: 2px solid var(--matte-gold); outline-offset: 3px; }
+        .action-btn:focus-visible, .delivery-choice button:focus-visible, .faq-list summary:focus-visible, .map-link:focus-visible, .contact-card-link:focus-visible { outline: 2px solid var(--matte-gold); outline-offset: 3px; }
 
         .section-content { flex: 1; padding: 5rem 2rem; background: var(--warm-off-white); }
         .section-content .inner { max-width: 1200px; margin: 0 auto; }
@@ -416,7 +382,12 @@ ${get('details')}`,
         .process-step strong { color: #fff; font-size: 0.82rem; margin-bottom: 0.28rem; }
         .process-step small { color: rgba(255,255,255,0.62); font-size: 0.68rem; line-height: 1.65; }
 
-        /* ===== عنوان النموذج + اختيار المجال ===== */
+        .process-outcome { grid-column: 1 / -1; display: flex; align-items: flex-start; gap: 0.6rem; padding: 0.85rem 1rem; border-radius: 12px; background: rgba(176,141,87,0.14); border: 1px solid rgba(176,141,87,0.35); }
+        .process-outcome :global(.icon-svg) { color: var(--matte-gold); margin-top: 0.25rem; flex: 0 0 auto; }
+        .process-outcome p { margin: 0; color: #fff; font-size: 0.82rem; line-height: 1.85; }
+        .process-outcome strong { color: var(--matte-gold); margin-inline-end: 0.35rem; }
+
+        /* ===== عنوان النموذج ===== */
         .form-head { max-width: 980px; margin: 0 auto 0.9rem; }
         .form-head h2 { color: var(--charcoal); font-family: var(--serif-font); font-size: clamp(1.65rem, 3vw, 2.3rem); margin: 0.35rem 0 0; }
         .form-kicker { color: var(--matte-gold); font-size: 0.7rem; font-weight: 900; letter-spacing: 0.18em; text-transform: uppercase; }
@@ -424,13 +395,6 @@ ${get('details')}`,
         .free-consultation-line :global(.icon-svg) { color: #2f8d6a; }
         .free-consultation-line strong { font-weight: 900; }
         .free-consultation-line span { color: var(--charcoal); font-weight: 700; }
-        .specialty-picker { max-width: 980px; margin: 0 auto 1rem; }
-        .specialty-picker p { margin: 0 0 0.55rem; color: var(--charcoal); font-size: 0.78rem; font-weight: 800; }
-        .specialty-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; }
-        .specialty-chips button { border: 1px solid #B8B8B8; background: #fff; color: var(--charcoal); border-radius: 999px; padding: 0.4rem 0.95rem; font-size: 0.75rem; font-weight: 700; cursor: pointer; transition: border-color 0.18s ease, background 0.18s ease; }
-        .specialty-chips button:hover { border-color: var(--matte-gold); }
-        .specialty-chips button.selected { border-color: var(--matte-gold); background: rgba(176,141,87,0.1); font-weight: 900; }
-
         /* ===== النموذج (كما هو) ===== */
         .consultation-primary { max-width: 980px; margin: 0 auto; }
         .contact-form-shell { background: linear-gradient(145deg, #fff 0%, #fbfaf7 100%); border-radius: 22px; border: 1px solid rgba(176,141,87,0.18); box-shadow: 0 18px 55px rgba(8,20,38,0.08); padding: clamp(1.25rem, 3vw, 2.5rem); position: relative; overflow: hidden; }
@@ -473,7 +437,11 @@ ${get('details')}`,
         .form-privacy { display: flex; align-items: center; justify-content: center; gap: 0.35rem; color: var(--charcoal); opacity: 0.58; font-size: 0.62rem; font-weight: 700; margin: 0.8rem 0 0; }
         .form-privacy :global(.icon-svg) { color: var(--matte-gold); }
 
-        /* حقول النموذج: أبيض بإطار رمادي واضح، زوايا 7px، وتركيز ذهبي بسيط */
+        .form-field-full { grid-column: 1 / -1; }
+        .optional-badge { display: inline-block; margin-inline-start: 0.45rem; padding: 0.1rem 0.6rem; border-radius: 999px; background: rgba(58,145,111,0.1); color: #246d52; font-size: 0.68rem; font-weight: 800; }
+        .attachment-field .field-hint { color: var(--charcoal); opacity: 0.75; font-size: 0.72rem; line-height: 1.8; }
+
+        /* ===== حقول النموذج: هذه القواعد وحدها تحدد شكل الحقول وقياساتها ===== */
         .form-field-modern { display: flex; flex-direction: column; gap: 6px; margin-bottom: 0; }
         .form-field-modern label { color: var(--charcoal); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.01em; padding: 0 0.1rem; transition: color 0.15s ease; }
         .form-field-modern:focus-within label { color: var(--matte-gold); }
