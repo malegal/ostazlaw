@@ -116,6 +116,17 @@ const structuredData = {
   ],
 };
 
+// مكوّن على مستوى الملف (لا داخل Contact) حتى لا تُعاد بناء الحقول فتضيع القيم المكتوبة عند تغيير أي حالة.
+// تنسيقه في كتلة الأنماط العامة أسفل الصفحة ومحصور داخل .contact-form-shell
+function Field({ id, label, type = 'text', placeholder, required = true }) {
+  return (
+    <div className="form-field">
+      <label htmlFor={id}>{label}{!required && <span className="optional-label"> (اختياري)</span>}</label>
+      <input id={id} name={id} type={type} placeholder={placeholder || ''} required={required} />
+    </div>
+  );
+}
+
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [deliveryChannel, setDeliveryChannel] = useState('email');
@@ -163,16 +174,6 @@ ${get('details')}`,
       window.location.href = `mailto:ma.law.firm@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     }
   };
-
-  // دالة عرض وليست مكوّنًا: تعريف مكوّن داخل مكوّن آخر يعيد بناء الحقول عند كل تغيير حالة (تبديل الصفة أو وسيلة التواصل) فتضيع القيم المكتوبة
-  const renderField = ({ id, label, type = 'text', placeholder, required = true }) => (
-    <div className="form-field-modern" key={id}>
-      <label htmlFor={id}>{label}{!required && <span className="optional-label"> (اختياري)</span>}</label>
-      <div className="field-control">
-        <input id={id} name={id} type={type} placeholder={placeholder || ''} aria-label={label} required={required} />
-      </div>
-    </div>
-  );
 
   return (
     <Layout>
@@ -246,33 +247,47 @@ ${get('details')}`,
               <div className="consultation-payment-note"><Icon name="check-circle" /><span><strong>بداية سهلة وواضحة</strong> أرسل بياناتك وملخص المشكلة والمستندات المتاحة. يراجع المكتب الطلب أولًا، ثم يتواصل معك ويحدد الخطوة التالية.</span></div>
 
               <fieldset className="form-step reference-form-step">
-                <legend><span className="step-number">01</span><span><strong>بيانات التواصل</strong><small>الاسم ووسيلة نصل بها إليك</small></span></legend>
+                <legend><span className="step-number">01</span><span><strong>بيانات التواصل</strong><small>الحقول الأساسية قليلة حتى يسهل علينا التواصل معك</small></span></legend>
                 <div className="form-grid">
-                  {renderField({ id: 'name', label: 'الاسم بالكامل أو اسم الشركة', placeholder: 'الاسم بالكامل أو اسم الشركة' })}
-                  {renderField({ id: 'phone', label: 'رقم الهاتف', type: 'tel', placeholder: '01xxxxxxxxx' })}
-                  <div className="form-field-modern whatsapp-field">
-                    <label htmlFor="whatsapp">رقم واتساب <span className="optional-label">اتركه فارغًا إن كان نفس الهاتف</span></label>
-                    <div className="field-control"><input id="whatsapp" name="whatsapp" type="tel" placeholder="اتركه فارغًا إن كان نفس الهاتف" aria-label="رقم واتساب" /><label className="same-phone-label"><input type="checkbox" onChange={(e) => { const field = document.getElementById('whatsapp'); if (field) field.value = e.target.checked ? document.getElementById('phone').value : ''; }} /> نفس رقم الهاتف</label></div>
+                  <Field id="name" label="الاسم بالكامل أو اسم الشركة *" placeholder="الاسم بالكامل أو اسم الشركة" />
+                  <Field id="phone" label="رقم الهاتف *" type="tel" placeholder="01xxxxxxxxx" />
+                  <div className="form-field">
+                    <label htmlFor="whatsapp">رقم واتساب <span className="optional-label">(اتركه فارغًا إن كان نفس الهاتف)</span></label>
+                    <input id="whatsapp" name="whatsapp" type="tel" placeholder="اتركه فارغًا إن كان نفس الهاتف" />
+                    <label className="same-phone"><input type="checkbox" onChange={(e) => { const field = document.getElementById('whatsapp'); if (field) field.value = e.target.checked ? document.getElementById('phone').value : ''; }} /> نفس رقم الهاتف</label>
                   </div>
-                  {renderField({ id: 'email', label: 'البريد الإلكتروني', type: 'email', placeholder: 'اختياري', required: false })}
+                  <Field id="email" label="البريد الإلكتروني" type="email" placeholder="اختياري" required={false} />
+                  <div className="form-field">
+                    <label htmlFor="preferredChannel">طريقة التواصل المفضلة *</label>
+                    <select id="preferredChannel" name="preferredChannel" value={deliveryChannel === 'email' ? 'بريد إلكتروني' : 'واتساب'} onChange={(e) => setDeliveryChannel(e.target.value === 'واتساب' ? 'whatsapp' : 'email')} required>
+                      <option value="بريد إلكتروني">البريد الإلكتروني (مناسب للمستندات)</option>
+                      <option value="واتساب">واتساب (أسرع للتواصل)</option>
+                    </select>
+                  </div>
+                  <Field id="location" label="المحافظة / المدينة *" placeholder="مثال: أسوان - أسوان" />
                 </div>
               </fieldset>
 
               <fieldset className="form-step reference-form-step">
                 <legend><span className="step-number">02</span><span><strong>مسألتك</strong><small>اكتب ما حدث بطريقتك، ولا تحتاج إلى تحديد نوع القضية</small></span></legend>
                 <div className="form-grid">
-                  {renderField({ id: 'location', label: 'المحافظة / المدينة', placeholder: 'مثال: أسوان - أسوان' })}
-                  <div className="form-field-modern"><label htmlFor="urgency">درجة الاستعجال *</label><div className="field-control"><select id="urgency" name="urgency" required aria-label="درجة الاستعجال"><option>عادية</option><option>مهمة - يوجد موعد قريب</option><option>عاجلة جدًا</option></select></div></div>
-                  <div className="form-field-modern form-field-full"><label>طريقة التواصل المفضلة *</label><input type="hidden" name="preferredChannel" value={deliveryChannel === 'email' ? 'بريد إلكتروني' : 'واتساب'} /><div className="delivery-choice" role="group" aria-label="طريقة التواصل المفضلة"><button type="button" className={deliveryChannel === 'email' ? 'selected' : ''} onClick={() => setDeliveryChannel('email')} aria-pressed={deliveryChannel === 'email'}><Icon name="envelope" /><span>البريد الإلكتروني</span><small>مناسب للمستندات</small></button><button type="button" className={deliveryChannel === 'whatsapp' ? 'selected' : ''} onClick={() => setDeliveryChannel('whatsapp')} aria-pressed={deliveryChannel === 'whatsapp'}><Icon name="whatsapp" /><span>واتساب</span><small>أسرع للتواصل</small></button></div></div>
+                  <div className="form-field">
+                    <label htmlFor="urgency">درجة الاستعجال *</label>
+                    <select id="urgency" name="urgency" required><option>عادية</option><option>مهمة - يوجد موعد قريب</option><option>عاجلة جدًا</option></select>
+                  </div>
+                  <div className="form-field form-field-full">
+                    <label htmlFor="details">ما المشكلة القانونية؟ *</label>
+                    <textarea id="details" name="details" rows="6" placeholder="اكتب الوقائع باختصار: من الأطراف؟ ماذا حدث؟ هل توجد جلسة أو ميعاد قريب؟ وما المطلوب من المكتب؟" required></textarea>
+                    <small className="field-hint">لا يلزم استخدام مصطلحات قانونية؛ اكتب ما حدث بطريقتك.</small>
+                  </div>
                 </div>
-                <div className="form-field-modern reference-full-field"><label htmlFor="details">ما المشكلة القانونية؟ *</label><div className="field-control"><textarea id="details" name="details" rows="6" placeholder="اكتب الوقائع باختصار: من الأطراف؟ ماذا حدث؟ هل توجد جلسة أو ميعاد قريب؟ وما المطلوب من المكتب؟" aria-label="ما المشكلة القانونية" required></textarea></div><small className="field-hint">لا يلزم استخدام مصطلحات قانونية؛ اكتب ما حدث بطريقتك.</small></div>
               </fieldset>
 
               <fieldset className="form-step reference-form-step">
                 <legend><span className="step-number">03</span><span><strong>المستندات والموافقة</strong><small>المستندات اختيارية ولا يلزم إرفاق شيء</small></span></legend>
-                <div className="form-field-modern attachment-field">
+                <div className="form-field attachment-field">
                   <label htmlFor="attachment">مستندات تساعدنا على فهم الحالة <span className="optional-badge">اختياري — يمكنك الإرسال بدونها</span></label>
-                  <div className="field-control"><input id="attachment" name="attachment" type="file" aria-label="مستندات اختيارية تساعد على فهم الحالة" /></div>
+                  <input id="attachment" name="attachment" type="file" />
                   <small className="field-hint">لا يلزم إرفاق أي شيء لإرسال طلبك. إن اخترت ملفًا فسيُذكر اسمه في الرسالة، ويمكنك إرساله مع الرسالة أو لاحقًا عبر واتساب المكتب.</small>
                 </div>
                 <label className="consent-wrapper"><input type="checkbox" name="consent" required /><span className="consent-label">أوافق أن إرسال الطلب لا يعني قبول القضية أو قيام علاقة محاماة، وأن المكتب سيحدد الخطوة التالية ونطاق الخدمة بعد المراجعة.</span></label>
@@ -366,7 +381,7 @@ ${get('details')}`,
         .action-btn.ghost { border: 1px solid rgba(255,255,255,0.28); color: #fff; background: transparent; }
         .action-btn.ghost:hover { border-color: var(--matte-gold); background: rgba(176,141,87,0.12); }
         .action-btn :global(.icon-svg) { font-size: 1rem; }
-        .action-btn:focus-visible, .delivery-choice button:focus-visible, .faq-list summary:focus-visible, .map-link:focus-visible, .contact-card-link:focus-visible { outline: 2px solid var(--matte-gold); outline-offset: 3px; }
+        .action-btn:focus-visible, .faq-list summary:focus-visible, .map-link:focus-visible, .contact-card-link:focus-visible { outline: 2px solid var(--matte-gold); outline-offset: 3px; }
 
         .section-content { flex: 1; padding: 5rem 2rem; background: var(--warm-off-white); }
         .section-content .inner { max-width: 1200px; margin: 0 auto; }
@@ -403,11 +418,7 @@ ${get('details')}`,
         .consultation-payment-note :global(.icon-svg) { color: #2f8d6a; margin-top: 0.2rem; flex: 0 0 auto; }
         .consultation-payment-note strong { display: block; color: #246d52; }
         .reference-form-step { margin-bottom: 2rem; }
-        .reference-full-field { margin-top: 1.25rem; }
-        .attachment-field { margin-bottom: 1.2rem; }
-        .attachment-field .field-control input[type="file"] { height: auto; padding: 0.75rem 0.1rem; border-bottom: 1px dashed rgba(8,20,38,0.24); }
-        .same-phone-label { display: flex; align-items: center; gap: 0.4rem; color: var(--charcoal); font-size: 0.7rem; font-weight: 700; margin-top: 0.55rem; }
-        .same-phone-label input, .consent-wrapper input { accent-color: var(--matte-gold); }
+        .consent-wrapper input { accent-color: var(--matte-gold); }
         .consent-wrapper { display: flex; align-items: flex-start; gap: 0.6rem; margin: 0; padding: 0.8rem 0.9rem; background: rgba(8,20,38,0.035); border: 1px solid rgba(8,20,38,0.08); border-radius: 9px; }
         .consent-wrapper input { width: 18px; height: 18px; min-width: 18px; margin-top: 0.2rem; }
         .consent-label { color: var(--charcoal); font-size: 0.72rem; line-height: 1.7; font-weight: 700; }
@@ -422,52 +433,14 @@ ${get('details')}`,
         .form-step legend { width: 100%; display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.9rem; color: var(--charcoal); }
         .form-step legend strong, .form-step legend small { display: block; }
         .form-step legend strong { font-size: 0.95rem; }
-        .form-step legend small { color: var(--charcoal); opacity: 0.6; font-size: 0.68rem; font-weight: 700; margin-top: 0.12rem; }
+        .form-step legend small { color: var(--charcoal); opacity: 0.65; font-size: 0.76rem; font-weight: 700; margin-top: 0.12rem; }
         .step-number { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: var(--very-dark-navy); color: var(--matte-gold); font-size: 0.68rem; font-weight: 900; letter-spacing: 0.04em; }
-        .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 1.4rem; column-gap: 1.1rem; }
-        .delivery-choice { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.45rem; }
-        .delivery-choice button { min-height: 58px; border: 1px solid #B8B8B8; border-radius: 7px; background: #fff; color: var(--charcoal); padding: 0.5rem 0.55rem; display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 0.35rem; align-items: center; text-align: right; cursor: pointer; }
-        .delivery-choice button :global(.icon-svg) { grid-row: 1 / span 2; color: #777; }
-        .delivery-choice button span { font-size: 0.7rem; font-weight: 900; }
-        .delivery-choice button small { font-size: 0.58rem; color: rgba(34,34,34,0.55); font-weight: 700; }
-        .delivery-choice button.selected { border: 2px solid var(--matte-gold); background: rgba(176,141,87,0.07); }
-        .delivery-choice button.selected :global(.icon-svg) { color: var(--matte-gold); }
         .premium-submit { width: 100%; border: 0; border-radius: 11px; padding: 0.95rem 1.2rem; display: flex; align-items: center; justify-content: center; gap: 0.6rem; background: linear-gradient(110deg, var(--matte-gold), #d1ad6b); color: #111; font-size: 0.9rem; font-weight: 900; cursor: pointer; box-shadow: 0 9px 22px rgba(176,141,87,0.22); transition: all 0.25s ease; }
         .premium-submit:hover { transform: translateY(-2px); box-shadow: 0 13px 28px rgba(176,141,87,0.3); }
         .form-privacy { display: flex; align-items: center; justify-content: center; gap: 0.35rem; color: var(--charcoal); opacity: 0.58; font-size: 0.62rem; font-weight: 700; margin: 0.8rem 0 0; }
         .form-privacy :global(.icon-svg) { color: var(--matte-gold); }
 
-        .form-field-full { grid-column: 1 / -1; }
-        .optional-badge { display: inline-block; margin-inline-start: 0.45rem; padding: 0.1rem 0.6rem; border-radius: 999px; background: rgba(58,145,111,0.1); color: #246d52; font-size: 0.68rem; font-weight: 800; }
-        .attachment-field .field-hint { color: var(--charcoal); opacity: 0.75; font-size: 0.72rem; line-height: 1.8; }
 
-        /* ===== حقول النموذج: هذه القواعد وحدها تحدد شكل الحقول وقياساتها ===== */
-        .form-field-modern { display: flex; flex-direction: column; gap: 6px; margin-bottom: 0; }
-        .form-field-modern label { color: var(--charcoal); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.01em; padding: 0 0.1rem; transition: color 0.15s ease; }
-        .form-field-modern:focus-within label { color: var(--matte-gold); }
-        .optional-label { color: rgba(34,34,34,0.4); font-weight: 500; font-size: 0.68rem; }
-        .field-control { min-width: 0; }
-        .field-control input, .field-control textarea, .field-control select {
-          width: 100%;
-          height: 44px;
-          padding: 0.85rem 0.8rem;
-          border: 1px solid #B8B8B8;
-          border-radius: 7px;
-          font-size: 0.9rem;
-          background: #fff;
-          color: var(--charcoal);
-          transition: border-color 0.18s ease, box-shadow 0.18s ease;
-          outline: none;
-          font-weight: 500;
-          box-shadow: none;
-        }
-        .field-control input::placeholder, .field-control textarea::placeholder { color: rgba(34,34,34,0.38); font-weight: 400; }
-        .field-control input:hover, .field-control textarea:hover, .field-control select:hover { border-color: #6F6F6F; }
-        .field-control input:focus, .field-control textarea:focus, .field-control select:focus { border: 2px solid var(--matte-gold); box-shadow: none; }
-        .field-control textarea { height: auto; padding: 0.85rem 0.8rem; resize: vertical; min-height: 138px; line-height: 1.75; }
-        .field-hint { display: block; color: rgba(34,34,34,0.42); font-size: 0.66rem; font-weight: 600; margin: 0.35rem 0.2rem 0; }
-        .field-control input[type="file"] { height: auto; padding: 0.9rem 1rem; background: var(--pure-white); border: 1.5px dashed rgba(0,0,0,0.16); box-shadow: none; }
-        .field-control input[type="file"]:hover { border-color: var(--matte-gold); }
 
         /* ===== الأسئلة الشائعة ===== */
         .faq-section { max-width: 980px; margin: clamp(3rem, 7vw, 5rem) auto 0; }
@@ -532,16 +505,75 @@ ${get('details')}`,
           .trust-row { flex-direction: column; align-items: center; }
         }
         @media (max-width: 640px) {
-          .form-grid { grid-template-columns: 1fr; row-gap: 1.1rem; }
-          .field-control input, .field-control select { font-size: 0.85rem; height: 44px; padding: 0.85rem 0.6rem; }
-          .field-control textarea { font-size: 0.85rem; padding: 0.75rem; }
-          .form-field-modern label { font-size: 0.74rem; }
-          .field-hint { font-size: 0.6rem; }
           .hero-actions .action-btn { width: 100%; }
         }
         @media (prefers-reduced-motion: reduce) {
           .hero-contact .hero-glow, .hero-contact .hero-glow-2 { animation: none; }
           .action-btn, .premium-submit { transition: none; }
+        }
+      `}</style>
+
+      {/* أنماط الحقول عامة (global) لكنها محصورة داخل .contact-form-shell، فلا تتأثر بحدود styled-jsx ولا تتسرب لباقي الموقع */}
+      <style jsx global>{`
+        .contact-form-shell .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+        .contact-form-shell .form-field { display: flex; flex-direction: column; gap: 0.5rem; min-width: 0; }
+        .contact-form-shell .form-field-full { grid-column: 1 / -1; }
+        .contact-form-shell .form-field > label:not(.same-phone) { color: var(--very-dark-navy); font-size: 0.88rem; font-weight: 800; line-height: 1.5; }
+        .contact-form-shell .optional-label { color: rgba(8,20,38,0.5); font-size: 0.74rem; font-weight: 600; }
+
+        .contact-form-shell .form-field input:not([type="checkbox"]):not([type="file"]),
+        .contact-form-shell .form-field select,
+        .contact-form-shell .form-field textarea {
+          width: 100%;
+          min-height: 52px;
+          padding: 0.8rem 1rem;
+          border: 1px solid #d3d9e2;
+          border-radius: 12px;
+          background-color: #fff;
+          color: var(--charcoal);
+          font-family: inherit;
+          font-size: 0.92rem;
+          font-weight: 500;
+          line-height: 1.5;
+          outline: none;
+          box-shadow: none;
+          transition: border-color 0.18s ease, box-shadow 0.18s ease;
+        }
+        .contact-form-shell .form-field input::placeholder,
+        .contact-form-shell .form-field textarea::placeholder { color: rgba(34,34,34,0.4); font-size: 0.85rem; font-weight: 400; }
+        .contact-form-shell .form-field input:not([type="checkbox"]):not([type="file"]):hover,
+        .contact-form-shell .form-field select:hover,
+        .contact-form-shell .form-field textarea:hover { border-color: #aeb8c6; }
+        .contact-form-shell .form-field input:not([type="checkbox"]):not([type="file"]):focus,
+        .contact-form-shell .form-field select:focus,
+        .contact-form-shell .form-field textarea:focus { border-color: var(--matte-gold); box-shadow: 0 0 0 3px rgba(176,141,87,0.18); }
+
+        .contact-form-shell .form-field select {
+          appearance: none;
+          -webkit-appearance: none;
+          cursor: pointer;
+          padding-left: 2.6rem;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23596579' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: left 1rem center;
+          background-size: 14px;
+        }
+        .contact-form-shell .form-field textarea { min-height: 170px; padding: 1rem; line-height: 1.85; resize: vertical; }
+
+        /* مربع «نفس رقم الهاتف»: صغير وتحت الحقل مباشرة */
+        .contact-form-shell .same-phone { display: flex; align-items: center; gap: 0.5rem; width: fit-content; margin-top: 0.1rem; color: var(--charcoal); font-size: 0.78rem; font-weight: 700; cursor: pointer; }
+        .contact-form-shell .same-phone input { width: 16px; height: 16px; min-height: 0; margin: 0; padding: 0; accent-color: var(--matte-gold); cursor: pointer; }
+
+        /* اختيار الملف */
+        .contact-form-shell .form-field input[type="file"] { width: 100%; padding: 0.8rem 1rem; border: 1.5px dashed #c3ccd8; border-radius: 12px; background: #fff; color: var(--charcoal); font-family: inherit; font-size: 0.85rem; cursor: pointer; }
+        .contact-form-shell .form-field input[type="file"]:hover { border-color: var(--matte-gold); }
+        .contact-form-shell .form-field input[type="file"]::file-selector-button { margin-inline-end: 0.8rem; padding: 0.45rem 0.95rem; border: 0; border-radius: 8px; background: var(--very-dark-navy); color: var(--matte-gold); font-family: inherit; font-size: 0.78rem; font-weight: 800; cursor: pointer; }
+        .contact-form-shell .attachment-field { margin-bottom: 1.2rem; }
+        .contact-form-shell .optional-badge { display: inline-block; margin-inline-start: 0.45rem; padding: 0.1rem 0.65rem; border-radius: 999px; background: rgba(58,145,111,0.1); color: #246d52; font-size: 0.7rem; font-weight: 800; }
+        .contact-form-shell .field-hint { display: block; color: rgba(8,20,38,0.62); font-size: 0.76rem; font-weight: 600; line-height: 1.8; }
+
+        @media (max-width: 640px) {
+          .contact-form-shell .form-grid { grid-template-columns: 1fr; gap: 1.15rem; }
         }
       `}</style>
     </Layout>
