@@ -158,35 +158,35 @@ ${get('details')}`,
 
       <section className="section-content" aria-label="طلب الاستشارة والتواصل">
         <div className="inner">
-          <div className="consultation-process reveal" aria-label="مراحل بدء الخدمة">
-            <div className="process-heading">
-              <span className="form-kicker">كيف نبدأ معك؟</span>
-              <h2>مسار واضح من أول رسالة</h2>
-              <p>لا تحتاج إلى معرفة اسم الدعوى أو تقديم ملف كامل في البداية. اكتب ما حدث بطريقتك، وسنوضح لك الخطوة التالية.</p>
-            </div>
-            <div className="process-steps">
-              <div className="process-step"><span>01</span><div><strong>تشرح ما حدث</strong><small>ملخص بسيط للمسألة وما تريد الوصول إليه.</small></div></div>
-              <div className="process-step"><span>02</span><div><strong>نقرأ الصورة الأولية</strong><small>نراجع البيانات ونحدد ما يلزم لفهم الموقف.</small></div></div>
-              <div className="process-step"><span>03</span><div><strong>نوضح المسار المناسب</strong><small>استشارة أو موعد أو مراجعة مستندات أو تمثيل قانوني.</small></div></div>
-            </div>
-          </div>
-
-          <div id="service-form" className="contact-form-shell consultation-primary reveal" style={{ scrollMarginTop: '96px' }}>
-            <div className="form-intro">
+          <section className="consultation-sequence" aria-label="خطوات الاستشارة">
+            <div className="sequence-step-intro reveal">
               <span className="form-kicker">الخطوة الأولى</span>
               <h2>اعرض مسألتك على المكتب</h2>
-              <p>اكتب الوقائع بلغتك، وسنراجع الطلب الأولي ونحدد معك طريقة التواصل والخطوة المناسبة.</p>
-              <div className="consultation-scope-note"><Icon name="shield-alt" /><span><strong>قبل الإرسال</strong> هذه الخطوة لا تعني قبول القضية أو نشوء علاقة محاماة. الاستشارة الأولية مخصصة لفهم الوقائع وتحديد المسار، ولا تشمل إعداد مذكرات أو مراجعة ملفات مطولة أو التمثيل القضائي إلا باتفاق مستقل.</span></div>
             </div>
 
-            <form id="serviceForm" onSubmit={handleSubmit} className="contact-form">
-              <div className="consultation-form-intro">
-                <span className="form-kicker">بداية سهلة وواضحة</span>
-                <h3>احكِ لنا مشكلتك القانونية</h3>
-                <p>أرسل بياناتك وملخص المشكلة والمستندات المتاحة. يراجع المكتب الطلب أولًا، ثم يتواصل معك ويحدد الخطوة التالية.</p>
+            <div className="consultation-process reveal" aria-label="مراحل بدء الخدمة">
+              <div className="process-heading">
+                <span className="form-kicker">كيف نبدأ معك؟</span>
+                <h2>مسار واضح من أول خطوة</h2>
+                <p>لا تحتاج إلى معرفة اسم الدعوى أو تقديم ملف كامل في البداية. اكتب ما حدث بطريقتك، وسنوضح لك الخطوة التالية.</p>
               </div>
+              <div className="process-steps">
+                <div className="process-step"><span>01</span><div><strong>تشرح ما حدث</strong><small>ملخص بسيط للمسألة وما تريد الوصول إليه.</small></div></div>
+                <div className="process-step"><span>02</span><div><strong>نقرأ الصورة الأولية</strong><small>نراجع البيانات ونحدد ما يلزم لفهم الموقف.</small></div></div>
+                <div className="process-step"><span>03</span><div><strong>نوضح المسار المناسب</strong><small>استشارة أو موعد أو مراجعة مستندات أو تمثيل قانوني.</small></div></div>
+              </div>
+            </div>
 
-              <div className="consultation-payment-note"><Icon name="check-circle" /><span><strong>لا يوجد دفع عند إرسال الطلب</strong> يتم تحديد نطاق الخدمة والمقابل بعد مراجعة المكتب والتواصل معك.</span></div>
+            <div className="sequence-step-intro sequence-step-two reveal">
+              <span className="form-kicker">الخطوة الثانية</span>
+              <h2>احكِ لنا المشكلة</h2>
+              <div className="free-consultation-line"><Icon name="check-circle" /><strong>الاستشارة مجانية</strong><span>إرسال الطلب لا يتطلب دفع أي مبلغ.</span></div>
+            </div>
+          </section>
+
+          <div id="service-form" className="contact-form-shell consultation-primary reveal" style={{ scrollMarginTop: '96px' }}>
+            <form id="serviceForm" onSubmit={handleSubmit} className="contact-form">
+              <div className="consultation-payment-note"><Icon name="check-circle" /><span><strong>بداية سهلة وواضحة</strong> أرسل بياناتك وملخص المشكلة والمستندات المتاحة. يراجع المكتب الطلب أولًا، ثم يتواصل معك ويحدد الخطوة التالية.</span></div>
 
               <fieldset className="form-step reference-form-step">
                 <legend><span className="step-number">01</span><span><strong>بيانات مقدم الطلب</strong><small>الحقول الأساسية حتى يسهل عليك التواصل معنا</small></span></legend>
@@ -209,7 +209,7 @@ ${get('details')}`,
                 <div className="form-grid">
                   <div className="form-field-modern"><label htmlFor="problemType">نوع المشكلة *</label><div className="field-control"><select id="problemType" name="problemType" required aria-label="نوع المشكلة"><option value="">اختر النوع الأقرب</option><option>أسرة</option><option>جنائي</option><option>مدني</option><option>تجاري</option><option>شركات</option><option>عمالي</option><option>عقاري</option><option>ميراث</option><option>تنفيذ أحكام</option><option>أخرى</option></select></div></div>
                   <Field id="location" label="المحافظة / المدينة" placeholder="مثال: أسوان - أسوان" />
-                  <div className="form-field-modern"><label htmlFor="preferredChannel">طريقة إرسال الطلب *</label><div className="field-control"><select id="preferredChannel" name="preferredChannel" value={deliveryChannel === 'email' ? 'بريد إلكتروني' : 'واتساب'} onChange={(e) => setDeliveryChannel(e.target.value === 'واتساب' ? 'whatsapp' : 'email')} required aria-label="طريقة إرسال الطلب"><option value="بريد إلكتروني">البريد الإلكتروني — مناسب للمستندات</option><option value="واتساب">واتساب — أسرع للتواصل</option></select></div></div>
+                  <div className="form-field-modern"><label>طريقة التواصل المفضلة *</label><input type="hidden" name="preferredChannel" value={deliveryChannel === 'email' ? 'بريد إلكتروني' : 'واتساب'} /><div className="delivery-choice" role="group" aria-label="طريقة التواصل المفضلة"><button type="button" className={deliveryChannel === 'email' ? 'selected' : ''} onClick={() => setDeliveryChannel('email')} aria-pressed={deliveryChannel === 'email'}><Icon name="envelope" /><span>البريد الإلكتروني</span><small>مناسب للمستندات</small></button><button type="button" className={deliveryChannel === 'whatsapp' ? 'selected' : ''} onClick={() => setDeliveryChannel('whatsapp')} aria-pressed={deliveryChannel === 'whatsapp'}><Icon name="whatsapp" /><span>واتساب</span><small>أسرع للتواصل</small></button></div></div>
                   <div className="form-field-modern"><label htmlFor="urgency">درجة الاستعجال *</label><div className="field-control"><select id="urgency" name="urgency" required aria-label="درجة الاستعجال"><option>عادية</option><option>مهمة - يوجد موعد قريب</option><option>عاجلة جدًا</option></select></div></div>
                   <Field id="email" label="البريد الإلكتروني" type="email" placeholder="اختياري" required={false} />
                 </div>
@@ -218,7 +218,7 @@ ${get('details')}`,
 
               <fieldset className="form-step reference-form-step">
                 <legend><span className="step-number">03</span><span><strong>المستندات والموافقة</strong><small>يمكنك إرفاق ما يساعد على فهم الحالة</small></span></legend>
-                <div className="form-field-modern attachment-field"><label htmlFor="attachment">مستندات تساعد على فهم الحالة <span className="optional-label">اختياري الآن</span></label><div className="field-control"><input id="attachment" name="attachment" type="file" aria-label="مستندات تساعد على فهم الحالة" /></div><small className="field-hint">يمكنك أيضًا ذكر المستندات أو إرسالها لاحقًا عبر واتساب.</small></div>
+                <div className="form-field-modern attachment-field"><label htmlFor="attachment">مستندات تساعد على فهم الحالة <span className="optional-label">اختياري الآن</span></label><div className="field-control"><input id="attachment" name="attachment" type="file" aria-label="مستندات تساعد على فهم الحالة" /></div><small className="field-hint">يمكنك أيضًا رفع المستندات لاحقًا من رابط المتابعة أو إرسالها عبر واتساب.</small></div>
                 <label className="consent-wrapper"><input type="checkbox" name="consent" required /><span className="consent-label">أوافق أن إرسال الطلب لا يعني قبول القضية أو قيام علاقة محاماة، وأن المكتب سيحدد الخطوة التالية ونطاق الخدمة بعد المراجعة.</span></label>
               </fieldset>
 
@@ -294,6 +294,21 @@ ${get('details')}`,
         .map-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 1; transition: opacity 0.4s ease; pointer-events: none; }
         .map-container:hover .map-overlay { opacity: 0; }
         .map-overlay span { background: var(--matte-gold); color: #000; padding: 0.5rem 1.2rem; border-radius: 8px; font-weight: 700; font-size: 0.8rem; }
+        .consultation-sequence { margin-bottom: 2.5rem; }
+        .sequence-step-intro { max-width: 980px; margin: 0 auto 0.75rem; }
+        .sequence-step-intro h2 { color: var(--charcoal); font-family: var(--serif-font); font-size: clamp(1.65rem, 3vw, 2.3rem); margin: 0.35rem 0 0; }
+        .sequence-step-two { margin-top: 2.25rem; margin-bottom: 1rem; }
+        .free-consultation-line { display: flex; align-items: center; flex-wrap: wrap; gap: 0.45rem; width: fit-content; margin-top: 0.75rem; padding: 0.45rem 0.8rem; border-right: 3px solid #2f8d6a; color: #246d52; background: rgba(58,145,111,0.08); border-radius: 5px; font-size: 0.75rem; }
+        .free-consultation-line .icon-svg { color: #2f8d6a; }
+        .free-consultation-line strong { font-weight: 900; }
+        .free-consultation-line span { color: var(--charcoal); font-weight: 700; }
+        .delivery-choice { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.45rem; }
+        .delivery-choice button { min-height: 58px; border: 1px solid #B8B8B8; border-radius: 7px; background: #fff; color: var(--charcoal); padding: 0.5rem 0.55rem; display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 0.35rem; align-items: center; text-align: right; cursor: pointer; }
+        .delivery-choice button .icon-svg { grid-row: 1 / span 2; color: #777; }
+        .delivery-choice button span { font-size: 0.7rem; font-weight: 900; }
+        .delivery-choice button small { font-size: 0.58rem; color: rgba(34,34,34,0.55); font-weight: 700; }
+        .delivery-choice button.selected { border: 2px solid var(--matte-gold); background: rgba(176,141,87,0.07); }
+        .delivery-choice button.selected .icon-svg { color: var(--matte-gold); }
         .consultation-process { background: var(--very-dark-navy); color: #fff; border-radius: 18px; padding: clamp(1.25rem, 3vw, 2rem); margin-bottom: 1.25rem; display: grid; grid-template-columns: minmax(220px, 0.85fr) 1.6fr; gap: 1.5rem; align-items: center; }
         .process-heading h2 { color: #fff; font-family: var(--serif-font); font-size: clamp(1.35rem, 2.4vw, 1.9rem); margin: 0.35rem 0 0.55rem; }
         .process-heading p { color: rgba(255,255,255,0.72); font-size: 0.82rem; line-height: 1.85; margin: 0; }
