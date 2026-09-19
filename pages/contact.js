@@ -6,17 +6,14 @@ import Icon from '../components/Icon';
 
 export default function Contact() {
   const [audience, setAudience] = useState('individual');
-  const [requestType, setRequestType] = useState('consultation');
-  const [channel, setChannel] = useState('whatsapp');
+  const [submitted, setSubmitted] = useState(false);
+  const [deliveryChannel, setDeliveryChannel] = useState('email');
+  const [sentChannel, setSentChannel] = useState('email');
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const audienceParam = params.get('audience');
-    const audienceMap = { business: 'business', investor: 'investor', individual: 'individual' };
-    const initialAudience = audienceParam && audienceMap[audienceParam] ? audienceMap[audienceParam] : 'individual';
-    setAudience(initialAudience);
-    setChannel(initialAudience === 'business' ? 'email' : 'whatsapp');
-    if (params.get('tab') === 'visit') setRequestType('meeting');
+    if (audienceParam === 'business') setAudience('business');
     const specialty = params.get('specialty');
     if (specialty) {
       const subject = document.getElementById('subject');
@@ -24,51 +21,41 @@ export default function Contact() {
     }
   }, []);
 
-  const changeAudience = (nextAudience) => {
-    setAudience(nextAudience);
-    setChannel(nextAudience === 'business' ? 'email' : 'whatsapp');
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
     const get = (key) => String(data.get(key) || '').trim();
-    const audienceLabel = { business: 'شركة / مؤسسة / جهة', investor: 'رجل أعمال / مستثمر', individual: 'فرد' }[audience];
-    const requestLabel = requestType === 'meeting' ? 'طلب مقابلة في المكتب' : 'طلب استشارة قانونية';
-    /* طلب المقابلة يُرسل دائمًا عبر واتساب لأنه يحتاج تأكيد سريع للموعد؛ اختيار قناة البريد/واتساب
-       يظهر فقط لعميل الشركة عند طلب استشارة، ونص التفضيل في الرسالة بقى يطابق القناة الفعلية دايمًا. */
-    const channelLabel = requestType === 'consultation'
-      ? (audience === 'business' ? (channel === 'email' ? 'البريد الإلكتروني' : 'واتساب') : 'واتساب')
-      : 'واتساب (لتأكيد الموعد)';
+    const audienceLabel = audience === 'business' ? 'شركة' : 'شخص طبيعي';
+    const attachment = data.get('attachment');
+    const attachmentName = attachment && attachment.name ? attachment.name : 'لا يوجد مرفق';
     const lines = [
-      `*${requestLabel}*`,
-      `الفئة: ${audienceLabel}`,
-      `الاسم: ${get('name')}`,
-      audience === 'business' ? `البريد الإلكتروني: ${get('email')}` : '',
-      audience === 'business' ? `اسم الشركة / المؤسسة / الجهة: ${get('entity')}` : '',
-      `المحافظة: ${get('governorate')}`,
-      `المدينة: ${get('city')}`,
+      'طلب استشارة قانونية - مكتب جاد الرب',
+      `صفة مقدم الطلب: ${audienceLabel}`,
+      `${audience === 'business' ? 'اسم الشركة' : 'الاسم بالكامل'}: ${get('name')}`,
       `رقم الهاتف: ${get('phone')}`,
-      `الموضوع: ${get('subject')}`,
-      requestType === 'meeting' ? `التاريخ المقترح للمقابلة: ${get('meetingDate')}` : '',
-      requestType === 'meeting' ? `الوقت المقترح للمقابلة: ${get('meetingTime')}` : '',
-      requestType === 'consultation' ? `الوقت الأنسب للتواصل: ${get('contactTime')}` : '',
-      `طريقة التواصل المفضلة: ${channelLabel}`,
-    ].filter(Boolean);
-    const body = `${lines.join('\n')}\n\nالتفاصيل:\n${get('details')}`;
-    if (requestType === 'consultation' && audience === 'business' && channel === 'email') {
-      window.location.href = `mailto:ma.law.firm@outlook.com?subject=${encodeURIComponent(requestLabel)}&body=${encodeURIComponent(body)}`;
-    } else {
+      `رقم الواتساب: ${get('whatsapp') || 'نفس رقم الهاتف'}`,
+      `نوع المشكلة: ${get('problemType')}`,
+      `المحافظة / المدينة: ${get('location')}`,
+      `طريقة التواصل المفضلة: ${get('preferredChannel')}`,
+      `درجة الاستعجال: ${get('urgency')}`,
+      `البريد الإلكتروني: ${get('email') || 'غير مذكور'}`,
+      `المرفق: ${attachmentName}${attachmentName !== 'لا يوجد مرفق' ? ' (يرجى إرساله لاحقًا عبر واتساب)' : ''}`,
+      '',
+      `المشكلة القانونية:
+${get('details')}`,
+    ];
+    const body = lines.join('\n');
+    const subject = `طلب استشارة قانونية - ${get('name') || 'طلب جديد'}`;
+    setSubmitted(true);
+    setSentChannel(get('preferredChannel') === 'واتساب' ? 'whatsapp' : 'email');
+    if (get('preferredChannel') === 'واتساب') {
       window.open(`https://wa.me/201101076000?text=${encodeURIComponent(body)}`, '_blank', 'noopener,noreferrer');
+    } else {
+      window.open(`mailto:ma.law.firm@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank', 'noopener,noreferrer');
     }
   };
 
-  // حقل موحّد بمظهر بسيط ومتناسق: التسمية أعلى الحقل دائمًا (بدل التخطيط الأفقي
-  // القديم تسمية/حقل جنبًا إلى جنب)، بارتفاع وحدود وحالة تركيز واحدة لكل الحقول
-  // بلا استثناء (نص، بريد، هاتف، تاريخ، وقت) — هذا هو الفرق الجوهري عن التصميم
-  // السابق، وهو أقرب لما تعتمده نماذج Google وMicrosoft: تكديس رأسي بسيط بدل
-  // شبكة أفقية بعرض تسمية ثابت.
   const Field = ({ id, label, type = 'text', placeholder, required = true }) => (
     <div className="form-field-modern">
       <label htmlFor={id}>{label}{!required && <span className="optional-label"> (اختياري)</span>}</label>
@@ -193,55 +180,54 @@ export default function Contact() {
             </div>
 
             <form id="serviceForm" onSubmit={handleSubmit} className="contact-form">
-              <fieldset className="form-step">
-                <legend><span className="step-number">01</span><span><strong>ما نوع طلبك؟</strong><small>اختر الأقرب إلى احتياجك الآن</small></span></legend>
-                <div className="request-options request-options-first">
-                  <label className={`request-option ${requestType === 'consultation' ? 'selected' : ''}`}><input type="radio" name="requestType" value="consultation" checked={requestType === 'consultation'} onChange={() => setRequestType('consultation')} /><span><strong>استشارة أو تقييم أولي</strong><small>فهم الموقف وتحديد الخطوة التالية</small></span></label>
-                  <label className={`request-option ${requestType === 'meeting' ? 'selected' : ''}`}><input type="radio" name="requestType" value="meeting" checked={requestType === 'meeting'} onChange={() => setRequestType('meeting')} /><span><strong>مقابلة في المكتب</strong><small>اقتراح موعد في مقر المكتب بأسوان</small></span></label>
-                </div>
-              </fieldset>
+              <div className="consultation-form-intro">
+                <span className="form-kicker">بداية سهلة وواضحة</span>
+                <h3>احكِ لنا مشكلتك القانونية</h3>
+                <p>أرسل بياناتك وملخص المشكلة والمستندات المتاحة. يراجع المكتب الطلب أولًا، ثم يتواصل معك ويحدد الخطوة التالية.</p>
+              </div>
 
-              <fieldset className="form-step">
-                <legend><span className="step-number">02</span><span><strong>من صاحب الطلب؟</strong><small>يساعدنا ذلك على فهم طبيعة المسألة</small></span></legend>
-                <div className="audience-cards">
-                  <button type="button" className={`audience-card ${audience === 'business' ? 'selected' : ''}`} onClick={() => changeAudience('business')} aria-pressed={audience === 'business'}><span className="audience-icon"><Icon name="building" /></span><span><strong>شركة أو مؤسسة</strong><small>للشركات والجهات والمنشآت</small></span><Icon name="check-circle" /></button>
-                  <button type="button" className={`audience-card ${audience === 'investor' ? 'selected' : ''}`} onClick={() => changeAudience('investor')} aria-pressed={audience === 'investor'}><span className="audience-icon"><Icon name="chart-pie" /></span><span><strong>مستثمر أو رجل أعمال</strong><small>للاستثمار والشراكات والمشروعات</small></span><Icon name="check-circle" /></button>
-                  <button type="button" className={`audience-card ${audience === 'individual' ? 'selected' : ''}`} onClick={() => changeAudience('individual')} aria-pressed={audience === 'individual'}><span className="audience-icon"><Icon name="user" /></span><span><strong>فرد</strong><small>للمسائل والحقوق الشخصية</small></span><Icon name="check-circle" /></button>
-                </div>
-              </fieldset>
+              <div className="consultation-payment-note"><Icon name="check-circle" /><span><strong>لا يوجد دفع عند إرسال الطلب</strong> يتم تحديد نطاق الخدمة والمقابل بعد مراجعة المكتب والتواصل معك.</span></div>
 
-              <fieldset className="form-step">
-                <legend><span className="step-number">03</span><span><strong>بيانات التواصل والوقائع</strong><small>الحقول الأساسية فقط في البداية</small></span></legend>
+              <fieldset className="form-step reference-form-step">
+                <legend><span className="step-number">01</span><span><strong>بيانات مقدم الطلب</strong><small>الحقول الأساسية حتى يسهل عليك التواصل معنا</small></span></legend>
                 <div className="form-grid">
-                  <Field id="name" label="الاسم بالكامل" placeholder="اكتب اسمك بالكامل" />
-                  {audience === 'business' && <Field id="entity" label="اسم الشركة أو الجهة" placeholder="اسم الشركة أو المؤسسة" />}
-                  {audience === 'business' && <Field id="email" label="البريد الإلكتروني" type="email" placeholder="name@company.com" required={false} />}
-                  <Field id="phone" label="رقم الهاتف / الواتساب" type="tel" placeholder="01xxxxxxxxx" />
-                  <Field id="governorate" label="المحافظة" placeholder="مثال: أسوان" />
-                  <Field id="city" label="المدينة" placeholder="مثال: مدينة أسوان" />
-                </div>
-                <Field id="subject" label="موضوع الطلب" placeholder="مثال: مراجعة عقد أو نزاع عقاري" />
-                <div className="form-field-modern">
-                  <label htmlFor="details">ماذا حدث؟ <span className="optional-label">اكتب بطريقتك</span></label>
-                  <div className="field-control"><textarea id="details" name="details" rows="5" placeholder="اذكر الأطراف، ما حدث باختصار، وما الذي تريد الوصول إليه. لا تحتاج إلى استخدام مصطلحات قانونية." aria-label="تفاصيل الموضوع" required></textarea></div>
+                  <div className="form-field-modern">
+                    <label htmlFor="audience">صفة مقدم الطلب *</label>
+                    <div className="field-control"><select id="audience" name="audience" value={audience} onChange={(e) => setAudience(e.target.value)} aria-label="صفة مقدم الطلب" required><option value="individual">شخص طبيعي</option><option value="business">شركة</option></select></div>
+                  </div>
+                  <Field id="name" label={audience === 'business' ? 'اسم الشركة' : 'الاسم بالكامل'} placeholder={audience === 'business' ? 'اسم الشركة' : 'الاسم بالكامل'} />
+                  <Field id="phone" label="رقم الهاتف" type="tel" placeholder="01xxxxxxxxx" />
+                  <div className="form-field-modern whatsapp-field">
+                    <label htmlFor="whatsapp">رقم واتساب <span className="optional-label">اتركه فارغًا إن كان نفس الهاتف</span></label>
+                    <div className="field-control"><input id="whatsapp" name="whatsapp" type="tel" placeholder="اتركه فارغًا إن كان نفس الهاتف" aria-label="رقم واتساب" /><label className="same-phone-label"><input type="checkbox" onChange={(e) => { const field = document.getElementById('whatsapp'); if (field) field.value = e.target.checked ? document.getElementById('phone').value : ''; }} /> نفس رقم الهاتف</label></div>
+                  </div>
                 </div>
               </fieldset>
 
-              <fieldset className="form-step">
-                <legend><span className="step-number">04</span><span><strong>الخطوة العملية</strong><small>نحدد وسيلة التواصل أو الموعد المقترح</small></span></legend>
-                {requestType === 'consultation' && <div className="meeting-box">
-                  <div className="meeting-heading"><Icon name="clock" /><span><strong>الوقت الأنسب للتواصل</strong><small>سنحاول التواصل معك في الوقت المقترح قدر الإمكان.</small></span></div>
-                  <div className="form-grid"><Field id="contactTime" label="الوقت الأنسب للتواصل" type="time" /></div>
-                </div>}
-                {requestType === 'meeting' && <div className="meeting-box">
-                  <div className="meeting-heading"><Icon name="calendar-check" /><span><strong>الموعد الأنسب للمقابلة</strong><small>إرسال الطلب لا يعني تأكيد الموعد تلقائيًا؛ سيتم التأكيد عبر واتساب.</small></span></div>
-                  <div className="form-grid"><Field id="meetingDate" label="التاريخ المقترح" type="date" /><Field id="meetingTime" label="الوقت المقترح" type="time" /></div>
-                </div>}
-                {audience === 'business' && requestType === 'consultation' && <div className="channel-box"><div><strong>طريقة التواصل المفضلة</strong><small>يمكنك تغييرها قبل الإرسال</small></div><div className="channel-toggle"><button type="button" className={channel === 'email' ? 'active' : ''} onClick={() => setChannel('email')}><Icon name="envelope" /> البريد الإلكتروني</button><button type="button" className={channel === 'whatsapp' ? 'active' : ''} onClick={() => setChannel('whatsapp')}><Icon name="whatsapp" /> واتساب</button></div></div>}
+              <fieldset className="form-step reference-form-step">
+                <legend><span className="step-number">02</span><span><strong>تفاصيل الطلب</strong><small>اختر الأقرب واكتب ما حدث بطريقتك</small></span></legend>
+                <div className="form-grid">
+                  <div className="form-field-modern"><label htmlFor="problemType">نوع المشكلة *</label><div className="field-control"><select id="problemType" name="problemType" required aria-label="نوع المشكلة"><option value="">اختر النوع الأقرب</option><option>أسرة</option><option>جنائي</option><option>مدني</option><option>تجاري</option><option>شركات</option><option>عمالي</option><option>عقاري</option><option>ميراث</option><option>تنفيذ أحكام</option><option>أخرى</option></select></div></div>
+                  <Field id="location" label="المحافظة / المدينة" placeholder="مثال: أسوان - أسوان" />
+                  <div className="form-field-modern"><label htmlFor="preferredChannel">طريقة إرسال الطلب *</label><div className="field-control"><select id="preferredChannel" name="preferredChannel" value={deliveryChannel === 'email' ? 'بريد إلكتروني' : 'واتساب'} onChange={(e) => setDeliveryChannel(e.target.value === 'واتساب' ? 'whatsapp' : 'email')} required aria-label="طريقة إرسال الطلب"><option value="بريد إلكتروني">البريد الإلكتروني — مناسب للمستندات</option><option value="واتساب">واتساب — أسرع للتواصل</option></select></div></div>
+                  <div className="form-field-modern"><label htmlFor="urgency">درجة الاستعجال *</label><div className="field-control"><select id="urgency" name="urgency" required aria-label="درجة الاستعجال"><option>عادية</option><option>مهمة - يوجد موعد قريب</option><option>عاجلة جدًا</option></select></div></div>
+                  <Field id="email" label="البريد الإلكتروني" type="email" placeholder="اختياري" required={false} />
+                </div>
+                <div className="form-field-modern reference-full-field"><label htmlFor="details">ما المشكلة القانونية؟ *</label><div className="field-control"><textarea id="details" name="details" rows="6" placeholder="اكتب الوقائع باختصار: من الأطراف؟ ماذا حدث؟ هل توجد جلسة أو ميعاد قريب؟ وما المطلوب من المكتب؟" aria-label="ما المشكلة القانونية" required></textarea></div><small className="field-hint">لا يلزم استخدام مصطلحات قانونية؛ اكتب ما حدث بطريقتك.</small></div>
               </fieldset>
 
-              <button type="submit" className="premium-submit"><span>{requestType === 'meeting' ? 'إرسال طلب المقابلة عبر واتساب' : (audience === 'business' && channel === 'email' ? 'إرسال الطلب عبر البريد الإلكتروني' : 'إرسال المسألة عبر واتساب')}</span><Icon name={requestType === 'meeting' ? 'whatsapp' : (audience === 'business' && channel === 'email' ? 'envelope' : 'whatsapp')} /></button>
-              <p className="form-privacy"><Icon name="shield-alt" /> نستخدم بياناتك للتواصل بشأن طلبك فقط، ونحافظ على سريتها المهنية.</p>
+              <fieldset className="form-step reference-form-step">
+                <legend><span className="step-number">03</span><span><strong>المستندات والموافقة</strong><small>يمكنك إرفاق ما يساعد على فهم الحالة</small></span></legend>
+                <div className="form-field-modern attachment-field"><label htmlFor="attachment">مستندات تساعد على فهم الحالة <span className="optional-label">اختياري الآن</span></label><div className="field-control"><input id="attachment" name="attachment" type="file" aria-label="مستندات تساعد على فهم الحالة" /></div><small className="field-hint">يمكنك أيضًا ذكر المستندات أو إرسالها لاحقًا عبر واتساب.</small></div>
+                <label className="consent-wrapper"><input type="checkbox" name="consent" required /><span className="consent-label">أوافق أن إرسال الطلب لا يعني قبول القضية أو قيام علاقة محاماة، وأن المكتب سيحدد الخطوة التالية ونطاق الخدمة بعد المراجعة.</span></label>
+              </fieldset>
+
+              <button type="submit" className="premium-submit"><span>{deliveryChannel === 'email' ? 'إرسال الطلب عبر البريد الإلكتروني' : 'إرسال الطلب عبر واتساب'}</span><Icon name={deliveryChannel === 'email' ? 'envelope' : 'whatsapp'} /></button>
+              <p className="form-privacy"><Icon name="shield-alt" /> نحافظ على سرية بياناتك، وسيتم استخدام المعلومات للتواصل بشأن طلبك فقط.</p>
+              {submitted && <div className="after-submit-path" role="status">
+                <div className="after-submit-icon"><Icon name={sentChannel === 'email' ? 'envelope' : 'whatsapp'} /></div>
+                <div><strong>{sentChannel === 'email' ? 'تم تجهيز طلبك للإرسال عبر البريد الإلكتروني' : 'تم تجهيز طلبك للإرسال عبر واتساب'}</strong><p>{sentChannel === 'email' ? 'افتح تطبيق البريد وأرسل الرسالة الجاهزة إلى المكتب. يمكنك إرفاق المستندات من داخل رسالة البريد.' : 'أرسل الرسالة الجاهزة إلى المكتب، ويمكنك إرفاق المستندات مباشرة داخل محادثة واتساب.'}</p><div className="quick-contact-actions"><a href={sentChannel === 'email' ? 'https://wa.me/201101076000' : 'mailto:ma.law.firm@outlook.com'} target="_blank" rel="noopener noreferrer"><Icon name={sentChannel === 'email' ? 'whatsapp' : 'envelope'} /> {sentChannel === 'email' ? 'تواصل سريع عبر واتساب' : 'إرسال المستندات عبر البريد'}</a><a href="tel:+201101076000"><Icon name="phone-alt" /> اتصال سريع بالمكتب</a></div></div>
+              </div>}
             </form>
           </div>
 
@@ -259,8 +245,8 @@ export default function Contact() {
                 <div className="contact-card reveal"><div className="icon-wrap"><Icon name="clock" /></div><div className="info"><h4>ساعات العمل</h4><p>السبت - الخميس: ٩:٠٠ ص - ١٠:٠٠ م</p><p className="contact-note">الجمعة: مغلق</p></div></div>
               </div>
               <div className="lg:col-span-7">
+                <div className="reveal text-center pt-1 pb-5"><p className="text-sm font-bold" style={{ color: 'var(--charcoal)', marginBottom: '0.75rem' }}>تابع أخبار المكتب ومحتواه القانوني</p><div className="flex gap-3 justify-center flex-wrap"><a href="https://www.facebook.com/malegal" target="_blank" rel="noopener noreferrer" className="social-icon-circle" aria-label="صفحة المكتب على فيسبوك"><Icon name="facebook-f" /></a><a href="https://x.com/mahmoud_a_hamyd" target="_blank" rel="noopener noreferrer" className="social-icon-circle" aria-label="صفحة المكتب على إكس"><Icon name="x" /></a><a href="https://www.linkedin.com/in/mahmoud-abdel-hamid-0a4664374" target="_blank" rel="noopener noreferrer" className="social-icon-circle" aria-label="صفحة الأستاذ محمود عبد الحميد جاد الرب على لينكدإن"><Icon name="linkedin-in" /></a></div></div>
                 <div className="map-container reveal"><iframe title="خريطة مقر مكتب جاد الرب في أسوان" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3642.4!2d32.9!3d24.09!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDA1JzMxLjIiTiAzMsKwNTMnNDkuMiJF!5e0!3m2!1sen!2seg!4v1600000000000!5m2!1sen!2seg" allowFullScreen="" loading="lazy"></iframe><div className="map-overlay"><span><Icon name="map-pin" style={{ marginRight: '0.5rem' }} /> المقر الرئيسي في أسوان</span></div></div>
-                <div className="reveal text-center pt-5"><p className="text-sm font-bold" style={{ color: 'var(--charcoal)', marginBottom: '0.75rem' }}>تابع أخبار المكتب ومحتواه القانوني</p><div className="flex gap-3 justify-center flex-wrap"><a href="https://www.facebook.com/malegal" target="_blank" rel="noopener noreferrer" className="social-icon-circle" aria-label="صفحة المكتب على فيسبوك"><Icon name="facebook-f" /></a><a href="https://x.com/mahmoud_a_hamyd" target="_blank" rel="noopener noreferrer" className="social-icon-circle" aria-label="صفحة المكتب على إكس"><Icon name="x" /></a><a href="https://www.linkedin.com/in/mahmoud-abdel-hamid-0a4664374" target="_blank" rel="noopener noreferrer" className="social-icon-circle" aria-label="صفحة الأستاذ محمود عبد الحميد جاد الرب على لينكدإن"><Icon name="linkedin-in" /></a></div></div>
               </div>
             </div>
           </div>
@@ -324,6 +310,27 @@ export default function Contact() {
         .contact-after-heading h2 { color: var(--charcoal); font-family: var(--serif-font); font-size: clamp(1.5rem, 3vw, 2.25rem); margin: 0.35rem 0 0.5rem; }
         .contact-after-heading p { color: var(--charcoal); font-weight: 700; font-size: 0.85rem; line-height: 1.8; margin: 0; }
         .contact-note { font-size: 0.7rem !important; color: var(--charcoal); font-weight: 700; }
+        .consultation-form-intro h3 { color: var(--charcoal); font-family: var(--font-serif, Georgia, serif); font-size: clamp(1.55rem, 3vw, 2.15rem); margin: 0.35rem 0 0.45rem; }
+        .consultation-form-intro p { color: var(--charcoal); font-size: 0.85rem; font-weight: 700; line-height: 1.8; max-width: 620px; margin: 0; }
+        .consultation-payment-note { display: flex; align-items: flex-start; gap: 0.55rem; margin: 1rem 0 1.7rem; padding: 0.8rem 0.9rem; border: 1px solid rgba(58,145,111,0.2); border-radius: 10px; background: rgba(58,145,111,0.07); color: var(--charcoal); font-size: 0.76rem; line-height: 1.8; }
+        .consultation-payment-note .icon-svg { color: #2f8d6a; margin-top: 0.2rem; flex: 0 0 auto; }
+        .consultation-payment-note strong { display: block; color: #246d52; }
+        .reference-form-step { margin-bottom: 2rem; }
+        .reference-full-field { margin-top: 1.25rem; }
+        .attachment-field { margin-bottom: 1.2rem; }
+        .attachment-field .field-control input[type="file"] { height: auto; padding: 0.75rem 0.1rem; border-bottom: 1px dashed rgba(8,20,38,0.24); }
+        .same-phone-label { display: flex; align-items: center; gap: 0.4rem; color: var(--charcoal); font-size: 0.7rem; font-weight: 700; margin-top: 0.55rem; }
+        .same-phone-label input, .consent-wrapper input { accent-color: var(--matte-gold); }
+        .consent-wrapper { display: flex; align-items: flex-start; gap: 0.6rem; margin: 0; padding: 0.8rem 0.9rem; background: rgba(8,20,38,0.035); border: 1px solid rgba(8,20,38,0.08); border-radius: 9px; }
+        .consent-wrapper input { width: 18px; height: 18px; min-width: 18px; margin-top: 0.2rem; }
+        .consent-label { color: var(--charcoal); font-size: 0.72rem; line-height: 1.7; font-weight: 700; }
+        .after-submit-path { display: flex; align-items: flex-start; gap: 0.75rem; margin-top: 1.25rem; padding: 1rem; border: 1px solid rgba(58,145,111,0.24); border-radius: 12px; background: rgba(58,145,111,0.07); color: var(--charcoal); }
+        .after-submit-icon { color: #2f8d6a; font-size: 1.25rem; padding-top: 0.1rem; }
+        .after-submit-path strong { display: block; color: #246d52; font-size: 0.82rem; margin-bottom: 0.25rem; }
+        .after-submit-path p { color: var(--charcoal); font-size: 0.72rem; line-height: 1.7; font-weight: 700; margin: 0; }
+        .quick-contact-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+        .quick-contact-actions a { display: inline-flex; align-items: center; gap: 0.35rem; border-radius: 8px; padding: 0.5rem 0.65rem; font-size: 0.68rem; font-weight: 800; text-decoration: none; background: var(--very-dark-navy); color: var(--matte-gold); }
+        .quick-contact-actions a:last-child { background: var(--matte-gold); color: #111; }
         .contact-form-shell { background: linear-gradient(145deg, #fff 0%, #fbfaf7 100%); border-radius: 22px; border: 1px solid rgba(176,141,87,0.18); box-shadow: 0 18px 55px rgba(8,20,38,0.08); padding: clamp(1.25rem, 3vw, 2.5rem); position: relative; overflow: hidden; }
         .contact-form-shell::before { content: ''; position: absolute; top: 0; right: 0; width: 38%; height: 4px; background: linear-gradient(90deg, transparent, var(--matte-gold)); }
         .form-intro { margin-bottom: 2rem; }
