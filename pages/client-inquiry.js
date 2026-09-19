@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import { getPortalFileData } from '../lib/supabase-config';
 
+const HERO_IMAGE = '/hero-legal-aswan.jpg';
 const WHATSAPP_NUMBER = '201101076000';
 const MAX_ATTEMPTS = 5;
 const LOCK_MS = 60 * 1000;
@@ -33,111 +34,6 @@ const normalizeCode = (raw) => {
     .replace(/\s+/g, '');
   return /^(JELR|MA|RE|CO|AD)-/.test(cleaned) ? cleaned : `JELR-${cleaned}`;
 };
-
-// خلفية أسوان مرسومة بالكود: نيل ليلي وقمر ومركب شراعي.
-function AswanArt() {
-  return (
-    <svg
-      className="cp-art"
-      viewBox="0 0 1200 800"
-      preserveAspectRatio="xMidYMid slice"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <defs>
-        <linearGradient id="cp-sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#050C15" />
-          <stop offset="0.55" stopColor="#0B1B2B" />
-          <stop offset="1" stopColor="#1B3F5E" />
-        </linearGradient>
-        <linearGradient id="cp-water" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#12324D" />
-          <stop offset="1" stopColor="#050C15" />
-        </linearGradient>
-        <radialGradient id="cp-glow" cx="0.5" cy="0.5" r="0.5">
-          <stop offset="0" stopColor="#F3E6C4" stopOpacity="0.35" />
-          <stop offset="1" stopColor="#F3E6C4" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-
-      <rect width="1200" height="800" fill="url(#cp-sky)" />
-
-      <g fill="#F3E6C4" opacity="0.7">
-        <circle cx="90" cy="70" r="1.6" />
-        <circle cx="180" cy="120" r="1.2" />
-        <circle cx="420" cy="60" r="1.5" />
-        <circle cx="520" cy="150" r="1.1" />
-        <circle cx="640" cy="80" r="1.6" />
-        <circle cx="760" cy="140" r="1.2" />
-        <circle cx="880" cy="60" r="1.5" />
-        <circle cx="990" cy="130" r="1.3" />
-        <circle cx="1100" cy="90" r="1.6" />
-        <circle cx="1150" cy="220" r="1.1" />
-        <circle cx="560" cy="250" r="1" />
-        <circle cx="340" cy="240" r="1.2" />
-      </g>
-
-      <circle cx="250" cy="180" r="150" fill="url(#cp-glow)" />
-      <circle cx="250" cy="180" r="42" fill="#F3E6C4" />
-
-      <path
-        d="M0 470 L0 432 C90 402 160 446 260 421 C360 396 420 441 520 426 C640 406 720 451 830 429 C940 406 1040 441 1200 411 L1200 470 Z"
-        fill="#07111C"
-      />
-
-      <rect y="470" width="1200" height="330" fill="url(#cp-water)" />
-
-      <g fill="#D8B678">
-        <circle cx="120" cy="462" r="2.2" />
-        <circle cx="205" cy="455" r="1.8" />
-        <circle cx="330" cy="452" r="2.2" />
-        <circle cx="455" cy="458" r="1.8" />
-        <circle cx="590" cy="452" r="2.2" />
-        <circle cx="700" cy="462" r="1.8" />
-        <circle cx="860" cy="455" r="2.2" />
-        <circle cx="990" cy="450" r="1.8" />
-        <circle cx="1090" cy="446" r="2.2" />
-      </g>
-      <g fill="#D8B678" opacity="0.28">
-        <rect x="119" y="474" width="2.4" height="46" rx="1.2" />
-        <rect x="204" y="474" width="2.4" height="34" rx="1.2" />
-        <rect x="329" y="474" width="2.4" height="52" rx="1.2" />
-        <rect x="454" y="474" width="2.4" height="38" rx="1.2" />
-        <rect x="589" y="474" width="2.4" height="50" rx="1.2" />
-        <rect x="699" y="474" width="2.4" height="34" rx="1.2" />
-        <rect x="859" y="474" width="2.4" height="48" rx="1.2" />
-        <rect x="989" y="474" width="2.4" height="36" rx="1.2" />
-        <rect x="1089" y="474" width="2.4" height="54" rx="1.2" />
-      </g>
-
-      <g stroke="#F3E6C4" strokeLinecap="round" opacity="0.32">
-        <line x1="205" y1="492" x2="295" y2="492" strokeWidth="3" />
-        <line x1="185" y1="512" x2="315" y2="512" strokeWidth="3" />
-        <line x1="215" y1="534" x2="285" y2="534" strokeWidth="2.5" />
-        <line x1="170" y1="558" x2="330" y2="558" strokeWidth="2.5" />
-        <line x1="205" y1="586" x2="295" y2="586" strokeWidth="2" />
-        <line x1="180" y1="618" x2="320" y2="618" strokeWidth="2" />
-      </g>
-
-      <g stroke="#D8B678" strokeLinecap="round" opacity="0.12">
-        <line x1="60" y1="640" x2="240" y2="640" strokeWidth="2" />
-        <line x1="420" y1="660" x2="640" y2="660" strokeWidth="2" />
-        <line x1="760" y1="690" x2="1010" y2="690" strokeWidth="2" />
-        <line x1="120" y1="720" x2="360" y2="720" strokeWidth="2" />
-        <line x1="520" y1="740" x2="820" y2="740" strokeWidth="2" />
-        <line x1="900" y1="620" x2="1120" y2="620" strokeWidth="2" />
-      </g>
-
-      <g transform="translate(790 566)">
-        <ellipse cx="0" cy="44" rx="110" ry="8" fill="#050C15" opacity="0.5" />
-        <path d="M-100 0 L100 0 L70 24 L-78 24 Z" fill="#050C15" />
-        <line x1="6" y1="0" x2="6" y2="-160" stroke="#E9DFC6" strokeWidth="3" />
-        <path d="M10 -158 L122 -8 L10 -8 Z" fill="#E9DFC6" opacity="0.88" />
-        <path d="M2 -120 L-70 -8 L2 -8 Z" fill="#D8B678" opacity="0.8" />
-      </g>
-    </svg>
-  );
-}
 
 export default function ClientInquiry() {
   const router = useRouter();
@@ -222,13 +118,17 @@ export default function ClientInquiry() {
         <meta name="description" content="متابعة الملف القانوني أو الخدمة المهنية لعملاء مكتب جاد الرب المسجلين." />
         <meta name="robots" content="noindex, nofollow, noarchive" />
         <meta name="theme-color" content="#0B1B2B" />
+        <link rel="preload" as="image" href={HERO_IMAGE} />
       </Head>
 
       <main className="cp-page" dir="rtl">
-        <section className="cp-hero" aria-labelledby="cp-title">
-          <AswanArt />
-          <div className="cp-shade" aria-hidden="true" />
-
+        <section
+          className="cp-hero"
+          aria-labelledby="cp-title"
+          style={{
+            backgroundImage: `linear-gradient(180deg, rgba(11,27,43,.78) 0%, rgba(11,27,43,.50) 42%, rgba(11,27,43,.90) 100%), url(${HERO_IMAGE})`,
+          }}
+        >
           <div className="cp-brand">
             <span className="cp-brand-name">مكتب جاد الرب</span>
             <span className="cp-brand-sub">للمحاماة والاستشارات القانونية</span>
@@ -347,8 +247,6 @@ export default function ClientInquiry() {
 
         /* لوحة الهوية */
         .cp-hero {
-          position: relative;
-          overflow: hidden;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
@@ -356,21 +254,10 @@ export default function ClientInquiry() {
           padding: 2.5rem clamp(2rem, 5vw, 4.5rem);
           color: #fff;
           background-color: #0B1B2B;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
         }
-        .cp-hero :global(.cp-art) {
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          z-index: 0;
-        }
-        .cp-shade {
-          position: absolute;
-          inset: 0;
-          z-index: 0;
-          background: linear-gradient(180deg, rgba(11, 27, 43, 0.72) 0%, rgba(11, 27, 43, 0.38) 45%, rgba(11, 27, 43, 0.82) 100%);
-        }
-        .cp-brand, .cp-hero-body, .cp-trust { position: relative; z-index: 1; }
         .cp-brand { display: flex; flex-direction: column; gap: 0.15rem; }
         .cp-brand-name { font-size: 1.25rem; font-weight: 800; }
         .cp-brand-sub { font-size: 0.85rem; color: #D8B678; }
@@ -381,23 +268,24 @@ export default function ClientInquiry() {
           font-weight: 800;
           line-height: 1.3;
           color: #fff;
+          text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
         }
         .cp-lead {
           margin: 0 0 2rem;
           font-size: 1.05rem;
           line-height: 1.9;
-          color: rgba(255, 255, 255, 0.9);
+          color: rgba(255, 255, 255, 0.92);
           max-width: 30rem;
         }
         .cp-list { list-style: none; margin: 0; padding: 0; max-width: 30rem; }
         .cp-list li {
           padding: 0.85rem 0;
-          border-top: 1px solid rgba(216, 182, 120, 0.4);
+          border-top: 1px solid rgba(216, 182, 120, 0.45);
           font-size: 0.98rem;
           font-weight: 600;
         }
-        .cp-list li:last-child { border-bottom: 1px solid rgba(216, 182, 120, 0.4); }
-        .cp-trust { margin: 0; font-size: 0.88rem; color: rgba(255, 255, 255, 0.8); }
+        .cp-list li:last-child { border-bottom: 1px solid rgba(216, 182, 120, 0.45); }
+        .cp-trust { margin: 0; font-size: 0.88rem; color: rgba(255, 255, 255, 0.82); }
 
         /* لوحة النموذج */
         .cp-panel {
@@ -527,7 +415,7 @@ export default function ClientInquiry() {
         /* الجوال والتابلت: الهوية مضغوطة فوق النموذج */
         @media (max-width: 900px) {
           .cp-page { grid-template-columns: 1fr; }
-          .cp-hero { gap: 1.25rem; padding: 1.5rem 1.25rem 1.75rem; }
+          .cp-hero { gap: 1.25rem; padding: 1.5rem 1.25rem 1.75rem; background-position: center 35%; }
           .cp-hero h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
           .cp-lead { margin: 0; font-size: 0.95rem; line-height: 1.8; }
           .cp-list, .cp-trust { display: none; }
